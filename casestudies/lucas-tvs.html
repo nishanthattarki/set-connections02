@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas TVS — Automotive Aftermarket Analytics | SetConnect Case Study</title>
+    <meta name="description"
+        content="How SetConnect drove success in the automotive aftermarket through strategic analytics for pricing, distribution, and AI-powered optimization.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="../css/shared-styles.css" rel="stylesheet">
+
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+
+        html,
+        body {
+            background-color: #0f1419 !important;
+            color: #ffffff;
+        }
+
+        .case-hero {
+            margin-top: 80px;
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, #1a2332 0%, #1e3a3a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-hero::before {
+            content: '';
+            position: absolute;
+            right: -200px;
+            top: -200px;
+            width: 600px;
+            height: 600px;
+            background: var(--cyan);
+            opacity: 0.08;
+            border-radius: 50%;
+        }
+
+        .case-hero .breadcrumb-nav {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .case-hero .breadcrumb-nav a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        .case-hero .breadcrumb-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .case-hero .breadcrumb-nav span {
+            color: rgba(255, 255, 255, 0.5);
+            margin: 0 8px;
+        }
+
+        .case-hero .breadcrumb-nav .current {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .case-hero h1 {
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .case-hero .industry-tag {
+            display: inline-block;
+            background: rgba(8, 145, 178, 0.2);
+            color: var(--cyan);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .case-hero p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 750px;
+        }
+
+        .hero-image-section {
+            padding: 0;
+            background: #0f1419;
+            margin-top: -40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-image-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .case-content {
+            padding: 80px 0;
+            background: #0f1419;
+        }
+
+        .content-card {
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            padding: 50px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .content-card .section-label {
+            color: var(--cyan);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .content-card h2 {
+            color: #fff;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .content-card h3 {
+            color: var(--cyan);
+            font-size: 20px;
+            margin: 25px 0 12px;
+        }
+
+        .content-card p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .content-card ol {
+            padding-left: 0;
+            counter-reset: item;
+            list-style: none;
+        }
+
+        .content-card ol li {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 16px;
+            line-height: 1.8;
+            padding: 10px 0 10px 35px;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .content-card ol li:last-child {
+            border-bottom: none;
+        }
+
+        .content-card ol li::before {
+            counter-increment: item;
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(8, 145, 178, 0.2);
+            color: var(--cyan);
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .content-card ul li {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 16px;
+            line-height: 1.8;
+            padding: 8px 0 8px 25px;
+            position: relative;
+        }
+
+        .content-card ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 16px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--cyan);
+        }
+
+        .content-card strong {
+            color: #fff;
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .outcome-box {
+            background: rgba(8, 145, 178, 0.08);
+            border: 1px solid rgba(8, 145, 178, 0.2);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .outcome-box:hover {
+            border-color: var(--cyan);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.15);
+        }
+
+        .outcome-box i {
+            font-size: 28px;
+            color: var(--cyan);
+            margin-bottom: 10px;
+        }
+
+        .outcome-box h4 {
+            color: #fff;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .back-section {
+            padding: 0 0 80px;
+            background: #0f1419;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #fff;
+        }
+
+        .back-link:hover i {
+            transform: translateX(-4px);
+        }
+
+        .back-link i {
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .case-hero h1 {
+                font-size: 32px;
+            }
+
+            .case-hero {
+                padding: 80px 0 60px;
+            }
+
+            .content-card {
+                padding: 30px 20px;
+            }
+
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image-wrapper img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="modern-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="brand" href="../index.html">
+                    <img src="../images/setconnect-logo.png" alt="SetConnect Globe">
+                    Set<span>CONNECT</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navModern">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navModern">
+                    <ul class="navbar-nav nav-modern ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../our-work.html">Our Work</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../our-services.html">Our Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../setconnections.html">SetConnections</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="../case-studies.html">Case Studies</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="../ai-blogs.html">AI Blogs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../about.html">About Us</a></li>
+                        <li class="nav-item ms-3"><a href="../contact.html" class="btn-cyan">Contact Us</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="case-hero">
+        <div class="container">
+            <div class="breadcrumb-nav" data-aos="fade-up">
+                <a href="../case-studies.html">Case Studies</a>
+                <span>/</span>
+                <span class="current">Lucas TVS</span>
+            </div>
+            <span class="industry-tag" data-aos="fade-up" data-aos-delay="50">Automotive Aftermarket</span>
+            <h1 data-aos="fade-up" data-aos-delay="100">Driving Success in the Automotive Aftermarket</h1>
+            <p data-aos="fade-up" data-aos-delay="150">A Strategic Analytics Initiative for pricing, distribution depth,
+                and competitive positioning.</p>
+        </div>
+    </section>
+
+    <!-- ═══ HERO IMAGE ═══ -->
+    <section class="hero-image-section">
+        <div class="container" data-aos="fade-up">
+            <div class="hero-image-wrapper">
+                <img src="../images/casestudies/lucas-tvs.webp" alt="Lucas TVS Analytics">
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CONTENT ═══ -->
+    <section class="case-content">
+        <div class="container">
+
+            <!-- Market Overview -->
+            <div class="content-card" data-aos="fade-up">
+                <span class="section-label">MARKET CONTEXT</span>
+                <h2>The Global Automotive Aftermarket</h2>
+                <p>The global automotive aftermarket is a significant and growing industry, with its size estimated to
+                    be about $418 billion as of 2023. The market is expected to continue growing, driven by factors such
+                    as the increasing average age of vehicles, the expansion of e-commerce platforms for automotive
+                    parts, and the rising demand for vehicle customization and upgradation. Forecasts suggest that the
+                    market could reach approximately $570 billion by 2032, growing at a compound annual growth rate
+                    (CAGR) of 3.5%.</p>
+                <p>Regional differences are notable, with mature markets like North America and Europe experiencing
+                    steady growth, while emerging markets such as Asia-Pacific and Latin America are seeing faster
+                    expansion due to increasing vehicle ownership and improved infrastructure.</p>
+                <p>Effective use of data analytics is crucial for companies to strengthen their market position in this
+                    competitive space. Increasingly, companies are turning their attention to AI to address and solve
+                    their business problems.</p>
+            </div>
+
+            <!-- AI Use Cases -->
+            <div class="content-card" data-aos="fade-up">
+                <span class="section-label">AI OPPORTUNITIES</span>
+                <h2>Problems That Can Be Solved by AI and Machine Learning</h2>
+                <ol>
+                    <li><strong>Predictive Maintenance:</strong> Vehicles often require maintenance at unpredictable
+                        times. AI analyzes data from connected vehicles and historical records to predict when a part is
+                        likely to fail, reducing breakdowns and optimizing maintenance schedules.</li>
+                    <li><strong>Inventory Management:</strong> Maintaining the right balance of inventory is
+                        challenging. Algorithms using prescriptive analytics set up optimal inventory policy, capturing
+                        demand and supply uncertainty to reduce excess stock and minimize stockouts.</li>
+                    <li><strong>Supply Chain Optimization:</strong> AI monitors and analyzes supply chain data in
+                        real-time, identifying potential disruptions early and suggesting alternative suppliers or
+                        routes for timely, cost-effective delivery.</li>
+                    <li><strong>Price Optimization:</strong> AI analyzes market data, competitor pricing, and customer
+                        demand to recommend optimal pricing strategies, helping businesses remain competitive while
+                        maximizing profitability.</li>
+                    <li><strong>Market Trend Analysis:</strong> AI analyzes datasets from various sources including
+                        industry reports, vehicle registration data, and sales data to identify emerging trends for
+                        informed decision-making.</li>
+                </ol>
+            </div>
+
+            <!-- Project Details -->
+            <div class="content-card" data-aos="fade-up">
+                <span class="section-label">THE PROJECT</span>
+                <h2>Initiating a Strategic Analytics Project</h2>
+                <p>A major commercial vehicle component company launched a data analytics project to better understand
+                    the factors driving pricing and sales volumes in the aftermarket. The goal is to sharpen the
+                    company's competitive edge.</p>
+                <h3>Critical Project Steps</h3>
+                <ol>
+                    <li><strong>Problem Definition and Scope:</strong> Success starts with clearly defining the business
+                        problem. Collaboration between business leaders and data scientists is key to ensure the project
+                        is aligned with business objectives.</li>
+                    <li><strong>Focus on Key Components:</strong> The project initially targeted top-selling components,
+                        following the 80-20 rule. The analysis focused on understanding the "depth of distribution,"
+                        defined by transaction frequency, number of distributors, and inventory turnover.</li>
+                </ol>
+                <h3>Initial Findings</h3>
+                <ul>
+                    <li><strong>Correlation Insights:</strong> High correlation (80-90%) was found between the number of
+                        distributors and transaction frequency.</li>
+                    <li><strong>Depth Index Metric:</strong> A new KPI was developed to measure depth of distribution,
+                        combining transaction frequency and distributor count into a single score between 0 and 1.</li>
+                    <li><strong>Branch Performance:</strong> The analysis revealed significant variation in performance
+                        across branches, with some excelling and others needing improvement.</li>
+                </ul>
+            </div>
+
+            <!-- Actions & Next Steps -->
+            <div class="content-card" data-aos="fade-up">
+                <span class="section-label">RECOMMENDATIONS</span>
+                <h2>Actions for Improvement</h2>
+                <ol>
+                    <li>Expand Distributor Network and strengthen relationships with existing ones.</li>
+                    <li>Improve Transaction Frequency through promotional campaigns and data-driven insights.</li>
+                    <li>Optimize Inventory Management with just-in-time practices.</li>
+                    <li>Leverage Technology and Data Analytics for demand forecasting.</li>
+                    <li>Incentivize Performance across distributors and internal teams.</li>
+                    <li>Continuous Monitoring and Adjustment based on real-time data.</li>
+                    <li>Collaborate with High-Performing Branches to share best practices.</li>
+                </ol>
+                <h3>Next Steps</h3>
+                <ul>
+                    <li>Incorporating inventory data into the depth of distribution KPI for a more comprehensive
+                        assessment.</li>
+                    <li>Refining the KPI formula and expanding analysis to include more components.</li>
+                    <li>Advanced analytics including trend and sensitivity analysis for deeper strategic insights.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="content-card" data-aos="fade-up">
+                <span class="section-label">CONCLUSION</span>
+                <h2>Impact & Path Forward</h2>
+                <p>This project marks the initial phase of utilizing data analytics to secure a competitive edge in the
+                    automotive aftermarket. Early findings have revealed key areas for improvement, laying the
+                    groundwork for future initiatives aimed at driving greater business value. Upcoming stages will
+                    focus on advancing AI capabilities to achieve important maturity milestones.</p>
+                <p>The strategy will expand across multiple dimensions, including geographical reach, product offerings,
+                    and a broader customer base. These efforts will refine the approach and unlock significant potential
+                    for sustained growth and market leadership.</p>
+                <div class="outcomes-grid">
+                    <div class="outcome-box">
+                        <i class="bi bi-bar-chart-line"></i>
+                        <h4>New Depth Index KPI</h4>
+                    </div>
+                    <div class="outcome-box">
+                        <i class="bi bi-diagram-3"></i>
+                        <h4>Branch Performance Insights</h4>
+                    </div>
+                    <div class="outcome-box">
+                        <i class="bi bi-rocket-takeoff"></i>
+                        <h4>AI Maturity Roadmap</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="back-section">
+        <div class="container">
+            <a href="../case-studies.html" class="back-link">
+                <i class="bi bi-arrow-left"></i> Back to All Case Studies
+            </a>
+        </div>
+    </section>
+
+    <div id="global-footer-placeholder" data-root="../"></div>
+    <script src="../js/footer-loader.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.modern-header');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+    </script>
+</body>
+
+</html>

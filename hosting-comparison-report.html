@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetConnect — Hosting Comparison Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-size: 15px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 30px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-size: 22px;
+            margin: 50px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #333;
+        }
+
+        h3 {
+            font-size: 17px;
+            margin: 30px 0 10px;
+        }
+
+        h4 {
+            font-size: 15px;
+            margin: 20px 0 8px;
+        }
+
+        p {
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        strong {
+            color: #1a1a1a;
+        }
+
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 40px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 40px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 25px;
+            font-size: 14px;
+        }
+
+        th {
+            background: #f5f5f5;
+            text-align: left;
+            padding: 10px 12px;
+            font-size: 13px;
+            font-weight: 600;
+            border-bottom: 2px solid #ccc;
+        }
+
+        td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+            color: #333;
+            vertical-align: top;
+        }
+
+        td:first-child {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .callout {
+            border-left: 4px solid #999;
+            background: #f5f5f5;
+            padding: 12px 16px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .callout p {
+            margin: 0;
+        }
+
+        ul,
+        ol {
+            padding-left: 24px;
+            margin: 8px 0 16px;
+        }
+
+        li {
+            margin-bottom: 4px;
+            color: #333;
+        }
+
+        .tree {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 13px;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            margin: 15px 0;
+        }
+
+        .green {
+            color: #16a34a;
+            font-weight: 600;
+        }
+
+        .yellow {
+            color: #ca8a04;
+            font-weight: 600;
+        }
+
+        .red {
+            color: #dc2626;
+            font-weight: 600;
+        }
+
+        @media print {
+            body {
+                padding: 20px;
+                font-size: 11pt;
+            }
+
+            table {
+                font-size: 9pt;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 16px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th,
+            td {
+                padding: 6px 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>SetConnect — Hosting Platform Comparison Report</h1>
+    
+
+    <hr>
+
+    <h2>1. What This Report Is About</h2>
+    <p>SetConnect currently hosts its website on <strong>Squarespace</strong>. This report compares <strong>four
+            alternative hosting platforms</strong> based on cost, features, performance, and suitability.</p>
+
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Platform</th>
+            <th>Type</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Cloudflare Pages</td>
+            <td>Modern static hosting + CDN</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Netlify</td>
+            <td>Modern static hosting + CDN</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>WordPress.com</td>
+            <td>Traditional CMS hosting</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Bluehost</td>
+            <td>Traditional web hosting (shared/WordPress)</td>
+        </tr>
+    </table>
+
+    <h2>2. Our Website at a Glance</h2>
+    <table>
+        <tr>
+            <td>Technology</td>
+            <td>Pure HTML, CSS, JavaScript — fully <strong>static</strong> website</td>
+        </tr>
+        <tr>
+            <td>Frameworks</td>
+            <td>Bootstrap 5, AOS (animations), Google Fonts</td>
+        </tr>
+        <tr>
+            <td>Pages</td>
+            <td>4 main + 3 case study sub-pages</td>
+        </tr>
+        <tr>
+            <td>Total Size</td>
+            <td>~16 MB (very small)</td>
+        </tr>
+        <tr>
+            <td>Backend / Database</td>
+            <td>❌ None</td>
+        </tr>
+    </table>
+    <p>Our website is like a <strong>digital brochure</strong> — it displays information, images, and videos. No logins,
+        shopping carts, or databases. Very easy and cheap to host.</p>
+
+    <h2>3. Platform Overviews</h2>
+
+    <h3>3.1 Cloudflare Pages</h3>
+    <p>One of the world's largest internet infrastructure companies. Hosts websites for free on <strong>330+ data
+            centers</strong> worldwide. Used by Discord, Shopify, DHL.</p>
+
+    <h3>3.2 Netlify</h3>
+    <p>Popular hosting platform for modern websites. Drag-and-drop upload or connect to GitHub. <strong>150+ CDN
+            locations</strong>. Used by Google, Nike, Verizon.</p>
+
+    <h3>3.3 WordPress.com</h3>
+    <p>Managed CMS hosting with a visual editor. Would require <strong>rebuilding our site</strong> using WordPress
+        themes. Used by CNN, TechCrunch, BBC America.</p>
+
+    <h3>3.4 Bluehost</h3>
+    <p>Traditional shared hosting company, officially recommended by WordPress.org. Can host static files via FTP, or
+        rebuild site using WordPress. Powers 2M+ websites.</p>
+
+    <div class="callout">
+        <p><strong>Key Difference:</strong> Cloudflare and Netlify host our <em>existing</em> code as-is (no changes
+            needed). WordPress.com and Bluehost would require <strong>rebuilding the entire site from scratch</strong>.
+        </p>
+    </div>
+
+    <h2>4. Cost Comparison</h2>
+
+    <h3>4.1 Annual Cost Summary</h3>
+    <table>
+        <tr>
+            <th>Cost Item</th>
+            <th>Cloudflare</th>
+            <th>Netlify</th>
+            <th>WordPress.com</th>
+            <th>Bluehost</th>
+        </tr>
+        <tr>
+            <td>Hosting</td>
+            <td><strong>$0/year</strong></td>
+            <td><strong>$0/year</strong></td>
+            <td>$300/year</td>
+            <td>$36–$144/yr (intro)</td>
+        </tr>
+        <tr>
+            <td>Renewal</td>
+            <td>$0</td>
+            <td>$0</td>
+            <td>$300/year</td>
+            <td>$120–$192/yr</td>
+        </tr>
+        <tr>
+            <td>SSL</td>
+            <td>Free ✅</td>
+            <td>Free ✅</td>
+            <td>Free ✅</td>
+            <td>Free ✅</td>
+        </tr>
+        <tr>
+            <td>CDN</td>
+            <td>330+ locations</td>
+            <td>150+ locations</td>
+            <td>Included</td>
+            <td>Basic</td>
+        </tr>
+        <tr>
+            <td>Bandwidth</td>
+            <td><strong>Unlimited</strong></td>
+            <td>100 GB/mo</td>
+            <td>Unmetered</td>
+            <td>Unmetered</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+            <td><strong>Year 1 Total</strong></td>
+            <td><strong>$0</strong></td>
+            <td><strong>$0</strong></td>
+            <td><strong>~$300</strong></td>
+            <td><strong>~$36–$144</strong></td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+            <td><strong>Year 2+ Total</strong></td>
+            <td><strong>$0</strong></td>
+            <td><strong>$0</strong></td>
+            <td><strong>~$300/yr</strong></td>
+            <td><strong>~$120–$192/yr</strong></td>
+        </tr>
+    </table>
+
+    <div class="callout">
+        <p><strong>⚠️ Bluehost Pricing Trap:</strong> The $2.95/mo price requires a 36-month upfront payment (~$106).
+            Renewal jumps to $9.99–$15.99/mo.</p>
+    </div>
+
+    <h3>4.2 Migration Cost (One-Time)</h3>
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Cloudflare</th>
+            <th>Netlify</th>
+            <th>WordPress.com</th>
+            <th>Bluehost</th>
+        </tr>
+        <tr>
+            <td>Upload existing site</td>
+            <td>30 min</td>
+            <td>30 min</td>
+            <td>❌ N/A</td>
+            <td>45 min (FTP)</td>
+        </tr>
+        <tr>
+            <td>Rebuild in WordPress</td>
+            <td>❌ N/A</td>
+            <td>❌ N/A</td>
+            <td>40–80 hours</td>
+            <td>40–80 hours</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+            <td><strong>Total</strong></td>
+            <td><strong>~2 hours</strong></td>
+            <td><strong>~2 hours</strong></td>
+            <td><strong>50–100 hours</strong></td>
+            <td><strong>50–100 hours</strong></td>
+        </tr>
+    </table>
+
+    <h3>4.3 When Does It Start Costing?</h3>
+    <table>
+        <tr>
+            <th>Platform</th>
+            <th>Risk</th>
+            <th>When You'd Pay</th>
+            <th>How Much</th>
+        </tr>
+        <tr>
+            <td>Cloudflare</td>
+            <td class="green">🟢 Very Low</td>
+            <td>Realistically never</td>
+            <td>$5/mo if you add Workers</td>
+        </tr>
+        <tr>
+            <td>Netlify</td>
+            <td class="yellow">🟡 Low-Medium</td>
+            <td>If traffic >50K–100K/mo</td>
+            <td>$20/mo per member</td>
+        </tr>
+        <tr>
+            <td>WordPress.com</td>
+            <td class="red">🔴 Immediate</td>
+            <td>Day 1</td>
+            <td>$25/mo ($300/yr)</td>
+        </tr>
+        <tr>
+            <td>Bluehost</td>
+            <td class="red">🔴 Immediate</td>
+            <td>Day 1</td>
+            <td>$2.95–$15.99/mo</td>
+        </tr>
+    </table>
+
+    <h2>5. Feature Comparison</h2>
+
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Cloudflare</th>
+            <th>Netlify</th>
+            <th>WordPress.com</th>
+            <th>Bluehost</th>
+        </tr>
+        <tr>
+            <td>Speed</td>
+            <td>⭐⭐⭐⭐⭐</td>
+            <td>⭐⭐⭐⭐</td>
+            <td>⭐⭐⭐</td>
+            <td>⭐⭐</td>
+        </tr>
+        <tr>
+            <td>Security</td>
+            <td>⭐⭐⭐⭐⭐</td>
+            <td>⭐⭐⭐</td>
+            <td>⭐⭐⭐</td>
+            <td>⭐⭐</td>
+        </tr>
+        <tr>
+            <td>Online Editing</td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>✅ Visual editor</td>
+            <td>✅ cPanel + WP</td>
+        </tr>
+        <tr>
+            <td>Git Integration</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>❌</td>
+            <td>❌</td>
+        </tr>
+        <tr>
+            <td>Auto-Deploy</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>Via WP updates</td>
+            <td>❌ Manual</td>
+        </tr>
+        <tr>
+            <td>Preview Deploys</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>❌</td>
+            <td>❌</td>
+        </tr>
+        <tr>
+            <td>Instant Rollback</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>Via backups</td>
+            <td>⚠️ Business only</td>
+        </tr>
+        <tr>
+            <td>Contact Forms</td>
+            <td>Via Workers (free)</td>
+            <td>Built-in (100/mo)</td>
+            <td>Built-in ✅</td>
+            <td>Via plugins ✅</td>
+        </tr>
+        <tr>
+            <td>Blog / CMS</td>
+            <td>Not built-in</td>
+            <td>Not built-in</td>
+            <td>✅ Core feature</td>
+            <td>✅ Via WordPress</td>
+        </tr>
+    </table>
+
+    <h3>5.1 Contact Form — Limits & Email</h3>
+
+    <table>
+        <tr>
+            <th></th>
+            <th>Cloudflare (Formsubmit)</th>
+            <th>Cloudflare (Workers)</th>
+        </tr>
+        <tr>
+            <td>Free limit</td>
+            <td>~50 submissions/day</td>
+            <td><strong>100,000 requests/day</strong></td>
+        </tr>
+        <tr>
+            <td>Paid upgrade</td>
+            <td>$4.80/mo (unlimited)</td>
+            <td>$5/mo (10 million/month)</td>
+        </tr>
+        <tr>
+            <td>Setup</td>
+            <td>1 line of code, 10 min</td>
+            <td>Slightly more setup</td>
+        </tr>
+    </table>
+
+    <p><strong>Form responses can go to any email address</strong> — company email, personal email, multiple emails, or
+        a team group. No restrictions. Change anytime with one line of code.</p>
+
+    <h2>6. Pros and Cons</h2>
+
+    <h3>☁️ Cloudflare Pages</h3>
+    <table>
+        <tr>
+            <th>✅ Pros</th>
+            <th>❌ Cons</th>
+        </tr>
+        <tr>
+            <td>Completely free, unlimited bandwidth</td>
+            <td>No visual editor</td>
+        </tr>
+        <tr>
+            <td>Fastest CDN (330+ locations)</td>
+            <td>More technical initial setup</td>
+        </tr>
+        <tr>
+            <td>Best-in-class security, instant rollbacks</td>
+            <td>Dashboard can feel complex</td>
+        </tr>
+        <tr>
+            <td>Existing code works as-is</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <h3>🟢 Netlify</h3>
+    <table>
+        <tr>
+            <th>✅ Pros</th>
+            <th>❌ Cons</th>
+        </tr>
+        <tr>
+            <td>Generous free tier, easiest dashboard</td>
+            <td>100 GB bandwidth limit</td>
+        </tr>
+        <tr>
+            <td>Drag-and-drop upload, built-in forms</td>
+            <td>Can get expensive with traffic spikes</td>
+        </tr>
+        <tr>
+            <td>Existing code works as-is</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <h3>📝 WordPress.com</h3>
+    <table>
+        <tr>
+            <th>✅ Pros</th>
+            <th>❌ Cons</th>
+        </tr>
+        <tr>
+            <td>Visual editor — anyone can edit</td>
+            <td>$300/year minimum</td>
+        </tr>
+        <tr>
+            <td>Huge plugin ecosystem</td>
+            <td>Must rebuild entire site (40–80 hrs)</td>
+        </tr>
+        <tr>
+            <td>Non-technical team can manage it</td>
+            <td>Slower, animations may not transfer</td>
+        </tr>
+    </table>
+
+    <h3>🔵 Bluehost</h3>
+    <table>
+        <tr>
+            <th>✅ Pros</th>
+            <th>❌ Cons</th>
+        </tr>
+        <tr>
+            <td>Low intro pricing ($2.95/mo)</td>
+            <td>Renewal jumps to $9.99–$15.99/mo</td>
+        </tr>
+        <tr>
+            <td>24/7 phone support, free domain (1yr)</td>
+            <td>36-month commitment for best price</td>
+        </tr>
+        <tr>
+            <td>AI website builder, can host static files</td>
+            <td>No Git, no auto-deploy, FTP outdated</td>
+        </tr>
+    </table>
+
+    <h2>7. Recommendation</h2>
+
+    <h3>🏆 Primary: Cloudflare Pages</h3>
+    <table>
+        <tr>
+            <td>Cost</td>
+            <td><strong>$0/year</strong> vs $120–$300/year for alternatives</td>
+        </tr>
+        <tr>
+            <td>Migration</td>
+            <td><strong>~2 hours</strong> — no rebuilding needed</td>
+        </tr>
+        <tr>
+            <td>Performance</td>
+            <td>Fastest CDN globally (330+ locations)</td>
+        </tr>
+        <tr>
+            <td>Security</td>
+            <td>Enterprise-grade DDoS, WAF, SSL</td>
+        </tr>
+        <tr>
+            <td>Bandwidth</td>
+            <td><strong>Unlimited</strong> — no surprise bills</td>
+        </tr>
+        <tr>
+            <td>Uptime</td>
+            <td>99.99% SLA</td>
+        </tr>
+    </table>
+
+    <p><strong>🥈 Runner-Up: Netlify</strong> — Simpler dashboard, but 100GB bandwidth limit could be a concern.</p>
+    <p><strong>🥉 WordPress.com</strong> — Included for self-sufficiency (online editing). Tradeoff: $300/yr + $2K–$5K
+        rebuild.</p>
+    <p><strong>4th: Bluehost</strong> — No clear advantage over other options for our custom-coded site.</p>
+
+    <h2>8. Quick Decision Guide</h2>
+    <div class="tree">Do you need non-technical people to edit the site regularly?
+        ├── YES → WordPress.com (factor in rebuild costs)
+        │ OR Bluehost with WordPress (cheaper intro, self-managed)
+        └── NO, dev team handles updates →
+        ├── Cost is top priority → Cloudflare Pages ($0/year)
+        └── Ease of use matters more → Netlify (friendlier dashboard)</div>
+
+    <h2>9. Deployment Schedule (Realistic Timeline)</h2>
+
+    <p><strong>Current Status:</strong> ✅ Core pages built &nbsp;|&nbsp; ✅ Contact form working &nbsp;|&nbsp; ⬜
+        Remaining pages to finalize</p>
+
+    <h3>Phase 1: Complete All Pages (Week 1–2)</h3>
+    <table>
+        <tr>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>Finalize remaining pages (case studies, blog, about, etc.)</td>
+        </tr>
+        <tr>
+            <td>QA — test all pages, links, animations, responsiveness</td>
+        </tr>
+        <tr>
+            <td>Final content review and sign-off</td>
+        </tr>
+        <tr>
+            <td>✅ All pages ready</td>
+        </tr>
+    </table>
+
+    <h3>Phase 2: GitHub Upload & Admin Review (Week 2–3)</h3>
+    <table>
+        <tr>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>Upload finalized code to GitHub</td>
+        </tr>
+        <tr>
+            <td>Admin review of GitHub repository</td>
+        </tr>
+        <tr>
+            <td>✅ Code approved on GitHub</td>
+        </tr>
+    </table>
+
+    <h3>Phase 3: Deploy to Cloudflare Pages (Week 3)</h3>
+    <table>
+        <tr>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>Connect GitHub repo to Cloudflare Pages</td>
+        </tr>
+        <tr>
+            <td>Automatic deployment from GitHub</td>
+        </tr>
+        <tr>
+            <td>Test on temporary URL (<code>setconnect.pages.dev</code>)</td>
+        </tr>
+        <tr>
+            <td>Connect purchased domain + DNS setup</td>
+        </tr>
+        <tr>
+            <td>Verify live site, confirm email unaffected</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+            <td><strong>✅ Website is LIVE 🎉</strong></td>
+        </tr>
+    </table>
+
+    <h3>Phase 4: Cleanup</h3>
+    <p>Cancel Squarespace • Document new setup • Share credentials with team leads</p>
+
+    <p><strong>Total Timeline: ~3 weeks</strong> from now to live website</p>
+
+    <div class="callout">
+        <p><strong>After launch:</strong> Any future changes are simple — edit code on GitHub → Cloudflare auto-deploys
+            in ~30 seconds. No manual uploading needed ever again.</p>
+    </div>
+
+    <h2>10. Contact Form — Already Working ✅</h2>
+
+    <p>The contact form has been integrated with <strong>Formsubmit.co</strong> and is already functional. When someone
+        fills out the form, a formatted email arrives instantly.</p>
+
+    <table>
+        <tr>
+            <td>Submissions go to</td>
+            <td><code>nishanthattarki23@gmail.com</code> (can be changed to any email anytime)</td>
+        </tr>
+        <tr>
+            <td>Email subject</td>
+            <td>"New Contact Form Submission — SetConnect Website"</td>
+        </tr>
+        <tr>
+            <td>Fields captured</td>
+            <td>First Name, Last Name, Email, Company, Service Interest, Message</td>
+        </tr>
+        <tr>
+            <td>Spam protection</td>
+            <td>CAPTCHA + honeypot field</td>
+        </tr>
+    </table>
+
+    <h3>Sample Response Email</h3>
+    <p><img src="images/formsubmit-sample.png" alt="Sample Formsubmit email response"
+            style="max-width: 100%; border: 1px solid #ddd; border-radius: 8px;"></p>
+
+    <div class="callout">
+        <p><strong>Zero downtime:</strong> During the switch, the old Squarespace site stays up until the new one is
+            fully ready.</p>
+    </div>
+
+    <hr>
+
+    <h2>Glossary</h2>
+    <table>
+        <tr>
+            <td>Static Website</td>
+            <td>Fixed files (HTML, CSS, JS). No database. Like a PDF — same for everyone.</td>
+        </tr>
+        <tr>
+            <td>CDN</td>
+            <td>Content Delivery Network — copies of your site on servers worldwide for speed.</td>
+        </tr>
+        <tr>
+            <td>SSL / HTTPS</td>
+            <td>The 🔒 padlock in browsers. Encrypts data between visitors and your site.</td>
+        </tr>
+        <tr>
+            <td>DNS</td>
+            <td>Internet's phone book. Translates <code>setconnect.ai</code> to a server address.</td>
+        </tr>
+        <tr>
+            <td>Bandwidth</td>
+            <td>Data transferred when people visit. More visitors = more bandwidth.</td>
+        </tr>
+        <tr>
+            <td>Git / GitHub</td>
+            <td>Code tracking system. Like "Track Changes" in Word, but for code.</td>
+        </tr>
+        <tr>
+            <td>Deploy</td>
+            <td>Publishing your website — making changes go live.</td>
+        </tr>
+        <tr>
+            <td>Rollback</td>
+            <td>Reverting to a previous version. Like "Undo" for your whole website.</td>
+        </tr>
+        <tr>
+            <td>CMS</td>
+            <td>Content Management System for editing without coding (e.g., WordPress).</td>
+        </tr>
+        <tr>
+            <td>FTP</td>
+            <td>Old method of uploading files to a server.</td>
+        </tr>
+        <tr>
+            <td>Shared Hosting</td>
+            <td>Multiple websites share one server. Cheaper but can be slower.</td>
+        </tr>
+    </table>
+
+    <p style="text-align: center; color: #999; margin-top: 50px; font-size: 12px;">© 2026 SetConnect Global — Hosting
+        Platform Comparison Report</p>
+
+</body>
+
+</html>

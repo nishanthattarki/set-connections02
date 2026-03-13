@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work - SetConnect</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="css/shared-styles.css" rel="stylesheet">
+
+    <style>
+        /* FORCE COMPLETE DARK MODE */
+        :root {
+            color-scheme: dark;
+        }
+
+        html,
+        body {
+            background-color: #0f1419 !important;
+            color: #ffffff;
+        }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            margin-top: 80px;
+            padding: 120px 0;
+            background: linear-gradient(135deg, #1a2332 0%, #1e3a3a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero h1 {
+            font-size: 56px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ── STATS BAR ── */
+        .stats-bar {
+            background: #0d1117;
+            border-top: 1px solid rgba(8, 145, 178, 0.25);
+            border-bottom: 1px solid rgba(8, 145, 178, 0.25);
+            padding: 48px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        .stat-item .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 52px;
+            font-weight: 700;
+            color: var(--cyan);
+            line-height: 1;
+            display: block;
+        }
+
+        .stat-item .stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 8px;
+            display: block;
+        }
+
+        .stat-divider {
+            width: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            height: 60px;
+            align-self: center;
+        }
+
+        /* ── IMPACT HIGHLIGHTS ── */
+        .impact-section {
+            padding: 80px 0;
+            background: #0f1419;
+        }
+
+        .impact-card {
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 36px 32px;
+            height: 100%;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .impact-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .impact-card:hover {
+            border-color: rgba(8, 145, 178, 0.35);
+            transform: translateY(-8px);
+            box-shadow: 0 24px 60px rgba(8, 145, 178, 0.18);
+        }
+
+        .impact-card .impact-tag {
+            display: inline-block;
+            background: rgba(8, 145, 178, 0.15);
+            border: 1px solid rgba(8, 145, 178, 0.35);
+            color: var(--cyan);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 30px;
+            margin-bottom: 18px;
+        }
+
+        .impact-card h4 {
+            color: #fff;
+            font-size: 22px;
+            margin-bottom: 14px;
+        }
+
+        .impact-card .impact-stat {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--cyan);
+            display: block;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .impact-card .impact-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.6;
+        }
+
+        .impact-card i.main-icon {
+            font-size: 40px;
+            color: rgba(8, 145, 178, 0.4);
+            position: absolute;
+            top: 28px;
+            right: 28px;
+            transition: color 0.3s;
+        }
+
+        .impact-card:hover i.main-icon {
+            color: var(--cyan);
+        }
+
+        /* ── CLIENT LOGO CARDS ── */
+        .clients-section {
+            padding: 80px 0;
+            background: #1a2332;
+        }
+
+        .client-logo-card {
+            background: linear-gradient(145deg, #0d1117 0%, #1a2332 100%);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .client-logo-card:hover {
+            border-color: var(--cyan);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.3);
+        }
+
+        .client-logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+            filter: brightness(0.9);
+            transition: 0.3s;
+        }
+
+        .client-logo-card:hover .client-logo {
+            filter: brightness(1.1);
+        }
+
+        .client-logo-card h4 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .client-logo-card .industry-tag {
+            display: inline-block;
+            background: rgba(8, 145, 178, 0.15);
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            color: var(--cyan);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .client-logo-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .client-logo-card .case-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--cyan);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+
+        .client-logo-card .case-link:hover {
+            gap: 10px;
+        }
+
+        /* ── HOW WE ENGAGE ── */
+        .engage-section {
+            padding: 80px 0;
+            background: #0f1419;
+        }
+
+        .engage-card {
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 44px 32px;
+            height: 100%;
+            text-align: center;
+            transition: all 0.35s;
+            position: relative;
+        }
+
+        .engage-card:hover {
+            border-color: var(--cyan);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.25);
+        }
+
+        .engage-number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--cyan), #0e7490);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 auto 20px;
+        }
+
+        .engage-card i {
+            font-size: 36px;
+            color: var(--cyan);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .engage-card h4 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .engage-card p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 14.5px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .engage-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+        }
+
+        .engage-connector i {
+            font-size: 28px;
+            color: rgba(8, 145, 178, 0.5);
+        }
+
+        @media (max-width: 992px) {
+            .engage-connector {
+                display: none;
+            }
+        }
+
+        /* ── LOGO MARQUEE ── */
+        .marquee-section {
+            padding: 60px 0;
+            background: #1a2332;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-section::before,
+        .marquee-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 120px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .marquee-section::before {
+            left: 0;
+            background: linear-gradient(90deg, #1a2332, transparent);
+        }
+
+        .marquee-section::after {
+            right: 0;
+            background: linear-gradient(90deg, transparent, #1a2332);
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 60px;
+            width: max-content;
+            animation: marquee-scroll 28s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .marquee-logo {
+            height: 44px;
+            width: auto;
+            filter: brightness(0.6) grayscale(0.3);
+            transition: filter 0.3s;
+            flex-shrink: 0;
+        }
+
+        .marquee-logo:hover {
+            filter: brightness(1) grayscale(0);
+        }
+
+        @keyframes marquee-scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ── PROCESS SECTION ── */
+        .process-section {
+            padding: 80px 0;
+            background: #1a2332;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .process-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--cyan) 0%, #0e7490 100%);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h4 {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* ── KEY OUTCOMES STRIP ── */
+        .outcomes-strip {
+            padding: 60px 0;
+            background: #0f1419;
+        }
+
+        .outcome-item {
+            text-align: center;
+            padding: 24px 16px;
+        }
+
+        .outcome-item .outcome-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.2), rgba(8, 145, 178, 0.05));
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .outcome-item:hover .outcome-icon {
+            transform: scale(1.15);
+            box-shadow: 0 0 24px rgba(8, 145, 178, 0.3);
+        }
+
+        .outcome-item .outcome-icon i {
+            font-size: 26px;
+            color: var(--cyan);
+        }
+
+        .outcome-item h5 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .outcome-item p {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 13px;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* ── INDUSTRIES WE TRANSFORM ── */
+        .industries-section {
+            padding: 80px 0;
+            background: #1a2332;
+        }
+
+        .industry-card {
+            background: linear-gradient(145deg, #0d1117 0%, #1a2332 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 36px 28px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .industry-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), #0e7490);
+            transform: scaleX(0);
+            transition: transform 0.35s ease;
+        }
+
+        .industry-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .industry-card:hover {
+            border-color: rgba(8, 145, 178, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.2);
+        }
+
+        .industry-card .ind-icon {
+            width: 68px;
+            height: 68px;
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.2), rgba(8, 145, 178, 0.05));
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .industry-card .ind-icon i {
+            font-size: 28px;
+            color: var(--cyan);
+        }
+
+        .industry-card h4 {
+            color: #fff;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .industry-card p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 13.5px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ── METHODOLOGY / PHILOSOPHY ── */
+        .philosophy-section {
+            padding: 80px 0;
+            background: #0d1117;
+        }
+
+        .philosophy-card {
+            background: linear-gradient(145deg, #1e3a3a 0%, #134e4a 100%);
+            padding: 56px;
+            border-radius: 20px;
+            border: 1px solid rgba(8, 145, 178, 0.2);
+        }
+
+        .philosophy-card h3 {
+            color: var(--cyan);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .philosophy-card h2 {
+            color: #ffffff;
+            font-size: 38px;
+            margin-bottom: 24px;
+        }
+
+        .philosophy-card p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .philosophy-metric {
+            background: rgba(8, 145, 178, 0.08);
+            border: 1px solid rgba(8, 145, 178, 0.25);
+            border-radius: 16px;
+            padding: 28px 24px;
+            text-align: center;
+            backdrop-filter: blur(4px);
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .philosophy-metric:hover {
+            background: rgba(8, 145, 178, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .philosophy-metric .metric-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--cyan);
+            display: block;
+            line-height: 1;
+        }
+
+        .philosophy-metric .metric-desc {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 6px;
+            display: block;
+        }
+
+        /* ── CLIENT TESTIMONIAL QUOTE (WORK PAGE) ── */
+        .testimonial-quote-section {
+            padding: 80px 0;
+            background: #0f1419;
+        }
+
+        .testimonial-quote-card {
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            border: 1px solid rgba(8, 145, 178, 0.2);
+            border-left: 4px solid var(--cyan);
+            border-radius: 20px;
+            padding: 52px 56px;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-quote-card .quote-mark {
+            font-size: 80px;
+            color: rgba(8, 145, 178, 0.15);
+            font-family: Georgia, serif;
+            line-height: 1;
+            position: absolute;
+            top: 20px;
+            left: 32px;
+        }
+
+        .testimonial-quote-card blockquote {
+            font-size: 20px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin: 0 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-quote-card .quote-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .testimonial-quote-card .author-info .name {
+            color: var(--cyan);
+            font-weight: 700;
+            font-size: 17px;
+        }
+
+        .testimonial-quote-card .author-info .role {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-quote-card {
+                padding: 36px 28px;
+            }
+
+            .testimonial-quote-card blockquote {
+                font-size: 17px;
+            }
+
+            .philosophy-card {
+                padding: 36px 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="modern-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="brand" href="index.html">
+                    <img src="images/setconnect-logo.png" alt="SetConnect Globe">
+                    Set<span>CONNECT</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navModern">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navModern">
+                    <ul class="navbar-nav nav-modern ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="our-work.html">Our Work</a></li>
+                        <li class="nav-item"><a class="nav-link" href="our-services.html">Our Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="setconnections.html">SetConnections</a></li>
+                        <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ai-blogs.html">AI Blogs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item ms-3"><a href="contact.html" class="btn-cyan">Contact Us</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container text-center">
+            <h1 data-aos="fade-up">Our Work</h1>
+            <p data-aos="fade-up" data-aos-delay="100">At SetConnect, we accelerate AI transformation faster than
+                traditional methods through upfront discovery and strategic problem framing</p>
+        </div>
+    </section>
+
+    <!-- ══ STATS BAR ══ -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="row align-items-center justify-content-center g-0">
+                <div class="col-6 col-md-3">
+                    <div class="stat-item" data-aos="fade-up">
+                        <span class="stat-number" data-count="3">0</span>
+                        <span class="stat-label">Global Enterprises Transformed</span>
+                    </div>
+                </div>
+                <div class="d-none d-md-block col-md-auto">
+                    <div class="stat-divider"></div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                        <span class="stat-number" data-count="40">0</span>+
+                        <span class="stat-label">AI Use Cases Deployed</span>
+                    </div>
+                </div>
+                <div class="d-none d-md-block col-md-auto">
+                    <div class="stat-divider"></div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <span class="stat-number">$2B+</span>
+                        <span class="stat-label">Client Revenue Impacted</span>
+                    </div>
+                </div>
+                <div class="d-none d-md-block col-md-auto">
+                    <div class="stat-divider"></div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                        <span class="stat-number" data-count="18">0</span>
+                        <span class="stat-label">Months Avg. Engagement</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ KEY OUTCOMES STRIP ══ -->
+    <section class="outcomes-strip">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="outcome-item">
+                        <div class="outcome-icon"><i class="bi bi-arrow-down-circle"></i></div>
+                        <h5>Cost Reduction</h5>
+                        <p>Eliminate waste and reduce operational costs through AI optimization</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="outcome-item">
+                        <div class="outcome-icon"><i class="bi bi-graph-up"></i></div>
+                        <h5>Revenue Growth</h5>
+                        <p>Unlock new revenue streams with AI-powered insights and innovation</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="outcome-item">
+                        <div class="outcome-icon"><i class="bi bi-gear-wide-connected"></i></div>
+                        <h5>Process Automation</h5>
+                        <p>Automate repetitive tasks and free your workforce for strategic work</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="outcome-item">
+                        <div class="outcome-icon"><i class="bi bi-lightbulb"></i></div>
+                        <h5>Data-Driven Decisions</h5>
+                        <p>Transform raw data into actionable intelligence for better outcomes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ IMPACT HIGHLIGHTS ══ -->
+    <section class="impact-section">
+        <div class="container">
+            <div class="section-header-modern text-center mb-5" data-aos="fade-up">
+                <div class="subtitle">REAL RESULTS</div>
+                <h2 style="color:#fff;">Measurable Impact, Every Engagement</h2>
+                <p>Every SetConnect engagement is designed around business outcomes — not just AI technology deployment.
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="impact-card">
+                        <i class="bi bi-bar-chart-line main-icon"></i>
+                        <span class="impact-tag">Mining & Resources</span>
+                        <h4>Vedanta Limited</h4>
+                        <span class="impact-stat">80%</span>
+                        <span class="impact-desc">Reduction in manual data processing time through enterprise-wide AI
+                            automation and workforce enablement</span>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="impact-card">
+                        <i class="bi bi-gear-wide-connected main-icon"></i>
+                        <span class="impact-tag">Automotive</span>
+                        <h4>ZF Group</h4>
+                        <span class="impact-stat">35%</span>
+                        <span class="impact-desc">Reduction in manufacturing waste through AI-powered defect detection
+                            and predictive quality models</span>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="impact-card">
+                        <i class="bi bi-boxes main-icon"></i>
+                        <span class="impact-tag">Auto Components</span>
+                        <h4>Lucas TVS</h4>
+                        <span class="impact-stat">₹15Cr</span>
+                        <span class="impact-desc">Annual savings through AI-optimized inventory and supply chain
+                            forecasting, eliminating excess stock</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ INDUSTRIES WE TRANSFORM ══ -->
+    <section class="industries-section">
+        <div class="container">
+            <div class="section-header-modern text-center mb-5" data-aos="fade-up">
+                <div class="subtitle">INDUSTRIES WE TRANSFORM</div>
+                <h2 style="color: #fff;">Cross-Industry AI Expertise</h2>
+                <p>We bring deep domain knowledge across sectors, ensuring AI solutions are grounded in real business
+                    context.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="industry-card">
+                        <div class="ind-icon"><i class="bi bi-minecart-loaded"></i></div>
+                        <h4>Mining & Resources</h4>
+                        <p>AI-driven process optimization, predictive maintenance, and workforce automation across
+                            mining operations.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+                    <div class="industry-card">
+                        <div class="ind-icon"><i class="bi bi-car-front"></i></div>
+                        <h4>Automotive</h4>
+                        <p>Defect detection, quality prediction, and smart manufacturing powered by computer vision and
+                            machine learning.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="industry-card">
+                        <div class="ind-icon"><i class="bi bi-boxes"></i></div>
+                        <h4>Auto Components</h4>
+                        <p>Supply chain forecasting, inventory optimization, and demand-driven production planning with
+                            AI.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
+                    <div class="industry-card">
+                        <div class="ind-icon"><i class="bi bi-bank"></i></div>
+                        <h4>Financial Services</h4>
+                        <p>Risk modeling, fraud detection, and regulatory compliance enhanced through AI-powered
+                            analytics.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="industry-card">
+                        <div class="ind-icon"><i class="bi bi-buildings"></i></div>
+                        <h4>Cement & Infrastructure</h4>
+                        <p>Process control optimization, energy efficiency, and predictive quality assurance in heavy
+                            industry.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
+                    <div class="industry-card">
+                        <div class="ind-icon"><i class="bi bi-mortarboard"></i></div>
+                        <h4>Education & Training</h4>
+                        <p>AI literacy programs, executive upskilling, and institutional AI readiness frameworks for
+                            academia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ CLIENT LOGO CARDS ══ -->
+    <section class="clients-section">
+        <div class="container">
+            <div class="section-header-modern text-center" data-aos="fade-up">
+                <div class="subtitle">TRUSTED BY INDUSTRY LEADERS</div>
+                <h2 style="color: #ffffff;">Our Clients</h2>
+            </div>
+            <div class="row align-items-stretch justify-content-center g-5" style="margin-top: 40px;">
+                <div class="col-lg-4 col-md-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <a href="our-work/vedanta.html" style="text-decoration: none;">
+                        <div class="client-logo-card">
+                            <img src="images/vedanta+(1).webp" alt="Vedanta Limited" class="client-logo">
+                            <span class="industry-tag">Mining &amp; Resources</span>
+                            <h4>Vedanta Limited</h4>
+                            <p>Enterprise-Wide AI Transformation</p>
+                            <span class="case-link">View Case Study <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <a href="our-work/zfgroup.html" style="text-decoration: none;">
+                        <div class="client-logo-card">
+                            <img src="images/ZF-logo.webp" alt="ZF Group" class="client-logo">
+                            <span class="industry-tag">Automotive</span>
+                            <h4>ZF Group</h4>
+                            <p>AI-Driven Innovation in Automotive</p>
+                            <span class="case-link">View Case Study <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <a href="our-work/tvstraining.html" style="text-decoration: none;">
+                        <div class="client-logo-card">
+                            <img src="images/lucas-tvs+(1).webp" alt="Lucas TVS" class="client-logo">
+                            <span class="industry-tag">Auto Components</span>
+                            <h4>Lucas TVS</h4>
+                            <p>AI-Powered Supply Chain Optimization</p>
+                            <span class="case-link">View Case Study <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ HOW WE ENGAGE ══ -->
+    <section class="engage-section">
+        <div class="container">
+            <div class="section-header-modern text-center mb-5" data-aos="fade-up">
+                <div class="subtitle">OUR PROCESS</div>
+                <h2 style="color:#fff;">How We Engage</h2>
+                <p>A proven three-phase model that moves from discovery to deployable AI — without the guesswork.</p>
+            </div>
+            <div class="row align-items-start g-3 flex-nowrap" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4">
+                    <div class="engage-card">
+                        <div class="engage-number">1</div>
+                        <i class="bi bi-search"></i>
+                        <h4>Discover</h4>
+                        <p>We begin every engagement with deep discovery — mapping your business goals, data landscape,
+                            and AI readiness to identify the highest-impact opportunities.</p>
+                    </div>
+                </div>
+                <div class="col-lg-auto d-none d-lg-flex">
+                    <div class="engage-connector">
+                        <i class="bi bi-arrow-right-circle-fill"></i>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="engage-card">
+                        <div class="engage-number">2</div>
+                        <i class="bi bi-cpu"></i>
+                        <h4>Design</h4>
+                        <p>We co-create your AI solution architecture — selecting the right models, data pipelines, and
+                            governance frameworks tailored to your organization's context.</p>
+                    </div>
+                </div>
+                <div class="col-lg-auto d-none d-lg-flex">
+                    <div class="engage-connector">
+                        <i class="bi bi-arrow-right-circle-fill"></i>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="engage-card">
+                        <div class="engage-number">3</div>
+                        <i class="bi bi-rocket-takeoff"></i>
+                        <h4>Deploy</h4>
+                        <p>Pilots become production. We embed AI into real workflows, train your teams, and measure
+                            outcomes — ensuring adoption and sustained business value.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ METHODOLOGY / PHILOSOPHY ══ -->
+    <section class="philosophy-section">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <div class="philosophy-card" style="height:100%;">
+                        <h3>OUR PHILOSOPHY</h3>
+                        <h2>We Don't Just Implement AI — We Build AI-Ready Organizations</h2>
+                        <p>Technology alone doesn't create transformation. SetConnect works at the intersection of
+                            strategy, leadership, and execution to ensure AI initiatives are embedded into the fabric of
+                            your organization — driving lasting change, not just one-off projects.</p>
+                        <p>From boardroom alignment to shop-floor adoption, we make AI a strategic asset that compounds
+                            value over time.</p>
+                        <p><strong style="color: var(--cyan);">Real transformation happens when leaders own AI, teams
+                                trust AI, and the organization scales AI — together.</strong></p>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-left" data-aos-delay="150">
+                    <div class="philosophy-metric">
+                        <span class="metric-num">100%</span>
+                        <span class="metric-desc">Leadership-driven AI engagements</span>
+                    </div>
+                    <div class="philosophy-metric">
+                        <span class="metric-num">3×</span>
+                        <span class="metric-desc">Faster adoption vs. traditional consulting</span>
+                    </div>
+                    <div class="philosophy-metric">
+                        <span class="metric-num">End-to-End</span>
+                        <span class="metric-desc">From strategy through scale, we stay by your side</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ CLIENT TESTIMONIAL QUOTE ══ -->
+    <section class="testimonial-quote-section">
+        <div class="container">
+            <div class="section-header-modern text-center mb-5" data-aos="fade-up">
+                <div class="subtitle">CLIENT VOICE</div>
+                <h2>What Our Clients Say</h2>
+            </div>
+            <div class="testimonial-quote-card" data-aos="fade-up" data-aos-delay="100">
+                <span class="quote-mark">“</span>
+                <blockquote>What impressed us most was SetConnect's ability to translate complex AI concepts into a
+                    clear, actionable strategy that our entire leadership team could rally behind. They didn't just
+                    advise — they executed alongside us, ensuring real outcomes from day one.</blockquote>
+                <div class="quote-author">
+                    <div class="author-info">
+                        <span class="name">Technology Leader</span><br>
+                        <span class="role">Global Manufacturing Enterprise</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <div id="global-footer-placeholder" data-root="./"></div>
+    <script src="js/footer-loader.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.modern-header');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        // Animated counters
+        const counters = document.querySelectorAll('.stat-number[data-count]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = +el.getAttribute('data-count');
+                    let current = 0;
+                    const step = Math.ceil(target / 40);
+                    const timer = setInterval(() => {
+                        current = Math.min(current + step, target);
+                        el.textContent = current;
+                        if (current >= target) clearInterval(timer);
+                    }, 40);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(c => counterObserver.observe(c));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies — SetConnect</title>
+    <meta name="description"
+        content="Explore SetConnect's proven AI case studies across automotive, manufacturing, and analytics — real results for global enterprises.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="css/shared-styles.css" rel="stylesheet">
+
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+
+        html,
+        body {
+            background-color: #0f1419 !important;
+            color: #ffffff;
+        }
+
+        /* ─── HERO ─── */
+        .page-hero {
+            margin-top: 80px;
+            padding: 120px 0 100px;
+            background: linear-gradient(135deg, #1a2332 0%, #1e3a3a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            right: -200px;
+            top: -200px;
+            width: 600px;
+            height: 600px;
+            background: var(--cyan);
+            opacity: 0.08;
+            border-radius: 50%;
+        }
+
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            left: -150px;
+            bottom: -150px;
+            width: 400px;
+            height: 400px;
+            background: var(--cyan);
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+
+        .page-hero h1 {
+            font-size: 56px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ─── INTRO STATEMENT ─── */
+        .intro-section {
+            padding: 80px 0 40px;
+            background: #0f1419;
+        }
+
+        .intro-card {
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            padding: 50px 60px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .intro-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), transparent);
+        }
+
+        .intro-card .section-label {
+            color: var(--cyan);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .intro-card h2 {
+            color: #ffffff;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .intro-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ─── CASE STUDY CARDS ─── */
+        .cases-section {
+            padding: 60px 0 100px;
+            background: #0f1419;
+        }
+
+        .case-card {
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            margin-bottom: 40px;
+        }
+
+        .case-card:hover {
+            border-color: rgba(8, 145, 178, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(8, 145, 178, 0.15);
+        }
+
+        .case-card-inner {
+            display: flex;
+            align-items: stretch;
+        }
+
+        .case-card-image {
+            flex: 0 0 36%;
+            max-width: 36%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .case-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .case-card:hover .case-card-image img {
+            transform: scale(1.05);
+        }
+
+        .case-card-image .industry-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(8, 145, 178, 0.9);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 50px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            backdrop-filter: blur(5px);
+        }
+
+        .case-card-body {
+            flex: 1;
+            padding: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .case-card-body h3 {
+            color: #ffffff;
+            font-size: 28px;
+            margin-bottom: 18px;
+            line-height: 1.3;
+        }
+
+        .case-card-body p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .case-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--cyan);
+            border: 2px solid var(--cyan);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .case-btn:hover {
+            background: var(--cyan);
+            color: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(8, 145, 178, 0.3);
+        }
+
+        .case-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .case-btn:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Alternate layout — image on right */
+        .case-card.reversed .case-card-inner {
+            flex-direction: row-reverse;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 992px) {
+            .case-card-inner {
+                flex-direction: column !important;
+            }
+
+            .case-card-image {
+                flex: none;
+                max-width: 100%;
+                height: 224px;
+            }
+
+            .case-card-body {
+                padding: 30px;
+            }
+
+            .page-hero h1 {
+                font-size: 36px;
+            }
+
+            .page-hero {
+                padding: 80px 0 60px;
+            }
+
+            .intro-card {
+                padding: 35px 25px;
+            }
+
+            .intro-card h2 {
+                font-size: 28px;
+            }
+        }
+
+        /* ─── IMPACT METRICS BAR ─── */
+        .impact-bar {
+            padding: 60px 0;
+            background: #1a2332;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .impact-item {
+            text-align: center;
+            padding: 30px 15px;
+            background: rgba(8, 145, 178, 0.06);
+            border: 1px solid rgba(8, 145, 178, 0.15);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .impact-item:hover {
+            border-color: var(--cyan);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.15);
+        }
+
+        .impact-item .impact-value {
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--cyan);
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1;
+        }
+
+        .impact-item .impact-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 8px;
+        }
+
+        /* ─── INDUSTRIES ─── */
+        .industries-section {
+            padding: 80px 0;
+            background: #0f1419;
+        }
+
+        .section-subtitle {
+            color: var(--cyan);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            color: #fff;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .industries-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 35px;
+        }
+
+        .industry-pill {
+            background: linear-gradient(145deg, #1a2332, #0d1117);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .industry-pill:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(8, 145, 178, 0.15);
+        }
+
+        .industry-pill i {
+            color: var(--cyan);
+            font-size: 16px;
+        }
+
+        /* ─── QUOTE ─── */
+        .quote-section {
+            padding: 80px 0;
+            background: #1a2332;
+        }
+
+        .quote-card {
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            padding: 50px 60px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            position: relative;
+        }
+
+        .quote-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            font-size: 120px;
+            color: rgba(8, 145, 178, 0.15);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .quote-card blockquote {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 20px;
+            line-height: 1.7;
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .quote-card .quote-author {
+            color: var(--cyan);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .quote-card .quote-role {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .quote-card {
+                padding: 35px 25px;
+            }
+
+            .quote-card blockquote {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Modern Header -->
+    <header class="modern-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="brand" href="index.html">
+                    <img src="images/setconnect-logo.png" alt="SetConnect Globe">
+                    Set<span>CONNECT</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navModern">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navModern">
+                    <ul class="navbar-nav nav-modern ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="our-work.html">Our Work</a></li>
+                        <li class="nav-item"><a class="nav-link" href="our-services.html">Our Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="setconnections.html">SetConnections</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="case-studies.html">Case Studies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ai-blogs.html">AI Blogs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item ms-3"><a href="contact.html" class="btn-cyan">Contact Us</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="page-hero">
+        <div class="container text-center">
+            <h1 data-aos="fade-up">ProofPoints Matter. Case Studies.</h1>
+            <p data-aos="fade-up" data-aos-delay="100">SetConnect Client Stories — Real results driving AI
+                transformation across global enterprises.</p>
+        </div>
+    </section>
+
+    <!-- ═══ INTRO ═══ -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-card" data-aos="fade-up">
+                <span class="section-label">CLIENT SUCCESS</span>
+                <h2>SetConnect Client Stories</h2>
+                <p>From predictive analytics to executive AI immersion programs, explore how SetConnect has delivered
+                    measurable business impact for industry leaders worldwide.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CASE STUDY CARDS ═══ -->
+    <section class="cases-section">
+        <div class="container">
+
+            <!-- ZF Automotive -->
+            <div class="case-card" data-aos="fade-up">
+                <div class="case-card-inner">
+                    <div class="case-card-image">
+                        <span class="industry-badge">Automotive</span>
+                        <img src="images/casestudies/zf.webp" alt="ZF Automotive Case Study">
+                    </div>
+                    <div class="case-card-body">
+                        <h3>ZF — Automotive</h3>
+                        <p>This project, conducted for a global commercial vehicle manufacturer, focused on analyzing
+                            warranty claims and parts failures to enhance predictive analytics capabilities. The goal
+                            was
+                            to identify failure patterns, forecast future component breakdowns, and support data-driven
+                            business decisions.</p>
+                        <a href="casestudies/zf-automotive.html" class="case-btn">
+                            View Case Study <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lucas TVS -->
+            <div class="case-card reversed" data-aos="fade-up">
+                <div class="case-card-inner">
+                    <div class="case-card-image">
+                        <span class="industry-badge">Automotive Aftermarket</span>
+                        <img src="images/casestudies/lucas-tvs.webp" alt="Lucas TVS Case Study">
+                    </div>
+                    <div class="case-card-body">
+                        <h3>Lucas TVS</h3>
+                        <p>The global automotive aftermarket is a significant and growing industry, with its size
+                            estimated to be about $418 billion as of 2023. The market is expected to continue growing,
+                            driven by factors such as the increasing average age of vehicles, the expansion of
+                            e-commerce
+                            platforms for automotive parts, and the rising demand for vehicle customization and
+                            upgradation.</p>
+                        <a href="casestudies/lucas-tvs.html" class="case-btn">
+                            View Case Study <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vedanta -->
+            <div class="case-card" data-aos="fade-up">
+                <div class="case-card-inner">
+                    <div class="case-card-image">
+                        <span class="industry-badge">Aluminum Manufacturing</span>
+                        <img src="images/casestudies/vedanta-case-study.webp" alt="Vedanta Case Study">
+                    </div>
+                    <div class="case-card-body">
+                        <h3>Vedanta — Aluminum Manufacturer</h3>
+                        <p>SetCONNECT designed and delivered an Executive Immersion in Analytics, for senior executives
+                            across multiple Vedanta locations. The program focused on applying AI, ML, and Business
+                            Analytics to solve real world challenges. Identifying high-impact business problems, and
+                            developing data-driven solutions to enhance decision-making and efficiency.</p>
+                        <a href="casestudies/vedanta.html" class="case-btn">
+                            View Case Study <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══ IMPACT METRICS ═══ -->
+    <section class="impact-bar">
+        <div class="container">
+            <div class="impact-grid">
+                <div class="impact-item" data-aos="fade-up">
+                    <div class="impact-value">3</div>
+                    <div class="impact-label">Industries Transformed</div>
+                </div>
+                <div class="impact-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="impact-value">10%</div>
+                    <div class="impact-label">Cost Reduction Achieved</div>
+                </div>
+                <div class="impact-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="impact-value">75%</div>
+                    <div class="impact-label">Rejection Rate Reduction</div>
+                </div>
+                <div class="impact-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="impact-value">15+</div>
+                    <div class="impact-label">AI Projects Scoped</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ INDUSTRIES SERVED ═══ -->
+    <section class="industries-section">
+        <div class="container text-center">
+            <div data-aos="fade-up">
+                <div class="section-subtitle">INDUSTRIES WE SERVE</div>
+                <h2 class="section-title">Driving AI Across Verticals</h2>
+            </div>
+            <div class="industries-grid" data-aos="fade-up" data-aos-delay="100">
+                <span class="industry-pill"><i class="bi bi-truck"></i> Commercial Vehicles</span>
+                <span class="industry-pill"><i class="bi bi-gear"></i> Auto Components</span>
+                <span class="industry-pill"><i class="bi bi-building"></i> Aluminum Manufacturing</span>
+                <span class="industry-pill"><i class="bi bi-lightning"></i> Energy & Mining</span>
+                <span class="industry-pill"><i class="bi bi-shop"></i> Retail & E-Commerce</span>
+                <span class="industry-pill"><i class="bi bi-hospital"></i> Healthcare</span>
+                <span class="industry-pill"><i class="bi bi-bank"></i> Financial Services</span>
+                <span class="industry-pill"><i class="bi bi-airplane"></i> Logistics & Supply Chain</span>
+                <span class="industry-pill"><i class="bi bi-cpu"></i> Technology</span>
+                <span class="industry-pill"><i class="bi bi-droplet"></i> Oil & Gas</span>
+                <span class="industry-pill"><i class="bi bi-broadcast"></i> Telecom</span>
+                <span class="industry-pill"><i class="bi bi-book"></i> Education</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CLIENT QUOTE ═══ -->
+    <section class="quote-section">
+        <div class="container">
+            <div class="quote-card" data-aos="fade-up">
+                <blockquote>SetConnect's structured approach to AI transformed how we think about data-driven decision
+                    making. Their playbook methodology delivered measurable results within the first sprint.
+                </blockquote>
+                <div class="quote-author">Senior Executive</div>
+                <div class="quote-role">Global Manufacturing Enterprise</div>
+            </div>
+        </div>
+    </section>
+
+    <div id="global-footer-placeholder" data-root="./"></div>
+    <script src="js/footer-loader.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.modern-header');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+    </script>
+</body>
+
+</html>

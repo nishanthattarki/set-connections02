@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZF Automotive — Warranty Cost Analysis | SetConnect Case Study</title>
+    <meta name="description"
+        content="How SetConnect helped a global commercial vehicle manufacturer enhance predictive analytics for warranty claims and parts failure forecasting.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="../css/shared-styles.css" rel="stylesheet">
+
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+
+        html,
+        body {
+            background-color: #0f1419 !important;
+            color: #ffffff;
+        }
+
+        /* ─── HERO ─── */
+        .case-hero {
+            margin-top: 80px;
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, #1a2332 0%, #1e3a3a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-hero::before {
+            content: '';
+            position: absolute;
+            right: -200px;
+            top: -200px;
+            width: 600px;
+            height: 600px;
+            background: var(--cyan);
+            opacity: 0.08;
+            border-radius: 50%;
+        }
+
+        .case-hero .breadcrumb-nav {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .case-hero .breadcrumb-nav a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        .case-hero .breadcrumb-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .case-hero .breadcrumb-nav span {
+            color: rgba(255, 255, 255, 0.5);
+            margin: 0 8px;
+        }
+
+        .case-hero .breadcrumb-nav .current {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .case-hero h1 {
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .case-hero .industry-tag {
+            display: inline-block;
+            background: rgba(8, 145, 178, 0.2);
+            color: var(--cyan);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .case-hero p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 750px;
+        }
+
+        /* ─── HERO IMAGE ─── */
+        .hero-image-section {
+            padding: 0;
+            background: #0f1419;
+            margin-top: -40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-image-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ─── CONTENT ─── */
+        .case-content {
+            padding: 80px 0;
+            background: #0f1419;
+        }
+
+        .content-card {
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            padding: 50px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .content-card .section-label {
+            color: var(--cyan);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .content-card h2 {
+            color: #fff;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .content-card p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .content-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .content-card li {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 16px;
+            line-height: 1.8;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .content-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 16px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--cyan);
+        }
+
+        .content-card strong {
+            color: #fff;
+        }
+
+        /* ─── KEY OUTCOMES ─── */
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .outcome-box {
+            background: rgba(8, 145, 178, 0.08);
+            border: 1px solid rgba(8, 145, 178, 0.2);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .outcome-box:hover {
+            border-color: var(--cyan);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.15);
+        }
+
+        .outcome-box i {
+            font-size: 28px;
+            color: var(--cyan);
+            margin-bottom: 10px;
+        }
+
+        .outcome-box h4 {
+            color: #fff;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        /* ─── BACK LINK ─── */
+        .back-section {
+            padding: 0 0 80px;
+            background: #0f1419;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #fff;
+        }
+
+        .back-link:hover i {
+            transform: translateX(-4px);
+        }
+
+        .back-link i {
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .case-hero h1 {
+                font-size: 32px;
+            }
+
+            .case-hero {
+                padding: 80px 0 60px;
+            }
+
+            .content-card {
+                padding: 30px 20px;
+            }
+
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image-wrapper img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="modern-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="brand" href="../index.html">
+                    <img src="../images/setconnect-logo.png" alt="SetConnect Globe">
+                    Set<span>CONNECT</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navModern">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navModern">
+                    <ul class="navbar-nav nav-modern ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../our-work.html">Our Work</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../our-services.html">Our Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../setconnections.html">SetConnections</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="../case-studies.html">Case Studies</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="../ai-blogs.html">AI Blogs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../about.html">About Us</a></li>
+                        <li class="nav-item ms-3"><a href="../contact.html" class="btn-cyan">Contact Us</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="case-hero">
+        <div class="container">
+            <div class="breadcrumb-nav" data-aos="fade-up">
+                <a href="../case-studies.html">Case Studies</a>
+                <span>/</span>
+                <span class="current">ZF — Automotive</span>
+            </div>
+            <span class="industry-tag" data-aos="fade-up" data-aos-delay="50">Automotive</span>
+            <h1 data-aos="fade-up" data-aos-delay="100">Warranty Cost Analysis Using Predictive Analytics</h1>
+            <p data-aos="fade-up" data-aos-delay="150">Weibull Modeling: Predicting Component Failures for a global
+                commercial vehicle manufacturer.</p>
+        </div>
+    </section>
+
+    <!-- ═══ HERO IMAGE ═══ -->
+    <section class="hero-image-section">
+        <div class="container" data-aos="fade-up">
+            <div class="hero-image-wrapper">
+                <img src="../images/casestudies/zf.webp" alt="ZF Automotive Warranty Analytics">
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CONTENT ═══ -->
+    <section class="case-content">
+        <div class="container">
+
+            <!-- Overview -->
+            <div class="content-card" data-aos="fade-up">
+                <span class="section-label">OVERVIEW</span>
+                <h2>Project Summary</h2>
+                <p>This project, conducted for a global commercial vehicle manufacturer, focused on analyzing warranty
+                    claims and parts failures to enhance predictive analytics capabilities. The goal was to identify
+                    failure patterns, forecast future component breakdowns, and support data-driven business decisions.
+                </p>
+                <p>Key phases of the project included data collection and preparation, exploratory data analysis, and
+                    predictive modeling using Weibull distribution to assess cumulative failure patterns. The analysis
+                    highlighted significant challenges such as data fragmentation, inconsistent formatting, and missing
+                    values, which were addressed through strategies like standardization, automation, and integration of
+                    data systems.</p>
+            </div>
+
+            <!-- Weibull Modeling -->
+            <div class="content-card" data-aos="fade-up">
+                <span class="section-label">METHODOLOGY</span>
+                <h2>Weibull Modeling: Predicting Component Failures</h2>
+                <p>The Weibull distribution, a classical model used to predict hardware failure patterns, played a
+                    central role in the predictive modeling phase of the project. The Weibull model's flexibility allows
+                    it to accommodate different failure scenarios by adjusting its parameters:</p>
+                <ul>
+                    <li><strong>Increasing failure rates:</strong> Typically associated with wear and tear over time.
+                    </li>
+                    <li><strong>Constant failure rates:</strong> Failures occur consistently throughout a product's life
+                        cycle.</li>
+                    <li><strong>Decreasing failure rates:</strong> Often indicative of initial defects that stabilize
+                        after a product's early life.</li>
+                </ul>
+                <p>The predictive modeling approach leveraged Weibull distribution to classify failure rates into
+                    increasing, constant, or decreasing trends, enabling more accurate failure forecasts. While most
+                    product families demonstrated stable patterns, external factors like the COVID-19 pandemic caused
+                    volatility in certain cases, necessitating more sophisticated modeling techniques.</p>
+            </div>
+
+            <!-- Challenges & Strategies -->
+            <div class="content-card" data-aos="fade-up">
+                <span class="section-label">SOLUTIONS</span>
+                <h2>Key Strategies & Recommendations</h2>
+                <p>To overcome data challenges, the team recommended several key strategies:</p>
+                <ul>
+                    <li><strong>Standardization:</strong> Implement consistent data values and storage formats.</li>
+                    <li><strong>Automation:</strong> Use automated data entry systems to reduce errors and missing
+                        values.</li>
+                    <li><strong>Integrated systems:</strong> Create integrated information systems to unify data sources
+                        across departments and clients.</li>
+                    <li><strong>Clear problem definition:</strong> Define project goals clearly to ensure the right data
+                        is collected and processed efficiently.</li>
+                </ul>
+                <p>By implementing these recommendations, the firm could reduce labor-intensive data preparation and
+                    improve future analytics projects. Some of these strategies were already being adopted by the
+                    company, such as automation and standardization efforts, and the project reinforced the need for
+                    further integration and foresight in future endeavors.</p>
+            </div>
+
+            <!-- Key Outcomes -->
+            <div class="content-card" data-aos="fade-up">
+                <span class="section-label">IMPACT</span>
+                <h2>Key Outcomes</h2>
+                <p>The project laid a strong foundation for AI-driven predictive maintenance by improving data processes
+                    and model accuracy. Future initiatives will focus on integrating real-time sensor data to enhance
+                    warranty management, reduce costs, and optimize product performance, driving innovation in the
+                    automotive aftermarket.</p>
+                <div class="outcomes-grid">
+                    <div class="outcome-box">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <h4>Predictive Failure Forecasting</h4>
+                    </div>
+                    <div class="outcome-box">
+                        <i class="bi bi-database-gear"></i>
+                        <h4>Improved Data Processes</h4>
+                    </div>
+                    <div class="outcome-box">
+                        <i class="bi bi-cpu"></i>
+                        <h4>Foundation for AI Maintenance</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══ BACK ═══ -->
+    <section class="back-section">
+        <div class="container">
+            <a href="../case-studies.html" class="back-link">
+                <i class="bi bi-arrow-left"></i> Back to All Case Studies
+            </a>
+        </div>
+    </section>
+
+    <div id="global-footer-placeholder" data-root="../"></div>
+    <script src="../js/footer-loader.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.modern-header');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+    </script>
+</body>
+
+</html>

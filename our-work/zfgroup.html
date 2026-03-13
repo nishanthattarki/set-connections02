@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZF – AI-Driven Innovation in Automotive | SetConnect</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="../css/shared-styles.css" rel="stylesheet">
+
+    <style>
+        /* FORCE COMPLETE DARK MODE */
+        :root {
+            color-scheme: dark;
+        }
+
+        html,
+        body {
+            background-color: #0f1419 !important;
+            color: #ffffff;
+        }
+
+        .page-hero {
+            margin-top: 80px;
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #1a2332 0%, #1e3a3a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            right: -200px;
+            top: -200px;
+            width: 600px;
+            height: 600px;
+            background: var(--cyan);
+            opacity: 0.08;
+            border-radius: 50%;
+        }
+
+        .page-hero h1 {
+            font-size: 48px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .page-hero .subtitle {
+            font-size: 20px;
+            color: var(--cyan);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .content-section {
+            padding: 80px 0;
+            background: #0f1419;
+        }
+
+        .content-card {
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            border-color: var(--cyan);
+            box-shadow: 0 10px 40px rgba(8, 145, 178, 0.2);
+        }
+
+        .content-card h2 {
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .content-card p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .content-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        .content-card ul li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .content-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .content-card ul li::before {
+            content: "→";
+            color: var(--cyan);
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+        .btn-link-custom {
+            display: inline-block;
+            background: var(--cyan);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .btn-link-custom:hover {
+            background: #0e7490;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(8, 145, 178, 0.3);
+            color: #fff;
+        }
+
+        /* CTA SPLIT */
+        .cta-split {
+            background: linear-gradient(135deg, var(--cyan) 0%, #0e7490 100%);
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .cta-split .row {
+            min-height: 400px;
+        }
+
+        .cta-content {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .cta-content h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .btn-white-outline {
+            background: transparent;
+            color: #fff;
+            border: 3px solid #fff;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-white-outline:hover {
+            background: #fff;
+            color: var(--cyan);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="modern-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="brand" href="../index.html">
+                    <img src="../images/setconnect-logo.png" alt="SetConnect Globe">
+                    Set<span>CONNECT</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navModern">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navModern">
+                    <ul class="navbar-nav nav-modern ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="../our-work.html">Our Work</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../our-services.html">Our Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../setconnections.html">SetConnections</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../case-studies.html">Case Studies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../ai-blogs.html">AI Blogs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../about.html">About Us</a></li>
+                        <li class="nav-item ms-3"><a href="../contact.html" class="btn-cyan">Contact Us</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="subtitle" data-aos="fade-up">ZF Group</div>
+            <h1 data-aos="fade-up" data-aos-delay="100">ZF – AI-Driven Innovation in Automotive</h1>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-card" data-aos="fade-up">
+                <p>ZF, a global leader in automotive component manufacturing, embarked on an AI transformation journey
+                    to enhance operational efficiency and product reliability.</p>
+
+                <ul>
+                    <li><strong>Leadership Engagement:</strong> AI Discovery sessions for 25 senior executives,
+                        including the CEO, to explore AI's strategic impact.</li>
+                    <li><strong>Enterprise-Wide AI Immersion:</strong> A two-year Executive AI training program for 100+
+                        VPs, Directors, and Managers.</li>
+                    <li><strong>Targeted AI Certification:</strong> Senior leadership participated in an AI and
+                        Analytics Certificate Program.</li>
+                    <li><strong>AI-Driven Warranty Optimization:</strong> A high-impact initiative to enhance warranty
+                        management, sponsored by the CEO and led by the VP of Quality.</li>
+                </ul>
+
+                <p>Through these efforts, ZF is integrating AI to improve decision-making, optimize operations, and
+                    strengthen its position as an industry innovator.</p>
+
+                <a href="https://www.setconnect.ai/zfcasestudy" class="btn-link-custom" target="_blank">Check out the ZF
+                    Story</a>
+                <a href="https://www.zf.com/mobile/en/homepage/homepage.html" class="btn-link-custom"
+                    target="_blank">Visit ZF Website</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="global-footer-placeholder" data-root="../"></div>
+    <script src="../js/footer-loader.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.modern-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+
+</html>
