@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - SetConnect</title>
+    <title>Our Services - SetConnect | AI Services from Strategy to Execution</title>
+    <meta name="description" content="SetConnect helps executives, functional leaders, and managers identify high-value AI opportunities, build the right roadmap, prepare data and teams, and support implementation at scale.">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -15,45 +16,178 @@
     <link href="css/shared-styles.css" rel="stylesheet">
 
     <style>
-        /* ── STATS BAR ── */
-        .stats-bar {
-            background: #0d1117;
-            border-top: 1px solid rgba(8, 145, 178, 0.25);
-            border-bottom: 1px solid rgba(8, 145, 178, 0.25);
-            padding: 48px 0;
+        /* ── HERO TWO-COLUMN ── */
+        .hero-services {
+            margin-top: 80px;
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, #1a2332 0%, #1e3a3a 50%, #0d1117 100%);
+            position: relative;
+            overflow: hidden;
         }
 
-        .stat-item {
-            text-align: center;
-            padding: 10px 20px;
+        .hero-services::before {
+            content: '';
+            position: absolute;
+            right: -200px;
+            top: -200px;
+            width: 600px;
+            height: 600px;
+            background: var(--cyan);
+            opacity: 0.06;
+            border-radius: 50%;
         }
 
-        .stat-item .stat-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 52px;
-            font-weight: 700;
+        .hero-services::after {
+            content: '';
+            position: absolute;
+            left: -100px;
+            bottom: -150px;
+            width: 400px;
+            height: 400px;
+            background: var(--cyan);
+            opacity: 0.04;
+            border-radius: 50%;
+        }
+
+        .hero-services h1 {
+            font-size: 50px;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero-services h1 span {
             color: var(--cyan);
-            line-height: 1;
-            display: block;
         }
 
-        .stat-item .stat-label {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.6);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-top: 8px;
-            display: block;
+        .hero-services .hero-sub {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            margin-bottom: 32px;
+            max-width: 540px;
         }
 
-        .stat-divider {
-            width: 1px;
-            background: rgba(255, 255, 255, 0.1);
-            height: 60px;
-            align-self: center;
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
         }
 
-        /* ── WHO WE SERVE ICON CARDS ── */
+        .btn-outline-light-custom {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-outline-light-custom:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+            background: rgba(8, 145, 178, 0.08);
+        }
+
+        /* AI Playbook Visual (right column) */
+        .playbook-visual {
+            position: relative;
+            padding: 40px 20px;
+        }
+
+        .playbook-stages {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+        }
+
+        .playbook-stages::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 28px;
+            bottom: 28px;
+            width: 3px;
+            background: linear-gradient(180deg, var(--cyan), #0e7490, rgba(14, 116, 144, 0.3));
+            border-radius: 2px;
+        }
+
+        .playbook-stage {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 18px 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            margin-bottom: 12px;
+            transition: all 0.35s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .playbook-stage:hover {
+            background: rgba(8, 145, 178, 0.08);
+            border-color: rgba(8, 145, 178, 0.3);
+            transform: translateX(8px);
+        }
+
+        .playbook-stage .stage-num {
+            width: 56px;
+            height: 56px;
+            min-width: 56px;
+            background: linear-gradient(135deg, var(--cyan), #0e7490);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            box-shadow: 0 0 0 5px rgba(8, 145, 178, 0.15);
+        }
+
+        .playbook-stage .stage-info h5 {
+            color: #fff;
+            font-size: 17px;
+            margin-bottom: 3px;
+        }
+
+        .playbook-stage .stage-info p {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 13px;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 992px) {
+            .hero-services {
+                padding: 80px 0 60px;
+                text-align: center;
+            }
+
+            .hero-services h1 {
+                font-size: 36px;
+            }
+
+            .hero-services .hero-sub {
+                margin: 0 auto 28px;
+            }
+
+            .hero-cta-group {
+                justify-content: center;
+            }
+
+            .playbook-visual {
+                margin-top: 40px;
+            }
+        }
+
+        /* ── WHO WE SERVE ── */
         .serve-section {
             padding: 80px 0;
             background: #0f1419;
@@ -123,45 +257,65 @@
             margin: 0;
         }
 
-        /* ── SERVICE CARDS section label ── */
-        .services-label {
-            padding: 60px 0 0;
-            background: #0f1419;
-        }
-
-        /* ── PROCESS TIMELINE ── */
-        .process-timeline {
+        /* ── AI SUCCESS PLAYBOOK — SERVICE CARDS ── */
+        .playbook-section {
+            padding: 80px 0 40px;
             background: #0d1117;
-            padding: 80px 0;
         }
 
-        .timeline-track {
+        .playbook-cards-section {
+            padding: 0 0 80px;
+            background: #0d1117;
+        }
+
+        /* Horizontal progress connector */
+        .playbook-progress {
             display: flex;
             align-items: flex-start;
-            position: relative;
             gap: 0;
+            position: relative;
         }
 
-        .timeline-track::before {
+        .playbook-progress::before {
             content: '';
             position: absolute;
             top: 36px;
             left: calc(12.5%);
             width: 75%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--cyan), #0e7490);
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), #0e7490, rgba(14, 116, 144, 0.4));
             z-index: 0;
         }
 
-        .timeline-step {
+        .playbook-card-wrapper {
             flex: 1;
-            text-align: center;
-            padding: 0 16px;
             position: relative;
             z-index: 1;
+            padding: 0 10px;
         }
 
-        .timeline-bubble {
+        .playbook-card {
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            height: 100%;
+        }
+
+        .playbook-card:hover {
+            border-color: rgba(8, 145, 178, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.18);
+        }
+
+        .playbook-card-header {
+            text-align: center;
+            padding: 28px 24px 20px;
+        }
+
+        .playbook-card-header .card-step {
             width: 72px;
             height: 72px;
             background: linear-gradient(135deg, var(--cyan), #0e7490);
@@ -169,370 +323,386 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
+            margin: 0 auto 16px;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 700;
             color: #fff;
             box-shadow: 0 0 0 6px rgba(8, 145, 178, 0.15);
-            transition: box-shadow 0.3s;
         }
 
-        .timeline-step:hover .timeline-bubble {
-            box-shadow: 0 0 0 10px rgba(8, 145, 178, 0.25);
-        }
-
-        .timeline-step h5 {
+        .playbook-card-header h3 {
+            font-size: 22px;
             color: #fff;
-            font-size: 17px;
             margin-bottom: 8px;
         }
 
-        .timeline-step p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 13.5px;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            .timeline-track {
-                flex-direction: column;
-                align-items: center;
-                gap: 40px;
-            }
-
-            .timeline-track::before {
-                display: none;
-            }
-        }
-
-        /* ── APPROACH + METRICS ── */
-        .approach-metric {
-            background: rgba(8, 145, 178, 0.08);
-            border: 1px solid rgba(8, 145, 178, 0.25);
-            border-radius: 16px;
-            padding: 28px 24px;
-            text-align: center;
-            backdrop-filter: blur(4px);
-            margin-bottom: 20px;
-            transition: all 0.3s;
-        }
-
-        .approach-metric:hover {
-            background: rgba(8, 145, 178, 0.15);
-            transform: translateY(-4px);
-        }
-
-        .approach-metric .metric-num {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 40px;
+        .playbook-card-header .stage-tag {
+            display: inline-block;
+            background: rgba(8, 145, 178, 0.12);
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            color: var(--cyan);
+            font-size: 10px;
             font-weight: 700;
-            color: var(--cyan);
-            display: block;
-            line-height: 1;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
         }
 
-        .approach-metric .metric-desc {
-            font-size: 13px;
+        .playbook-card-body {
+            padding: 0 24px 28px;
+        }
+
+        .playbook-card-body p {
             color: rgba(255, 255, 255, 0.7);
-            margin-top: 6px;
-            display: block;
+            font-size: 14px;
+            line-height: 1.65;
+            margin-bottom: 20px;
         }
 
-        /* ── PARTNERSHIP CARDS with images ── */
-        .partnership-card img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 24px;
-            opacity: 0.85;
-            transition: opacity 0.3s;
-        }
-
-        .partnership-card:hover img {
-            opacity: 1;
-        }
-
-        .partnership-card {
-            text-align: left;
-        }
-
-        .partnership-card i {
-            font-size: 36px;
+        .what-you-get-toggle {
+            background: none;
+            border: none;
             color: var(--cyan);
-            margin-bottom: 16px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 0;
+            transition: gap 0.2s;
+            font-family: 'Inter', sans-serif;
         }
 
-        /* ── SERVICE CARD bullet outcomes ── */
-        .service-outcomes {
+        .what-you-get-toggle:hover {
+            gap: 10px;
+        }
+
+        .what-you-get-toggle i {
+            transition: transform 0.3s;
+        }
+
+        .what-you-get-toggle.active i {
+            transform: rotate(180deg);
+        }
+
+        .what-you-get-list {
             list-style: none;
             padding: 0;
-            margin: 0 0 20px;
-            width: 100%;
-            text-align: left;
+            margin: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
         }
 
-        .service-outcomes li {
+        .what-you-get-list.show {
+            max-height: 300px;
+            padding-top: 12px;
+        }
+
+        .what-you-get-list li {
             padding: 7px 0;
             color: rgba(255, 255, 255, 0.72);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-            font-size: 13.5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 13px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .service-outcomes li:last-child {
+        .what-you-get-list li:last-child {
             border: none;
         }
 
-        .service-outcomes li i {
+        .what-you-get-list li i {
             color: var(--cyan);
-            font-size: 14px;
+            font-size: 13px;
             flex-shrink: 0;
         }
 
-        /* ── WHY SETCONNECT DIFFERENTIATORS ── */
-        .why-section {
-            padding: 80px 0;
-            background: #0d1117;
+        @media (max-width: 992px) {
+            .playbook-progress {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .playbook-progress::before {
+                display: none;
+            }
+
+            .playbook-card-wrapper {
+                padding: 0;
+            }
         }
 
-        .why-card {
-            background: rgba(255, 255, 255, 0.03);
+        /* ── HOW WE APPLY THESE SERVICES — PROOF CARDS ── */
+        .proof-section {
+            padding: 80px 0;
+            background: #0f1419;
+        }
+
+        .proof-card {
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 20px;
-            padding: 44px 32px;
+            padding: 36px 32px;
             height: 100%;
-            text-align: center;
-            transition: all 0.4s ease;
+            transition: all 0.35s ease;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
         }
 
-        .why-card::before {
+        .proof-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .proof-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .proof-card:hover {
+            border-color: rgba(8, 145, 178, 0.35);
+            transform: translateY(-8px);
+            box-shadow: 0 24px 60px rgba(8, 145, 178, 0.18);
+        }
+
+        .proof-card .client-logo-img {
+            max-width: 140px;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter: brightness(0.9);
+            transition: filter 0.3s;
+        }
+
+        .proof-card:hover .client-logo-img {
+            filter: brightness(1.1);
+        }
+
+        .proof-card .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .proof-card .service-tag {
+            display: inline-block;
+            background: rgba(8, 145, 178, 0.12);
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            color: var(--cyan);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .proof-card h4 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .proof-card .problem-line {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .proof-card .relevance-line {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 13px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .proof-card .case-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--cyan);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+            margin-top: auto;
+        }
+
+        .proof-card .case-link:hover {
+            gap: 10px;
+        }
+
+        /* ── WHY SETCONNECT ── */
+        .why-band {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0d1117 0%, #1a2332 50%, #0d1117 100%);
+            border-top: 1px solid rgba(8, 145, 178, 0.15);
+            border-bottom: 1px solid rgba(8, 145, 178, 0.15);
+        }
+
+        .why-tile {
+            text-align: center;
+            padding: 36px 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 20px;
+            height: 100%;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-tile::before {
             content: '';
             position: absolute;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
+            width: 40px;
             height: 3px;
-            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-            opacity: 0;
-            transition: opacity 0.4s, width 0.4s;
-        }
-
-        .why-card:hover::before {
-            opacity: 1;
-            width: 100%;
-        }
-
-        .why-card:hover {
-            border-color: rgba(8, 145, 178, 0.35);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.15);
-            background: rgba(8, 145, 178, 0.06);
-        }
-
-        .why-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, rgba(8, 145, 178, 0.2), rgba(8, 145, 178, 0.05));
-            border: 1px solid rgba(8, 145, 178, 0.3);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .why-card:hover .why-icon {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(8, 145, 178, 0.3);
-        }
-
-        .why-icon i {
-            font-size: 32px;
-            color: var(--cyan);
-        }
-
-        .why-card h4 {
-            color: #fff;
-            font-size: 22px;
-            margin-bottom: 12px;
-        }
-
-        .why-card p {
-            color: rgba(255, 255, 255, 0.65);
-            font-size: 15px;
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        /* ── WHAT YOU GET DELIVERABLES ── */
-        .deliverables-section {
-            padding: 80px 0;
-            background: #0d1117;
-        }
-
-        .deliverable-card {
-            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            border-radius: 16px;
-            padding: 32px 24px;
-            text-align: center;
-            transition: all 0.35s ease;
-            height: 100%;
-            position: relative;
-        }
-
-        .deliverable-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
             background: var(--cyan);
-            transition: width 0.4s ease;
+            opacity: 0;
+            transition: opacity 0.3s, width 0.3s;
         }
 
-        .deliverable-card:hover::after {
+        .why-tile:hover::before {
+            opacity: 1;
             width: 80%;
         }
 
-        .deliverable-card:hover {
+        .why-tile:hover {
             border-color: rgba(8, 145, 178, 0.3);
             transform: translateY(-6px);
             box-shadow: 0 16px 48px rgba(8, 145, 178, 0.12);
+            background: rgba(8, 145, 178, 0.05);
         }
 
-        .deliverable-card i {
-            font-size: 36px;
+        .why-tile .why-tile-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.2), rgba(8, 145, 178, 0.05));
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: transform 0.3s;
+        }
+
+        .why-tile:hover .why-tile-icon {
+            transform: scale(1.1);
+        }
+
+        .why-tile .why-tile-icon i {
+            font-size: 28px;
             color: var(--cyan);
-            margin-bottom: 16px;
-            display: block;
         }
 
-        .deliverable-card h5 {
+        .why-tile h4 {
             color: #fff;
-            font-size: 17px;
-            margin-bottom: 8px;
+            font-size: 18px;
+            margin-bottom: 10px;
         }
 
-        .deliverable-card p {
-            color: rgba(255, 255, 255, 0.55);
-            font-size: 13.5px;
-            line-height: 1.6;
+        .why-tile p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            line-height: 1.65;
             margin: 0;
         }
 
-        /* ── INDUSTRY EXPERTISE BADGES ── */
-        .expertise-section {
-            padding: 60px 0;
-            background: #0f1419;
-        }
-
-        .expertise-badges {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 14px;
-            margin-top: 32px;
-        }
-
-        .expertise-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(8, 145, 178, 0.08);
-            border: 1px solid rgba(8, 145, 178, 0.25);
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 14px;
-            font-weight: 500;
-            padding: 10px 22px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
-
-        .expertise-badge i {
-            color: var(--cyan);
-            font-size: 16px;
-        }
-
-        .expertise-badge:hover {
-            background: rgba(8, 145, 178, 0.2);
-            border-color: var(--cyan);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(8, 145, 178, 0.2);
-        }
-
-        /* ── CLIENT TESTIMONIAL QUOTE ── */
-        .testimonial-quote-section {
-            padding: 80px 0;
-            background: #0f1419;
-        }
-
-        .testimonial-quote-card {
-            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
-            border: 1px solid rgba(8, 145, 178, 0.2);
-            border-left: 4px solid var(--cyan);
-            border-radius: 20px;
-            padding: 52px 56px;
-            max-width: 900px;
-            margin: 0 auto;
+        /* ── FINAL CTA ── */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1e3a3a 0%, #134e4a 50%, #0d1117 100%);
+            text-align: center;
             position: relative;
+            overflow: hidden;
         }
 
-        .testimonial-quote-card .quote-mark {
-            font-size: 80px;
-            color: rgba(8, 145, 178, 0.15);
-            font-family: Georgia, serif;
-            line-height: 1;
+        .final-cta::before {
+            content: '';
             position: absolute;
-            top: 20px;
-            left: 32px;
+            left: 50%;
+            top: -100px;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 500px;
+            background: var(--cyan);
+            opacity: 0.06;
+            border-radius: 50%;
         }
 
-        .testimonial-quote-card blockquote {
-            font-size: 20px;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.8;
-            margin: 0 0 24px;
+        .final-cta h2 {
+            font-size: 44px;
+            color: #fff;
+            margin-bottom: 18px;
             position: relative;
             z-index: 1;
         }
 
-        .testimonial-quote-card .quote-author {
+        .final-cta p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 650px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-cta .cta-buttons {
             display: flex;
-            align-items: center;
             gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
-        .testimonial-quote-card .author-info .name {
-            color: var(--cyan);
+        .btn-cyan-lg {
+            background: var(--cyan);
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 50px;
             font-weight: 700;
-            font-size: 17px;
+            font-size: 16px;
+            border: none;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .testimonial-quote-card .author-info .role {
-            color: rgba(255, 255, 255, 0.55);
-            font-size: 14px;
+        .btn-cyan-lg:hover {
+            background: #0e7490;
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(8, 145, 178, 0.4);
+            color: #fff;
         }
 
         @media (max-width: 768px) {
-            .testimonial-quote-card {
-                padding: 36px 28px;
-            }
-
-            .testimonial-quote-card blockquote {
-                font-size: 17px;
+            .final-cta h2 {
+                font-size: 32px;
             }
         }
     </style>
@@ -554,7 +724,6 @@
                 <div class="collapse navbar-collapse" id="navModern">
                     <ul class="navbar-nav nav-modern ms-auto align-items-center">
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="our-work.html">Our Work</a></li>
                         <li class="nav-item"><a class="nav-link active" href="our-services.html">Our Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="setconnections.html">SetConnections</a></li>
                         <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
@@ -567,458 +736,354 @@
         </div>
     </header>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <div class="container text-center">
-            <h1 data-aos="fade-up">Our Services</h1>
-            <p data-aos="fade-up" data-aos-delay="100">Comprehensive AI transformation services designed to accelerate
-                measurable business outcomes</p>
-        </div>
-    </section>
-
-    <!-- ══ STATS BAR ══ -->
-    <section class="stats-bar">
+    <!-- ══════════════════════════════════════════════
+         1. HERO SECTION — Two-Column Layout
+         ══════════════════════════════════════════════ -->
+    <section class="hero-services" id="hero">
         <div class="container">
-            <div class="row align-items-center justify-content-center g-0">
-                <div class="col-6 col-md-3">
-                    <div class="stat-item" data-aos="fade-up">
-                        <span class="stat-number" data-count="50">0</span>+
-                        <span class="stat-label">AI Projects Delivered</span>
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1>AI services that move from <span>strategy to execution</span></h1>
+                    <p class="hero-sub">SetConnect helps executives, functional leaders, and managers identify high-value
+                        AI opportunities, build the right roadmap, prepare data and teams, and support implementation at
+                        scale.</p>
+                    <div class="hero-cta-group">
+                        <a href="contact.html" class="btn-cyan">Book a Discovery Conversation <i
+                                class="bi bi-arrow-right ms-1"></i></a>
+                        <a href="case-studies.html" class="btn-outline-light-custom">View Case Studies</a>
                     </div>
                 </div>
-                <div class="d-none d-md-block col-md-auto">
-                    <div class="stat-divider"></div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                        <span class="stat-number">14</span>
-                        <span class="stat-label">Days to Your AI Roadmap</span>
-                    </div>
-                </div>
-                <div class="d-none d-md-block col-md-auto">
-                    <div class="stat-divider"></div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                        <span class="stat-number" data-count="3">0</span>
-                        <span class="stat-label">Continents of Clients</span>
-                    </div>
-                </div>
-                <div class="d-none d-md-block col-md-auto">
-                    <div class="stat-divider"></div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Outcome-Focused</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══ WHY SETCONNECT — Differentiators ══ -->
-    <section class="why-section">
-        <div class="container">
-            <div class="section-header-modern text-center mb-5" data-aos="fade-up">
-                <div class="subtitle">WHY SETCONNECT</div>
-                <h2>What Sets Us Apart</h2>
-                <p>We bring a unique combination of speed, executive focus, and measurable outcomes to every AI
-                    engagement.</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="why-card">
-                        <div class="why-icon"><i class="bi bi-bullseye"></i></div>
-                        <h4>Outcome-First Methodology</h4>
-                        <p>We measure AI success by business results — revenue growth, cost reduction, and operational
-                            efficiency — not by technology deployment alone.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="why-card">
-                        <div class="why-icon"><i class="bi bi-lightning-charge"></i></div>
-                        <h4>14-Day Rapid Roadmap</h4>
-                        <p>From initial assessment to an actionable AI strategy in just 14 days — 3x faster than
-                            traditional consulting engagements.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="why-card">
-                        <div class="why-icon"><i class="bi bi-person-badge"></i></div>
-                        <h4>Executive-Led Approach</h4>
-                        <p>Our programs are designed for C-suite and functional leaders who drive strategy — not just IT
-                            teams implementing tools.</p>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="playbook-visual">
+                        <div class="playbook-stages">
+                            <div class="playbook-stage">
+                                <div class="stage-num">1</div>
+                                <div class="stage-info">
+                                    <h5>AI Discovery</h5>
+                                    <p>Understand AI fundamentals & frame the right problems</p>
+                                </div>
+                            </div>
+                            <div class="playbook-stage">
+                                <div class="stage-num">2</div>
+                                <div class="stage-info">
+                                    <h5>AI Immersion</h5>
+                                    <p>Identify & prioritize high-value AI opportunities</p>
+                                </div>
+                            </div>
+                            <div class="playbook-stage">
+                                <div class="stage-num">3</div>
+                                <div class="stage-info">
+                                    <h5>AI Activation</h5>
+                                    <p>Test hypotheses & validate outcomes with data</p>
+                                </div>
+                            </div>
+                            <div class="playbook-stage">
+                                <div class="stage-num">4</div>
+                                <div class="stage-info">
+                                    <h5>AI Scale</h5>
+                                    <p>Build foundations for repeatable business value</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══ WHO WE SERVE — Icon Cards ══ -->
-    <section class="serve-section">
+    <!-- ══════════════════════════════════════════════
+         2. WHO WE SERVE — 3 Icon Cards
+         ══════════════════════════════════════════════ -->
+    <section class="serve-section" id="who-we-serve">
         <div class="container">
             <div class="section-header-modern text-center mb-5" data-aos="fade-up">
                 <div class="subtitle">WHO WE SERVE</div>
-                <h2>Built for Leaders</h2>
-                <p>Executives, Functional Leaders, and Managers who lead the business strategy, redefine business
-                    processes, and identify business opportunities to achieve transformative outcomes.</p>
+                <h2>Built for Leaders Who Drive Change</h2>
+                <p>We work with decision-makers who shape AI strategy, redesign workflows, and lead business
+                    transformation.</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="serve-card">
                         <div class="serve-icon"><i class="bi bi-building"></i></div>
-                        <h4>C-Suite Executives</h4>
-                        <p>Drive enterprise-wide AI strategy, align board priorities with AI investment, and achieve
-                            competitive differentiation through data-driven leadership.</p>
+                        <h4>Executives</h4>
+                        <p>Shaping AI strategy and transformation at the enterprise level — aligning board priorities with
+                            AI investment for competitive advantage.</p>
                     </div>
                 </div>
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="serve-card">
                         <div class="serve-icon"><i class="bi bi-diagram-3"></i></div>
                         <h4>Functional Leaders</h4>
-                        <p>Reengineer core business processes, identify high-ROI AI use cases, and lead cross-functional
-                            teams through measurable AI transformation.</p>
+                        <p>Redesigning decisions and workflows — identifying high-ROI AI use cases and leading
+                            cross-functional teams through measurable transformation.</p>
                     </div>
                 </div>
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="serve-card">
                         <div class="serve-icon"><i class="bi bi-people"></i></div>
-                        <h4>Project Managers</h4>
-                        <p>Gain the practical AI execution playbook — from scoping and data readiness to model
-                            validation and stakeholder buy-in at every stage.</p>
+                        <h4>Managers</h4>
+                        <p>Responsible for business performance, adoption, and execution — gaining the practical playbook
+                            from scoping and data readiness to stakeholder buy-in.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══ SERVICE DETAIL CARDS WITH OUTCOMES ══ -->
-    <section class="services-label">
+    <!-- ══════════════════════════════════════════════
+         3. THE AI SUCCESS PLAYBOOK — 4 Service Cards
+         ══════════════════════════════════════════════ -->
+    <section class="playbook-section" id="playbook">
         <div class="container text-center" data-aos="fade-up">
-            <div class="subtitle">WHAT WE OFFER</div>
-            <h2 style="color:#fff; font-size:48px; margin-bottom: 10px;">Our Four-Stage AI Framework</h2>
-            <p style="color:rgba(255,255,255,0.7); max-width:700px; margin: 0 auto 50px; font-size:18px;">
-                A structured, repeatable path from AI readiness to scaled deployment
+            <div class="subtitle" style="color: var(--cyan); font-size:13px; letter-spacing:2px; font-weight:600; text-transform:uppercase; margin-bottom:12px;">
+                OUR CORE SERVICES</div>
+            <h2 style="color:#fff; font-size:48px; margin-bottom: 10px;">The AI Success Playbook</h2>
+            <p style="color:rgba(255,255,255,0.7); max-width:750px; margin: 0 auto 10px; font-size:18px;">
+                Our services are designed as a connected journey. We help organizations move from understanding AI,
+                to selecting the right initiatives, to validating solutions, to building scalable data and operating
+                foundations.
             </p>
         </div>
     </section>
-    <section class="services-detail pt-0">
-        <div class="container-fluid" style="max-width: 90%;">
+
+    <section class="playbook-cards-section">
+        <div class="container-fluid" style="max-width: 92%;">
+            <div class="playbook-progress" data-aos="fade-up">
+                <!-- Card 1: AI Discovery -->
+                <div class="playbook-card-wrapper">
+                    <div class="playbook-card" id="discovery">
+                        <div class="playbook-card-header">
+                            <div class="card-step">1</div>
+                            <span class="stage-tag">Learn</span>
+                            <h3>AI Discovery</h3>
+                        </div>
+                        <div class="playbook-card-body">
+                            <p>A business-first introduction to AI for leaders. We help teams understand AI fundamentals,
+                                what makes initiatives succeed or fail, and how to frame the right business problems before
+                                investing in execution.</p>
+                            <button class="what-you-get-toggle" onclick="toggleList(this)">
+                                What clients get <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <ul class="what-you-get-list">
+                                <li><i class="bi bi-check-circle-fill"></i> Leadership alignment on AI possibilities</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Initial opportunity framing</li>
+                                <li><i class="bi bi-check-circle-fill"></i> 30, 60, 90, 120 and 180 day roadmap</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Early AI Playbook direction</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: AI Immersion -->
+                <div class="playbook-card-wrapper">
+                    <div class="playbook-card" id="immersion">
+                        <div class="playbook-card-header">
+                            <div class="card-step">2</div>
+                            <span class="stage-tag">Prioritize</span>
+                            <h3>AI Immersion</h3>
+                        </div>
+                        <div class="playbook-card-body">
+                            <p>A hands-on working session for leaders and teams to identify, shape, and prioritize
+                                high-value AI opportunities tied to ROI.</p>
+                            <button class="what-you-get-toggle" onclick="toggleList(this)">
+                                What clients get <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <ul class="what-you-get-list">
+                                <li><i class="bi bi-check-circle-fill"></i> Prioritized initiative list</li>
+                                <li><i class="bi bi-check-circle-fill"></i> AI opportunity assessment</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Use-case framing</li>
+                                <li><i class="bi bi-check-circle-fill"></i> First-pass roadmap</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: AI Activation -->
+                <div class="playbook-card-wrapper">
+                    <div class="playbook-card" id="activation">
+                        <div class="playbook-card-header">
+                            <div class="card-step">3</div>
+                            <span class="stage-tag">Validate</span>
+                            <h3>AI Activation</h3>
+                        </div>
+                        <div class="playbook-card-body">
+                            <p>We help move priority AI ideas into structured execution by testing hypotheses, using data to
+                                validate outcomes, and shaping the evidence needed for broader adoption.</p>
+                            <button class="what-you-get-toggle" onclick="toggleList(this)">
+                                What clients get <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <ul class="what-you-get-list">
+                                <li><i class="bi bi-check-circle-fill"></i> Pilot framing and validation</li>
+                                <li><i class="bi bi-check-circle-fill"></i> KPI and hypothesis definition</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Analytics and model support</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Decision-ready business story</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: AI Scale -->
+                <div class="playbook-card-wrapper">
+                    <div class="playbook-card" id="scale">
+                        <div class="playbook-card-header">
+                            <div class="card-step">4</div>
+                            <span class="stage-tag">Scale</span>
+                            <h3>AI Scale</h3>
+                        </div>
+                        <div class="playbook-card-body">
+                            <p>We prepare the data, partnerships, and operating foundations needed to scale AI beyond pilots
+                                and into repeatable business value.</p>
+                            <button class="what-you-get-toggle" onclick="toggleList(this)">
+                                What clients get <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <ul class="what-you-get-list">
+                                <li><i class="bi bi-check-circle-fill"></i> Data readiness assessment</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Data sourcing and cleansing direction</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Scale architecture support</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Partner ecosystem alignment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         4. HOW WE APPLY THESE SERVICES — 3 Proof Cards
+         ══════════════════════════════════════════════ -->
+    <section class="proof-section" id="proof">
+        <div class="container">
+            <div class="section-header-modern text-center mb-5" data-aos="fade-up">
+                <div class="subtitle">HOW WE APPLY THESE SERVICES</div>
+                <h2>Proven Results Across Industries</h2>
+                <p>Each engagement is tied to our service framework — from Discovery through Scale — delivering measurable
+                    outcomes for global enterprises.</p>
+            </div>
             <div class="row g-4">
-                <!-- AI Discovery -->
-                <div class="col-lg-3" data-aos="fade-up">
-                    <div id="discovery" class="service-detail-card centered">
-                        <div class="service-icon-wrapper">
-                            <img src="images/ai-discovery-updated.webp" alt="AI Discovery" class="service-image">
+                <!-- ZF Group -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="proof-card">
+                        <img src="images/ZF-logo.webp" alt="ZF Group" class="client-logo-img">
+                        <div class="service-tags">
+                            <span class="service-tag">Immersion</span>
+                            <span class="service-tag">Activation</span>
                         </div>
-                        <h2 class="mt-4"><i class="bi bi-search me-2"></i>AI Discovery</h2>
-                        <p class="mb-3">Expert insights on AI models, project
-                            success factors, and business
-                            playbooks.</p>
-                        <ul class="service-outcomes">
-                            <li><i class="bi bi-check-circle-fill"></i>AI Readiness Assessment</li>
-                            <li><i class="bi bi-check-circle-fill"></i>Business Case & ROI Mapping</li>
-                            <li><i class="bi bi-check-circle-fill"></i>14-Day AI Roadmap Delivery</li>
-                        </ul>
-                        <a href="https://www.setconnect.ai/s/SetConnect-AI-Discovery-Brochure-r38s.pdf" target="_blank"
-                            class="btn-cyan mt-3">For More Info <i class="bi bi-arrow-right ms-2"></i></a>
+                        <h4>ZF Group</h4>
+                        <p class="problem-line">Needed to reduce manufacturing waste through AI-powered defect detection
+                            and predictive quality models in automotive production.</p>
+                        <p class="relevance-line">AI-Driven Innovation in Automotive — from workshop to deployed quality
+                            intelligence.</p>
+                        <a href="casestudies/zf-automotive.html" class="case-link">Read case study <i
+                                class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <!-- AI Immersion -->
-                <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                    <div id="immersion" class="service-detail-card centered">
-                        <div class="service-icon-wrapper">
-                            <img src="images/ai-immersion.webp" alt="AI Immersion" class="service-image">
+                <!-- Lucas TVS -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="proof-card">
+                        <img src="images/lucas-tvs+(1).webp" alt="Lucas TVS" class="client-logo-img">
+                        <div class="service-tags">
+                            <span class="service-tag">Discovery</span>
+                            <span class="service-tag">Immersion</span>
                         </div>
-                        <h2 class="mt-4"><i class="bi bi-lightbulb me-2"></i>AI Immersion
-                        </h2>
-                        <p class="mb-3">Immerse your team in AI leadership
-                            and identify high-value initiatives for
-                            ROI.</p>
-                        <ul class="service-outcomes">
-                            <li><i class="bi bi-check-circle-fill"></i>Executive AI Leadership Workshops</li>
-                            <li><i class="bi bi-check-circle-fill"></i>Use Case Prioritization Framework</li>
-                            <li><i class="bi bi-check-circle-fill"></i>AI Culture & Change Readiness</li>
-                        </ul>
-                        <a href="https://setconnectglobal-immersion.com/" target="_blank" class="btn-cyan mt-3">For More
-                            Info <i class="bi bi-arrow-right ms-2"></i></a>
+                        <h4>Lucas TVS</h4>
+                        <p class="problem-line">Required AI-optimized inventory and supply chain forecasting to eliminate
+                            excess stock and drive procurement efficiency.</p>
+                        <p class="relevance-line">AI-Powered Supply Chain & Procurement Optimization across operations.</p>
+                        <a href="casestudies/lucas-tvs.html" class="case-link">Read case study <i
+                                class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <!-- AI Activation -->
-                <div class="col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                    <div id="activation" class="service-detail-card centered">
-                        <div class="service-icon-wrapper">
-                            <img src="images/ai-activation-updated.webp" alt="AI Activation" class="service-image">
+                <!-- Vedanta Limited -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="proof-card">
+                        <img src="images/vedanta+(1).webp" alt="Vedanta Limited" class="client-logo-img">
+                        <div class="service-tags">
+                            <span class="service-tag">Discovery</span>
+                            <span class="service-tag">Immersion</span>
+                            <span class="service-tag">Activation</span>
                         </div>
-                        <h2 class="mt-4"><i class="bi bi-rocket-takeoff me-2"></i>AI
-                            Activation</h2>
-                        <p class="mb-3">Test models, leverage data, and
-                            build analytics to drive scalable
-                            outcomes.</p>
-                        <ul class="service-outcomes">
-                            <li><i class="bi bi-check-circle-fill"></i>Pilot Model Testing & Validation</li>
-                            <li><i class="bi bi-check-circle-fill"></i>Data Architecture & Engineering</li>
-                            <li><i class="bi bi-check-circle-fill"></i>Analytics Dashboard Delivery</li>
-                        </ul>
-                        <a href="#" class="btn-cyan mt-3">For More Info <i class="bi bi-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-
-                <!-- AI Scale -->
-                <div class="col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                    <div id="scale" class="service-detail-card centered">
-                        <div class="service-icon-wrapper">
-                            <img src="images/ai-scale.webp" alt="AI Scale" class="service-image">
-                        </div>
-                        <h2 class="mt-4"><i class="bi bi-graph-up-arrow me-2"></i>AI Scale
-                        </h2>
-                        <p class="mb-3">Ensure model-ready data through
-                            cleansing, mining, and trusted
-                            ecosystems.</p>
-                        <ul class="service-outcomes">
-                            <li><i class="bi bi-check-circle-fill"></i>Enterprise-Wide AI Rollout</li>
-                            <li><i class="bi bi-check-circle-fill"></i>Data Quality & Governance</li>
-                            <li><i class="bi bi-check-circle-fill"></i>AI CoE Design & Enablement</li>
-                        </ul>
-                        <a href="#" class="btn-cyan mt-3">For More Info <i class="bi bi-arrow-right ms-2"></i></a>
+                        <h4>Vedanta Limited</h4>
+                        <p class="problem-line">Embarked on enterprise-wide AI transformation requiring leadership
+                            alignment, workforce enablement, and scalable automation.</p>
+                        <p class="relevance-line">Enterprise-Wide AI Transformation — from strategy to shop-floor
+                            adoption.</p>
+                        <a href="casestudies/vedanta.html" class="case-link">Read case study <i
+                                class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══ WHAT YOU GET — Deliverables ══ -->
-    <section class="deliverables-section">
+    <!-- ══════════════════════════════════════════════
+         5. WHY SETCONNECT — Dark Band, 4 Tiles
+         ══════════════════════════════════════════════ -->
+    <section class="why-band" id="why-setconnect">
         <div class="container">
             <div class="section-header-modern text-center mb-5" data-aos="fade-up">
-                <div class="subtitle">WHAT YOU GET</div>
-                <h2>Tangible Deliverables, Not Just Advice</h2>
-                <p>Every engagement produces concrete, actionable outputs that drive your AI journey forward.</p>
+                <div class="subtitle">WHY SETCONNECT</div>
+                <h2>What Sets Us Apart</h2>
+                <p>We connect business leaders with practical AI expertise, proven frameworks, and execution support — so AI
+                    initiatives are grounded in outcomes, not hype.</p>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="deliverable-card">
-                        <i class="bi bi-clipboard2-data"></i>
-                        <h5>AI Readiness Scorecard</h5>
-                        <p>A comprehensive assessment of your organization's data maturity, infrastructure, and cultural
-                            readiness for AI.</p>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="why-tile">
+                        <div class="why-tile-icon"><i class="bi bi-briefcase"></i></div>
+                        <h4>Business-Led</h4>
+                        <p>We lead with business outcomes, not technology. Every AI initiative starts with your strategic
+                            priorities and measurable goals.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
-                    <div class="deliverable-card">
-                        <i class="bi bi-kanban"></i>
-                        <h5>Prioritized Use-Case Portfolio</h5>
-                        <p>A rank-ordered list of AI opportunities mapped by business impact, feasibility, and data
-                            availability.</p>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="why-tile">
+                        <div class="why-tile-icon"><i class="bi bi-journal-check"></i></div>
+                        <h4>Structured Playbook</h4>
+                        <p>Our proven 4-stage AI Success Playbook provides a repeatable, scalable approach that eliminates
+                            guesswork from AI adoption.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="deliverable-card">
-                        <i class="bi bi-map"></i>
-                        <h5>Custom AI Roadmap</h5>
-                        <p>A phased implementation plan with milestones, resource needs, and timeline tailored to your
-                            business.</p>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="why-tile">
+                        <div class="why-tile-icon"><i class="bi bi-person-check"></i></div>
+                        <h4>Leadership Enablement</h4>
+                        <p>We don't just advise — we enable leaders and their teams to own and sustain AI transformation
+                            with hands-on execution support.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
-                    <div class="deliverable-card">
-                        <i class="bi bi-graph-up-arrow"></i>
-                        <h5>ROI & Business Case Models</h5>
-                        <p>Quantified value projections and investment rationale for stakeholder and board-level
-                            presentations.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="deliverable-card">
-                        <i class="bi bi-file-earmark-check"></i>
-                        <h5>Pilot Validation Reports</h5>
-                        <p>Documented results from AI pilot testing against real business KPIs with recommendations for
-                            scale.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
-                    <div class="deliverable-card">
-                        <i class="bi bi-building-gear"></i>
-                        <h5>AI CoE Blueprint</h5>
-                        <p>A design framework for building your internal AI Center of Excellence — people, processes,
-                            and governance.</p>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="why-tile">
+                        <div class="why-tile-icon"><i class="bi bi-globe2"></i></div>
+                        <h4>Global Expertise</h4>
+                        <p>Practical implementation experience across 3 continents — bringing deep domain knowledge from
+                            mining, automotive, and manufacturing.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══ HOW IT WORKS — Process Timeline ══ -->
-    <section class="process-timeline">
+    <!-- ══════════════════════════════════════════════
+         6. FINAL CTA
+         ══════════════════════════════════════════════ -->
+    <section class="final-cta" id="cta">
         <div class="container">
-            <div class="section-header-modern text-center mb-5" data-aos="fade-up">
-                <div class="subtitle">HOW IT WORKS</div>
-                <h2 style="color:#fff;">Your AI Journey, Step by Step</h2>
-            </div>
-            <div class="timeline-track" data-aos="fade-up" data-aos-delay="100">
-                <div class="timeline-step">
-                    <div class="timeline-bubble">1</div>
-                    <h5>Assess</h5>
-                    <p>We evaluate your AI readiness, data maturity, and strategic priorities in a structured discovery
-                        sprint.</p>
-                </div>
-                <div class="timeline-step">
-                    <div class="timeline-bubble">2</div>
-                    <h5>Strategize</h5>
-                    <p>We co-create your tailored AI roadmap with prioritized use cases, ROI models, and a governance
-                        framework.</p>
-                </div>
-                <div class="timeline-step">
-                    <div class="timeline-bubble">3</div>
-                    <h5>Execute</h5>
-                    <p>Pilot models are built, tested, and validated against real business KPIs with your team alongside
-                        ours.</p>
-                </div>
-                <div class="timeline-step">
-                    <div class="timeline-bubble">4</div>
-                    <h5>Scale</h5>
-                    <p>We help you roll out across functions, build an AI Center of Excellence, and embed AI into daily
-                        operations.</p>
-                </div>
+            <h2 data-aos="fade-up">Ready to build your AI roadmap?</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Start with a conversation about your business priorities, decision
+                bottlenecks, data readiness, and where AI can create measurable value.</p>
+            <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+                <a href="contact.html" class="btn-cyan-lg">Schedule a Consultation <i
+                        class="bi bi-arrow-right"></i></a>
+                <a href="case-studies.html" class="btn-outline-light-custom">Explore Case Studies</a>
             </div>
         </div>
     </section>
 
-    <!-- ══ INDUSTRY EXPERTISE BADGES ══ -->
-    <section class="expertise-section">
-        <div class="container text-center" data-aos="fade-up">
-            <div class="subtitle"
-                style="color: var(--cyan); font-size:13px; letter-spacing:2px; font-weight:600; text-transform:uppercase; margin-bottom:12px;">
-                INDUSTRY EXPERTISE</div>
-            <h3 style="color: #fff; font-size: 28px; margin-bottom: 0;">Domains We Specialize In</h3>
-            <div class="expertise-badges">
-                <span class="expertise-badge"><i class="bi bi-minecart-loaded"></i> Mining & Resources</span>
-                <span class="expertise-badge"><i class="bi bi-car-front"></i> Automotive</span>
-                <span class="expertise-badge"><i class="bi bi-bank"></i> Financial Services</span>
-                <span class="expertise-badge"><i class="bi bi-gear-wide-connected"></i> Manufacturing</span>
-                <span class="expertise-badge"><i class="bi bi-buildings"></i> Cement & Infrastructure</span>
-                <span class="expertise-badge"><i class="bi bi-mortarboard"></i> Education & Training</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══ OUR APPROACH + METRIC CALLOUTS ══ -->
-    <section class="approach-section">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <!-- Existing approach text -->
-                <div class="col-lg-8" data-aos="fade-right">
-                    <div class="approach-card" style="height:100%;">
-                        <h3>OUR APPROACH</h3>
-                        <h2>Structured Framework for AI Success</h2>
-                        <p>Our structured approach to AI empowers leaders to make decisions based on real business
-                            outcomes—ensuring AI is not just implemented but accelerates measurable results. Every
-                            organization
-                            needs a playbook and roadmap. Every leader needs the building blocks to drive AI success.
-                            Every team
-                            member must understand the key drivers that connect AI back to business value.</p>
-                        <p>SetConnect removes the guesswork from AI adoption. Our proven AI success framework provides
-                            clarity,
-                            eliminating ambiguity that often derails AI initiatives. Through expert guidance, immersive
-                            learning, and hands-on execution, we ensure AI strategies are scalable, sustainable, and
-                            impactful.
-                        </p>
-                        <p><strong style="color: var(--cyan);">AI success isn't about technology alone—it's about
-                                leadership,
-                                strategy, and execution. SetConnect helps organizations master all three.</strong></p>
-                    </div>
-                </div>
-                <!-- Metric callouts -->
-                <div class="col-lg-4" data-aos="fade-left" data-aos-delay="150">
-                    <div class="approach-metric">
-                        <span class="metric-num">14<span style="font-size:24px;"> days</span></span>
-                        <span class="metric-desc">Average time to deliver your AI Roadmap</span>
-                    </div>
-                    <div class="approach-metric">
-                        <span class="metric-num">3×</span>
-                        <span class="metric-desc">Faster AI adoption vs. traditional consulting</span>
-                    </div>
-                    <div class="approach-metric">
-                        <span class="metric-num">$0</span>
-                        <span class="metric-desc">Wasted on AI initiatives without a clear playbook</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══ PARTNERING FOR SUCCESS — with images ══ -->
-    <section class="services-detail">
-        <div class="container">
-            <div class="section-header-modern text-center mb-5" data-aos="fade-up">
-                <div class="subtitle">PARTNERING FOR SUCCESS</div>
-                <h2>End-to-End AI Implementation Support</h2>
-                <p>
-                    SetConnect is prepared and well versed to support your project requirements. Whether it be designing
-                    your AI Center of Excellence, supporting projects or evaluating technology.
-                </p>
-            </div>
-
-            <div class="partnership-grid">
-                <div class="partnership-card" data-aos="fade-up">
-                    <img src="images/ai-project-support.webp" alt="Smart Data Explorer">
-                    <i class="bi bi-database"></i>
-                    <h3>Smart Data Explorer</h3>
-                    <p>SetConnect's Smart Data Exploration framework helps clients identify relevant data, structure it
-                        into usable datasets, and align hypotheses with business goals. Through exploratory data
-                        analysis, we reveal actionable insights, driving smarter decisions and accelerating solutions to
-                        address critical business challenges.</p>
-                </div>
-
-                <div class="partnership-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/ai-trust-and-governance.webp" alt="AI Trust and Governance">
-                    <i class="bi bi-shield-check"></i>
-                    <h3>AI Trust and Governance</h3>
-                    <p>SetConnect expertise extends to trust, governance and security issues of AI. Trust is a critical
-                        success factor for AI. Employees need to trust employers and vice versa. We provide insights and
-                        learnings from our work with our clients to safeguard your AI programs.</p>
-                </div>
-
-                <div class="partnership-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/ai-activation-updated.webp" alt="AI Project Support">
-                    <i class="bi bi-tools"></i>
-                    <h3>AI Project Support</h3>
-                    <p>Leverage lessons learned to drive AI outcomes at scale to solve real world business problems and
-                        to capture new innovative opportunities. SetConnect can provide expertise across domains ranging
-                        from data analytics to AI model building.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══ CLIENT TESTIMONIAL QUOTE ══ -->
-    <section class="testimonial-quote-section">
-        <div class="container">
-            <div class="section-header-modern text-center mb-5" data-aos="fade-up">
-                <div class="subtitle">CLIENT VOICE</div>
-                <h2>What Leaders Say</h2>
-            </div>
-            <div class="testimonial-quote-card" data-aos="fade-up" data-aos-delay="100">
-                <span class="quote-mark">“</span>
-                <blockquote>SetConnect brought a level of clarity and speed to our AI strategy that we hadn't
-                    experienced before. In just 14 days, they delivered a roadmap that aligned our entire leadership
-                    team around a common AI vision — and more importantly, they gave us the playbook to execute it.
-                </blockquote>
-                <div class="quote-author">
-                    <div class="author-info">
-                        <span class="name">Senior Executive</span><br>
-                        <span class="role">Fortune 500 Enterprise Client</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
+    <!-- Footer -->
     <div id="global-footer-placeholder" data-root="./"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -1026,31 +1091,20 @@
     <script src="js/footer-loader.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
+
+        // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('.modern-header');
             if (window.scrollY > 50) header.classList.add('scrolled');
             else header.classList.remove('scrolled');
         });
 
-        // Animated counters
-        const counters = document.querySelectorAll('.stat-number[data-count]');
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const target = +el.getAttribute('data-count');
-                    let current = 0;
-                    const step = Math.ceil(target / 40);
-                    const timer = setInterval(() => {
-                        current = Math.min(current + step, target);
-                        el.textContent = current;
-                        if (current >= target) clearInterval(timer);
-                    }, 40);
-                    counterObserver.unobserve(el);
-                }
-            });
-        }, { threshold: 0.5 });
-        counters.forEach(c => counterObserver.observe(c));
+        // Toggle "What you get" lists
+        function toggleList(btn) {
+            const list = btn.nextElementSibling;
+            btn.classList.toggle('active');
+            list.classList.toggle('show');
+        }
     </script>
 </body>
 

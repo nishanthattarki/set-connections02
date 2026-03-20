@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="col-lg-2 mb-4">
                     <h5>Company</h5>
                     <a href="${rootPath}about.html">About Us</a>
-                    <a href="${rootPath}our-work.html">Our Work</a>
+                    <a href="${rootPath}our-services.html">Our Services</a>
                     <a href="${rootPath}case-studies.html">Case Studies</a>
                 </div>
                 <div class="col-lg-2 mb-4">
