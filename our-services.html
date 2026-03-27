@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services - SetConnect | AI Services from Strategy to Execution</title>
-    <meta name="description" content="SetConnect helps executives, functional leaders, and managers identify high-value AI opportunities, build the right roadmap, prepare data and teams, and support implementation at scale.">
+    <meta name="description"
+        content="SetConnect helps executives and leaders identify high-value AI opportunities, build roadmaps, and support implementation at scale.">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -16,44 +17,40 @@
     <link href="css/shared-styles.css" rel="stylesheet">
 
     <style>
-        /* ── HERO TWO-COLUMN ── */
+        /* ── BAIN-INSPIRED DESIGN SYSTEM ── */
+
+        /* Full-Bleed Hero */
         .hero-services {
             margin-top: 80px;
-            padding: 100px 0 80px;
-            background: linear-gradient(135deg, #1a2332 0%, #1e3a3a 50%, #0d1117 100%);
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(135deg, #1a2332 0%, #1e3a3a 50%, #0d1117 100%);
         }
 
         .hero-services::before {
             content: '';
             position: absolute;
-            right: -200px;
-            top: -200px;
-            width: 600px;
-            height: 600px;
-            background: var(--cyan);
-            opacity: 0.06;
-            border-radius: 50%;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(13, 17, 23, 0.85) 0%, rgba(26, 35, 50, 0.7) 50%, rgba(13, 17, 23, 0.6) 100%);
+            z-index: 1;
         }
 
-        .hero-services::after {
-            content: '';
-            position: absolute;
-            left: -100px;
-            bottom: -150px;
-            width: 400px;
-            height: 400px;
-            background: var(--cyan);
-            opacity: 0.04;
-            border-radius: 50%;
+        .hero-services .container {
+            position: relative;
+            z-index: 2;
         }
 
         .hero-services h1 {
-            font-size: 50px;
-            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 56px;
+            color: #fff;
             line-height: 1.15;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            font-weight: 700;
+            max-width: 650px;
         }
 
         .hero-services h1 span {
@@ -61,11 +58,12 @@
         }
 
         .hero-services .hero-sub {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.7;
-            margin-bottom: 32px;
-            max-width: 540px;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 520px;
+            font-weight: 300;
         }
 
         .hero-cta-group {
@@ -77,292 +75,257 @@
         .btn-outline-light-custom {
             background: transparent;
             color: #fff;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            padding: 12px 30px;
-            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            padding: 14px 34px;
+            border-radius: 0;
             font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             transition: all 0.3s;
             text-decoration: none;
         }
 
         .btn-outline-light-custom:hover {
-            border-color: var(--cyan);
-            color: var(--cyan);
-            background: rgba(8, 145, 178, 0.08);
-        }
-
-        /* AI Playbook Visual (right column) */
-        .playbook-visual {
-            position: relative;
-            padding: 40px 20px;
-        }
-
-        .playbook-stages {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            position: relative;
-        }
-
-        .playbook-stages::before {
-            content: '';
-            position: absolute;
-            left: 28px;
-            top: 28px;
-            bottom: 28px;
-            width: 3px;
-            background: linear-gradient(180deg, var(--cyan), #0e7490, rgba(14, 116, 144, 0.3));
-            border-radius: 2px;
-        }
-
-        .playbook-stage {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 18px 24px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 16px;
-            margin-bottom: 12px;
-            transition: all 0.35s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        .playbook-stage:hover {
-            background: rgba(8, 145, 178, 0.08);
-            border-color: rgba(8, 145, 178, 0.3);
-            transform: translateX(8px);
-        }
-
-        .playbook-stage .stage-num {
-            width: 56px;
-            height: 56px;
-            min-width: 56px;
-            background: linear-gradient(135deg, var(--cyan), #0e7490);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
+            border-color: #fff;
             color: #fff;
-            box-shadow: 0 0 0 5px rgba(8, 145, 178, 0.15);
+            background: rgba(255, 255, 255, 0.1);
         }
 
-        .playbook-stage .stage-info h5 {
+        .btn-primary-bain {
+            background: var(--cyan);
             color: #fff;
-            font-size: 17px;
-            margin-bottom: 3px;
+            border: 2px solid var(--cyan);
+            padding: 14px 34px;
+            border-radius: 0;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .playbook-stage .stage-info p {
-            color: rgba(255, 255, 255, 0.55);
-            font-size: 13px;
-            margin: 0;
-            line-height: 1.4;
+        .btn-primary-bain:hover {
+            background: #0e7490;
+            border-color: #0e7490;
+            color: #fff;
         }
 
         @media (max-width: 992px) {
             .hero-services {
-                padding: 80px 0 60px;
-                text-align: center;
+                min-height: 70vh;
             }
 
             .hero-services h1 {
-                font-size: 36px;
+                font-size: 40px;
             }
+        }
 
-            .hero-services .hero-sub {
-                margin: 0 auto 28px;
-            }
+        /* ── WHITE SECTIONS (Bain-style) ── */
+        .section-light {
+            padding: 100px 0;
+            background: #ffffff;
+        }
 
-            .hero-cta-group {
-                justify-content: center;
-            }
+        .section-light-alt {
+            padding: 100px 0;
+            background: #f7f8fa;
+        }
 
-            .playbook-visual {
-                margin-top: 40px;
-            }
+        .section-dark {
+            padding: 100px 0;
+            background: #0d1117;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.15;
+        }
+
+        .section-heading-dark {
+            color: #1a1a1a;
+        }
+
+        .section-heading-light {
+            color: #ffffff;
+        }
+
+        .section-desc {
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 640px;
+            font-weight: 300;
+        }
+
+        .section-desc-dark {
+            color: #555;
+        }
+
+        .section-desc-light {
+            color: rgba(255, 255, 255, 0.7);
         }
 
         /* ── WHO WE SERVE ── */
-        .serve-section {
-            padding: 80px 0;
-            background: #0f1419;
-        }
-
-        .serve-card {
-            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 44px 32px;
+        .serve-card-bain {
+            padding: 48px 36px;
+            border: 1px solid #e8e8e8;
+            background: #fff;
+            transition: all 0.4s ease;
             height: 100%;
-            transition: all 0.35s ease;
-            text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .serve-card::before {
+        .serve-card-bain::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--cyan), #0e7490);
-            transform: scaleX(0);
-            transition: transform 0.35s ease;
+            width: 4px;
+            height: 0;
+            background: var(--cyan);
+            transition: height 0.4s ease;
         }
 
-        .serve-card:hover::before {
-            transform: scaleX(1);
+        .serve-card-bain:hover::before {
+            height: 100%;
         }
 
-        .serve-card:hover {
-            border-color: rgba(8, 145, 178, 0.4);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.2);
+        .serve-card-bain:hover {
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
         }
 
-        .serve-card .serve-icon {
-            width: 72px;
-            height: 72px;
-            background: linear-gradient(135deg, rgba(8, 145, 178, 0.2), rgba(8, 145, 178, 0.05));
-            border: 1px solid rgba(8, 145, 178, 0.3);
-            border-radius: 50%;
+        .serve-card-bain .serve-icon-bain {
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 24px;
+            margin-bottom: 28px;
         }
 
-        .serve-card .serve-icon i {
-            font-size: 30px;
+        .serve-card-bain .serve-icon-bain i {
+            font-size: 36px;
             color: var(--cyan);
         }
 
-        .serve-card h4 {
-            color: #fff;
-            font-size: 20px;
+        .serve-card-bain h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            color: #1a1a1a;
             margin-bottom: 12px;
+            font-weight: 700;
         }
 
-        .serve-card p {
-            color: rgba(255, 255, 255, 0.65);
-            font-size: 14.5px;
+        .serve-card-bain p {
+            color: #666;
+            font-size: 15px;
             line-height: 1.7;
             margin: 0;
         }
 
-        /* ── AI SUCCESS PLAYBOOK — SERVICE CARDS ── */
-        .playbook-section {
-            padding: 80px 0 40px;
-            background: #0d1117;
-        }
-
-        .playbook-cards-section {
-            padding: 0 0 80px;
-            background: #0d1117;
-        }
-
-        /* Horizontal progress connector */
-        .playbook-progress {
+        /* ── AI SUCCESS PLAYBOOK — HORIZONTAL TIMELINE ── */
+        .playbook-timeline {
             display: flex;
-            align-items: flex-start;
             gap: 0;
             position: relative;
+            margin-top: 60px;
         }
 
-        .playbook-progress::before {
+        .playbook-timeline::before {
             content: '';
             position: absolute;
-            top: 36px;
-            left: calc(12.5%);
-            width: 75%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--cyan), #0e7490, rgba(14, 116, 144, 0.4));
-            z-index: 0;
+            top: 55px;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cyan), #0e7490, rgba(14, 116, 144, 0.3));
         }
 
-        .playbook-card-wrapper {
+        .timeline-step {
             flex: 1;
             position: relative;
+            padding: 0 20px;
             z-index: 1;
-            padding: 0 10px;
         }
 
-        .playbook-card {
-            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 0;
-            overflow: hidden;
-            transition: all 0.35s ease;
-            height: 100%;
-        }
-
-        .playbook-card:hover {
-            border-color: rgba(8, 145, 178, 0.4);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.18);
-        }
-
-        .playbook-card-header {
-            text-align: center;
-            padding: 28px 24px 20px;
-        }
-
-        .playbook-card-header .card-step {
-            width: 72px;
-            height: 72px;
-            background: linear-gradient(135deg, var(--cyan), #0e7490);
+        .step-number {
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--cyan);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 16px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 24px;
+            margin: 0 auto 24px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .step-number:hover {
+            background: var(--cyan);
+            transform: scale(1.08);
+        }
+
+        .step-number:hover .step-num-text,
+        .step-number:hover .step-phase-text {
+            color: #fff;
+        }
+
+        .step-num-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
             font-weight: 700;
-            color: #fff;
-            box-shadow: 0 0 0 6px rgba(8, 145, 178, 0.15);
-        }
-
-        .playbook-card-header h3 {
-            font-size: 22px;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .playbook-card-header .stage-tag {
-            display: inline-block;
-            background: rgba(8, 145, 178, 0.12);
-            border: 1px solid rgba(8, 145, 178, 0.3);
             color: var(--cyan);
+            line-height: 1;
+            transition: color 0.3s;
+        }
+
+        .step-phase-text {
             font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            padding: 3px 12px;
-            border-radius: 20px;
-            margin-bottom: 12px;
+            color: #888;
+            font-weight: 600;
+            transition: color 0.3s;
         }
 
-        .playbook-card-body {
-            padding: 0 24px 28px;
+        .timeline-step h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            color: #1a1a1a;
+            text-align: center;
+            margin-bottom: 10px;
         }
 
-        .playbook-card-body p {
-            color: rgba(255, 255, 255, 0.7);
+        .timeline-step p {
+            color: #666;
             font-size: 14px;
-            line-height: 1.65;
-            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 16px;
         }
 
-        .what-you-get-toggle {
+        .deliverable-toggle {
             background: none;
             border: none;
             color: var(--cyan);
@@ -372,24 +335,25 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            padding: 8px 0;
+            margin: 0 auto;
+            padding: 6px 0;
             transition: gap 0.2s;
             font-family: 'Inter', sans-serif;
         }
 
-        .what-you-get-toggle:hover {
+        .deliverable-toggle:hover {
             gap: 10px;
         }
 
-        .what-you-get-toggle i {
+        .deliverable-toggle i {
             transition: transform 0.3s;
         }
 
-        .what-you-get-toggle.active i {
+        .deliverable-toggle.active i {
             transform: rotate(180deg);
         }
 
-        .what-you-get-list {
+        .deliverable-list {
             list-style: none;
             padding: 0;
             margin: 0;
@@ -398,315 +362,348 @@
             transition: max-height 0.4s ease, padding 0.3s ease;
         }
 
-        .what-you-get-list.show {
+        .deliverable-list.show {
             max-height: 300px;
             padding-top: 12px;
         }
 
-        .what-you-get-list li {
-            padding: 7px 0;
-            color: rgba(255, 255, 255, 0.72);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        .deliverable-list li {
+            padding: 6px 0;
+            color: #666;
             font-size: 13px;
             display: flex;
             align-items: center;
             gap: 8px;
+            border-bottom: 1px solid #eee;
         }
 
-        .what-you-get-list li:last-child {
+        .deliverable-list li:last-child {
             border: none;
         }
 
-        .what-you-get-list li i {
+        .deliverable-list li i {
             color: var(--cyan);
-            font-size: 13px;
+            font-size: 12px;
             flex-shrink: 0;
         }
 
         @media (max-width: 992px) {
-            .playbook-progress {
+            .playbook-timeline {
                 flex-direction: column;
-                gap: 20px;
+                gap: 40px;
             }
 
-            .playbook-progress::before {
+            .playbook-timeline::before {
                 display: none;
             }
 
-            .playbook-card-wrapper {
+            .timeline-step {
                 padding: 0;
             }
         }
 
-        /* ── HOW WE APPLY THESE SERVICES — PROOF CARDS ── */
-        .proof-section {
-            padding: 80px 0;
-            background: #0f1419;
+        /* ── CLIENT RESULTS — BAIN "BOLD STEPS" STYLE ── */
+        .results-section {
+            padding: 100px 0;
+            background: #0d1117;
         }
 
-        .proof-card {
-            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 36px 32px;
-            height: 100%;
-            transition: all 0.35s ease;
-            position: relative;
+        .result-card-bain {
+            display: flex;
+            background: #1a2332;
             overflow: hidden;
+            margin-bottom: 40px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .result-card-bain:hover {
+            border-color: rgba(8, 145, 178, 0.3);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .result-content {
+            flex: 1;
+            padding: 56px 48px;
             display: flex;
             flex-direction: column;
+            justify-content: center;
         }
 
-        .proof-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--cyan), transparent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .proof-card:hover::after {
-            transform: scaleX(1);
-        }
-
-        .proof-card:hover {
-            border-color: rgba(8, 145, 178, 0.35);
-            transform: translateY(-8px);
-            box-shadow: 0 24px 60px rgba(8, 145, 178, 0.18);
-        }
-
-        .proof-card .client-logo-img {
-            max-width: 140px;
-            height: 50px;
-            object-fit: contain;
-            margin-bottom: 20px;
-            filter: brightness(0.9);
-            transition: filter 0.3s;
-        }
-
-        .proof-card:hover .client-logo-img {
-            filter: brightness(1.1);
-        }
-
-        .proof-card .service-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
+        .result-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            font-weight: 700;
             margin-bottom: 16px;
         }
 
-        .proof-card .service-tag {
-            display: inline-block;
-            background: rgba(8, 145, 178, 0.12);
-            border: 1px solid rgba(8, 145, 178, 0.3);
-            color: var(--cyan);
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            padding: 3px 10px;
-            border-radius: 20px;
-        }
-
-        .proof-card h4 {
+        .result-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
             color: #fff;
-            font-size: 20px;
-            margin-bottom: 8px;
+            font-size: 28px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            line-height: 1.3;
         }
 
-        .proof-card .problem-line {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 8px;
+        .result-content .result-desc {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 28px;
         }
 
-        .proof-card .relevance-line {
-            color: rgba(255, 255, 255, 0.55);
-            font-size: 13px;
-            font-style: italic;
+        .result-metrics {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 28px;
+        }
+
+        .metric-item {
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .metric-item .metric-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--cyan);
+            line-height: 1;
+        }
+
+        .metric-item .metric-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        .result-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
             margin-bottom: 20px;
         }
 
-        .proof-card .case-link {
-            font-size: 14px;
-            font-weight: 600;
+        .result-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             color: var(--cyan);
+            border: 1px solid rgba(8, 145, 178, 0.4);
+            padding: 4px 12px;
+        }
+
+        .result-link {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #fff;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             transition: gap 0.2s;
-            margin-top: auto;
         }
 
-        .proof-card .case-link:hover {
-            gap: 10px;
+        .result-link:hover {
+            color: var(--cyan);
+            gap: 14px;
         }
 
-        /* ── WHY SETCONNECT ── */
-        .why-band {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #0d1117 0%, #1a2332 50%, #0d1117 100%);
-            border-top: 1px solid rgba(8, 145, 178, 0.15);
-            border-bottom: 1px solid rgba(8, 145, 178, 0.15);
-        }
-
-        .why-tile {
-            text-align: center;
-            padding: 36px 24px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            border-radius: 20px;
-            height: 100%;
-            transition: all 0.35s ease;
+        .result-image {
+            width: 45%;
+            min-height: 320px;
+            background-size: cover;
+            background-position: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .why-tile::before {
+        .result-image::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 3px;
-            background: var(--cyan);
-            opacity: 0;
-            transition: opacity 0.3s, width 0.3s;
+            inset: 0;
+            background: linear-gradient(90deg, #1a2332 0%, transparent 30%);
         }
 
-        .why-tile:hover::before {
-            opacity: 1;
-            width: 80%;
+        .result-card-bain:nth-child(even) {
+            flex-direction: row-reverse;
         }
 
-        .why-tile:hover {
-            border-color: rgba(8, 145, 178, 0.3);
-            transform: translateY(-6px);
-            box-shadow: 0 16px 48px rgba(8, 145, 178, 0.12);
-            background: rgba(8, 145, 178, 0.05);
+        .result-card-bain:nth-child(even) .result-image::before {
+            background: linear-gradient(-90deg, #1a2332 0%, transparent 30%);
         }
 
-        .why-tile .why-tile-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, rgba(8, 145, 178, 0.2), rgba(8, 145, 178, 0.05));
-            border: 1px solid rgba(8, 145, 178, 0.3);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            transition: transform 0.3s;
+        @media (max-width: 992px) {
+            .result-card-bain,
+            .result-card-bain:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .result-image {
+                width: 100%;
+                min-height: 220px;
+            }
+
+            .result-image::before,
+            .result-card-bain:nth-child(even) .result-image::before {
+                background: linear-gradient(0deg, #1a2332 0%, transparent 40%);
+            }
+
+            .result-content {
+                padding: 36px 28px;
+            }
+
+            .result-metrics {
+                flex-direction: column;
+                gap: 16px;
+            }
         }
 
-        .why-tile:hover .why-tile-icon {
-            transform: scale(1.1);
+        /* ── WHY SETCONNECT — DARK BAND ── */
+        .why-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
         }
 
-        .why-tile .why-tile-icon i {
-            font-size: 28px;
+        .why-item {
+            text-align: center;
+            padding: 40px 24px;
+            position: relative;
+        }
+
+        .why-item::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .why-item:last-child::after {
+            display: none;
+        }
+
+        .why-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
             color: var(--cyan);
+            line-height: 1;
+            margin-bottom: 8px;
         }
 
-        .why-tile h4 {
+        .why-item h4 {
+            font-family: 'Space Grotesk', sans-serif;
             color: #fff;
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: 10px;
+            font-weight: 600;
         }
 
-        .why-tile p {
-            color: rgba(255, 255, 255, 0.6);
+        .why-item p {
+            color: rgba(255, 255, 255, 0.55);
             font-size: 14px;
             line-height: 1.65;
             margin: 0;
         }
 
+        @media (max-width: 768px) {
+            .why-item::after {
+                display: none;
+            }
+
+            .why-item {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            }
+        }
+
         /* ── FINAL CTA ── */
-        .final-cta {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #1e3a3a 0%, #134e4a 50%, #0d1117 100%);
-            text-align: center;
+        .cta-fullbleed {
             position: relative;
+            padding: 120px 0;
+            background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&q=80') center/cover no-repeat;
+            text-align: center;
             overflow: hidden;
         }
 
-        .final-cta::before {
+        .cta-fullbleed::before {
             content: '';
             position: absolute;
-            left: 50%;
-            top: -100px;
-            transform: translateX(-50%);
-            width: 500px;
-            height: 500px;
-            background: var(--cyan);
-            opacity: 0.06;
-            border-radius: 50%;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(13, 17, 23, 0.9) 0%, rgba(30, 58, 58, 0.85) 50%, rgba(13, 17, 23, 0.9) 100%);
         }
 
-        .final-cta h2 {
-            font-size: 44px;
-            color: #fff;
-            margin-bottom: 18px;
+        .cta-fullbleed .container {
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
-        .final-cta p {
+        .cta-fullbleed h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-fullbleed p {
             font-size: 18px;
             color: rgba(255, 255, 255, 0.8);
-            max-width: 650px;
-            margin: 0 auto 36px;
+            max-width: 560px;
+            margin: 0 auto 40px;
             line-height: 1.7;
-            position: relative;
-            z-index: 1;
+            font-weight: 300;
         }
 
-        .final-cta .cta-buttons {
+        .cta-buttons-group {
             display: flex;
             gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-
-        .btn-cyan-lg {
-            background: var(--cyan);
-            color: #fff;
-            padding: 14px 36px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 16px;
-            border: none;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-cyan-lg:hover {
-            background: #0e7490;
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(8, 145, 178, 0.4);
-            color: #fff;
         }
 
         @media (max-width: 768px) {
-            .final-cta h2 {
-                font-size: 32px;
+            .cta-fullbleed h2 {
+                font-size: 34px;
+            }
+
+            .section-heading {
+                font-size: 34px;
             }
         }
-    </style>
 
+        /* ── THIN DIVIDER ── */
+        .thin-divider {
+            border: none;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 0;
+        }
+
+        /* ── LOGO IMAGES IN RESULTS ── */
+        .result-logo {
+            max-width: 140px;
+            height: 45px;
+            object-fit: contain;
+            margin-bottom: 16px;
+            filter: brightness(0) invert(1) opacity(0.7);
+            transition: filter 0.3s;
+        }
+
+        .result-card-bain:hover .result-logo {
+            filter: brightness(0) invert(1) opacity(1);
+        }
+    </style>
 </head>
 
 <body>
@@ -725,6 +722,7 @@
                     <ul class="navbar-nav nav-modern ms-auto align-items-center">
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link active" href="our-services.html">Our Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ourservices-2.html">Services V2</a></li>
                         <li class="nav-item"><a class="nav-link" href="setconnections.html">SetConnections</a></li>
                         <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
                         <li class="nav-item"><a class="nav-link" href="ai-blogs.html">AI Blogs</a></li>
@@ -737,330 +735,299 @@
     </header>
 
     <!-- ══════════════════════════════════════════════
-         1. HERO SECTION — Two-Column Layout
+         1. HERO — Full-Bleed Image
          ══════════════════════════════════════════════ -->
     <section class="hero-services" id="hero">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <h1>AI services that move from <span>strategy to execution</span></h1>
-                    <p class="hero-sub">SetConnect helps executives, functional leaders, and managers identify high-value
-                        AI opportunities, build the right roadmap, prepare data and teams, and support implementation at
-                        scale.</p>
-                    <div class="hero-cta-group">
-                        <a href="contact.html" class="btn-cyan">Book a Discovery Conversation <i
-                                class="bi bi-arrow-right ms-1"></i></a>
-                        <a href="case-studies.html" class="btn-outline-light-custom">View Case Studies</a>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-                    <div class="playbook-visual">
-                        <div class="playbook-stages">
-                            <div class="playbook-stage">
-                                <div class="stage-num">1</div>
-                                <div class="stage-info">
-                                    <h5>AI Discovery</h5>
-                                    <p>Understand AI fundamentals & frame the right problems</p>
-                                </div>
-                            </div>
-                            <div class="playbook-stage">
-                                <div class="stage-num">2</div>
-                                <div class="stage-info">
-                                    <h5>AI Immersion</h5>
-                                    <p>Identify & prioritize high-value AI opportunities</p>
-                                </div>
-                            </div>
-                            <div class="playbook-stage">
-                                <div class="stage-num">3</div>
-                                <div class="stage-info">
-                                    <h5>AI Activation</h5>
-                                    <p>Test hypotheses & validate outcomes with data</p>
-                                </div>
-                            </div>
-                            <div class="playbook-stage">
-                                <div class="stage-num">4</div>
-                                <div class="stage-info">
-                                    <h5>AI Scale</h5>
-                                    <p>Build foundations for repeatable business value</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div data-aos="fade-up">
+                <p class="hero-sub" style="margin-bottom:12px; font-size:12px; letter-spacing:3px; text-transform:uppercase; font-weight:600; color:var(--cyan);">
+                    OUR SERVICES</p>
+                <h1>AI services that move from <span>strategy to execution</span></h1>
+                <p class="hero-sub">Helping leaders identify high-value AI opportunities, build the right roadmap, and
+                    support implementation at scale.</p>
+                <div class="hero-cta-group">
+                    <a href="contact.html" class="btn-primary-bain">Book a Discovery Conversation <i
+                            class="bi bi-arrow-right"></i></a>
+                    <a href="case-studies.html" class="btn-outline-light-custom">View Case Studies</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ══════════════════════════════════════════════
-         2. WHO WE SERVE — 3 Icon Cards
+         2. WHO WE SERVE — White Section, 3 Cards
          ══════════════════════════════════════════════ -->
-    <section class="serve-section" id="who-we-serve">
+    <section class="section-light" id="who-we-serve">
         <div class="container">
-            <div class="section-header-modern text-center mb-5" data-aos="fade-up">
-                <div class="subtitle">WHO WE SERVE</div>
-                <h2>Built for Leaders Who Drive Change</h2>
-                <p>We work with decision-makers who shape AI strategy, redesign workflows, and lead business
-                    transformation.</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="serve-card">
-                        <div class="serve-icon"><i class="bi bi-building"></i></div>
-                        <h4>Executives</h4>
-                        <p>Shaping AI strategy and transformation at the enterprise level — aligning board priorities with
-                            AI investment for competitive advantage.</p>
-                    </div>
+            <div class="row">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <span class="section-label">WHO WE SERVE</span>
+                    <h2 class="section-heading section-heading-dark">Built for leaders who<br>drive change</h2>
+                    <p class="section-desc section-desc-dark">We work with the people who set AI strategy, redesign
+                        workflows, and deliver business results.</p>
                 </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="serve-card">
-                        <div class="serve-icon"><i class="bi bi-diagram-3"></i></div>
-                        <h4>Functional Leaders</h4>
-                        <p>Redesigning decisions and workflows — identifying high-ROI AI use cases and leading
-                            cross-functional teams through measurable transformation.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="serve-card">
-                        <div class="serve-icon"><i class="bi bi-people"></i></div>
-                        <h4>Managers</h4>
-                        <p>Responsible for business performance, adoption, and execution — gaining the practical playbook
-                            from scoping and data readiness to stakeholder buy-in.</p>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="serve-card-bain">
+                                <div class="serve-icon-bain"><i class="bi bi-building"></i></div>
+                                <h4>Executives</h4>
+                                <p>Shaping AI strategy and enterprise transformation.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="serve-card-bain">
+                                <div class="serve-icon-bain"><i class="bi bi-diagram-3"></i></div>
+                                <h4>Functional Leaders</h4>
+                                <p>Redesigning decisions and workflows with AI.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="serve-card-bain">
+                                <div class="serve-icon-bain"><i class="bi bi-people"></i></div>
+                                <h4>Managers</h4>
+                                <p>Driving adoption, performance, and execution.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <hr class="thin-divider">
 
     <!-- ══════════════════════════════════════════════
-         3. THE AI SUCCESS PLAYBOOK — 4 Service Cards
+         3. THE AI SUCCESS PLAYBOOK — Horizontal Timeline
          ══════════════════════════════════════════════ -->
-    <section class="playbook-section" id="playbook">
-        <div class="container text-center" data-aos="fade-up">
-            <div class="subtitle" style="color: var(--cyan); font-size:13px; letter-spacing:2px; font-weight:600; text-transform:uppercase; margin-bottom:12px;">
-                OUR CORE SERVICES</div>
-            <h2 style="color:#fff; font-size:48px; margin-bottom: 10px;">The AI Success Playbook</h2>
-            <p style="color:rgba(255,255,255,0.7); max-width:750px; margin: 0 auto 10px; font-size:18px;">
-                Our services are designed as a connected journey. We help organizations move from understanding AI,
-                to selecting the right initiatives, to validating solutions, to building scalable data and operating
-                foundations.
-            </p>
-        </div>
-    </section>
-
-    <section class="playbook-cards-section">
-        <div class="container-fluid" style="max-width: 92%;">
-            <div class="playbook-progress" data-aos="fade-up">
-                <!-- Card 1: AI Discovery -->
-                <div class="playbook-card-wrapper">
-                    <div class="playbook-card" id="discovery">
-                        <div class="playbook-card-header">
-                            <div class="card-step">1</div>
-                            <span class="stage-tag">Learn</span>
-                            <h3>AI Discovery</h3>
-                        </div>
-                        <div class="playbook-card-body">
-                            <p>A business-first introduction to AI for leaders. We help teams understand AI fundamentals,
-                                what makes initiatives succeed or fail, and how to frame the right business problems before
-                                investing in execution.</p>
-                            <button class="what-you-get-toggle" onclick="toggleList(this)">
-                                What clients get <i class="bi bi-chevron-down"></i>
-                            </button>
-                            <ul class="what-you-get-list">
-                                <li><i class="bi bi-check-circle-fill"></i> Leadership alignment on AI possibilities</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Initial opportunity framing</li>
-                                <li><i class="bi bi-check-circle-fill"></i> 30, 60, 90, 120 and 180 day roadmap</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Early AI Playbook direction</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2: AI Immersion -->
-                <div class="playbook-card-wrapper">
-                    <div class="playbook-card" id="immersion">
-                        <div class="playbook-card-header">
-                            <div class="card-step">2</div>
-                            <span class="stage-tag">Prioritize</span>
-                            <h3>AI Immersion</h3>
-                        </div>
-                        <div class="playbook-card-body">
-                            <p>A hands-on working session for leaders and teams to identify, shape, and prioritize
-                                high-value AI opportunities tied to ROI.</p>
-                            <button class="what-you-get-toggle" onclick="toggleList(this)">
-                                What clients get <i class="bi bi-chevron-down"></i>
-                            </button>
-                            <ul class="what-you-get-list">
-                                <li><i class="bi bi-check-circle-fill"></i> Prioritized initiative list</li>
-                                <li><i class="bi bi-check-circle-fill"></i> AI opportunity assessment</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Use-case framing</li>
-                                <li><i class="bi bi-check-circle-fill"></i> First-pass roadmap</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3: AI Activation -->
-                <div class="playbook-card-wrapper">
-                    <div class="playbook-card" id="activation">
-                        <div class="playbook-card-header">
-                            <div class="card-step">3</div>
-                            <span class="stage-tag">Validate</span>
-                            <h3>AI Activation</h3>
-                        </div>
-                        <div class="playbook-card-body">
-                            <p>We help move priority AI ideas into structured execution by testing hypotheses, using data to
-                                validate outcomes, and shaping the evidence needed for broader adoption.</p>
-                            <button class="what-you-get-toggle" onclick="toggleList(this)">
-                                What clients get <i class="bi bi-chevron-down"></i>
-                            </button>
-                            <ul class="what-you-get-list">
-                                <li><i class="bi bi-check-circle-fill"></i> Pilot framing and validation</li>
-                                <li><i class="bi bi-check-circle-fill"></i> KPI and hypothesis definition</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Analytics and model support</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Decision-ready business story</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4: AI Scale -->
-                <div class="playbook-card-wrapper">
-                    <div class="playbook-card" id="scale">
-                        <div class="playbook-card-header">
-                            <div class="card-step">4</div>
-                            <span class="stage-tag">Scale</span>
-                            <h3>AI Scale</h3>
-                        </div>
-                        <div class="playbook-card-body">
-                            <p>We prepare the data, partnerships, and operating foundations needed to scale AI beyond pilots
-                                and into repeatable business value.</p>
-                            <button class="what-you-get-toggle" onclick="toggleList(this)">
-                                What clients get <i class="bi bi-chevron-down"></i>
-                            </button>
-                            <ul class="what-you-get-list">
-                                <li><i class="bi bi-check-circle-fill"></i> Data readiness assessment</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Data sourcing and cleansing direction</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Scale architecture support</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Partner ecosystem alignment</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════
-         4. HOW WE APPLY THESE SERVICES — 3 Proof Cards
-         ══════════════════════════════════════════════ -->
-    <section class="proof-section" id="proof">
+    <section class="section-light-alt" id="playbook">
         <div class="container">
-            <div class="section-header-modern text-center mb-5" data-aos="fade-up">
-                <div class="subtitle">HOW WE APPLY THESE SERVICES</div>
-                <h2>Proven Results Across Industries</h2>
-                <p>Each engagement is tied to our service framework — from Discovery through Scale — delivering measurable
-                    outcomes for global enterprises.</p>
+            <div class="text-center" data-aos="fade-up">
+                <span class="section-label">OUR CORE SERVICES</span>
+                <h2 class="section-heading section-heading-dark">The AI Success Playbook</h2>
+                <p class="section-desc section-desc-dark" style="margin: 0 auto 20px;">A connected journey from
+                    understanding AI to scaling business value.</p>
             </div>
-            <div class="row g-4">
-                <!-- ZF Group -->
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="proof-card">
-                        <img src="images/ZF-logo.webp" alt="ZF Group" class="client-logo-img">
-                        <div class="service-tags">
-                            <span class="service-tag">Immersion</span>
-                            <span class="service-tag">Activation</span>
-                        </div>
-                        <h4>ZF Group</h4>
-                        <p class="problem-line">Needed to reduce manufacturing waste through AI-powered defect detection
-                            and predictive quality models in automotive production.</p>
-                        <p class="relevance-line">AI-Driven Innovation in Automotive — from workshop to deployed quality
-                            intelligence.</p>
-                        <a href="casestudies/zf-automotive.html" class="case-link">Read case study <i
-                                class="bi bi-arrow-right"></i></a>
+
+            <div class="playbook-timeline" data-aos="fade-up" data-aos-delay="200">
+                <!-- Step 1 -->
+                <div class="timeline-step">
+                    <div class="step-number">
+                        <span class="step-num-text">01</span>
+                        <span class="step-phase-text">LEARN</span>
                     </div>
+                    <h4>AI Discovery</h4>
+                    <p>Understand AI fundamentals and frame the right business problems.</p>
+                    <button class="deliverable-toggle" onclick="toggleList(this)">
+                        What you get <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <ul class="deliverable-list">
+                        <li><i class="bi bi-check2"></i> Leadership alignment on AI</li>
+                        <li><i class="bi bi-check2"></i> Opportunity framing</li>
+                        <li><i class="bi bi-check2"></i> 30-180 day roadmap</li>
+                        <li><i class="bi bi-check2"></i> AI Playbook direction</li>
+                    </ul>
                 </div>
 
-                <!-- Lucas TVS -->
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="proof-card">
-                        <img src="images/lucas-tvs+(1).webp" alt="Lucas TVS" class="client-logo-img">
-                        <div class="service-tags">
-                            <span class="service-tag">Discovery</span>
-                            <span class="service-tag">Immersion</span>
-                        </div>
-                        <h4>Lucas TVS</h4>
-                        <p class="problem-line">Required AI-optimized inventory and supply chain forecasting to eliminate
-                            excess stock and drive procurement efficiency.</p>
-                        <p class="relevance-line">AI-Powered Supply Chain & Procurement Optimization across operations.</p>
-                        <a href="casestudies/lucas-tvs.html" class="case-link">Read case study <i
-                                class="bi bi-arrow-right"></i></a>
+                <!-- Step 2 -->
+                <div class="timeline-step">
+                    <div class="step-number">
+                        <span class="step-num-text">02</span>
+                        <span class="step-phase-text">PRIORITIZE</span>
                     </div>
+                    <h4>AI Immersion</h4>
+                    <p>Identify and prioritize high-value AI opportunities tied to ROI.</p>
+                    <button class="deliverable-toggle" onclick="toggleList(this)">
+                        What you get <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <ul class="deliverable-list">
+                        <li><i class="bi bi-check2"></i> Prioritized initiative list</li>
+                        <li><i class="bi bi-check2"></i> AI opportunity assessment</li>
+                        <li><i class="bi bi-check2"></i> Use-case framing</li>
+                        <li><i class="bi bi-check2"></i> First-pass roadmap</li>
+                    </ul>
                 </div>
 
-                <!-- Vedanta Limited -->
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="proof-card">
-                        <img src="images/vedanta+(1).webp" alt="Vedanta Limited" class="client-logo-img">
-                        <div class="service-tags">
-                            <span class="service-tag">Discovery</span>
-                            <span class="service-tag">Immersion</span>
-                            <span class="service-tag">Activation</span>
-                        </div>
-                        <h4>Vedanta Limited</h4>
-                        <p class="problem-line">Embarked on enterprise-wide AI transformation requiring leadership
-                            alignment, workforce enablement, and scalable automation.</p>
-                        <p class="relevance-line">Enterprise-Wide AI Transformation — from strategy to shop-floor
-                            adoption.</p>
-                        <a href="casestudies/vedanta.html" class="case-link">Read case study <i
-                                class="bi bi-arrow-right"></i></a>
+                <!-- Step 3 -->
+                <div class="timeline-step">
+                    <div class="step-number">
+                        <span class="step-num-text">03</span>
+                        <span class="step-phase-text">VALIDATE</span>
                     </div>
+                    <h4>AI Activation</h4>
+                    <p>Test hypotheses, validate outcomes, and build the business case.</p>
+                    <button class="deliverable-toggle" onclick="toggleList(this)">
+                        What you get <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <ul class="deliverable-list">
+                        <li><i class="bi bi-check2"></i> Pilot framing & validation</li>
+                        <li><i class="bi bi-check2"></i> KPI and hypothesis definition</li>
+                        <li><i class="bi bi-check2"></i> Analytics & model support</li>
+                        <li><i class="bi bi-check2"></i> Decision-ready business story</li>
+                    </ul>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-step">
+                    <div class="step-number">
+                        <span class="step-num-text">04</span>
+                        <span class="step-phase-text">SCALE</span>
+                    </div>
+                    <h4>AI Scale</h4>
+                    <p>Build foundations for repeatable, scalable business value.</p>
+                    <button class="deliverable-toggle" onclick="toggleList(this)">
+                        What you get <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <ul class="deliverable-list">
+                        <li><i class="bi bi-check2"></i> Data readiness assessment</li>
+                        <li><i class="bi bi-check2"></i> Data sourcing & cleansing</li>
+                        <li><i class="bi bi-check2"></i> Scale architecture support</li>
+                        <li><i class="bi bi-check2"></i> Partner ecosystem alignment</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ══════════════════════════════════════════════
-         5. WHY SETCONNECT — Dark Band, 4 Tiles
+         4. CLIENT RESULTS — Bain "Bold Steps" Style
          ══════════════════════════════════════════════ -->
-    <section class="why-band" id="why-setconnect">
+    <section class="results-section" id="results">
         <div class="container">
-            <div class="section-header-modern text-center mb-5" data-aos="fade-up">
-                <div class="subtitle">WHY SETCONNECT</div>
-                <h2>What Sets Us Apart</h2>
-                <p>We connect business leaders with practical AI expertise, proven frameworks, and execution support — so AI
-                    initiatives are grounded in outcomes, not hype.</p>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-label">CLIENT RESULTS</span>
+                <h2 class="section-heading section-heading-light">Bold steps forward.</h2>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="why-tile">
-                        <div class="why-tile-icon"><i class="bi bi-briefcase"></i></div>
+
+            <!-- ZF Group -->
+            <div class="result-card-bain" data-aos="fade-up">
+                <div class="result-content">
+                    <div class="result-tags">
+                        <span class="result-tag">Immersion</span>
+                        <span class="result-tag">Activation</span>
+                    </div>
+                    <span class="result-label">Featured client result</span>
+                    <img src="images/ZF-logo.webp" alt="ZF Group" class="result-logo">
+                    <h3>AI-Driven Innovation in Automotive Manufacturing</h3>
+                    <p class="result-desc">Reduced manufacturing waste through AI-powered defect detection and
+                        predictive quality models.</p>
+                    <div class="result-metrics">
+                        <div class="metric-item">
+                            <div class="metric-num">30%</div>
+                            <div class="metric-label">reduction in<br>defect rates</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-num">3</div>
+                            <div class="metric-label">production lines<br>transformed</div>
+                        </div>
+                    </div>
+                    <a href="casestudies/zf-automotive.html" class="result-link">Read case study <i
+                            class="bi bi-arrow-right"></i></a>
+                </div>
+                <div class="result-image"
+                    style="background-image: url('images/casestudies/zf.webp');">
+                </div>
+            </div>
+
+            <!-- Lucas TVS -->
+            <div class="result-card-bain" data-aos="fade-up">
+                <div class="result-content">
+                    <div class="result-tags">
+                        <span class="result-tag">Discovery</span>
+                        <span class="result-tag">Immersion</span>
+                    </div>
+                    <span class="result-label">Featured client result</span>
+                    <img src="images/lucas-tvs+(1).webp" alt="Lucas TVS" class="result-logo">
+                    <h3>AI-Powered Supply Chain & Procurement Optimization</h3>
+                    <p class="result-desc">Eliminated excess stock and drove procurement efficiency with AI-optimized
+                        forecasting.</p>
+                    <div class="result-metrics">
+                        <div class="metric-item">
+                            <div class="metric-num">2.5x</div>
+                            <div class="metric-label">improvement in<br>forecast accuracy</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-num">₹12Cr</div>
+                            <div class="metric-label">potential annual<br>savings identified</div>
+                        </div>
+                    </div>
+                    <a href="casestudies/lucas-tvs.html" class="result-link">Read case study <i
+                            class="bi bi-arrow-right"></i></a>
+                </div>
+                <div class="result-image"
+                    style="background-image: url('images/casestudies/lucas-tvs.webp');">
+                </div>
+            </div>
+
+            <!-- Vedanta -->
+            <div class="result-card-bain" data-aos="fade-up">
+                <div class="result-content">
+                    <div class="result-tags">
+                        <span class="result-tag">Discovery</span>
+                        <span class="result-tag">Immersion</span>
+                        <span class="result-tag">Activation</span>
+                    </div>
+                    <span class="result-label">Featured client result</span>
+                    <img src="images/vedanta+(1).webp" alt="Vedanta Limited" class="result-logo">
+                    <h3>Enterprise-Wide AI Transformation</h3>
+                    <p class="result-desc">Leadership alignment, workforce enablement, and scalable automation — from
+                        strategy to shop-floor.</p>
+                    <div class="result-metrics">
+                        <div class="metric-item">
+                            <div class="metric-num">150+</div>
+                            <div class="metric-label">leaders<br>engaged</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-num">5</div>
+                            <div class="metric-label">business units<br>activated</div>
+                        </div>
+                    </div>
+                    <a href="casestudies/vedanta.html" class="result-link">Read case study <i
+                            class="bi bi-arrow-right"></i></a>
+                </div>
+                <div class="result-image"
+                    style="background-image: url('images/casestudies/vedanta-case-study.webp');">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         5. WHY SETCONNECT — Dark Band
+         ══════════════════════════════════════════════ -->
+    <section class="why-section" id="why-setconnect">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-label">WHY SETCONNECT</span>
+                <h2 class="section-heading section-heading-light">What sets us apart</h2>
+            </div>
+            <div class="row" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-3 col-md-6">
+                    <div class="why-item">
+                        <div class="why-num"><i class="bi bi-briefcase" style="font-size:36px;"></i></div>
                         <h4>Business-Led</h4>
-                        <p>We lead with business outcomes, not technology. Every AI initiative starts with your strategic
-                            priorities and measurable goals.</p>
+                        <p>Outcomes first, not technology. Every initiative starts with your strategic priorities.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="why-tile">
-                        <div class="why-tile-icon"><i class="bi bi-journal-check"></i></div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="why-item">
+                        <div class="why-num"><i class="bi bi-journal-check" style="font-size:36px;"></i></div>
                         <h4>Structured Playbook</h4>
-                        <p>Our proven 4-stage AI Success Playbook provides a repeatable, scalable approach that eliminates
-                            guesswork from AI adoption.</p>
+                        <p>A proven 4-stage approach that eliminates guesswork from AI adoption.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="why-tile">
-                        <div class="why-tile-icon"><i class="bi bi-person-check"></i></div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="why-item">
+                        <div class="why-num"><i class="bi bi-person-check" style="font-size:36px;"></i></div>
                         <h4>Leadership Enablement</h4>
-                        <p>We don't just advise — we enable leaders and their teams to own and sustain AI transformation
-                            with hands-on execution support.</p>
+                        <p>We enable leaders to own and sustain transformation with hands-on support.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="why-tile">
-                        <div class="why-tile-icon"><i class="bi bi-globe2"></i></div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="why-item">
+                        <div class="why-num"><i class="bi bi-globe2" style="font-size:36px;"></i></div>
                         <h4>Global Expertise</h4>
-                        <p>Practical implementation experience across 3 continents — bringing deep domain knowledge from
-                            mining, automotive, and manufacturing.</p>
+                        <p>Implementation experience across 3 continents in mining, automotive, and manufacturing.</p>
                     </div>
                 </div>
             </div>
@@ -1068,17 +1035,19 @@
     </section>
 
     <!-- ══════════════════════════════════════════════
-         6. FINAL CTA
+         6. FINAL CTA — Full-Bleed Image
          ══════════════════════════════════════════════ -->
-    <section class="final-cta" id="cta">
+    <section class="cta-fullbleed" id="cta">
         <div class="container">
-            <h2 data-aos="fade-up">Ready to build your AI roadmap?</h2>
-            <p data-aos="fade-up" data-aos-delay="100">Start with a conversation about your business priorities, decision
-                bottlenecks, data readiness, and where AI can create measurable value.</p>
-            <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
-                <a href="contact.html" class="btn-cyan-lg">Schedule a Consultation <i
-                        class="bi bi-arrow-right"></i></a>
-                <a href="case-studies.html" class="btn-outline-light-custom">Explore Case Studies</a>
+            <div data-aos="fade-up">
+                <h2>Ready to build your<br>AI roadmap?</h2>
+                <p>Start a conversation about your priorities, data readiness, and where AI can create measurable
+                    value.</p>
+                <div class="cta-buttons-group">
+                    <a href="contact.html" class="btn-primary-bain">Schedule a Consultation <i
+                            class="bi bi-arrow-right"></i></a>
+                    <a href="case-studies.html" class="btn-outline-light-custom">Explore Case Studies</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1099,7 +1068,7 @@
             else header.classList.remove('scrolled');
         });
 
-        // Toggle "What you get" lists
+        // Toggle deliverable lists
         function toggleList(btn) {
             const list = btn.nextElementSibling;
             btn.classList.toggle('active');
