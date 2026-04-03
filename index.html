@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SetConnect - The AI Success Playbook Company</title>
+    <title>SetConnect - Turn AI into Measurable Business Outcomes</title>
+    <meta name="description"
+        content="SetConnect helps organizations identify high-value AI opportunities, validate them with data, and scale them across operations.">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -15,120 +17,29 @@
     <link href="css/shared-styles.css" rel="stylesheet">
 
     <style>
-        /* FORCE COMPLETE DARK MODE */
+        /* ── HOME PAGE — FULL DARK, BAIN-INSPIRED ── */
+
         :root {
             color-scheme: dark;
         }
 
         html,
         body {
-            background-color: #0f1419 !important;
+            background-color: #0a0e13 !important;
             color: #ffffff;
         }
 
-        /* DARK THEME HERO */
-        .hero-split {
+        /* ── 1. HERO — BACKGROUND VIDEO ── */
+        .hero-home {
             margin-top: 80px;
-            min-height: 90vh;
+            min-height: 92vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, #1a2332 0%, #1e3a3a 100%);
             position: relative;
             overflow: hidden;
+            background: #0a0e13;
         }
 
-        .hero-split::before {
-            content: '';
-            position: absolute;
-            right: -200px;
-            top: -200px;
-            width: 600px;
-            height: 600px;
-            background: var(--cyan);
-            opacity: 0.08;
-            border-radius: 50%;
-        }
-
-        .hero-content {
-            z-index: 2;
-        }
-
-        .hero-split h1 {
-            font-size: 52px;
-            color: #ffffff;
-            margin-bottom: 25px;
-            line-height: 1.1;
-        }
-
-        .hero-split .accent {
-            color: var(--cyan);
-            border-bottom: none;
-        }
-
-        .hero-split p {
-            font-size: 17px;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 35px;
-            line-height: 1.7;
-        }
-
-        .austin-badge {
-            display: inline-block;
-            background: rgba(8, 145, 178, 0.2);
-            border: 2px solid var(--cyan);
-            color: var(--cyan);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 20px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(8, 145, 178, 0.4);
-            }
-
-            50% {
-                box-shadow: 0 0 0 10px rgba(8, 145, 178, 0);
-            }
-        }
-
-        .austin-badge i {
-            margin-right: 8px;
-            font-size: 14px;
-        }
-
-        .stats-modern {
-            display: flex;
-            gap: 50px;
-            margin-top: 50px;
-        }
-
-        .stat-modern {
-            text-align: left;
-        }
-
-        .stat-modern .number {
-            font-size: 42px;
-            font-weight: 700;
-            color: var(--cyan);
-            display: block;
-            line-height: 1;
-        }
-
-        .stat-modern .label {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.6);
-            margin-top: 8px;
-        }
-
-        /* Animated Video Background */
         .hero-video-bg {
             position: absolute;
             top: 0;
@@ -139,6 +50,13 @@
             z-index: 0;
         }
 
+        .hero-video-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.35;
+        }
+
         .hero-video-bg::after {
             content: '';
             position: absolute;
@@ -146,787 +64,838 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(15, 20, 25, 1) 0%, rgba(15, 20, 25, 0.8) 30%, rgba(15, 20, 25, 0.5) 70%, rgba(15, 20, 25, 0.6) 100%);
+            background: linear-gradient(135deg,
+                    rgba(10, 14, 19, 0.92) 0%,
+                    rgba(10, 14, 19, 0.7) 40%,
+                    rgba(10, 14, 19, 0.5) 70%,
+                    rgba(10, 14, 19, 0.75) 100%);
             z-index: 1;
         }
 
-        .hero-video-bg video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.4;
-        }
-
-
-        .floating-card {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(8, 145, 178, 0.3);
-        }
-
-        .floating-card h5 {
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-
-        .floating-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .floating-card li {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .floating-card li:last-child {
-            border: none;
-        }
-
-        .floating-card li i {
-            color: var(--cyan);
-            margin-right: 10px;
-        }
-
-        /* CLIENTS SECTION - INFINITE CAROUSEL */
-        .clients-asymmetric {
-            padding: 80px 0;
-            background: #1e293b;
-            overflow: hidden;
-        }
-
-        .clients-carousel-wrapper {
-            overflow: hidden;
+        .hero-home .container {
             position: relative;
-            padding: 40px 0;
-        }
-
-        .clients-carousel-wrapper::before,
-        .clients-carousel-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 100px;
-            height: 100%;
             z-index: 2;
         }
 
-        .clients-carousel-wrapper::before {
-            left: 0;
-            background: linear-gradient(90deg, #1e293b 0%, transparent 100%);
-        }
-
-        .clients-carousel-wrapper::after {
-            right: 0;
-            background: linear-gradient(90deg, transparent 0%, #1e293b 100%);
-        }
-
-        .clients-carousel {
-            display: flex;
-            animation: scroll 30s linear infinite;
-            width: max-content;
-        }
-
-        .clients-carousel:hover {
-            animation-play-state: paused;
-        }
-
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .client-card-modern {
-            background: rgba(30, 41, 59, 0.5);
-            padding: 40px 60px;
-            border-radius: 20px;
-            text-align: center;
-            transition: 0.4s;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            margin: 0 15px;
-            min-width: 280px;
-            flex-shrink: 0;
-        }
-
-        .client-card-modern:hover {
-            border-color: var(--cyan);
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(8, 145, 178, 0.3);
-            background: rgba(30, 41, 59, 0.8);
-        }
-
-        .client-card-modern img {
-            max-height: 60px;
-            filter: grayscale(100%) brightness(2);
-            transition: 0.3s;
-        }
-
-        .client-card-modern:hover img {
-            filter: grayscale(0) brightness(1);
-        }
-
-        .client-card-modern .company-label {
-            margin-top: 15px;
-            font-size: 12px;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* PARTNERS SECTION - TIERED SHOWCASE */
-        .partners-asymmetric {
-            padding: 120px 0;
-            background: #0d1117;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .partners-asymmetric::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 0;
-            left: 0;
-            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.5), transparent);
-        }
-
-        /* Bento Grid Layout */
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 40px 0;
-        }
-
-        /* Different card sizes for bento effect - Utility Classes */
-        .partner-card-modern.span-2 {
-            grid-column: span 2;
-        }
-
-        .partner-card-modern.span-1 {
-            grid-column: span 1;
-        }
-
-        @media (max-width: 1024px) {
-            .partner-card-modern.span-2 {
-                grid-column: span 1;
-                /* Reset on smaller screens if needed, or keep span 2 if it fits */
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .partners-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .partner-card-modern:nth-child(1),
-            .partner-card-modern:nth-child(4),
-            .partner-card-modern:nth-child(5) {
-                grid-column: span 1;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .partners-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .partner-card-modern {
-            background: linear-gradient(145deg, #161b22 0%, #0d1117 100%);
-            padding: 30px 25px;
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid #30363d;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 140px;
-            position: relative;
-        }
-
-        /* Featured partner cards */
-        .partner-card-modern.featured {
-            background: linear-gradient(145deg, #1c2128 0%, #161b22 100%);
-            padding: 40px;
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            min-height: 180px;
-        }
-
-        .partner-card-modern.featured::before {
-            content: 'FEATURED PARTNER';
-            display: none;
-            /* Hidden as requested */
-            position: absolute;
-            top: 16px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 10px;
+        .hero-home h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 56px;
+            color: #fff;
+            line-height: 1.12;
+            margin-bottom: 24px;
             font-weight: 700;
-            letter-spacing: 1.5px;
-            color: rgba(139, 92, 246, 0.8);
-            background: rgba(139, 92, 246, 0.1);
-            padding: 4px 12px;
-            border-radius: 4px;
+            max-width: 700px;
         }
 
-        .partner-card-modern:hover {
-            background: linear-gradient(145deg, #1c2128 0%, #161b22 100%);
-            border-color: rgba(139, 92, 246, 0.5);
-            transform: translateY(-6px);
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(139, 92, 246, 0.2);
-        }
-
-        .partner-card-modern img {
-            max-height: 96px;
-            /* Increased from 50px */
-            max-width: 90%;
-            margin-bottom: 20px;
-            opacity: 0.9;
-            transition: all 0.3s;
-        }
-
-        .partner-card-modern.featured img {
-            max-height: 100px;
-            /* Increased from 70px */
-        }
-
-
-        .partner-card-modern:hover img {
-            opacity: 1;
-            transform: scale(1.06);
-        }
-
-        .partner-card-modern .company-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.5);
-            letter-spacing: 0.5px;
-        }
-
-        .partner-card-modern.featured .company-label {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* ALTERNATING SERVICES */
-        .services-alternating {
-            padding: 80px 0;
-            background: #0f1419;
-        }
-
-        .service-row {
-            margin-bottom: 80px;
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .service-row:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .service-image-large {
-            width: 210px;
-            height: 210px;
-            border-radius: 20px;
-            overflow: hidden;
-            flex-shrink: 0;
-            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .service-image-large:hover {
-            transform: scale(1.05);
-        }
-
-        .service-image-large img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .service-content h3 {
-            font-size: 32px;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-
-        .service-content p {
-            font-size: 17px;
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.8;
-        }
-
-        /* VIDEO CARDS */
-        .video-modern-section {
-            padding: 80px 0;
-            background: #1a2332;
-        }
-
-        .section-header-modern h2 {
-            color: #ffffff;
-        }
-
-        .section-header-modern .subtitle {
+        .hero-home h1 span {
             color: var(--cyan);
         }
 
-        .video-card-stack {
-            background: rgba(30, 41, 59, 0.5);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            transition: 0.4s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .video-card-stack:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.3);
-        }
-
-        .video-card-header-modern {
-            background: linear-gradient(135deg, #1e3a3a 0%, #134e4a 100%);
-            padding: 25px 30px;
-            color: #fff;
-        }
-
-        .video-card-header-modern h4 {
-            margin: 0;
-            font-size: 22px;
-        }
-
-        .video-card-header-modern p {
-            margin: 8px 0 0 0;
-            opacity: 0.9;
-            font-size: 14px;
-        }
-
-        .video-wrapper-modern {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-        }
-
-        .video-wrapper-modern iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .video-card-footer-modern {
-            padding: 20px 30px;
-            background: rgba(15, 20, 25, 0.5);
-            border-top: 3px solid var(--cyan);
-        }
-
-        .video-card-footer-modern p {
-            margin: 0;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* TESTIMONIALS */
-        .testimonials-minimal {
-            padding: 100px 0;
-            background: var(--navy);
-            color: #fff;
-        }
-
-        .testimonial-minimal-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s;
-            height: 100%;
-        }
-
-        .testimonial-minimal-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--cyan);
-        }
-
-        .testimonial-minimal-card p {
-            font-size: 16px;
-            font-style: italic;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-
-        .testimonial-minimal-card .author {
-            font-weight: 700;
-            color: var(--cyan);
-            font-size: 17px;
-            margin-bottom: 5px;
-        }
-
-        .testimonial-minimal-card .position {
-            font-size: 13px;
-            opacity: 0.7;
-        }
-
-        /* CTA SPLIT */
-        .cta-split {
-            background: linear-gradient(135deg, var(--cyan) 0%, #0e7490 100%);
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .cta-split .row {
-            min-height: 400px;
-        }
-
-        .cta-content {
-            padding: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: #fff;
-        }
-
-        .cta-content h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .cta-content p {
+        .hero-home .hero-sub {
             font-size: 20px;
-            margin-bottom: 30px;
-            opacity: 0.95;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 580px;
+            font-weight: 300;
         }
 
-        .btn-white-outline {
-            background: transparent;
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-bain {
+            background: var(--cyan);
             color: #fff;
-            border: 3px solid #fff;
-            padding: 14px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: 0.3s;
-            display: inline-block;
+            border: 2px solid var(--cyan);
+            padding: 14px 34px;
+            border-radius: 0;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
             text-decoration: none;
-        }
-
-        .btn-white-outline:hover {
-            background: #fff;
-            color: var(--cyan);
-        }
-
-        @media (max-width: 768px) {
-            .hero-split h1 {
-                font-size: 42px;
-            }
-
-            .stats-modern {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .service-row,
-            .service-row:nth-child(even) {
-                flex-direction: column;
-            }
-
-            .hero-updates-box {
-                margin-top: 40px;
-            }
-        }
-
-        /* LATEST UPDATES SECTION */
-        .latest-updates-section {
-            padding: 80px 0;
-            background: #1a2332;
-        }
-
-        .update-card {
-            background: rgba(30, 41, 59, 0.6);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .update-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--cyan);
-            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.2);
-        }
-
-        .update-card-header {
-            background: rgba(8, 145, 178, 0.1);
-            padding: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 10px;
         }
 
-        .update-card-header i {
-            color: var(--cyan);
-            font-size: 24px;
+        .btn-primary-bain:hover {
+            background: #0e7490;
+            border-color: #0e7490;
+            color: #fff;
         }
 
-        .update-card-header h4 {
-            margin: 0;
-            font-size: 16px;
-            color: #ffffff;
-        }
-
-        .update-card-body {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .video-thumbnail {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        .video-thumbnail img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .video-thumbnail:hover img {
-            transform: scale(1.05);
-        }
-
-        .play-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 60px;
-            color: var(--cyan);
-            opacity: 0.9;
-            transition: 0.3s;
-        }
-
-        .video-thumbnail:hover .play-overlay {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-
-        .update-card-body h5 {
-            color: #ffffff;
-            margin: 20px 0 10px 0;
-            font-size: 18px;
-        }
-
-        .update-card-body p {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.6;
-            margin-bottom: 15px;
-            flex-grow: 1;
-        }
-
-        .update-date {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            margin-top: auto;
-        }
-
-        .quote-content {
-            position: relative;
-            padding: 20px 0;
-            flex-grow: 1;
-        }
-
-        .quote-icon-large {
-            color: var(--cyan);
-            font-size: 40px;
-            opacity: 0.3;
-            margin-bottom: 15px;
-        }
-
-        .quote-content p {
+        .btn-outline-light-custom {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            padding: 14px 34px;
+            border-radius: 0;
+            font-weight: 600;
             font-size: 14px;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.7;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            text-decoration: none;
         }
 
-        .quote-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-            padding-top: 20px;
+        .btn-outline-light-custom:hover {
+            border-color: #fff;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Credibility Strip */
+        .credibility-strip {
+            margin-top: 56px;
+            padding-top: 32px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .author-avatar i {
-            font-size: 50px;
-            color: var(--cyan);
-        }
-
-        .author-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .author-info strong {
-            color: #ffffff;
-            font-size: 14px;
-        }
-
-        .author-info span {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 13px;
-        }
-
-        .project-timeline {
-            flex-grow: 1;
-        }
-
-        .timeline-item {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .timeline-item:last-child {
+        .credibility-strip .strip-label {
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.35);
+            font-weight: 600;
             margin-bottom: 20px;
         }
 
-        .timeline-dot {
-            width: 12px;
-            height: 12px;
-            background: var(--cyan);
-            border-radius: 50%;
-            margin-top: 5px;
-            flex-shrink: 0;
+        .credibility-logos {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            flex-wrap: wrap;
+        }
+
+        .credibility-logos .cred-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.45);
+            letter-spacing: 1px;
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+
+        .credibility-logos .cred-name:hover {
+            color: var(--cyan);
+        }
+
+        .credibility-logos .cred-divider {
+            width: 1px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        @media (max-width: 992px) {
+            .hero-home {
+                min-height: 70vh;
+            }
+
+            .hero-home h1 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-home h1 {
+                font-size: 32px;
+            }
+
+            .credibility-logos .cred-divider {
+                display: none;
+            }
+
+            .credibility-logos {
+                gap: 18px;
+            }
+        }
+
+        /* ── SHARED SECTION STYLES ── */
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.15;
+            color: #ffffff;
+        }
+
+        .section-desc {
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 640px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        /* ── 2. VALUE PROOF ── */
+        .section-value {
+            padding: 100px 0;
+            background: #0f1419;
+        }
+
+        .value-card {
+            padding: 48px 36px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            background: linear-gradient(145deg, #151c26 0%, #0f1419 100%);
+            transition: all 0.4s ease;
+            height: 100%;
             position: relative;
         }
 
-        .timeline-item:not(:last-child) .timeline-dot::after {
+        .value-card::before {
             content: '';
             position: absolute;
-            top: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 60px;
-            background: rgba(8, 145, 178, 0.3);
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--cyan);
+            transition: height 0.4s ease;
         }
 
-        .timeline-content strong {
-            color: #ffffff;
-            display: block;
-            margin-bottom: 5px;
-            font-size: 14px;
+        .value-card:hover::before {
+            height: 100%;
         }
 
-        .timeline-content p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 13px;
-            line-height: 1.5;
-            margin: 0;
+        .value-card:hover {
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+            transform: translateY(-4px);
+            border-color: rgba(8, 145, 178, 0.3);
         }
 
-        .timeline-date {
-            color: var(--cyan);
-            font-size: 11px;
-            margin-top: 5px;
-            display: block;
-        }
-
-        .view-all-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            color: var(--cyan);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
-            margin-top: 10px;
-            transition: 0.3s;
-        }
-
-        .view-all-link:hover {
-            color: #ffffff;
-            gap: 10px;
-        }
-
-        .client-card-modern {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 40px;
-            /* Increased padding */
+        .value-card .value-icon {
+            width: 64px;
+            height: 64px;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 28px;
+            background: rgba(8, 145, 178, 0.1);
+            border-radius: 12px;
+        }
+
+        .value-card .value-icon i {
+            font-size: 32px;
+            color: var(--cyan);
+        }
+
+        .value-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .value-card p {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 15px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ── 3. PLAYBOOK — HORIZONTAL STEPPER ── */
+        .section-playbook {
+            padding: 100px 0;
+            background: #0a0e13;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-playbook .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .playbook-timeline {
+            display: flex;
+            gap: 0;
+            position: relative;
+            margin-top: 60px;
+        }
+
+        .playbook-timeline::before {
+            content: '';
+            position: absolute;
+            top: 55px;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cyan), #0e7490, rgba(14, 116, 144, 0.2));
+        }
+
+        .timeline-step {
+            flex: 1;
+            position: relative;
+            padding: 0 20px;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: rgba(15, 20, 25, 0.9);
+            border: 3px solid var(--cyan);
+            display: flex;
             flex-direction: column;
-            gap: 20px;
-            /* Increased gap */
-            transition: 0.3s;
-            min-width: 350px;
-            /* Double size */
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
         }
 
-        .client-card-modern:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--cyan);
+        .step-number:hover {
+            background: var(--cyan);
+            transform: scale(1.08);
+            box-shadow: 0 0 30px rgba(8, 145, 178, 0.4);
         }
 
-        .client-card-modern img {
-            max-height: 90px;
-            /* Reverted to smaller size for wide logos */
-            width: auto;
+        .step-number:hover .step-num-text,
+        .step-number:hover .step-phase-text {
+            color: #fff;
+        }
+
+        .step-num-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--cyan);
+            line-height: 1;
+            transition: color 0.3s;
+        }
+
+        .step-phase-text {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .timeline-step h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .timeline-step p {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 14px;
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 992px) {
+            .playbook-timeline {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .playbook-timeline::before {
+                display: none;
+            }
+
+            .timeline-step {
+                padding: 0;
+            }
+
+            .playbook-accordion-item {
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                margin-bottom: -1px;
+                overflow: hidden;
+            }
+
+            .playbook-accordion-item .accordion-trigger {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                padding: 20px 24px;
+                background: rgba(15, 20, 25, 0.8);
+                border: none;
+                width: 100%;
+                cursor: pointer;
+                transition: background 0.3s;
+                color: #fff;
+            }
+
+            .playbook-accordion-item .accordion-trigger:hover {
+                background: rgba(8, 145, 178, 0.08);
+            }
+
+            .playbook-accordion-item .accordion-trigger .acc-num {
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                background: rgba(8, 145, 178, 0.15);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--cyan);
+                font-weight: 700;
+                font-size: 18px;
+                flex-shrink: 0;
+            }
+
+            .playbook-accordion-item .accordion-trigger h4 {
+                margin: 0;
+                text-align: left;
+                font-size: 18px;
+                flex-grow: 1;
+                color: #fff;
+            }
+
+            .playbook-accordion-item .accordion-trigger .acc-chevron {
+                color: rgba(255, 255, 255, 0.4);
+                font-size: 18px;
+                transition: transform 0.3s;
+            }
+
+            .playbook-accordion-item .accordion-body {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease, padding 0.3s ease;
+                padding: 0 24px;
+            }
+
+            .playbook-accordion-item.active .accordion-body {
+                max-height: 200px;
+                padding: 0 24px 24px;
+            }
+
+            .playbook-accordion-item.active .acc-chevron {
+                transform: rotate(180deg);
+            }
+
+            .playbook-accordion-item .accordion-body p {
+                text-align: left;
+                margin: 0;
+                color: rgba(255, 255, 255, 0.55);
+            }
+
+            .desktop-stepper {
+                display: none !important;
+            }
+
+            .mobile-accordion {
+                display: block !important;
+            }
+        }
+
+        @media (min-width: 993px) {
+            .mobile-accordion {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-heading {
+                font-size: 34px;
+            }
+        }
+
+        /* ── THIN DIVIDER (dark) ── */
+        .thin-divider {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(8, 145, 178, 0.3), transparent);
+            margin: 0;
+        }
+
+        /* ── 4. SELECTED WORK ── */
+        .section-work {
+            padding: 100px 0;
+            background: #0f1419;
+        }
+
+        .work-card {
+            background: linear-gradient(145deg, #1a2332 0%, #131922 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .work-card:hover {
+            border-color: rgba(8, 145, 178, 0.4);
+            box-shadow: 0 20px 56px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(8, 145, 178, 0.15);
+            transform: translateY(-6px);
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .work-card-body {
+            padding: 40px 36px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .work-card-logo {
+            height: 48px;
             object-fit: contain;
-            filter: none !important;
-            /* Force no filter */
-            opacity: 1 !important;
+            margin-bottom: 24px;
+            align-self: flex-start;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
         }
 
-        .client-card-modern img.logo-boost {
-            max-height: 140px;
-            /* Specific boost for small/square logos */
+        .work-card:hover .work-card-logo {
+            background: #fff;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
         }
 
-        .client-card-modern .company-label {
+        .work-card-body h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #fff;
+            font-size: 22px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .work-card-body p {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 15px;
+            line-height: 1.65;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .work-card-link {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.2s;
+        }
+
+        .work-card:hover .work-card-link {
+            gap: 14px;
+        }
+
+        /* ── 4.5 FEATURED VIDEO — BAIN CINEMATIC ── */
+        .section-featured-video {
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            background: #0a0e13;
+        }
+
+        .featured-video-wrapper {
+            position: relative;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+        }
+
+        .featured-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .featured-video-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+        }
+
+        .featured-video-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                rgba(10, 14, 19, 0.88) 0%,
+                rgba(10, 14, 19, 0.55) 50%,
+                rgba(10, 14, 19, 0.88) 100%);
+            z-index: 1;
+        }
+
+        .featured-video-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            padding: 80px 0;
+        }
+
+        .featured-video-player {
+            flex: 0 0 55%;
+            max-width: 55%;
+        }
+
+        .video-container {
+            position: relative;
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            background: #000;
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), #0e7490);
+            z-index: 2;
+        }
+
+        .featured-video-info {
+            flex: 1;
+        }
+
+        .featured-video-info .video-label {
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .featured-video-info .video-label i {
             font-size: 16px;
-            /* Larger text */
+        }
+
+        .featured-video-info h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 8px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .featured-video-info .video-subtitle {
+            font-size: 16px;
             color: rgba(255, 255, 255, 0.5);
-            font-weight: 500;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .featured-video-info .video-guest {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            color: var(--cyan);
+            font-weight: 600;
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        .featured-video-info .video-desc {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            margin-bottom: 0;
+            max-width: 420px;
+        }
+
+        @media (max-width: 992px) {
+            .featured-video-content {
+                flex-direction: column;
+                gap: 40px;
+                padding: 60px 0;
+            }
+
+            .featured-video-player {
+                flex: none;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .featured-video-info h3 {
+                font-size: 28px;
+            }
+
+            .featured-video-info .video-guest {
+                font-size: 22px;
+            }
+
+            .featured-video-wrapper {
+                min-height: auto;
+            }
+        }
+
+        /* ── 5. INSIGHTS ── */
+        .section-insights {
+            padding: 100px 0;
+            background: #0f1419;
+        }
+
+        .insight-card {
+            background: linear-gradient(145deg, #151c26 0%, #0f1419 100%);
+            border-radius: 0;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(8, 145, 178, 0.35);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .insight-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+
+        .insight-card:hover .insight-card-img {
+            opacity: 1;
+        }
+
+        .insight-card-body {
+            padding: 28px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .insight-card-body h5 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .insight-card-body p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 16px;
+        }
+
+        .insight-card-body .read-link {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.2s;
+        }
+
+        .insight-card-body .read-link:hover {
+            gap: 14px;
+        }
+
+        /* ── 6. FINAL CTA ── */
+        .cta-fullbleed {
+            position: relative;
+            padding: 120px 0;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #1e3a3a 100%);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .cta-fullbleed::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 14, 19, 0.85) 0%, rgba(30, 58, 58, 0.8) 50%, rgba(10, 14, 19, 0.85) 100%);
+        }
+
+        .cta-fullbleed .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-fullbleed h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-fullbleed p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 560px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .cta-buttons-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .cta-fullbleed h2 {
+                font-size: 34px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Modern Header -->
     <!-- Modern Header -->
     <header class="modern-header">
         <div class="container">
@@ -943,7 +912,6 @@
                         <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="our-services.html">Our Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="ourservices-2.html">Services V2</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ourservices-2.html">Services V2</a></li>
                         <li class="nav-item"><a class="nav-link" href="setconnections.html">SetConnections</a></li>
                         <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
                         <li class="nav-item"><a class="nav-link" href="ai-blogs.html">AI Blogs</a></li>
@@ -955,574 +923,299 @@
         </div>
     </header>
 
-    <!-- Split Hero Section -->
-    <section id="home" class="hero-split">
-        <!-- Animated Background Video -->
+    <!-- ══════════════════════════════════════════════
+         1. HERO — FULL-SCREEN VIDEO BACKGROUND
+         ══════════════════════════════════════════════ -->
+    <section id="home" class="hero-home">
         <div class="hero-video-bg">
             <video autoplay muted loop playsinline>
                 <source src="images/AI_Video_Generation_Request_Fulfilled (1).mp4" type="video/mp4">
             </video>
         </div>
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7" data-aos="fade-right">
-                    <div class="hero-content">
-                        <h1>The <span class="accent">AI Success</span><br>Playbook Company</h1>
-                        <h2
-                            style="font-size: 24px; color: rgba(255, 255, 255, 0.9); margin-bottom: 25px; font-weight: 400;">
-                            Achieve measurable AI impact in 100 days</h2>
-                        <div class="d-flex gap-3">
-                            <a href="contact.html" class="btn-cyan btn-lg px-4">Schedule a Discovery Call</a>
-                            <a href="our-services.html" class="btn-white-outline px-4"
-                                style="border-width: 1px; font-size: 16px; padding: 12px 30px;">Explore Services</a>
-                        </div>
-
-                        <div class="stats-modern" style="gap: 30px;">
-                            <div class="stat-modern">
-                                <span class="number">30+</span>
-                                <div class="label">AI Initiatives</div>
-                            </div>
-                            <div class="stat-modern">
-                                <span class="number">$MM</span>
-                                <div class="label">Business Impact</div>
-                            </div>
-                            <div class="stat-modern">
-                                <span class="number">500+</span>
-                                <div class="label">Leaders Trained</div>
-                            </div>
-                            <div class="stat-modern">
-                                <span class="number">20+</span>
-                                <div class="label">Global Clients</div>
-                            </div>
-                        </div>
+            <div data-aos="fade-up">
+                <h1>Turn AI into <span>Measurable Business Outcomes</span></h1>
+                <p class="hero-sub">We help organizations identify high-value AI opportunities, validate them with
+                    data, and scale them across operations.</p>
+                <div class="hero-cta-group">
+                    <a href="contact.html" class="btn-primary-bain">Book a Discovery Session <i
+                            class="bi bi-arrow-right"></i></a>
+                    <a href="case-studies.html" class="btn-outline-light-custom">See Our Work</a>
+                </div>
+                <div class="credibility-strip" data-aos="fade-up" data-aos-delay="200">
+                    <div class="strip-label">Trusted By</div>
+                    <div class="credibility-logos">
+                        <span class="cred-name">SunPower</span>
+                        <div class="cred-divider"></div>
+                        <span class="cred-name">ZF</span>
+                        <div class="cred-divider"></div>
+                        <span class="cred-name">Jindal Steel</span>
+                        <div class="cred-divider"></div>
+                        <span class="cred-name">Vedanta</span>
+                        <div class="cred-divider"></div>
+                        <span class="cred-name">AWS Partner</span>
+                        <div class="cred-divider"></div>
+                        <span class="cred-name">Snowflake</span>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Latest Updates Section -->
-    <section class="latest-updates-section">
+    <!-- ══════════════════════════════════════════════
+         2. IMMEDIATE VALUE PROOF
+         ══════════════════════════════════════════════ -->
+    <section class="section-value" id="value-proof">
         <div class="container">
-            <div class="section-header-modern text-center" data-aos="fade-up">
-                <div class="subtitle">WHAT'S NEW</div>
-                <h2>Latest Updates</h2>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-label">Industries We Serve</span>
+                <h2 class="section-heading">Where AI is Delivering Real Business Value</h2>
+            </div>
+            <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="bi bi-gear-wide-connected"></i></div>
+                        <h4>Manufacturing</h4>
+                        <p>Improving throughput, yield optimization, and intelligent production scheduling.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="bi bi-lightning-charge"></i></div>
+                        <h4>Energy</h4>
+                        <p>AI-powered demand forecasting and operational optimization across the value chain.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="bi bi-diagram-3"></i></div>
+                        <h4>Enterprise</h4>
+                        <p>Smarter decision systems and streamlined operations at scale.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="thin-divider">
+
+    <!-- ══════════════════════════════════════════════
+         3. AI SUCCESS PLAYBOOK
+         ══════════════════════════════════════════════ -->
+    <section class="section-playbook" id="playbook">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <span class="section-label">Core Offering</span>
+                <h2 class="section-heading">Our Approach: The AI Success Playbook</h2>
+                <p class="section-desc" style="margin: 0 auto;">A structured approach from strategy to execution.</p>
             </div>
 
-            <div class="row g-4">
-                <!-- Featured Video -->
-                <div class="col-lg-4" data-aos="fade-up">
-                    <div class="update-card">
-                        <div class="update-card-header">
-                            <i class="bi bi-play-circle-fill"></i>
-                            <h4>Featured Video - AI Meets TOC</h4>
+            <div class="playbook-timeline desktop-stepper" data-aos="fade-up" data-aos-delay="100">
+                <div class="timeline-step">
+                    <div class="step-number">
+                        <span class="step-num-text">01</span>
+                        <span class="step-phase-text">Phase</span>
+                    </div>
+                    <h4>Discovery</h4>
+                    <p>Frame the right business problems before investing in execution.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">
+                        <span class="step-num-text">02</span>
+                        <span class="step-phase-text">Phase</span>
+                    </div>
+                    <h4>Immersion</h4>
+                    <p>Immerse in AI methods to identify, assess, and rank the highest-value opportunities.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">
+                        <span class="step-num-text">03</span>
+                        <span class="step-phase-text">Phase</span>
+                    </div>
+                    <h4>Activation</h4>
+                    <p>Experiment, test hypotheses, define KPIs, and prove value with data.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">
+                        <span class="step-num-text">04</span>
+                        <span class="step-phase-text">Phase</span>
+                    </div>
+                    <h4>Scale</h4>
+                    <p>Build the data solutions and operating foundation for repeatable impact.</p>
+                </div>
+            </div>
+
+            <div class="mobile-accordion" data-aos="fade-up" data-aos-delay="100" style="margin-top:40px;">
+                <div class="playbook-accordion-item active">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        <span class="acc-num">01</span><h4>Discovery</h4>
+                        <i class="bi bi-chevron-down acc-chevron"></i>
+                    </button>
+                    <div class="accordion-body">
+                        <p>Frame the right business problems before investing in execution.</p>
+                    </div>
+                </div>
+                <div class="playbook-accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        <span class="acc-num">02</span><h4>Immersion</h4>
+                        <i class="bi bi-chevron-down acc-chevron"></i>
+                    </button>
+                    <div class="accordion-body">
+                        <p>Immerse in AI methods to identify, assess, and rank the highest-value opportunities.</p>
+                    </div>
+                </div>
+                <div class="playbook-accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        <span class="acc-num">03</span><h4>Activation</h4>
+                        <i class="bi bi-chevron-down acc-chevron"></i>
+                    </button>
+                    <div class="accordion-body">
+                        <p>Experiment, test hypotheses, define KPIs, and prove value with data.</p>
+                    </div>
+                </div>
+                <div class="playbook-accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        <span class="acc-num">04</span><h4>Scale</h4>
+                        <i class="bi bi-chevron-down acc-chevron"></i>
+                    </button>
+                    <div class="accordion-body">
+                        <p>Build the data solutions and operating foundation for repeatable impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         4. SELECTED WORK
+         ══════════════════════════════════════════════ -->
+    <section class="section-work" id="selected-work">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-label">Client Impact</span>
+                <h2 class="section-heading">Selected Work</h2>
+            </div>
+            <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6">
+                    <a href="casestudies/zf-automotive.html" class="work-card">
+                        <div class="work-card-body">
+                            <img src="images/clientlogos/zf group.webp" alt="ZF" class="work-card-logo">
+                            <h4>ZF</h4>
+                            <p>Improving AI-driven decision-making in automotive systems.</p>
+                            <span class="work-card-link">View Case Study <i class="bi bi-arrow-right"></i></span>
                         </div>
-                        <div class="video-thumbnail"
-                            style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000;">
-                            <video controls
-                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="casestudies/lucas-tvs.html" class="work-card">
+                        <div class="work-card-body">
+                            <img src="images/clientlogos/Lucas TVS Driven.webp" alt="Lucas TVS" class="work-card-logo">
+                            <h4>Lucas TVS</h4>
+                            <p>Optimizing procurement and supply chain with AI.</p>
+                            <span class="work-card-link">View Case Study <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="casestudies/vedanta.html" class="work-card">
+                        <div class="work-card-body">
+                            <img src="images/clientlogos/vedanta.webp" alt="Vedanta" class="work-card-logo">
+                            <h4>Vedanta</h4>
+                            <p>Scaling AI across enterprise operations.</p>
+                            <span class="work-card-link">View Case Study <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         4.5 FEATURED VIDEO — AI MEETS TOC
+         ══════════════════════════════════════════════ -->
+    <section class="section-featured-video" id="featured-video">
+        <div class="featured-video-wrapper">
+            <!-- Background: same video at low opacity for cinematic feel -->
+            <div class="featured-video-bg">
+                <video autoplay muted loop playsinline>
+                    <source src="videos/finalvide.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="container">
+                <div class="featured-video-content" data-aos="fade-up">
+                    <!-- Playable Video -->
+                    <div class="featured-video-player">
+                        <div class="video-container">
+                            <video controls preload="metadata" poster="">
                                 <source src="videos/finalvide.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
-                        <div class="update-card-body px-2">
-                            <h5 class="text-center" style="font-size: 16px; line-height: 1.4; overflow: hidden;">
-                                <span class="d-block"
-                                    style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Founder &
-                                    CEO Dr. Ramesh Rajagopalan</span>
-                                <span class="d-block my-2"
-                                    style="font-size: 14px; color: rgba(255,255,255,0.7);">with</span>
-                                <span class="d-block"
-                                    style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Rami
-                                    Goldratt, CEO of Goldratt Consulting</span>
-                            </h5>
-                            <p class="text-center mb-2"
-                                style="font-size: 13px; color: rgba(255, 255, 255, 0.6); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">
-                                Insights on AI transformation from our leadership.</p>
-                            <span class="update-date"><i class="bi bi-calendar3"></i> February 25, 2025</span>
-                        </div>
                     </div>
-                </div>
 
-                <!-- Customer Quote -->
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="update-card quote-card">
-                        <div class="update-card-header">
-                            <i class="bi bi-quote"></i>
-                            <h4>Client Testimonial</h4>
+                    <!-- Info Panel -->
+                    <div class="featured-video-info">
+                        <div class="video-label">
+                            <i class="bi bi-play-circle-fill"></i> Featured Video
                         </div>
-                        <div class="update-card-body" style="padding: 15px;">
-                            <div
-                                style="font-size: 11px; color: var(--cyan); margin-bottom: 6px; font-weight: 600; letter-spacing: 0.5px;">
-                                Executive Immersion in AI, Nov 2025 at Gyanodaya
-                            </div>
-                            <div class="quote-content" style="padding: 8px 0;">
-                                <i class="bi bi-quote"
-                                    style="color: var(--cyan); font-size: 24px; opacity: 0.3; margin-bottom: 6px; display: block;"></i>
-                                <p
-                                    style="font-size: 13px; font-style: italic; line-height: 1.65; color: rgba(255,255,255,0.9); margin-bottom: 10px;">
-                                    "The program went very well. I can see the participants from Hindalco now discussing
-                                    how to apply AI for solving business problems and build use cases. Their awareness
-                                    and sensitization regarding the importance of data have made a quantum leap."</p>
-                            </div>
-                            <div class="quote-author"
-                                style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 10px;">
-                                <div class="author-avatar">
-                                    <img src="images/client-images/mayank-dasgupta.jfif" alt="Dr. Mayuk Dasgupta"
-                                        style="width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 2px solid var(--cyan); flex-shrink: 0;">
-                                </div>
-                                <div class="author-info">
-                                    <strong style="font-size: 12px; color: #ffffff; display: block;">Dr. Mayuk
-                                        Dasgupta</strong>
-                                    <span style="font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.3;">Head
-                                        Digital Capability Building & Culture, Hindalco Industries, Aditya Birla
-                                        Group</span>
-                                </div>
-                            </div>
-                            <span class="update-date" style="font-size: 11px; margin-top: 8px;"><i
-                                    class="bi bi-calendar3"></i> Featured Client</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Updates -->
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="update-card">
-                        <div class="update-card-header">
-                            <i class="bi bi-briefcase-fill"></i>
-                            <h4>Case Study Highlights</h4>
-                        </div>
-                        <div class="update-card-body" style="padding: 0;">
-                            <div style="overflow: hidden; border-radius: 0;">
-                                <img src="images/AI.webp" alt="Case Study - Vedanta"
-                                    style="width: 100%; height: 160px; object-fit: cover; display: block; opacity: 0.85;">
-                            </div>
-                            <div style="padding: 20px;">
-                                <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
-                                    <li
-                                        style="margin-bottom: 12px; color: rgba(255, 255, 255, 0.9); display: flex; align-items: flex-start; gap: 10px;">
-                                        <i class="bi bi-check-circle-fill"
-                                            style="color: var(--cyan); margin-top: 4px; flex-shrink: 0;"></i>
-                                        <span>Reduced operating costs by 30% through AI automation</span>
-                                    </li>
-                                    <li
-                                        style="margin-bottom: 12px; color: rgba(255, 255, 255, 0.9); display: flex; align-items: flex-start; gap: 10px;">
-                                        <i class="bi bi-check-circle-fill"
-                                            style="color: var(--cyan); margin-top: 4px; flex-shrink: 0;"></i>
-                                        <span>Executive training led to 50+ new AI initiatives launched</span>
-                                    </li>
-                                </ul>
-                                <a href="case-studies.html" class="view-all-link">View All Case Studies <i
-                                        class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
+                        <h3>AI Meets Theory of Constraints</h3>
+                        <div class="video-subtitle">Founder & CEO</div>
+                        <div class="video-guest">Dr. Ramesh Rajagopalan<br>
+                            <span style="font-size: 16px; color: rgba(255,255,255,0.45); font-weight: 300;">with</span><br>
+                            Rami Goldratt</div>
+                        <p class="video-desc">CEO of Goldratt Consulting — exploring how AI and the Theory of Constraints converge to deliver breakthrough business performance.</p>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Insights & Articles Section -->
-    <section class="insights-section" style="padding: 80px 0; background-color: #0d1117;">
+    <!-- ══════════════════════════════════════════════
+         5. INSIGHTS
+         ══════════════════════════════════════════════ -->
+    <section class="section-insights" id="insights">
         <div class="container">
-            <div class="section-header-modern text-center mb-5" data-aos="fade-up">
-                <div class="subtitle">THOUGHT LEADERSHIP</div>
-                <h2>Insights & Articles</h2>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-label">Thought Leadership</span>
+                <h2 class="section-heading">Insights & Articles</h2>
             </div>
             <div class="row g-4 justify-content-center">
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300" style="width: 46%; flex: 0 0 46%;">
-                    <div class="update-card" style="height: 100%;">
-                        <div class="update-card-header">
-                            <i class="bi bi-journal-text"></i>
-                            <h4>AI Insights</h4>
-                        </div>
-                        <div class="video-thumbnail"
-                            style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000"
-                                alt="AI Insights"
-                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
-                        </div>
-                        <div class="update-card-body">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="insight-card">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=600"
+                            alt="AI Insights" class="insight-card-img">
+                        <div class="insight-card-body">
                             <h5>AI is Not One Thing: Are You Ready for Its Three Faces?</h5>
                             <p>Understanding the distinct roles of AI—Automation, Augmentation, and Autonomous
                                 systems—is crucial for strategic adoption.</p>
-                            <a href="Articles/threefacesofai.pdf" target="_blank" class="view-all-link">Read Full
-                                Article <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400" style="width: 46%; flex: 0 0 46%;">
-                    <div class="update-card" style="height: 100%;">
-                        <div class="update-card-header">
-                            <i class="bi bi-play-circle-fill"></i>
-                            <h4>Featured Article</h4>
-                        </div>
-                        <div class="video-thumbnail"
-                            style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000;">
-                            <a href="https://www.youtube.com/watch?v=hEhLY6HdoaA" target="_blank"
-                                style="display: block; width: 100%; height: 100%;">
-                                <img src="https://img.youtube.com/vi/hEhLY6HdoaA/maxresdefault.jpg"
-                                    alt="Video Thumbnail"
-                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
-                                <div
-                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(8, 145, 178, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(8, 145, 178, 0.5);">
-                                    <i class="bi bi-play-fill"
-                                        style="color: #fff; font-size: 32px; margin-left: 4px;"></i>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="update-card-body">
-                            <h5>Top 10 Reasons Why Data Science Projects Fail</h5>
-                            <p>Insights from Doug Gray on common pitfalls in data science initiatives and how to avoid
-                                them for successful outcomes.</p>
-                            <span class="update-date"><i class="bi bi-calendar3"></i> Latest Upload</span>
-                            <a href="https://miketalksai.substack.com/p/insights-from-doug-gray-why-data"
-                                target="_blank" class="view-all-link">Read Full Article <i
+                            <a href="Articles/threefacesofai.pdf" target="_blank" class="read-link">Read More <i
                                     class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Infinite Scrolling Clients Section -->
-    <section id="clients" class="clients-asymmetric">
-        <div class="container">
-            <div class="section-header-modern text-center" data-aos="fade-up">
-                <div class="subtitle">OUR CLIENTS</div>
-                <h2>Trusted By Industry Leaders</h2>
-            </div>
-        </div>
-        <div class="clients-carousel-wrapper">
-            <div class="clients-carousel">
-                <!-- First set of logos (scrambled so similar logos are not adjacent) -->
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/Jindal.jpg" alt="Jindal Steel" class="logo-boost">
-                    <div class="company-label">Jindal Steel</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/Reliance Securities.webp" alt="Reliance Securities">
-                    <div class="company-label">Reliance Securities</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/Aditya Birla.webp" alt="Aditya Birla Hindalco" class="logo-boost">
-                    <div class="company-label">Aditya Birla Hindalco</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/vedanta.webp" alt="Vedanta">
-                    <div class="company-label">Vedanta</div>
-                </div>
-
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/zf group.webp" alt="ZF Group">
-                    <div class="company-label">ZF Group</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/Lucas TVS Driven.webp" alt="Lucas TVS Driven">
-                    <div class="company-label">Lucas TVS Driven</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/kirloskar.webp" alt="Kirloskar">
-                    <div class="company-label">Kirloskar</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/Gyanodaya.jpg" alt="Gyanodaya" class="logo-boost">
-                    <div class="company-label">Aditya Birla Gyanodaya</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/Nism.jpg" alt="NISM">
-                    <div class="company-label">NISM</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/shivam-cement.webp" alt="Shivam Cement">
-                    <div class="company-label">Shivam Cement</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/Round Rock chamber.webp" alt="Round Rock Chamber">
-                    <div class="company-label">Round Rock Chamber</div>
-                </div>
-
-                <!-- Duplicate set for seamless loop -->
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/Jindal.jpg" alt="Jindal Steel" class="logo-boost">
-                    <div class="company-label">Jindal Steel</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/Reliance Securities.webp" alt="Reliance Securities">
-                    <div class="company-label">Reliance Securities</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/Aditya Birla.webp" alt="Aditya Birla Hindalco" class="logo-boost">
-                    <div class="company-label">Aditya Birla Hindalco</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/vedanta.webp" alt="Vedanta">
-                    <div class="company-label">Vedanta</div>
-                </div>
-
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/zf group.webp" alt="ZF Group">
-                    <div class="company-label">ZF Group</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/Lucas TVS Driven.webp" alt="Lucas TVS Driven">
-                    <div class="company-label">Lucas TVS Driven</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/kirloskar.webp" alt="Kirloskar">
-                    <div class="company-label">Kirloskar</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/Gyanodaya.jpg" alt="Gyanodaya" class="logo-boost">
-                    <div class="company-label">Aditya Birla Gyanodaya</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/Nism.jpg" alt="NISM">
-                    <div class="company-label">NISM</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/shivam-cement.webp" alt="Shivam Cement">
-                    <div class="company-label">Shivam Cement</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/clientlogos/Round Rock chamber.webp" alt="Round Rock Chamber">
-                    <div class="company-label">Round Rock Chamber</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Technology Partners Section -->
-    <section id="partners" class="partners-asymmetric">
-        <div class="container">
-            <div class="section-header-modern text-center" data-aos="fade-up">
-                <div class="subtitle"
-                    style="color: #c084fc; font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                    <span
-                        style="background: linear-gradient(90deg, #a855f7, #c084fc); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: inline-flex; align-items: center; gap: 8px;">
-                        ⭐ STRATEGIC ECOSYSTEM
-                    </span>
-                </div>
-                <h2
-                    style="background: linear-gradient(135deg, #ffffff 0%, #c084fc 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-size: 3rem; margin-top: 10px;">
-                    Global Partners</h2>
-                <p style="color: rgba(255, 255, 255, 0.6); max-width: 600px; margin: 15px auto 0;">Powered by
-                    industry-leading platforms and technologies</p>
-            </div>
-        </div>
-        <div class="partners-carousel-wrapper"
-            style="overflow: hidden; position: relative; padding: 20px 0; width: 100%;">
-            <!-- Helper styles for gradient fade edges custom to this section if needed, or reuse carousel styles -->
-            <style>
-                .partners-carousel-wrapper::before,
-                .partners-carousel-wrapper::after {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    width: 100px;
-                    height: 100%;
-                    z-index: 2;
-                    pointer-events: none;
-                }
-
-                .partners-carousel-wrapper::before {
-                    left: 0;
-                    background: linear-gradient(90deg, #0f1419 0%, transparent 100%);
-                }
-
-                .partners-carousel-wrapper::after {
-                    right: 0;
-                    background: linear-gradient(90deg, transparent 0%, #0f1419 100%);
-                }
-
-                .partners-carousel {
-                    display: flex;
-                    gap: 40px;
-                    width: max-content;
-                    animation: scroll 35s linear infinite;
-                    /* Slightly different speed */
-                }
-
-                .partners-carousel:hover {
-                    animation-play-state: paused;
-                }
-
-                /* Large cards for Partners */
-                .partners-carousel .client-card-modern {
-                    min-width: 350px;
-                    /* Double size */
-                    padding: 40px;
-                    gap: 20px;
-                }
-
-                .partners-carousel .client-card-modern img {
-                    max-height: 90px;
-                    /* Logo size reverted for consistency */
-                }
-
-                .partners-carousel .client-card-modern img.logo-boost {
-                    max-height: 140px;
-                    /* Specific boost for small/square logos */
-                }
-
-                .partners-carousel .client-card-modern .company-label {
-                    font-size: 16px;
-                    /* Larger text */
-                }
-            </style>
-
-            <div class="partners-carousel">
-                <!-- PARTNERS SET 1 -->
-                <div class="client-card-modern">
-                    <img src="images/companylogos/Snowflake.webp" alt="Snowflake">
-                    <div class="company-label">Snowflake</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/companylogos/aws.webp" alt="AWS" class="logo-boost">
-                    <div class="company-label">AWS</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/companylogos/Alteryx.webp" alt="Alteryx" class="logo-boost">
-                    <div class="company-label">Alteryx</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/companylogos/Dataiku.webp" alt="Dataiku">
-                    <div class="company-label">Dataiku</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/companylogos/ACMA.webp" alt="ACMA" class="logo-boost">
-                    <div class="company-label">ACMA</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/companylogos/NITK.webp" alt="NITK" class="logo-boost">
-                    <div class="company-label">NITK</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/companylogos/smu.webp" alt="SMU" class="logo-boost">
-                    <div class="company-label">SMU</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/companylogos/TVS.webp" alt="TVS Training">
-                    <div class="company-label">TVS Training</div>
-                </div>
-
-                <!-- PARTNERS SET 2 (Duplicate for loop) -->
-                <div class="client-card-modern">
-                    <img src="images/companylogos/Snowflake.webp" alt="Snowflake">
-                    <div class="company-label">Snowflake</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/companylogos/aws.webp" alt="AWS">
-                    <div class="company-label">AWS</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/companylogos/Alteryx.webp" alt="Alteryx" class="logo-boost">
-                    <div class="company-label">Alteryx</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/companylogos/Dataiku.webp" alt="Dataiku" class="logo-boost">
-                    <div class="company-label">Dataiku</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/companylogos/ACMA.webp" alt="ACMA" class="logo-boost">
-                    <div class="company-label">ACMA</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/companylogos/NITK.webp" alt="NITK" class="logo-boost">
-                    <div class="company-label">NITK</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/companylogos/smu.webp" alt="SMU" class="logo-boost">
-                    <div class="company-label">SMU</div>
-                </div>
-                <div class="client-card-modern">
-                    <img src="images/companylogos/TVS.webp" alt="TVS Training">
-                    <div class="company-label">TVS Training</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Alternating Services Section -->
-    <!-- Grid Services Section -->
-    <section id="services" class="services-alternating">
-        <div class="container">
-            <div class="section-header-modern text-center mb-5" data-aos="fade-up">
-                <div class="subtitle">OUR SERVICES</div>
-                <h2>What We Offer</h2>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="row g-4">
-                        <!-- AI Discovery -->
-                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                            <div class="service-detail-card horizontal">
-                                <div class="service-icon-wrapper">
-                                    <img src="images/ai-discovery-updated.webp" alt="AI Discovery"
-                                        class="service-image">
-                                </div>
-                                <div class="service-content">
-                                    <h3>AI Discovery</h3>
-                                    <p>Master AI fundamentals and strategic frameworks to build a winning
-                                        business playbook.</p>
-                                    <a href="our-services.html#discovery" class="btn-cyan">For More Info <i
-                                            class="bi bi-arrow-right ms-2"></i></a>
-                                </div>
-                            </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="insight-card">
+                        <img src="https://img.youtube.com/vi/hEhLY6HdoaA/maxresdefault.jpg"
+                            alt="Data Science Projects" class="insight-card-img">
+                        <div class="insight-card-body">
+                            <h5>Top 10 Reasons Why Data Science Projects Fail</h5>
+                            <p>Insights from Doug Gray on common pitfalls in data science initiatives and how to avoid
+                                them.</p>
+                            <a href="https://miketalksai.substack.com/p/insights-from-doug-gray-why-data"
+                                target="_blank" class="read-link">Read More <i class="bi bi-arrow-right"></i></a>
                         </div>
-
-                        <!-- AI Immersion -->
-                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                            <div class="service-detail-card horizontal">
-                                <div class="service-icon-wrapper">
-                                    <img src="images/ai-immersion.webp" alt="AI Immersion" class="service-image">
-                                </div>
-                                <div class="service-content">
-                                    <h3>AI Immersion</h3>
-                                    <p>Lead with AI by prioritizing high-impact initiatives, driving ROI, and
-                                        creating a practical AI playbook.</p>
-                                    <a href="our-services.html#immersion" class="btn-cyan">For More Info <i
-                                            class="bi bi-arrow-right ms-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- AI Activation -->
-                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-                            <div class="service-detail-card horizontal">
-                                <div class="service-icon-wrapper">
-                                    <img src="images/ai-activation-updated.webp" alt="AI Activation"
-                                        class="service-image">
-                                </div>
-                                <div class="service-content">
-                                    <h3>AI Activation</h3>
-                                    <p>Lead AI initiatives with data-driven models, validate outcomes, and
-                                        scale impact through smart analytics.</p>
-                                    <a href="our-services.html#activation" class="btn-cyan">For More Info <i
-                                            class="bi bi-arrow-right ms-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- AI Scale -->
-                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-                            <div class="service-detail-card horizontal">
-                                <div class="service-icon-wrapper">
-                                    <img src="images/ai-scale.webp" alt="AI Scale" class="service-image">
-                                </div>
-                                <div class="service-content">
-                                    <h3>AI Scale</h3>
-                                    <p>Identify and refine the right data sources to make your AI models
-                                        accurate, reliable, and success-ready.</p>
-                                    <a href="our-services.html#scale" class="btn-cyan">For More Info <i
-                                            class="bi bi-arrow-right ms-2"></i></a>
-                                </div>
-                            </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="insight-card">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=600"
+                            alt="AI Strategy" class="insight-card-img">
+                        <div class="insight-card-body">
+                            <h5>AI Meets Theory of Constraints</h5>
+                            <p>Exploring how AI and TOC converge to deliver breakthrough performance in manufacturing
+                                and beyond.</p>
+                            <a href="ai-blogs.html" class="read-link">Read More <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1530,94 +1223,18 @@
         </div>
     </section>
 
-
-    <!-- Testimonials -->
-    <section id="testimonials" class="testimonials-minimal">
-        <div class="container">
-            <div class="section-header-modern text-center" data-aos="fade-up">
-                <div class="subtitle" style="color: var(--cyan);">Testimonials</div>
-                <h2 style="color: #fff;">What Our Clients Say</h2>
-            </div>
-            <div class="testimonials-carousel-wrapper" data-aos="fade-up">
-                <div class="testimonials-carousel">
-                    <!-- Original Set -->
-                    <div class="testimonial-card-scroll">
-                        <p>"Vedanta Aluminium's 74 mid-to-senior leaders attended SetCONNECT's Executive Immersion in
-                            Analytics program, gaining practical AI insights."</p>
-                        <div>
-                            <div class="author">Dilip Sinha</div>
-                            <div class="position">(Former) CHRO, Vedanta Aluminium</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card-scroll">
-                        <p>"The AI Discovery Workshop provided valuable insights on applying AI across functions for
-                            value creation."</p>
-                        <div>
-                            <div class="author">Sashi Krishnan</div>
-                            <div class="position">Director, NISM</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card-scroll">
-                        <p>"SetCONNECT empowered us to transform AI from abstract concepts into tangible business
-                            outcomes."</p>
-                        <div>
-                            <div class="author">Mr P Kaniappan</div>
-                            <div class="position">MD, ZF CVCS India</div>
-                        </div>
-                    </div>
-
-                    <!-- Duplicate Set 1 -->
-                    <div class="testimonial-card-scroll">
-                        <p>"Vedanta Aluminium's 74 mid-to-senior leaders attended SetCONNECT's Executive Immersion in
-                            Analytics program, gaining practical AI insights."</p>
-                        <div>
-                            <div class="author">Dilip Sinha</div>
-                            <div class="position">(Former) CHRO, Vedanta Aluminium</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card-scroll">
-                        <p>"The AI Discovery Workshop provided valuable insights on applying AI across functions for
-                            value creation."</p>
-                        <div>
-                            <div class="author">Sashi Krishnan</div>
-                            <div class="position">Director, NISM</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card-scroll">
-                        <p>"SetCONNECT empowered us to transform AI from abstract concepts into tangible business
-                            outcomes."</p>
-                        <div>
-                            <div class="author">Mr P Kaniappan</div>
-                            <div class="position">MD, ZF CVCS India</div>
-                        </div>
-                    </div>
-
-                    <!-- Duplicate Set 2 -->
-                    <div class="testimonial-card-scroll">
-                        <p>"Vedanta Aluminium's 74 mid-to-senior leaders attended SetCONNECT's Executive Immersion in
-                            Analytics program, gaining practical AI insights."</p>
-                        <div>
-                            <div class="author">Dilip Sinha</div>
-                            <div class="position">(Former) CHRO, Vedanta Aluminium</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card-scroll">
-                        <p>"The AI Discovery Workshop provided valuable insights on applying AI across functions for
-                            value creation."</p>
-                        <div>
-                            <div class="author">Sashi Krishnan</div>
-                            <div class="position">Director, NISM</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card-scroll">
-                        <p>"SetCONNECT empowered us to transform AI from abstract concepts into tangible business
-                            outcomes."</p>
-                        <div>
-                            <div class="author">Mr P Kaniappan</div>
-                            <div class="position">MD, ZF CVCS India</div>
-                        </div>
-                    </div>
-                </div>
+    <!-- ══════════════════════════════════════════════
+         6. FINAL CTA
+         ══════════════════════════════════════════════ -->
+    <section class="cta-fullbleed" id="cta-final">
+        <div class="container" data-aos="fade-up">
+            <span class="section-label" style="display: block; text-align: center; margin-bottom: 16px;">Let's Talk</span>
+            <h2>Start with the Right AI Problem</h2>
+            <p>We help you identify where AI can create measurable value—before you invest in solutions.</p>
+            <div class="cta-buttons-group">
+                <a href="contact.html" class="btn-primary-bain">Book a Discovery Session <i
+                        class="bi bi-arrow-right"></i></a>
+                <a href="contact.html" class="btn-outline-light-custom">Contact Us</a>
             </div>
         </div>
     </section>
@@ -1628,10 +1245,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
+        AOS.init({ duration: 1000, once: true });
 
         window.addEventListener('scroll', () => {
             const header = document.querySelector('.modern-header');
@@ -1641,6 +1255,13 @@
                 header.classList.remove('scrolled');
             }
         });
+
+        function toggleAccordion(btn) {
+            const item = btn.closest('.playbook-accordion-item');
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.playbook-accordion-item').forEach(el => el.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
+        }
     </script>
 </body>
 
