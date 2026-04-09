@@ -149,49 +149,6 @@
             background: rgba(255, 255, 255, 0.08);
         }
 
-        /* Credibility Strip */
-        .credibility-strip {
-            margin-top: 56px;
-            padding-top: 32px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .credibility-strip .strip-label {
-            font-size: 11px;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.35);
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .credibility-logos {
-            display: flex;
-            align-items: center;
-            gap: 36px;
-            flex-wrap: wrap;
-        }
-
-        .credibility-logos .cred-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 15px;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.45);
-            letter-spacing: 1px;
-            white-space: nowrap;
-            transition: color 0.3s;
-        }
-
-        .credibility-logos .cred-name:hover {
-            color: var(--cyan);
-        }
-
-        .credibility-logos .cred-divider {
-            width: 1px;
-            height: 20px;
-            background: rgba(255, 255, 255, 0.12);
-        }
-
         @media (max-width: 992px) {
             .hero-home {
                 min-height: 70vh;
@@ -206,13 +163,112 @@
             .hero-home h1 {
                 font-size: 32px;
             }
+        }
 
-            .credibility-logos .cred-divider {
-                display: none;
+        /* ── CREDIBILITY STRIP — Deep Navy Blue ── */
+        .section-credibility {
+            background: #0d1b3e;
+            padding: 52px 0;
+            border-top: 1px solid rgba(99,179,237,0.2);
+            border-bottom: 1px solid rgba(99,179,237,0.15);
+        }
+
+        .section-credibility .strip-label {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            font-weight: 700;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        .credibility-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+        }
+
+        .cred-item {
+            position: relative;
+            padding: 0 32px;
+            border-right: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .cred-item:last-child {
+            border-right: none;
+        }
+
+        .cred-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 1px;
+            white-space: nowrap;
+            transition: color 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 0;
+            text-transform: uppercase;
+        }
+
+        .cred-name:hover {
+            color: var(--cyan);
+        }
+
+        /* Company Tooltip */
+        .cred-tooltip {
+            position: absolute;
+            bottom: calc(100% + 14px);
+            left: 50%;
+            transform: translateX(-50%) translateY(6px);
+            width: 230px;
+            background: #0a0e13;
+            color: rgba(255,255,255,0.82);
+            font-size: 13px;
+            line-height: 1.6;
+            padding: 16px 18px;
+            border-radius: 10px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.25s, transform 0.25s;
+            z-index: 50;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+            border: 1px solid rgba(8,145,178,0.35);
+        }
+
+        .cred-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 7px solid transparent;
+            border-top-color: #0a0e13;
+        }
+
+        .cred-item:hover .cred-tooltip {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .cred-item {
+                padding: 10px 18px;
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.06);
             }
 
-            .credibility-logos {
-                gap: 18px;
+            .cred-item:last-child {
+                border-bottom: none;
+            }
+
+            .cred-tooltip {
+                display: none;
             }
         }
 
@@ -244,16 +300,16 @@
             color: rgba(255, 255, 255, 0.65);
         }
 
-        /* ── 2. VALUE PROOF ── */
+        /* ── 2. VALUE PROOF — Deep Forest Green ── */
         .section-value {
             padding: 100px 0;
-            background: #0f1419;
+            background: #0a2218;
         }
 
         .value-card {
             padding: 48px 36px;
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            background: linear-gradient(145deg, #151c26 0%, #0f1419 100%);
+            border: 1px solid rgba(52, 211, 153, 0.12);
+            background: linear-gradient(145deg, #0f2d20 0%, #0a2218 100%);
             transition: all 0.4s ease;
             height: 100%;
             position: relative;
@@ -311,10 +367,10 @@
             margin: 0;
         }
 
-        /* ── 3. PLAYBOOK — HORIZONTAL STEPPER ── */
+        /* ── 3. PLAYBOOK — Deep Teal ── */
         .section-playbook {
             padding: 100px 0;
-            background: #0a0e13;
+            background: #072533;
             position: relative;
             overflow: hidden;
         }
@@ -525,15 +581,15 @@
             margin: 0;
         }
 
-        /* ── 4. SELECTED WORK ── */
+        /* ── 4. SELECTED WORK — Deep Indigo ── */
         .section-work {
             padding: 100px 0;
-            background: #0f1419;
+            background: #120a2e;
         }
 
         .work-card {
-            background: linear-gradient(145deg, #1a2332 0%, #131922 100%);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: linear-gradient(145deg, #1e1245 0%, #150e38 100%);
+            border: 1px solid rgba(139,92,246,0.12);
             overflow: hidden;
             transition: all 0.4s ease;
             height: 100%;
@@ -544,8 +600,8 @@
         }
 
         .work-card:hover {
-            border-color: rgba(8, 145, 178, 0.4);
-            box-shadow: 0 20px 56px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(8, 145, 178, 0.15);
+            border-color: rgba(139,92,246,0.45);
+            box-shadow: 0 20px 56px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(139,92,246,0.2);
             transform: translateY(-6px);
             color: inherit;
             text-decoration: none;
@@ -606,12 +662,12 @@
             gap: 14px;
         }
 
-        /* ── 4.5 FEATURED VIDEO — BAIN CINEMATIC ── */
+        /* ── 4.5 FEATURED VIDEO — Deep Emerald Green ── */
         .section-featured-video {
             padding: 0;
             position: relative;
             overflow: hidden;
-            background: #0a0e13;
+            background: #062a1a;
         }
 
         .featured-video-wrapper {
@@ -765,17 +821,17 @@
             }
         }
 
-        /* ── 5. INSIGHTS ── */
+        /* ── 5. INSIGHTS — Deep Purple ── */
         .section-insights {
             padding: 100px 0;
-            background: #0f1419;
+            background: #1a0933;
         }
 
         .insight-card {
-            background: linear-gradient(145deg, #151c26 0%, #0f1419 100%);
+            background: linear-gradient(145deg, #220d3f 0%, #1a0933 100%);
             border-radius: 0;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(167,139,250,0.1);
             transition: all 0.3s ease;
             height: 100%;
             display: flex;
@@ -784,7 +840,7 @@
 
         .insight-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(8, 145, 178, 0.35);
+            border-color: rgba(167,139,250,0.4);
             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
         }
 
@@ -842,11 +898,11 @@
             gap: 14px;
         }
 
-        /* ── 6. FINAL CTA ── */
+        /* ── 6. FINAL CTA — Deep Ocean Teal ── */
         .cta-fullbleed {
             position: relative;
             padding: 120px 0;
-            background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #1e3a3a 100%);
+            background: linear-gradient(135deg, #062a1a 0%, #0a3328 50%, #083024 100%);
             text-align: center;
             overflow: hidden;
         }
@@ -855,7 +911,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(10, 14, 19, 0.85) 0%, rgba(30, 58, 58, 0.8) 50%, rgba(10, 14, 19, 0.85) 100%);
+            background: linear-gradient(135deg, rgba(6,42,26,0.7) 0%, rgba(10,51,40,0.5) 50%, rgba(8,48,36,0.7) 100%);
         }
 
         .cta-fullbleed .container {
@@ -910,10 +966,8 @@
                 <div class="collapse navbar-collapse" id="navModern">
                     <ul class="navbar-nav nav-modern ms-auto align-items-center">
                         <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="our-services.html">Our Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ourservices-2.html">Services V2</a></li>
-                        <li class="nav-item"><a class="nav-link" href="setconnections.html">SetConnections</a></li>
-                        <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ourservices-2.html">Our Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="work-and-connections.html">Our Work & Network</a></li>
                         <li class="nav-item"><a class="nav-link" href="ai-blogs.html">AI Blogs</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
                         <li class="nav-item ms-3"><a href="contact.html" class="btn-cyan">Contact Us</a></li>
@@ -940,23 +994,42 @@
                 <div class="hero-cta-group">
                     <a href="contact.html" class="btn-primary-bain">Book a Discovery Session <i
                             class="bi bi-arrow-right"></i></a>
-                    <a href="case-studies.html" class="btn-outline-light-custom">See Our Work</a>
+                    <a href="work-and-connections.html" class="btn-outline-light-custom">See Our Work</a>
                 </div>
-                <div class="credibility-strip" data-aos="fade-up" data-aos-delay="200">
-                    <div class="strip-label">Trusted By</div>
-                    <div class="credibility-logos">
-                        <span class="cred-name">SunPower</span>
-                        <div class="cred-divider"></div>
-                        <span class="cred-name">ZF</span>
-                        <div class="cred-divider"></div>
-                        <span class="cred-name">Jindal Steel</span>
-                        <div class="cred-divider"></div>
-                        <span class="cred-name">Vedanta</span>
-                        <div class="cred-divider"></div>
-                        <span class="cred-name">AWS Partner</span>
-                        <div class="cred-divider"></div>
-                        <span class="cred-name">Snowflake</span>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         CREDIBILITY STRIP — White Section
+         ══════════════════════════════════════════ -->
+    <section class="section-credibility">
+        <div class="container">
+            <div class="strip-label">Trusted by Industry Leaders</div>
+            <div class="credibility-logos">
+                <div class="cred-item">
+                    <span class="cred-name">SunPower</span>
+                    <div class="cred-tooltip">A leading solar energy provider. SetConnect delivered AI-driven operational insights supporting their renewable energy mission.</div>
+                </div>
+                <div class="cred-item">
+                    <span class="cred-name">ZF Group</span>
+                    <div class="cred-tooltip">Global automotive supplier. SetConnect designed AI-powered defect detection and predictive quality models for their manufacturing operations.</div>
+                </div>
+                <div class="cred-item">
+                    <span class="cred-name">Lucas TVS</span>
+                    <div class="cred-tooltip">Automotive aftermarket leader. SetConnect built AI solutions for inventory forecasting and procurement optimization across their supply chain.</div>
+                </div>
+                <div class="cred-item">
+                    <span class="cred-name">Vedanta</span>
+                    <div class="cred-tooltip">Diversified metals and mining giant. SetConnect delivered an executive AI immersion program and scoped 15+ high-impact AI initiatives.</div>
+                </div>
+                <div class="cred-item">
+                    <span class="cred-name">AWS Partner</span>
+                    <div class="cred-tooltip">Certified AWS technology partner — bringing enterprise-grade cloud and AI infrastructure to every client engagement.</div>
+                </div>
+                <div class="cred-item">
+                    <span class="cred-name">Snowflake</span>
+                    <div class="cred-tooltip">Data cloud technology partner. SetConnect leverages Snowflake's platform to deliver scalable, analytics-ready data foundations for AI.</div>
                 </div>
             </div>
         </div>
@@ -1230,11 +1303,11 @@
         <div class="container" data-aos="fade-up">
             <span class="section-label" style="display: block; text-align: center; margin-bottom: 16px;">Let's Talk</span>
             <h2>Start with the Right AI Problem</h2>
-            <p>We help you identify where AI can create measurable value—before you invest in solutions.</p>
+            <p>Most AI investments fail because they begin with technology, not strategy. We help you identify exactly where AI creates measurable value — before you commit a single dollar.</p>
             <div class="cta-buttons-group">
-                <a href="contact.html" class="btn-primary-bain">Book a Discovery Session <i
+                <a href="contact.html" class="btn-primary-bain">Book a Discovery Conversation <i
                         class="bi bi-arrow-right"></i></a>
-                <a href="contact.html" class="btn-outline-light-custom">Contact Us</a>
+                <a href="work-and-connections.html" class="btn-outline-light-custom">See Client Results</a>
             </div>
         </div>
     </section>

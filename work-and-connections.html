@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work & Network — SetConnect | Case Studies & SetConnections</title>
+    <meta name="description" content="Explore SetConnect client stories across automotive, manufacturing and mining — and our global network of AI experts, learning programs and technology partners.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="css/shared-styles.css" rel="stylesheet">
+    <style>
+        :root { color-scheme: dark; }
+        html, body { background-color: #0a0e13 !important; color: #fff; }
+
+        /* ── HERO — Deep Navy ── */
+        .hero-wn {
+            margin-top: 80px;
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, #0d1b3e 0%, #0a2545 60%, #0e163a 100%);
+            position: relative; overflow: hidden;
+        }
+        .hero-wn::before {
+            content:''; position:absolute; right:-200px; top:-200px;
+            width:600px; height:600px; background:var(--cyan); opacity:0.05; border-radius:50%;
+        }
+        .hero-wn h1 { font-family:'Space Grotesk',sans-serif; font-size:52px; color:#fff; font-weight:700; line-height:1.15; margin-bottom:20px; }
+        .hero-wn h1 span { color:var(--cyan); }
+        .hero-wn p { font-size:19px; color:rgba(255,255,255,0.75); max-width:620px; line-height:1.7; font-weight:300; }
+        .tab-nav { display:flex; gap:8px; margin-top:40px; flex-wrap:wrap; }
+        .tab-btn { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.7); padding:10px 22px; border-radius:50px; font-size:14px; font-weight:600; cursor:pointer; transition:all 0.3s; text-decoration:none; }
+        .tab-btn:hover, .tab-btn.active { background:var(--cyan); border-color:var(--cyan); color:#fff; }
+
+        .sec-tag { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--cyan); display:inline-block; margin-bottom:14px; }
+        .sec-h2 { font-family:'Space Grotesk',sans-serif; font-size:44px; font-weight:700; color:#fff; margin-bottom:14px; }
+        .sec-p { font-size:17px; color:rgba(255,255,255,0.6); max-width:640px; line-height:1.7; font-weight:300; }
+
+        /* ── INTRO — Deep Teal ── */
+        .section-intro { padding:80px 0; background:#072533; text-align:center; }
+        .section-intro .sec-h2 { background:linear-gradient(90deg,#fff,#a5f3fc); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+        .section-intro p { font-size:18px; color:rgba(255,255,255,0.8); max-width:820px; margin:0 auto 18px; line-height:1.8; }
+
+        /* ── CASE STUDIES — Deep Teal ── */
+        .section-cases { padding:100px 0; background:#072533; }
+        .case-card-row {
+            background:linear-gradient(145deg,#0e3044,#072533);
+            border:1px solid rgba(14,165,233,0.1); border-radius:20px;
+            overflow:hidden; margin-bottom:32px; display:flex; align-items:stretch;
+            transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .case-card-row:hover { border-color:rgba(14,165,233,0.4); transform:translateY(-6px); box-shadow:0 24px 60px rgba(0,0,0,0.5); }
+        .case-card-row.reversed { flex-direction:row-reverse; }
+        .case-img { flex:0 0 38%; max-width:38%; overflow:hidden; position:relative; }
+        .case-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; }
+        .case-card-row:hover .case-img img { transform:scale(1.05); }
+        .badge-ind { position:absolute; top:18px; left:18px; background:rgba(8,145,178,0.9); color:#fff; font-size:11px; font-weight:700; padding:5px 14px; border-radius:50px; letter-spacing:1px; text-transform:uppercase; }
+        .case-card-row.reversed .badge-ind { left:auto; right:18px; }
+        .case-body { flex:1; padding:44px; display:flex; flex-direction:column; justify-content:center; }
+        .case-body h3 { font-family:'Space Grotesk',sans-serif; color:#fff; font-size:26px; margin-bottom:14px; font-weight:700; line-height:1.3; }
+        .case-body p { color:rgba(255,255,255,0.65); font-size:15px; line-height:1.75; margin-bottom:24px; }
+        .case-btn { display:inline-flex; align-items:center; gap:8px; background:transparent; color:var(--cyan); border:2px solid var(--cyan); padding:10px 26px; border-radius:50px; font-weight:700; font-size:14px; text-decoration:none; transition:all 0.3s; align-self:flex-start; }
+        .case-btn:hover { background:var(--cyan); color:#fff; transform:scale(1.04); box-shadow:0 8px 24px rgba(8,145,178,0.3); }
+        .case-btn i { transition:transform 0.3s; }
+        .case-btn:hover i { transform:translateX(4px); }
+
+        /* ── IMPACT BAR — Dark Teal-Green ── */
+        .section-impact { background:#0a2e2c; padding:64px 0; border-top:1px solid rgba(52,211,153,0.15); border-bottom:1px solid rgba(52,211,153,0.12); }
+        .impact-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+        @media(max-width:768px){ .impact-grid { grid-template-columns:repeat(2,1fr); } }
+        .impact-item { text-align:center; padding:28px 16px; background:rgba(52,211,153,0.06); border:1px solid rgba(52,211,153,0.18); border-radius:16px; transition:all 0.3s; }
+        .impact-item:hover { border-color:#34d399; transform:translateY(-4px); box-shadow:0 10px 30px rgba(52,211,153,0.15); }
+        .impact-val { font-family:'Space Grotesk',sans-serif; font-size:40px; font-weight:700; color:#34d399; line-height:1; }
+        .impact-lbl { font-size:14px; color:rgba(255,255,255,0.6); margin-top:8px; font-weight:500; }
+
+        /* ── INDUSTRIES — Deep Navy ── */
+        .section-industries { padding:80px 0; background:#0d1b3e; text-align:center; }
+        .industries-wrap { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:36px; }
+        .ind-pill { background:rgba(14,165,233,0.08); border:1px solid rgba(14,165,233,0.18); color:rgba(255,255,255,0.8); padding:10px 22px; border-radius:50px; font-size:14px; font-weight:500; transition:all 0.3s; display:flex; align-items:center; gap:8px; }
+        .ind-pill:hover { border-color:var(--cyan); color:var(--cyan); transform:translateY(-2px); box-shadow:0 6px 20px rgba(8,145,178,0.15); }
+        .ind-pill i { color:var(--cyan); font-size:16px; }
+
+        /* ── QUOTE — Dark Blue-Green ── */
+        .section-quote { padding:80px 0; background:#0a2e2c; }
+        .quote-card { background:linear-gradient(145deg,#0f3d3a,#0a2e2c); padding:56px 64px; border-radius:24px; border:1px solid rgba(52,211,153,0.12); text-align:center; position:relative; }
+        .quote-card::before { content:'"'; position:absolute; top:20px; left:40px; font-size:120px; color:rgba(52,211,153,0.1); font-family:Georgia,serif; line-height:1; }
+        .quote-card blockquote { color:rgba(255,255,255,0.88); font-size:20px; line-height:1.7; font-style:italic; max-width:700px; margin:0 auto 20px; }
+        .quote-author { color:#34d399; font-weight:700; font-size:16px; }
+        .quote-role { color:rgba(255,255,255,0.5); font-size:14px; }
+
+        /* ── SETCONNECTIONS — Deep Indigo ── */
+        .section-why { padding:80px 0; background:#120a2e; }
+        .section-why .sec-tag { color:#a78bfa; }
+        .pillars-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin-top:50px; }
+        @media(max-width:992px){ .pillars-grid { grid-template-columns:1fr; } }
+        .pillar-card {
+            background:linear-gradient(145deg,#1e1245,#150e38);
+            border:1px solid rgba(139,92,246,0.12); border-radius:20px; padding:40px 32px;
+            transition:all 0.35s; height:100%; position:relative; overflow:hidden;
+        }
+        .pillar-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#a78bfa,#8b5cf6); transform:scaleX(0); transition:transform 0.35s; }
+        .pillar-card:hover::before { transform:scaleX(1); }
+        .pillar-card:hover { border-color:rgba(167,139,250,0.4); transform:translateY(-8px); box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+        .pillar-img { width:100%; height:180px; object-fit:cover; border-radius:12px; margin-bottom:24px; display:block; }
+        .pillar-card h3 { color:#fff; font-size:24px; margin-bottom:14px; font-weight:700; font-family:'Space Grotesk',sans-serif; }
+        .pillar-card p { color:rgba(255,255,255,0.65); font-size:15px; line-height:1.75; margin:0; }
+        .pillar-icon { width:60px; height:60px; background:rgba(139,92,246,0.12); border:1px solid rgba(167,139,250,0.25); border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
+        .pillar-icon i { font-size:26px; color:#a78bfa; }
+
+        /* ── PROCESS — Dark Teal-Navy ── */
+        .section-process { padding:100px 0; background:#072533; }
+        .section-process .sec-tag { color:#7dd3fc; }
+        .process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:30px; margin-top:50px; position:relative; }
+        .process-grid::before { content:''; position:absolute; top:50px; left:10%; right:10%; height:2px; background:linear-gradient(90deg,transparent,var(--cyan),transparent); z-index:0; }
+        @media(max-width:992px){ .process-grid { grid-template-columns:1fr 1fr; } .process-grid::before { display:none; } }
+        @media(max-width:576px){ .process-grid { grid-template-columns:1fr; } }
+        .process-step { text-align:center; position:relative; z-index:1; }
+        .step-num { width:80px; height:80px; border-radius:50%; background:linear-gradient(145deg,rgba(8,145,178,0.18),rgba(8,145,178,0.05)); border:2px solid var(--cyan); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-size:28px; font-weight:700; color:var(--cyan); font-family:'Space Grotesk',sans-serif; transition:all 0.3s; }
+        .process-step:hover .step-num { background:var(--cyan); color:#fff; box-shadow:0 10px 30px rgba(8,145,178,0.3); transform:scale(1.1); }
+        .process-step h4 { color:#fff; font-size:18px; margin-bottom:10px; font-family:'Space Grotesk',sans-serif; }
+        .process-step p { color:rgba(255,255,255,0.6); font-size:14px; line-height:1.6; margin:0; }
+
+        /* ── NETWORK STATS — Deep Navy ── */
+        .section-stats { padding:80px 0; background:#0d1b3e; }
+        .section-stats .sec-tag { color:#93c5fd; }
+        .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:48px; }
+        @media(max-width:768px){ .stats-grid { grid-template-columns:repeat(2,1fr); } }
+        .stat-box { text-align:center; padding:40px 20px; background:linear-gradient(145deg,#162050,#0d1b3e); border-radius:20px; border:1px solid rgba(147,197,253,0.1); transition:all 0.3s; }
+        .stat-box:hover { border-color:rgba(147,197,253,0.4); transform:translateY(-5px); box-shadow:0 15px 40px rgba(13,27,62,0.5); }
+        .stat-box i { font-size:32px; color:#93c5fd; margin-bottom:15px; display:block; opacity:0.7; }
+        .stat-num { font-size:48px; font-weight:700; color:#93c5fd; line-height:1; font-family:'Space Grotesk',sans-serif; }
+        .stat-lbl { font-size:15px; color:rgba(255,255,255,0.65); margin-top:12px; }
+
+        /* ── NEWSLETTER — Deep Purple ── */
+        .section-newsletter { padding:100px 0; background:#1a0933; }
+        .section-newsletter .sec-tag { color:#a78bfa; }
+        .section-newsletter .sec-h2 { color:#fff; }
+        .nl-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:0; }
+        @media(max-width:992px){ .nl-grid { grid-template-columns:1fr 1fr; } }
+        @media(max-width:576px){ .nl-grid { grid-template-columns:1fr; } }
+        .nl-card { background:linear-gradient(145deg,#220d3f,#1a0933); border:1px solid rgba(167,139,250,0.14); border-radius:16px; padding:32px 28px; display:flex; flex-direction:column; transition:all 0.35s; }
+        .nl-card:hover { border-color:rgba(167,139,250,0.5); transform:translateY(-6px); box-shadow:0 16px 48px rgba(0,0,0,0.5); }
+        .nl-card.empty { background:rgba(167,139,250,0.03); border-style:dashed; border-color:rgba(167,139,250,0.18); justify-content:center; align-items:center; text-align:center; min-height:200px; }
+        .nl-card.empty i { font-size:36px; color:rgba(167,139,250,0.3); margin-bottom:12px; }
+        .nl-card.empty p { color:rgba(255,255,255,0.3); font-size:14px; margin:0; }
+        .issue-tag { display:inline-block; background:rgba(167,139,250,0.1); border:1px solid rgba(167,139,250,0.25); color:#a78bfa; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:3px 12px; border-radius:20px; margin-bottom:16px; align-self:flex-start; }
+        .nl-card h5 { font-family:'Space Grotesk',sans-serif; font-size:17px; color:#fff; font-weight:700; margin-bottom:12px; line-height:1.4; }
+        .nl-card p { color:rgba(255,255,255,0.55); font-size:14px; line-height:1.65; flex-grow:1; margin-bottom:20px; }
+        .nl-link { font-size:13px; font-weight:600; color:#a78bfa; text-decoration:none; display:inline-flex; align-items:center; gap:6px; transition:gap 0.2s; margin-top:auto; }
+        .nl-link:hover { gap:10px; }
+        .subscribe-box { background:rgba(167,139,250,0.06); border:1px solid rgba(167,139,250,0.2); border-radius:20px; padding:48px; text-align:center; margin-top:60px; }
+        .subscribe-box h4 { font-family:'Space Grotesk',sans-serif; font-size:28px; color:#fff; margin-bottom:12px; }
+        .subscribe-box > p { color:rgba(255,255,255,0.6); font-size:16px; margin-bottom:28px; max-width:480px; margin-left:auto; margin-right:auto; }
+        .sub-form { display:flex; gap:12px; max-width:460px; margin:0 auto; flex-wrap:wrap; justify-content:center; }
+        .sub-form input { flex:1; min-width:240px; padding:12px 20px; border:2px solid rgba(167,139,250,0.3); border-radius:50px; font-size:15px; outline:none; font-family:'Inter',sans-serif; color:#fff; background:rgba(255,255,255,0.05); transition:border-color 0.3s; }
+        .sub-form input::placeholder { color:rgba(255,255,255,0.35); }
+        .sub-form input:focus { border-color:#a78bfa; }
+        .btn-sub { background:#a78bfa; color:#fff; padding:12px 28px; border-radius:50px; font-weight:700; font-size:14px; border:none; cursor:pointer; transition:all 0.3s; font-family:'Inter',sans-serif; }
+        .btn-sub:hover { background:#8b5cf6; transform:scale(1.05); box-shadow:0 6px 20px rgba(139,92,246,0.35); }
+        #sub-msg { margin-top:12px; font-size:14px; color:#a78bfa; display:none; }
+
+        /* ── FINAL CTA — Deep Ocean Teal ── */
+        .section-cta { padding:100px 0; background:linear-gradient(135deg,#062a1a,#0a3328,#083024); text-align:center; position:relative; overflow:hidden; }
+        .section-cta::before { content:''; position:absolute; left:50%; top:-120px; transform:translateX(-50%); width:500px; height:500px; background:#34d399; opacity:0.04; border-radius:50%; }
+        .section-cta .sec-tag { color:#34d399; }
+        .section-cta h2 { font-family:'Space Grotesk',sans-serif; font-size:46px; color:#fff; margin-bottom:18px; position:relative; z-index:1; }
+        .section-cta p { font-size:18px; color:rgba(255,255,255,0.72); max-width:560px; margin:0 auto 40px; line-height:1.7; font-weight:300; position:relative; z-index:1; }
+        .cta-grp { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; position:relative; z-index:1; }
+        .btn-primary-bain { background:var(--cyan); color:#fff; border:2px solid var(--cyan); padding:14px 34px; border-radius:0; font-weight:600; font-size:14px; letter-spacing:1px; text-transform:uppercase; transition:all 0.3s; text-decoration:none; display:inline-flex; align-items:center; gap:10px; }
+        .btn-primary-bain:hover { background:#0e7490; border-color:#0e7490; color:#fff; }
+        .btn-outline-lt { background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.4); padding:14px 34px; border-radius:0; font-weight:600; font-size:14px; letter-spacing:1px; text-transform:uppercase; transition:all 0.3s; text-decoration:none; }
+        .btn-outline-lt:hover { border-color:#fff; color:#fff; background:rgba(255,255,255,0.08); }
+
+        @media(max-width:992px){
+            .case-card-row, .case-card-row.reversed { flex-direction:column !important; }
+            .case-img { flex:none; max-width:100%; height:220px; }
+            .case-body { padding:30px; }
+            .hero-wn h1 { font-size:36px; }
+            .sec-h2 { font-size:32px; }
+            .quote-card { padding:36px 24px; }
+            .quote-card blockquote { font-size:17px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="modern-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="brand" href="index.html">
+                    <img src="images/setconnect-logo.png" alt="SetConnect Globe">
+                    Set<span>CONNECT</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navWN">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navWN">
+                    <ul class="navbar-nav nav-modern ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ourservices-2.html">Our Services</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="work-and-connections.html">Our Work & Network</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ai-blogs.html">AI Blogs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item ms-3"><a href="contact.html" class="btn-cyan">Contact Us</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-wn">
+        <div class="container">
+            <div data-aos="fade-up">
+                <div class="sec-tag">Client Impact &amp; Our Network</div>
+                <h1>ProofPoints Matter.<br><span>Real Results. Real Connections.</span></h1>
+                <p>Explore SetConnect client stories across global enterprises — and the worldwide network of AI experts, educators and technology partners we bring to every engagement.</p>
+                <div class="tab-nav">
+                    <a href="#case-studies" class="tab-btn active">Case Studies</a>
+                    <a href="#setconnections" class="tab-btn">SetConnections</a>
+                    <a href="#newsletter" class="tab-btn">Newsletter Archive</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="section-intro">
+        <div class="container" data-aos="fade-up">
+            <div class="sec-tag" style="color:var(--cyan);">Client Success</div>
+            <h2 class="sec-h2">SetConnect Client Stories</h2>
+            <p>From predictive analytics to executive AI immersion programs, explore how SetConnect has delivered measurable business impact for industry leaders worldwide.</p>
+            <p>We focus on delivering a comprehensive value model for our clients — combining partners, experts, and AI models based on our best practices. We call this collection of curated resources <strong>SetConnections</strong>.</p>
+        </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section class="section-cases" id="case-studies">
+        <div class="container">
+            <div data-aos="fade-up" class="mb-5">
+                <div class="sec-tag">Proof That AI Works — When Done Right</div>
+                <h2 class="sec-h2">Our Case Studies</h2>
+                <p class="sec-p">Real engagements. Measurable outcomes. Across three continents and three industries.</p>
+            </div>
+
+            <!-- ZF -->
+            <div class="case-card-row" data-aos="fade-up">
+                <div class="case-img">
+                    <span class="badge-ind">Automotive</span>
+                    <img src="images/casestudies/zf.webp" alt="ZF Automotive Case Study">
+                </div>
+                <div class="case-body">
+                    <h3>ZF — Automotive Predictive Analytics</h3>
+                    <p>This project, conducted for a global commercial vehicle manufacturer, focused on analyzing warranty claims and parts failures to enhance predictive analytics capabilities. The goal was to identify failure patterns, forecast future component breakdowns, and support data-driven business decisions — transforming reactive maintenance into proactive quality intelligence.</p>
+                    <a href="casestudies/zf-automotive.html" class="case-btn">View Case Study <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Lucas TVS -->
+            <div class="case-card-row reversed" data-aos="fade-up">
+                <div class="case-img">
+                    <span class="badge-ind">Automotive Aftermarket</span>
+                    <img src="images/casestudies/lucas-tvs.webp" alt="Lucas TVS Case Study">
+                </div>
+                <div class="case-body">
+                    <h3>Lucas TVS — AI Supply Chain Optimization</h3>
+                    <p>The global automotive aftermarket is a $418B+ industry growing rapidly due to rising vehicle age, e-commerce expansion, and demand for customization. SetConnect built AI-powered inventory forecasting and procurement optimization models that gave Lucas TVS dramatic improvements in supply chain responsiveness and cost efficiency.</p>
+                    <a href="casestudies/lucas-tvs.html" class="case-btn">View Case Study <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Vedanta -->
+            <div class="case-card-row" data-aos="fade-up">
+                <div class="case-img">
+                    <span class="badge-ind">Aluminum Manufacturing</span>
+                    <img src="images/casestudies/vedanta-case-study.webp" alt="Vedanta Case Study">
+                </div>
+                <div class="case-body">
+                    <h3>Vedanta — Executive AI Immersion Program</h3>
+                    <p>SetConnect designed and delivered an Executive Immersion in Analytics for senior executives across multiple Vedanta locations. The program focused on applying AI, ML, and Business Analytics to solve real-world challenges — identifying high-impact business problems and developing data-driven solutions to enhance decision-making and operational efficiency at scale.</p>
+                    <a href="casestudies/vedanta.html" class="case-btn">View Case Study <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPACT METRICS -->
+    <section class="section-impact">
+        <div class="container">
+            <div class="impact-grid">
+                <div class="impact-item" data-aos="fade-up">
+                    <div class="impact-val">3</div>
+                    <div class="impact-lbl">Industries Transformed</div>
+                </div>
+                <div class="impact-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="impact-val">75%</div>
+                    <div class="impact-lbl">Rejection Rate Reduction</div>
+                </div>
+                <div class="impact-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="impact-val">10%</div>
+                    <div class="impact-lbl">Cost Reduction Achieved</div>
+                </div>
+                <div class="impact-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="impact-val">15+</div>
+                    <div class="impact-lbl">AI Projects Scoped</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INDUSTRIES SERVED -->
+    <section class="section-industries">
+        <div class="container text-center">
+            <div data-aos="fade-up">
+                <div class="sec-tag" style="color:#93c5fd;">Industries We Serve</div>
+                <h2 class="sec-h2">Driving AI Across Verticals</h2>
+            </div>
+            <div class="industries-wrap" data-aos="fade-up" data-aos-delay="100">
+                <span class="ind-pill"><i class="bi bi-truck"></i> Commercial Vehicles</span>
+                <span class="ind-pill"><i class="bi bi-gear"></i> Auto Components</span>
+                <span class="ind-pill"><i class="bi bi-building"></i> Aluminum Manufacturing</span>
+                <span class="ind-pill"><i class="bi bi-lightning"></i> Energy &amp; Mining</span>
+                <span class="ind-pill"><i class="bi bi-shop"></i> Retail &amp; E-Commerce</span>
+                <span class="ind-pill"><i class="bi bi-hospital"></i> Healthcare</span>
+                <span class="ind-pill"><i class="bi bi-bank"></i> Financial Services</span>
+                <span class="ind-pill"><i class="bi bi-airplane"></i> Logistics &amp; Supply Chain</span>
+                <span class="ind-pill"><i class="bi bi-cpu"></i> Technology</span>
+                <span class="ind-pill"><i class="bi bi-droplet"></i> Oil &amp; Gas</span>
+                <span class="ind-pill"><i class="bi bi-broadcast"></i> Telecom</span>
+                <span class="ind-pill"><i class="bi bi-book"></i> Education</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENT QUOTE -->
+    <section class="section-quote">
+        <div class="container">
+            <div class="quote-card" data-aos="fade-up">
+                <blockquote>"SetConnect's structured approach to AI transformed how we think about data-driven decision making. Their playbook methodology delivered measurable results within the first sprint."</blockquote>
+                <div class="quote-author">Senior Executive</div>
+                <div class="quote-role">Global Manufacturing Enterprise</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SETCONNECTIONS — WHY -->
+    <section class="section-why" id="setconnections">
+        <div class="container">
+            <div data-aos="fade-up" class="mb-5">
+                <div class="sec-tag">Our Global Ecosystem</div>
+                <h2 class="sec-h2">Why SetConnections?</h2>
+                <p class="sec-p">We focus on delivering a comprehensive value model — combining world-class partners, experts, and AI models to drive client success. Our goal is to bring the right combination of resources to every engagement through our curated ecosystem: <strong>SetConnections</strong>.</p>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/set-connections/expertise.webp" alt="Expertise" class="pillar-img" onerror="this.style.display='none'">
+                    <div class="pillar-icon"><i class="bi bi-people-fill"></i></div>
+                    <h3>Expertise</h3>
+                    <p>SetConnect delivers a worldwide network of AI expertise to your doorstep. Through partnerships with industry leaders who have led AI projects and advanced academic professionals, we bring experts to your team — integrating their expertise directly into our playbook methodology for your specific context.</p>
+                </div>
+                <div class="pillar-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/set-connections/learning.webp" alt="Learning" class="pillar-img" onerror="this.style.display='none'">
+                    <div class="pillar-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                    <h3>Learning</h3>
+                    <p>SetConnect brings best-in-class certification programs up to Masters Programs in Data Science. Our learning structure is designed to ensure professionals advance their skills in AI and Data Science — whether you are an L&amp;D team in a corporation or an educational institution seeking to provide advanced AI learning to your students.</p>
+                </div>
+                <div class="pillar-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/set-connections/technology.webp" alt="Technology" class="pillar-img" onerror="this.style.display='none'">
+                    <div class="pillar-icon"><i class="bi bi-cpu-fill"></i></div>
+                    <h3>Technology</h3>
+                    <p>As part of our AI and Data Science ecosystem, we have evaluated technologies to accelerate outcomes. From experience across solutions, software, and supporting technology — SetConnect is well positioned to assist your team in evaluating and selecting the right technology partners for your specific AI journey and maturity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section-process">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="sec-tag" style="color:#7dd3fc;">How It Works</div>
+                <h2 class="sec-h2">Our Engagement Process</h2>
+            </div>
+            <div class="process-grid">
+                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-num">1</div>
+                    <h4>Discover</h4>
+                    <p>Assess your AI readiness and identify high-impact business problems worth solving with data.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-num">2</div>
+                    <h4>Match</h4>
+                    <p>Connect you with the right experts, learning programs, and technology partners from our network.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-num">3</div>
+                    <h4>Execute</h4>
+                    <p>Deploy structured AI sprints with our proven playbook methodology for rapid, measurable outcomes.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-num">4</div>
+                    <h4>Scale</h4>
+                    <p>Expand successful pilots across your organization with ongoing support and continuous optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NETWORK STATS -->
+    <section class="section-stats">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <div class="sec-tag" style="color:#93c5fd;">Our Network</div>
+                <h2 class="sec-h2">SetConnections by the Numbers</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-box" data-aos="fade-up">
+                    <i class="bi bi-people"></i>
+                    <div><span class="stat-num" data-target="50">0</span><span class="stat-num" style="display:inline">+</span></div>
+                    <div class="stat-lbl">Global AI Experts</div>
+                </div>
+                <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
+                    <i class="bi bi-mortarboard"></i>
+                    <div><span class="stat-num" data-target="25">0</span><span class="stat-num" style="display:inline">+</span></div>
+                    <div class="stat-lbl">Learning Programs</div>
+                </div>
+                <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
+                    <i class="bi bi-cpu"></i>
+                    <div><span class="stat-num" data-target="30">0</span><span class="stat-num" style="display:inline">+</span></div>
+                    <div class="stat-lbl">Technology Partners</div>
+                </div>
+                <div class="stat-box" data-aos="fade-up" data-aos-delay="300">
+                    <i class="bi bi-globe-americas"></i>
+                    <div><span class="stat-num" data-target="15">0</span><span class="stat-num" style="display:inline">+</span></div>
+                    <div class="stat-lbl">Industries Covered</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER ARCHIVE -->
+    <section class="section-newsletter" id="newsletter">
+        <div class="container">
+            <div data-aos="fade-up" class="mb-5">
+                <div class="sec-tag">Thought Leadership</div>
+                <h2 class="sec-h2">AI Insights Newsletter</h2>
+                <p class="sec-p">Practical thinking on AI strategy, execution, and what it really takes to create measurable business value — delivered to leaders who care about outcomes, not hype.</p>
+            </div>
+            <div class="nl-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="nl-card">
+                    <span class="issue-tag">Issue #1</span>
+                    <h5>AI is Not One Thing: The Three Faces Every Leader Must Understand</h5>
+                    <p>Automation, Augmentation, and Autonomous systems represent fundamentally different investment decisions. Understanding which "face" applies to your problem changes everything about how you approach AI strategy.</p>
+                    <a href="Articles/threefacesofai.pdf" target="_blank" class="nl-link">Read Issue <i class="bi bi-arrow-right"></i></a>
+                </div>
+                <div class="nl-card">
+                    <span class="issue-tag">Issue #2</span>
+                    <h5>Why Data Science Projects Fail — And What To Do About It</h5>
+                    <p>With insights from Doug Gray, this issue unpacks the ten most common failure modes in data science initiatives and the practical steps that separate successful AI programs from expensive experiments.</p>
+                    <a href="https://miketalksai.substack.com/p/insights-from-doug-gray-why-data" target="_blank" class="nl-link">Read Issue <i class="bi bi-arrow-right"></i></a>
+                </div>
+                <div class="nl-card">
+                    <span class="issue-tag">Issue #3</span>
+                    <h5>AI Meets Theory of Constraints: A Conversation with Rami Goldratt</h5>
+                    <p>Dr. Ramesh Rajagopalan and Rami Goldratt explore how AI and the Theory of Constraints converge — and why the most powerful AI use cases start with identifying your system's true bottleneck.</p>
+                    <a href="ai-blogs.html" class="nl-link">Read Issue <i class="bi bi-arrow-right"></i></a>
+                </div>
+                <div class="nl-card empty"><i class="bi bi-envelope-open"></i><p>Issue #4 — Coming Soon</p></div>
+                <div class="nl-card empty"><i class="bi bi-envelope-open"></i><p>Issue #5 — Coming Soon</p></div>
+                <div class="nl-card empty"><i class="bi bi-envelope-open"></i><p>Issue #6 — Coming Soon</p></div>
+            </div>
+            <div class="subscribe-box" data-aos="fade-up">
+                <h4>Get the Next Issue in Your Inbox</h4>
+                <p>Join leaders across manufacturing, energy, and enterprise who read SetConnect's AI insights to stay ahead of the curve.</p>
+                <form class="sub-form" onsubmit="handleSub(event)">
+                    <input type="email" placeholder="Your business email" required>
+                    <button type="submit" class="btn-sub">Subscribe</button>
+                </form>
+                <p id="sub-msg">Thank you! We'll be in touch with the next issue.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section-cta">
+        <div class="container" data-aos="fade-up">
+            <div class="sec-tag">Let's Talk</div>
+            <h2>Start with the Right AI Problem</h2>
+            <p>Most AI investments fail because they begin with technology, not strategy. We help you identify exactly where AI creates measurable value — before you commit a single dollar.</p>
+            <div class="cta-grp">
+                <a href="contact.html" class="btn-primary-bain">Book a Discovery Conversation <i class="bi bi-arrow-right"></i></a>
+                <a href="ourservices-2.html" class="btn-outline-lt">Explore Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="global-footer-placeholder" data-root="./"></div>
+    <script src="js/footer-loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        window.addEventListener('scroll', () => {
+            const h = document.querySelector('.modern-header');
+            if (window.scrollY > 50) h.classList.add('scrolled'); else h.classList.remove('scrolled');
+        });
+        document.querySelectorAll('.tab-btn[href^="#"]').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const t = document.querySelector(btn.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior:'smooth', block:'start' });
+            });
+        });
+        function handleSub(e) {
+            e.preventDefault();
+            document.getElementById('sub-msg').style.display = 'block';
+            e.target.reset();
+        }
+        // Animated counters
+        function animateCounters() {
+            document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+                const target = +el.getAttribute('data-target');
+                let cur = 0; const step = target / 125;
+                const run = () => { cur += step; if (cur < target) { el.textContent = Math.ceil(cur); requestAnimationFrame(run); } else { el.textContent = target; } };
+                run();
+            });
+        }
+        const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { animateCounters(); obs.unobserve(e.target); } }); }, { threshold: 0.3 });
+        const ss = document.querySelector('.section-stats');
+        if (ss) obs.observe(ss);
+    </script>
+</body>
+</html>

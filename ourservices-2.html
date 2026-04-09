@@ -16,11 +16,11 @@
     <link href="css/shared-styles.css" rel="stylesheet">
 
     <style>
-        /* ΓöÇΓöÇ HERO TWO-COLUMN ΓöÇΓöÇ */
+        /* ── HERO — Deep Navy Blue ── */
         .hero-services {
             margin-top: 80px;
             padding: 100px 0 80px;
-            background: linear-gradient(135deg, #1a2332 0%, #1e3a3a 50%, #0d1117 100%);
+            background: linear-gradient(135deg, #0d1b3e 0%, #0a2545 50%, #0e163a 100%);
             position: relative;
             overflow: hidden;
         }
@@ -187,15 +187,15 @@
             }
         }
 
-        /* ΓöÇΓöÇ WHO WE SERVE ΓöÇΓöÇ */
+        /* ── WHO WE SERVE — Forest Green ── */
         .serve-section {
             padding: 80px 0;
-            background: #0f1419;
+            background: #064e3b;
         }
 
         .serve-card {
-            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: linear-gradient(145deg, #065f46 0%, #064e3b 100%);
+            border: 1px solid rgba(52, 211, 153, 0.1);
             border-radius: 20px;
             padding: 44px 32px;
             height: 100%;
@@ -212,7 +212,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--cyan), #0e7490);
+            background: linear-gradient(90deg, #34d399, #10b981);
             transform: scaleX(0);
             transition: transform 0.35s ease;
         }
@@ -222,16 +222,16 @@
         }
 
         .serve-card:hover {
-            border-color: rgba(8, 145, 178, 0.4);
+            border-color: rgba(52, 211, 153, 0.4);
             transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.2);
+            box-shadow: 0 20px 60px rgba(52, 211, 153, 0.12);
         }
 
         .serve-card .serve-icon {
             width: 72px;
             height: 72px;
-            background: linear-gradient(135deg, rgba(8, 145, 178, 0.2), rgba(8, 145, 178, 0.05));
-            border: 1px solid rgba(8, 145, 178, 0.3);
+            background: linear-gradient(135deg, rgba(52, 211, 153, 0.18), rgba(16, 185, 129, 0.06));
+            border: 1px solid rgba(52, 211, 153, 0.3);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -241,7 +241,7 @@
 
         .serve-card .serve-icon i {
             font-size: 30px;
-            color: var(--cyan);
+            color: #34d399;
         }
 
         .serve-card h4 {
@@ -257,15 +257,128 @@
             margin: 0;
         }
 
-        /* ΓöÇΓöÇ AI SUCCESS PLAYBOOK ΓÇö SERVICE CARDS ΓöÇΓöÇ */
+        /* ── AI SUCCESS PLAYBOOK — Deep Teal ── */
         .playbook-section {
             padding: 80px 0 40px;
-            background: #0d1117;
+            background: #072533;
         }
 
         .playbook-cards-section {
             padding: 0 0 80px;
-            background: #0d1117;
+            background: #072533;
+        }
+
+        /* ── DARK ALTERNATE SECTION — Deep Indigo ── */
+        .light-contrast-section {
+            padding: 80px 0;
+            background: #120a2e;
+            color: #ffffff;
+        }
+
+        .light-contrast-section .section-header-modern h2 {
+            color: #ffffff;
+        }
+
+        .light-contrast-section .section-header-modern p {
+            color: rgba(255,255,255,0.65);
+        }
+
+        .light-contrast-section .subtitle {
+            color: #a78bfa;
+        }
+
+        .light-proof-card {
+            background: linear-gradient(145deg, #1e1245 0%, #150e38 100%);
+            border: 1px solid rgba(139,92,246,0.12);
+            border-radius: 20px;
+            padding: 36px 32px;
+            height: 100%;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+        }
+
+        .light-proof-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #a78bfa, transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .light-proof-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .light-proof-card:hover {
+            border-color: rgba(139,92,246,0.45);
+            transform: translateY(-8px);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+        }
+
+        .light-proof-card .client-logo-img {
+            max-width: 140px;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter: brightness(1.1);
+        }
+
+        .light-proof-card .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .light-proof-card .service-tag {
+            display: inline-block;
+            background: rgba(139,92,246,0.1);
+            border: 1px solid rgba(139,92,246,0.25);
+            color: #a78bfa;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .light-proof-card h4 {
+            color: #ffffff;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .light-proof-card .problem-line {
+            color: rgba(255,255,255,0.65);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .light-proof-card .case-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: #a78bfa;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+            margin-top: auto;
+        }
+
+        .light-proof-card .case-link:hover {
+            gap: 10px;
         }
 
         /* Horizontal progress connector */
@@ -549,19 +662,19 @@
             gap: 10px;
         }
 
-        /* ΓöÇΓöÇ WHY SETCONNECT ΓöÇΓöÇ */
+        /* ── WHY SETCONNECT — Deep Purple ── */
         .why-band {
             padding: 80px 0;
-            background: linear-gradient(135deg, #0d1117 0%, #1a2332 50%, #0d1117 100%);
-            border-top: 1px solid rgba(8, 145, 178, 0.15);
-            border-bottom: 1px solid rgba(8, 145, 178, 0.15);
+            background: #1a0933;
+            border-top: 1px solid rgba(167,139,250,0.12);
+            border-bottom: 1px solid rgba(167,139,250,0.12);
         }
 
         .why-tile {
             text-align: center;
             padding: 36px 24px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            background: rgba(167,139,250,0.03);
+            border: 1px solid rgba(167,139,250,0.08);
             border-radius: 20px;
             height: 100%;
             transition: all 0.35s ease;
@@ -577,7 +690,7 @@
             transform: translateX(-50%);
             width: 40px;
             height: 3px;
-            background: var(--cyan);
+            background: #a78bfa;
             opacity: 0;
             transition: opacity 0.3s, width 0.3s;
         }
@@ -588,17 +701,17 @@
         }
 
         .why-tile:hover {
-            border-color: rgba(8, 145, 178, 0.3);
+            border-color: rgba(167,139,250,0.35);
             transform: translateY(-6px);
-            box-shadow: 0 16px 48px rgba(8, 145, 178, 0.12);
-            background: rgba(8, 145, 178, 0.05);
+            box-shadow: 0 16px 48px rgba(167,139,250,0.1);
+            background: rgba(167,139,250,0.05);
         }
 
         .why-tile .why-tile-icon {
             width: 64px;
             height: 64px;
-            background: linear-gradient(135deg, rgba(8, 145, 178, 0.2), rgba(8, 145, 178, 0.05));
-            border: 1px solid rgba(8, 145, 178, 0.3);
+            background: linear-gradient(135deg, rgba(167,139,250,0.18), rgba(139,92,246,0.06));
+            border: 1px solid rgba(167,139,250,0.3);
             border-radius: 16px;
             display: flex;
             align-items: center;
@@ -613,7 +726,7 @@
 
         .why-tile .why-tile-icon i {
             font-size: 28px;
-            color: var(--cyan);
+            color: #a78bfa;
         }
 
         .why-tile h4 {
@@ -629,10 +742,10 @@
             margin: 0;
         }
 
-        /* ΓöÇΓöÇ FINAL CTA ΓöÇΓöÇ */
+        /* ── FINAL CTA — Deep Emerald ── */
         .final-cta {
             padding: 100px 0;
-            background: linear-gradient(135deg, #1e3a3a 0%, #134e4a 50%, #0d1117 100%);
+            background: linear-gradient(135deg, #062a1a 0%, #083a22 50%, #062a1a 100%);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -724,10 +837,8 @@
                 <div class="collapse navbar-collapse" id="navModern">
                     <ul class="navbar-nav nav-modern ms-auto align-items-center">
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="our-services.html">Our Services</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="ourservices-2.html">Services V2</a></li>
-                        <li class="nav-item"><a class="nav-link" href="setconnections.html">SetConnections</a></li>
-                        <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="ourservices-2.html">Our Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="work-and-connections.html">Our Work & Network</a></li>
                         <li class="nav-item"><a class="nav-link" href="ai-blogs.html">AI Blogs</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
                         <li class="nav-item ms-3"><a href="contact.html" class="btn-cyan">Contact Us</a></li>
@@ -951,56 +1062,48 @@
         </div>
     </section>
 
-    <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
-         4. HOW WE APPLY THESE SERVICES ΓÇö 3 Proof Cards
-         ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
-    <section class="proof-section" id="proof">
+    <!-- ══════════════════════════════════════════════════
+         4. HOW WE APPLY THESE SERVICES — Light Section
+         ══════════════════════════════════════════════════ -->
+    <section class="light-contrast-section" id="proof">
         <div class="container">
             <div class="section-header-modern text-center mb-5" data-aos="fade-up">
                 <div class="subtitle">HOW WE APPLY THESE SERVICES</div>
                 <h2>Proven Results Across Industries</h2>
-                <p>Each engagement is tied to our service framework ΓÇö from Discovery through Scale ΓÇö delivering measurable
-                    outcomes for global enterprises.</p>
+                <p>Each engagement is tied to our service framework — from Discovery through Scale — delivering measurable outcomes for global enterprises.</p>
             </div>
             <div class="row g-4">
                 <!-- ZF Group -->
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="proof-card">
+                    <div class="light-proof-card">
                         <img src="images/ZF-logo.webp" alt="ZF Group" class="client-logo-img">
                         <div class="service-tags">
                             <span class="service-tag">Immersion</span>
                             <span class="service-tag">Activation</span>
                         </div>
                         <h4>ZF Group</h4>
-                        <p class="problem-line">Needed to reduce manufacturing waste through AI-powered defect detection
-                            and predictive quality models in automotive production.</p>
-                        <p class="relevance-line">AI-Driven Innovation in Automotive ΓÇö from workshop to deployed quality
-                            intelligence.</p>
-                        <a href="casestudies/zf-automotive.html" class="case-link">Read case study <i
-                                class="bi bi-arrow-right"></i></a>
+                        <p class="problem-line">AI-powered defect detection and predictive quality models reduced manufacturing waste and elevated quality standards across their automotive production lines.</p>
+                        <a href="casestudies/zf-automotive.html" class="case-link">Read case study <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
 
                 <!-- Lucas TVS -->
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="proof-card">
+                    <div class="light-proof-card">
                         <img src="images/lucas-tvs+(1).webp" alt="Lucas TVS" class="client-logo-img">
                         <div class="service-tags">
                             <span class="service-tag">Discovery</span>
                             <span class="service-tag">Immersion</span>
                         </div>
                         <h4>Lucas TVS</h4>
-                        <p class="problem-line">Required AI-optimized inventory and supply chain forecasting to eliminate
-                            excess stock and drive procurement efficiency.</p>
-                        <p class="relevance-line">AI-Powered Supply Chain & Procurement Optimization across operations.</p>
-                        <a href="casestudies/lucas-tvs.html" class="case-link">Read case study <i
-                                class="bi bi-arrow-right"></i></a>
+                        <p class="problem-line">AI-optimized inventory and supply chain forecasting eliminated excess stock and drove procurement efficiency across their automotive aftermarket operations.</p>
+                        <a href="casestudies/lucas-tvs.html" class="case-link">Read case study <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
 
                 <!-- Vedanta Limited -->
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="proof-card">
+                    <div class="light-proof-card">
                         <img src="images/vedanta+(1).webp" alt="Vedanta Limited" class="client-logo-img">
                         <div class="service-tags">
                             <span class="service-tag">Discovery</span>
@@ -1008,12 +1111,8 @@
                             <span class="service-tag">Activation</span>
                         </div>
                         <h4>Vedanta Limited</h4>
-                        <p class="problem-line">Embarked on enterprise-wide AI transformation requiring leadership
-                            alignment, workforce enablement, and scalable automation.</p>
-                        <p class="relevance-line">Enterprise-Wide AI Transformation ΓÇö from strategy to shop-floor
-                            adoption.</p>
-                        <a href="casestudies/vedanta.html" class="case-link">Read case study <i
-                                class="bi bi-arrow-right"></i></a>
+                        <p class="problem-line">Enterprise-wide AI transformation from leadership alignment through workforce enablement — 15+ AI initiatives scoped and prioritized for measurable business impact.</p>
+                        <a href="casestudies/vedanta.html" class="case-link">Read case study <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -1073,13 +1172,13 @@
          ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
     <section class="final-cta" id="cta">
         <div class="container">
-            <h2 data-aos="fade-up">Ready to build your AI roadmap?</h2>
-            <p data-aos="fade-up" data-aos-delay="100">Start with a conversation about your business priorities, decision
-                bottlenecks, data readiness, and where AI can create measurable value.</p>
+            <div style="font-size:12px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--cyan); margin-bottom:16px; position:relative; z-index:1;" data-aos="fade-up">Let's Talk</div>
+            <h2 data-aos="fade-up">Start with the Right AI Problem</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Most AI investments fail because they begin with technology, not strategy. We help you identify exactly where AI creates measurable value — before you commit a single dollar.</p>
             <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
-                <a href="contact.html" class="btn-cyan-lg">Schedule a Consultation <i
+                <a href="contact.html" class="btn-cyan-lg">Book a Discovery Conversation <i
                         class="bi bi-arrow-right"></i></a>
-                <a href="case-studies.html" class="btn-outline-light-custom">Explore Case Studies</a>
+                <a href="work-and-connections.html" class="btn-outline-light-custom">See Client Results</a>
             </div>
         </div>
     </section>
