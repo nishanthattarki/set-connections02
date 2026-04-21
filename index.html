@@ -51,10 +51,45 @@
         }
 
         .hero-video-bg video {
+            position: absolute;
+            top: 0; left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.8s ease;
+        }
+
+        .hero-video-bg video.hero-vid-active {
             opacity: 0.35;
+        }
+
+        /* ── HERO VIDEO INDICATOR DOTS ── */
+        .hero-vid-dots {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 3;
+        }
+
+        .hero-vid-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.35);
+            border: 1px solid rgba(255,255,255,0.5);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .hero-vid-dot.active {
+            background: var(--cyan);
+            border-color: var(--cyan);
+            box-shadow: 0 0 10px rgba(8,145,178,0.7);
+            width: 22px;
+            border-radius: 4px;
         }
 
         .hero-video-bg::after {
@@ -165,19 +200,19 @@
             }
         }
 
-        /* ── CREDIBILITY STRIP — Deep Navy Blue ── */
+        /* ── CREDIBILITY STRIP — Clean White ── */
         .section-credibility {
-            background: #0d1b3e;
+            background: #ffffff;
             padding: 52px 0;
-            border-top: 1px solid rgba(99, 179, 237, 0.2);
-            border-bottom: 1px solid rgba(99, 179, 237, 0.15);
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         .section-credibility .strip-label {
             font-size: 11px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(0, 0, 0, 0.4);
             font-weight: 700;
             margin-bottom: 28px;
             text-align: center;
@@ -194,7 +229,7 @@
         .cred-item {
             position: relative;
             padding: 0 32px;
-            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            border-right: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .cred-item:last-child {
@@ -205,7 +240,7 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 15px;
             font-weight: 700;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(0, 0, 0, 0.6);
             letter-spacing: 1px;
             white-space: nowrap;
             transition: color 0.3s;
@@ -227,8 +262,8 @@
             left: 50%;
             transform: translateX(-50%) translateY(6px);
             width: 230px;
-            background: #0a0e13;
-            color: rgba(255, 255, 255, 0.82);
+            background: #1a2332;
+            color: rgba(255, 255, 255, 0.9);
             font-size: 13px;
             line-height: 1.6;
             padding: 16px 18px;
@@ -237,7 +272,7 @@
             opacity: 0;
             transition: opacity 0.25s, transform 0.25s;
             z-index: 50;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
             border: 1px solid rgba(8, 145, 178, 0.35);
         }
 
@@ -248,7 +283,7 @@
             left: 50%;
             transform: translateX(-50%);
             border: 7px solid transparent;
-            border-top-color: #0a0e13;
+            border-top-color: #1a2332;
         }
 
         .cred-item:hover .cred-tooltip {
@@ -260,7 +295,7 @@
             .cred-item {
                 padding: 10px 18px;
                 border-right: none;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
             }
 
             .cred-item:last-child {
@@ -292,6 +327,31 @@
             color: #ffffff;
         }
 
+        /* Light section overrides */
+        .section-value .section-heading {
+            color: #1a2332;
+        }
+
+        .section-value .section-label {
+            color: #0891b2;
+        }
+
+        .section-work .section-heading {
+            color: #1a2332;
+        }
+
+        .section-work .section-label {
+            color: #0891b2;
+        }
+
+        .section-insights .section-heading {
+            color: #1a2332;
+        }
+
+        .section-insights .section-label {
+            color: #0891b2;
+        }
+
         .section-desc {
             font-size: 18px;
             line-height: 1.7;
@@ -300,19 +360,26 @@
             color: rgba(255, 255, 255, 0.65);
         }
 
-        /* ── 2. VALUE PROOF — Deep Forest Green ── */
+        .section-value .section-desc,
+        .section-work .section-desc,
+        .section-insights .section-desc {
+            color: rgba(0, 0, 0, 0.55);
+        }
+
+        /* ── 2. VALUE PROOF — Clean White ── */
         .section-value {
             padding: 100px 0;
-            background: #0a2218;
+            background: #f8f9fa;
         }
 
         .value-card {
             padding: 48px 36px;
-            border: 1px solid rgba(52, 211, 153, 0.12);
-            background: linear-gradient(145deg, #0f2d20 0%, #0a2218 100%);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: #ffffff;
             transition: all 0.4s ease;
             height: 100%;
             position: relative;
+            border-radius: 12px;
         }
 
         .value-card::before {
@@ -331,9 +398,9 @@
         }
 
         .value-card:hover {
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
             transform: translateY(-4px);
-            border-color: rgba(8, 145, 178, 0.3);
+            border-color: rgba(8, 145, 178, 0.4);
         }
 
         .value-card .value-icon {
@@ -355,13 +422,13 @@
         .value-card h4 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 24px;
-            color: #ffffff;
+            color: #1a2332;
             margin-bottom: 12px;
             font-weight: 700;
         }
 
         .value-card p {
-            color: rgba(255, 255, 255, 0.55);
+            color: rgba(0, 0, 0, 0.6);
             font-size: 15px;
             line-height: 1.7;
             margin: 0;
@@ -573,6 +640,103 @@
             }
         }
 
+        /* ── CIRCULAR ORBITAL PLAYBOOK ── */
+        .playbook-orbit-wrap {
+            position: relative;
+            width: 520px;
+            height: 520px;
+            margin: 60px auto 20px;
+        }
+
+        .orbit-svg-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+        }
+
+        .orbit-center {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110px; height: 110px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(8,145,178,0.18), rgba(8,145,178,0.05));
+            border: 2px solid rgba(8,145,178,0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 3;
+            box-shadow: 0 0 40px rgba(8,145,178,0.2), 0 0 80px rgba(8,145,178,0.08);
+        }
+
+        .orbit-center i { font-size: 26px; color: var(--cyan); margin-bottom: 4px; }
+        .orbit-center span { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 700; }
+
+        .orbit-node-item {
+            position: absolute;
+            width: 110px;
+            text-align: center;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        /* Positions: ring radius=150px, container=520px, center=(260,260) */
+        /* Node circle center targets: Top(260,110) Right(410,260) Bottom(260,410) Left(110,260) */
+        /* orb-circle is 80px, so top-of-circle = circle-center - 40 */
+        /* node top = circle-center-y - 40 */
+        .orbit-node-item.n-top    { top: 70px;  left: 205px; }
+        .orbit-node-item.n-right  { top: 220px; left: 365px; }
+        .orbit-node-item.n-bottom { top: 370px; left: 205px; }
+        .orbit-node-item.n-left   { top: 220px; left: 40px;  }
+
+        .orbit-node-item:hover .orb-circle {
+            background: var(--cyan);
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(8,145,178,0.5);
+        }
+
+        .orbit-node-item:hover .orb-num  { color: #fff; }
+        .orbit-node-item:hover .orb-phase { color: rgba(255,255,255,0.8); }
+
+        .orb-circle {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: rgba(10,14,19,0.95);
+            border: 2px solid var(--cyan);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            margin: 0 auto 10px;
+            transition: all 0.35s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .orb-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px; font-weight: 700;
+            color: var(--cyan); line-height: 1; transition: color 0.3s;
+        }
+
+        .orb-phase {
+            font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase;
+            color: rgba(255,255,255,0.3); font-weight: 600; transition: color 0.3s;
+        }
+
+        .orbit-node-item h5 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px; font-weight: 600; color: #fff; margin: 0 0 4px;
+        }
+
+        .orbit-node-item p {
+            font-size: 11px; color: rgba(255,255,255,0.5); line-height: 1.4; margin: 0;
+        }
+
+        @media (max-width: 700px) {
+            .playbook-orbit-wrap { display: none !important; }
+        }
+
         /* ── THIN DIVIDER (dark) ── */
         .thin-divider {
             border: none;
@@ -581,15 +745,15 @@
             margin: 0;
         }
 
-        /* ── 4. SELECTED WORK — Deep Indigo ── */
+        /* ── 4. SELECTED WORK — Light Gray ── */
         .section-work {
             padding: 100px 0;
-            background: #120a2e;
+            background: #f0f2f5;
         }
 
         .work-card {
-            background: linear-gradient(145deg, #1e1245 0%, #150e38 100%);
-            border: 1px solid rgba(139, 92, 246, 0.12);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
             overflow: hidden;
             transition: all 0.4s ease;
             height: 100%;
@@ -597,11 +761,12 @@
             flex-direction: column;
             text-decoration: none;
             color: inherit;
+            border-radius: 12px;
         }
 
         .work-card:hover {
-            border-color: rgba(139, 92, 246, 0.45);
-            box-shadow: 0 20px 56px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(139, 92, 246, 0.2);
+            border-color: rgba(8, 145, 178, 0.3);
+            box-shadow: 0 20px 56px rgba(0, 0, 0, 0.1);
             transform: translateY(-6px);
             color: inherit;
             text-decoration: none;
@@ -632,14 +797,14 @@
 
         .work-card-body h4 {
             font-family: 'Space Grotesk', sans-serif;
-            color: #fff;
+            color: #1a2332;
             font-size: 22px;
             margin-bottom: 12px;
             font-weight: 700;
         }
 
         .work-card-body p {
-            color: rgba(255, 255, 255, 0.55);
+            color: rgba(0, 0, 0, 0.55);
             font-size: 15px;
             line-height: 1.65;
             margin-bottom: 24px;
@@ -821,17 +986,17 @@
             }
         }
 
-        /* ── 5. INSIGHTS — Deep Purple ── */
+        /* ── 5. INSIGHTS — White ── */
         .section-insights {
             padding: 100px 0;
-            background: #1a0933;
+            background: #ffffff;
         }
 
         .insight-card {
-            background: linear-gradient(145deg, #220d3f 0%, #1a0933 100%);
-            border-radius: 0;
+            background: #f8f9fa;
+            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(167, 139, 250, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             height: 100%;
             display: flex;
@@ -840,8 +1005,8 @@
 
         .insight-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(167, 139, 250, 0.4);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(8, 145, 178, 0.3);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
         }
 
         .insight-card-img {
@@ -866,7 +1031,7 @@
 
         .insight-card-body h5 {
             font-family: 'Space Grotesk', sans-serif;
-            color: #fff;
+            color: #1a2332;
             font-size: 18px;
             margin-bottom: 12px;
             font-weight: 700;
@@ -874,7 +1039,7 @@
         }
 
         .insight-card-body p {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(0, 0, 0, 0.55);
             font-size: 14px;
             line-height: 1.6;
             flex-grow: 1;
@@ -948,43 +1113,143 @@
                 font-size: 34px;
             }
         }
+
+        /* ── RECENT UPDATES — Dark Navy (follows dark Hero) ── */
+        .section-updates {
+            padding: 80px 0;
+            background: #0f1419;
+        }
+
+        .update-card {
+            background: linear-gradient(135deg, #1a2332 0%, #162030 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(8, 145, 178, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .update-content {
+            padding: 52px 56px;
+            flex: 1;
+        }
+
+        .update-content .update-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(8, 145, 178, 0.12);
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            color: var(--cyan);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+        }
+
+        .update-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #ffffff;
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            line-height: 1.25;
+        }
+
+        .update-content p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 32px;
+            max-width: 480px;
+        }
+
+        .update-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--cyan);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .update-btn:hover {
+            background: #0e7490;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(8, 145, 178, 0.35);
+        }
+
+        .update-image-wrapper {
+            flex: 0 0 42%;
+            min-height: 380px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .update-image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #1a2332 0%, transparent 30%);
+            z-index: 1;
+        }
+
+        .update-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        @media (max-width: 992px) {
+            .update-card {
+                flex-direction: column-reverse;
+            }
+            .update-image-wrapper {
+                flex: none;
+                width: 100%;
+                min-height: 280px;
+            }
+            .update-image-wrapper::before {
+                background: linear-gradient(0deg, #1a2332 0%, transparent 40%);
+            }
+            .update-content {
+                padding: 40px;
+            }
+            .update-content h3 {
+                font-size: 26px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <!-- Modern Header -->
-    <header class="modern-header">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg">
-                <a class="brand" href="index.html">
-                    <img src="images/setconnect-logo.png" alt="SetConnect Globe">
-                    Set<span>CONNECT</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navModern">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navModern">
-                    <ul class="navbar-nav nav-modern ms-auto align-items-center">
-                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ourservices-2.html">Our Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="work-and-connections.html">Client Impact & Ecosystem</a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="ai-blogs.html">AI Blogs</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                        <li class="nav-item ms-3"><a href="contact.html" class="btn-cyan">Contact Us</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <div id="global-header-placeholder" data-root="./"></div>
+    <script src="js/header-loader.js"></script>
+
 
     <!-- ══════════════════════════════════════════════
          1. HERO — FULL-SCREEN VIDEO BACKGROUND
          ══════════════════════════════════════════════ -->
     <section id="home" class="hero-home">
         <div class="hero-video-bg">
-            <video autoplay muted loop playsinline>
+            <video autoplay muted loop playsinline class="hero-vid">
                 <source src="images/AI_Video_Generation_Request_Fulfilled (1).mp4" type="video/mp4">
+            </video>
+            <video muted loop playsinline class="hero-vid">
+                <source src="videos/finalvide.mp4" type="video/mp4">
             </video>
         </div>
         <div class="container">
@@ -996,6 +1261,32 @@
                     <a href="contact.html" class="btn-primary-bain">Book a Discovery Session <i
                             class="bi bi-arrow-right"></i></a>
                     <a href="work-and-connections.html" class="btn-outline-light-custom">See Our Work</a>
+                </div>
+            </div>
+        </div>
+        <!-- Video cycling indicator dots -->
+        <div class="hero-vid-dots" id="heroDots">
+            <div class="hero-vid-dot active" onclick="switchHeroVid(0)"></div>
+            <div class="hero-vid-dot" onclick="switchHeroVid(1)"></div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         RECENT UPDATES — right after Hero
+         ══════════════════════════════════════════════ -->
+    <section class="section-updates" id="recent-updates">
+        <div class="container">
+            <div class="update-card" data-aos="fade-up">
+                <div class="update-content">
+                    <span class="update-eyebrow"><i class="bi bi-award"></i> Recent Updates</span>
+                    <h3>2026 INFORMS Analytics+ Conference</h3>
+                    <p>SetConnect proudly presented at the 2026 INFORMS Analytics+ Conference — exploring breakthrough AI frameworks and showcasing how we translate AI research into measurable business impact for global enterprises.</p>
+                    <a href="certificates%26extras/[Certificate%20of%20Presentation]%202026%20INFORMS%20Analytics+%20Conference.pdf" target="_blank" class="update-btn">
+                        View Certificate &nbsp;<i class="bi bi-file-earmark-pdf"></i>
+                    </a>
+                </div>
+                <div class="update-image-wrapper">
+                    <img src="certificates%26extras/image.jpg" alt="2026 INFORMS Analytics+ Conference Presentation">
                 </div>
             </div>
         </div>
@@ -1090,38 +1381,85 @@
                 <p class="section-desc" style="margin: 0 auto;">A structured approach from strategy to execution.</p>
             </div>
 
-            <div class="playbook-timeline desktop-stepper" data-aos="fade-up" data-aos-delay="100">
-                <div class="timeline-step">
-                    <div class="step-number">
-                        <span class="step-num-text">01</span>
-                        <span class="step-phase-text">Phase</span>
-                    </div>
-                    <h4>Discovery</h4>
-                    <p>Frame the right business problems before investing in execution.</p>
+            <!-- Circular Orbital Playbook — Desktop -->
+            <div class="playbook-orbit-wrap desktop-stepper" data-aos="fade-up" data-aos-delay="100">
+                <!-- SVG: ring + dashed arcs + animated dot -->
+                <svg class="orbit-svg-bg" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <marker id="orb-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                            <polygon points="0 0, 7 3.5, 0 7" fill="rgba(8,145,178,0.65)"/>
+                        </marker>
+                        <filter id="orb-glow">
+                            <feGaussianBlur stdDeviation="3" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <!-- Outer guide ring -->
+                    <circle cx="260" cy="260" r="150" fill="none" stroke="rgba(8,145,178,0.15)" stroke-width="8"/>
+                    <circle cx="260" cy="260" r="150" fill="none" stroke="rgba(8,145,178,0.3)" stroke-width="1"/>
+                    <!-- Clockwise arcs with arrows -->
+                    <path d="M 256,110 A 150,150 0 0,1 408,256" fill="none" stroke="rgba(8,145,178,0.55)" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#orb-arrow)"/>
+                    <path d="M 410,264 A 150,150 0 0,1 264,408" fill="none" stroke="rgba(8,145,178,0.55)" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#orb-arrow)"/>
+                    <path d="M 256,410 A 150,150 0 0,1 112,264" fill="none" stroke="rgba(8,145,178,0.55)" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#orb-arrow)"/>
+                    <path d="M 110,256 A 150,150 0 0,1 256,112" fill="none" stroke="rgba(8,145,178,0.55)" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#orb-arrow)"/>
+                    <!-- Spoke connectors from center -->
+                    <line x1="260" y1="205" x2="260" y2="150" stroke="rgba(8,145,178,0.12)" stroke-width="1" stroke-dasharray="2,4"/>
+                    <line x1="315" y1="260" x2="370" y2="260" stroke="rgba(8,145,178,0.12)" stroke-width="1" stroke-dasharray="2,4"/>
+                    <line x1="260" y1="315" x2="260" y2="370" stroke="rgba(8,145,178,0.12)" stroke-width="1" stroke-dasharray="2,4"/>
+                    <line x1="205" y1="260" x2="150" y2="260" stroke="rgba(8,145,178,0.12)" stroke-width="1" stroke-dasharray="2,4"/>
+                    <!-- Animated orbiting dot -->
+                    <circle r="5" fill="#0891b2" filter="url(#orb-glow)">
+                        <animateMotion dur="12s" repeatCount="indefinite">
+                            <mpath href="#orbitPath"/>
+                        </animateMotion>
+                    </circle>
+                    <path id="orbitPath" d="M 260,110 A 150,150 0 1,1 259.99,110" fill="none"/>
+                </svg>
+
+                <!-- Center hub -->
+                <div class="orbit-center">
+                    <i class="bi bi-cpu"></i>
+                    <span>AI Playbook</span>
                 </div>
-                <div class="timeline-step">
-                    <div class="step-number">
-                        <span class="step-num-text">02</span>
-                        <span class="step-phase-text">Phase</span>
+
+                <!-- Node 1: Discovery (top) -->
+                <div class="orbit-node-item n-top">
+                    <div class="orb-circle">
+                        <span class="orb-num">01</span>
+                        <span class="orb-phase">Phase</span>
                     </div>
-                    <h4>Immersion</h4>
-                    <p>Immerse in AI methods to identify, assess, and rank the highest-value opportunities.</p>
+                    <h5>Discovery</h5>
+                    <p>Frame the right business problems first</p>
                 </div>
-                <div class="timeline-step">
-                    <div class="step-number">
-                        <span class="step-num-text">03</span>
-                        <span class="step-phase-text">Phase</span>
+
+                <!-- Node 2: Immersion (right) -->
+                <div class="orbit-node-item n-right">
+                    <div class="orb-circle">
+                        <span class="orb-num">02</span>
+                        <span class="orb-phase">Phase</span>
                     </div>
-                    <h4>Activation</h4>
-                    <p>Experiment, test hypotheses, define KPIs, and prove value with data.</p>
+                    <h5>Immersion</h5>
+                    <p>Identify &amp; rank AI opportunities</p>
                 </div>
-                <div class="timeline-step">
-                    <div class="step-number">
-                        <span class="step-num-text">04</span>
-                        <span class="step-phase-text">Phase</span>
+
+                <!-- Node 3: Activation (bottom) -->
+                <div class="orbit-node-item n-bottom">
+                    <div class="orb-circle">
+                        <span class="orb-num">03</span>
+                        <span class="orb-phase">Phase</span>
                     </div>
-                    <h4>Scale</h4>
-                    <p>Build the data solutions and operating foundation for repeatable impact.</p>
+                    <h5>Activation</h5>
+                    <p>Experiment &amp; prove value with data</p>
+                </div>
+
+                <!-- Node 4: Scale (left) -->
+                <div class="orbit-node-item n-left">
+                    <div class="orb-circle">
+                        <span class="orb-num">04</span>
+                        <span class="orb-phase">Phase</span>
+                    </div>
+                    <h5>Scale</h5>
+                    <p>Build for repeatable AI impact</p>
                 </div>
             </div>
 
@@ -1258,7 +1596,6 @@
         </div>
     </section>
 
-
     <!-- ══════════════════════════════════════════════
          6. FINAL CTA
          ══════════════════════════════════════════════ -->
@@ -1303,6 +1640,40 @@
             if (!isActive) item.classList.add('active');
         }
 
+        /* ── Hero Video Cycling ── */
+        (function () {
+            const vids  = document.querySelectorAll('.hero-video-bg .hero-vid');
+            const dots  = document.querySelectorAll('#heroDots .hero-vid-dot');
+            if (!vids.length) return;
+            let cur = 0;
+            let timer;
+
+            function showVid(idx) {
+                vids.forEach((v, i) => v.classList.toggle('hero-vid-active', i === idx));
+                dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+            }
+
+            function next() {
+                cur = (cur + 1) % vids.length;
+                vids[cur].currentTime = 0;
+                vids[cur].play().catch(() => {});
+                showVid(cur);
+            }
+
+            window.switchHeroVid = function(idx) {
+                clearInterval(timer);
+                cur = idx;
+                vids[cur].currentTime = 0;
+                vids[cur].play().catch(() => {});
+                showVid(cur);
+                timer = setInterval(next, 9000);
+            };
+
+            // Init first video
+            vids[0].play().catch(() => {});
+            showVid(0);
+            timer = setInterval(next, 9000);
+        })();
 
     </script>
 </body>

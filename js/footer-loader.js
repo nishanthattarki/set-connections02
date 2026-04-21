@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 <div class="col-lg-2 mb-4">
                     <h5>Company</h5>
-                    <a href="${rootPath}about.html">About Us</a>
+                    <a href="${rootPath}about.html">Who We Are</a>
                     <a href="${rootPath}our-services.html">Our Services</a>
                     <a href="${rootPath}case-studies.html">Case Studies</a>
                 </div>
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 <div class="col-lg-2 mb-4">
                     <h5>Resources</h5>
-                    <a href="${rootPath}ai-blogs.html">AI Blogs</a>
+                    <a href="${rootPath}ai-blogs.html">AI Insights</a>
                     <a href="${rootPath}setconnections.html">SetConnections</a>
                     <a href="${rootPath}contact.html">Contact Us</a>
                 </div>
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <h5>Connect</h5>
                     <a href="#"><i class="bi bi-linkedin me-2"></i>LinkedIn</a>
                     <a href="#"><i class="bi bi-twitter me-2"></i>Twitter</a>
-                    <a href="mailto:contact@setconnect.ai"><i class="bi bi-envelope me-2"></i>Email</a>
+                    <a href="mailto:info@setconnectglobal.com"><i class="bi bi-envelope me-2"></i>Email</a>
                 </div>
             </div>
             <div class="footer-bottom">

@@ -188,14 +188,26 @@
         }
 
         /* ── WHO WE SERVE — Forest Green ── */
-        .serve-section {
-            padding: 80px 0;
-            background: #064e3b;
+        .section-serve {
+            padding: 80px 0 60px;
+            background: #ffffff;
+        }
+
+        .section-serve .section-header-modern h2 {
+            color: #1a2332;
+        }
+
+        .section-serve .section-header-modern p {
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        .section-serve .subtitle {
+            color: #0891b2;
         }
 
         .serve-card {
-            background: linear-gradient(145deg, #065f46 0%, #064e3b 100%);
-            border: 1px solid rgba(52, 211, 153, 0.1);
+            background: #f8f9fa;
+            border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: 20px;
             padding: 44px 32px;
             height: 100%;
@@ -224,7 +236,7 @@
         .serve-card:hover {
             border-color: rgba(52, 211, 153, 0.4);
             transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(52, 211, 153, 0.12);
+            box-shadow: 0 20px 60px rgba(52, 211, 153, 0.08);
         }
 
         .serve-card .serve-icon {
@@ -245,13 +257,13 @@
         }
 
         .serve-card h4 {
-            color: #fff;
+            color: #1a2332;
             font-size: 20px;
             margin-bottom: 12px;
         }
 
         .serve-card p {
-            color: rgba(255, 255, 255, 0.65);
+            color: rgba(0, 0, 0, 0.6);
             font-size: 14.5px;
             line-height: 1.7;
             margin: 0;
@@ -554,12 +566,24 @@
         /* ΓöÇΓöÇ HOW WE APPLY THESE SERVICES ΓÇö PROOF CARDS ΓöÇΓöÇ */
         .proof-section {
             padding: 80px 0;
-            background: #0f1419;
+            background: #f0f2f5;
+        }
+
+        .proof-section .section-header-modern h2 {
+            color: #1a2332;
+        }
+
+        .proof-section .section-header-modern p {
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        .proof-section .subtitle {
+            color: #0891b2;
         }
 
         .proof-card {
-            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: 20px;
             padding: 36px 32px;
             height: 100%;
@@ -590,7 +614,7 @@
         .proof-card:hover {
             border-color: rgba(8, 145, 178, 0.35);
             transform: translateY(-8px);
-            box-shadow: 0 24px 60px rgba(8, 145, 178, 0.18);
+            box-shadow: 0 24px 60px rgba(8, 145, 178, 0.1);
         }
 
         .proof-card .client-logo-img {
@@ -627,20 +651,20 @@
         }
 
         .proof-card h4 {
-            color: #fff;
+            color: #1a2332;
             font-size: 20px;
             margin-bottom: 8px;
         }
 
         .proof-card .problem-line {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(0, 0, 0, 0.6);
             font-size: 14px;
             line-height: 1.6;
             margin-bottom: 8px;
         }
 
         .proof-card .relevance-line {
-            color: rgba(255, 255, 255, 0.55);
+            color: rgba(0, 0, 0, 0.45);
             font-size: 13px;
             font-style: italic;
             margin-bottom: 20px;
@@ -823,30 +847,9 @@
 </head>
 
 <body>
-    <!-- Modern Header -->
-    <header class="modern-header">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg">
-                <a class="brand" href="index.html">
-                    <img src="images/setconnect-logo.png" alt="SetConnect Globe">
-                    Set<span>CONNECT</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navModern">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navModern">
-                    <ul class="navbar-nav nav-modern ms-auto align-items-center">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="ourservices-2.html">Our Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="work-and-connections.html">Client Impact & Ecosystem</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ai-blogs.html">AI Blogs</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                        <li class="nav-item ms-3"><a href="contact.html" class="btn-cyan">Contact Us</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <div id="global-header-placeholder" data-root="./"></div>
+    <script src="js/header-loader.js"></script>
+
 
     <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
          1. HERO SECTION ΓÇö Two-Column Layout

@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Blogs - SetConnect</title>
+    <title>AI Insights - SetConnect</title>
+    <meta name="description"
+        content="Practical perspectives, real-world applications, and executive frameworks to translate AI into measurable business impact.">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -21,316 +23,716 @@
 
         html,
         body {
-            background-color: #0f1419 !important;
+            background-color: #0a0e13 !important;
             color: #ffffff;
         }
 
-        .page-hero {
+        /* ═══════════════════════════════════════
+           SECTION 1 — HERO
+        ═══════════════════════════════════════ */
+        .insights-hero {
             margin-top: 80px;
-            padding: 120px 0;
-            background: linear-gradient(135deg, #1a2332 0%, #1e3a3a 100%);
+            padding: 80px 0 60px;
+            min-height: 55vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0a0e13 0%, #1a2332 50%, #1e3a3a 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .page-hero h1 {
-            font-size: 56px;
-            color: #ffffff;
-            margin-bottom: 20px;
+        .insights-hero::before {
+            content: '';
+            position: absolute;
+            right: -150px;
+            top: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(8, 145, 178, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
-        .page-hero p {
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.8);
+        .insights-hero::after {
+            content: '';
+            position: absolute;
+            left: -100px;
+            bottom: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(8, 145, 178, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .insights-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-label {
+            color: var(--cyan);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            display: inline-block;
+        }
+
+        .insights-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 52px;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 22px;
+            font-weight: 700;
             max-width: 700px;
-            margin: 0 auto;
         }
 
-        .blogs-section {
-            padding: 80px 0;
-            background: #0f1419;
+        .insights-hero p {
+            font-size: 19px;
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 620px;
+            line-height: 1.7;
+            font-weight: 300;
         }
 
-        .blog-grid {
+        /* Subtle animated line accent */
+        .hero-accent {
+            width: 60px;
+            height: 3px;
+            background: var(--cyan);
+            border-radius: 2px;
+            margin-top: 30px;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 2 — FEATURED INSIGHT
+        ═══════════════════════════════════════ */
+        .featured-section {
+            padding: 80px 0 60px;
+            background: #0a0e13;
+        }
+
+        .featured-card {
+            display: flex;
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+            text-decoration: none;
+        }
+
+        .featured-card:hover {
+            border-color: rgba(8, 145, 178, 0.4);
+            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .featured-content {
+            width: 55%;
+            padding: 55px;
             display: flex;
             flex-direction: column;
-            gap: 60px;
-            max-width: 1000px;
-            margin: 0 auto;
+            justify-content: center;
         }
 
-        .blog-card {
-            display: flex;
+        .featured-tag {
+            color: var(--cyan);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .featured-content h2 {
+            color: #fff;
+            font-size: 32px;
+            line-height: 1.25;
+            margin-bottom: 18px;
+        }
+
+        .featured-content p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .featured-cta {
+            display: inline-flex;
             align-items: center;
-            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            gap: 8px;
+            color: var(--cyan);
+            font-weight: 600;
+            font-size: 15px;
             text-decoration: none;
-            /* Ensure anchor behaves like block/flex */
+            transition: all 0.3s ease;
         }
 
-        .blog-card:hover {
-            border-color: var(--cyan);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.2);
+        .featured-cta:hover {
+            color: #fff;
+            gap: 14px;
         }
 
-        /* Zigzag Pattern */
-        .blog-card:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .blog-image {
+        .featured-image {
             width: 45%;
-            height: 350px;
-            /* Fixed height for consistency */
-            flex-shrink: 0;
+            min-height: 360px;
             overflow: hidden;
         }
 
-        .blog-image img {
+        .featured-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .blog-card:hover .blog-image img {
+        .featured-card:hover .featured-image img {
             transform: scale(1.05);
         }
 
-        .blog-content {
-            width: 55%;
-            padding: 40px;
+        /* ═══════════════════════════════════════
+           SECTION 3 — FILTER CHIPS
+        ═══════════════════════════════════════ */
+        .filters-section {
+            padding: 40px 0 20px;
+            background: #ffffff;
+        }
+
+        .filter-chips {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 10px;
             justify-content: center;
         }
 
-        .blog-category {
-            display: inline-block;
-            padding: 6px 12px;
-            background: rgba(8, 145, 178, 0.2);
+        .filter-chip {
+            padding: 10px 24px;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            background: transparent;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .filter-chip:hover,
+        .filter-chip.active {
+            border-color: var(--cyan);
             color: var(--cyan);
-            border-radius: 15px;
-            font-size: 12px;
+            background: rgba(8, 145, 178, 0.1);
+        }
+
+        .filter-chip.active {
+            background: rgba(8, 145, 178, 0.18);
             font-weight: 600;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 4 — INSIGHT GRID
+        ═══════════════════════════════════════ */
+        .insights-grid-section {
+            padding: 50px 0 80px;
+            background: #ffffff;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .insight-card {
+            background: #f8f9fa;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 35px;
+            transition: all 0.35s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .insight-card:hover {
+            border-color: rgba(8, 145, 178, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 45px rgba(8, 145, 178, 0.08);
+        }
+
+        .insight-category {
+            display: inline-block;
+            padding: 5px 14px;
+            background: rgba(8, 145, 178, 0.15);
+            color: var(--cyan);
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             width: fit-content;
         }
 
-        .blog-card h3 {
-            color: #ffffff;
-            font-size: 28px;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .blog-card p {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.7;
-            margin-bottom: 25px;
-            font-size: 16px;
-        }
-
-        .blog-meta {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .blog-meta i {
-            color: var(--cyan);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 992px) {
-
-            .blog-card,
-            .blog-card:nth-child(even) {
-                flex-direction: column;
-            }
-
-            .blog-image {
-                width: 100%;
-                height: 250px;
-            }
-
-            .blog-content {
-                width: 100%;
-                padding: 30px;
-            }
-
-            .blog-card h3 {
-                font-size: 24px;
-            }
-        }
-
-        /* CTA SPLIT */
-        .cta-split {
-            background: linear-gradient(135deg, var(--cyan) 0%, #0e7490 100%);
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .cta-split .row {
-            min-height: 400px;
-        }
-
-        .cta-content {
-            padding: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: #fff;
-        }
-
-        .cta-content h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .cta-content p {
+        .insight-card h3 {
+            color: #1a2332;
             font-size: 20px;
-            margin-bottom: 30px;
-            opacity: 0.95;
+            line-height: 1.35;
+            margin-bottom: 14px;
+            flex-grow: 1;
         }
 
-        .btn-white-outline {
-            background: transparent;
-            color: #fff;
-            border: 3px solid #fff;
-            padding: 14px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: 0.3s;
-            display: inline-block;
-            text-decoration: none;
+        .insight-card .one-liner {
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
-        .btn-white-outline:hover {
-            background: #fff;
+        .insight-card .read-link {
             color: var(--cyan);
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.3s ease;
         }
 
-        /* ─── TOPICS ─── */
-        .topics-section {
-            padding: 80px 0 60px;
+        .insight-card:hover .read-link {
+            gap: 10px;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 5 — OUR POINT OF VIEW
+        ═══════════════════════════════════════ */
+        .pov-section {
+            padding: 90px 0;
             background: #0f1419;
         }
 
-        .section-subtitle {
+        .pov-card {
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pov-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--cyan);
+        }
+
+        .pov-label {
             color: var(--cyan);
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .section-title {
-            color: #fff;
-            font-size: 36px;
             margin-bottom: 15px;
         }
 
-        .topics-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            margin-top: 30px;
+        .pov-card h2 {
+            color: #fff;
+            font-size: 34px;
+            margin-bottom: 35px;
         }
 
-        .topic-pill {
-            background: linear-gradient(145deg, #1a2332, #0d1117);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .pov-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pov-list li {
             color: rgba(255, 255, 255, 0.8);
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            font-size: 18px;
+            line-height: 1.7;
+            padding: 14px 0 14px 30px;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .pov-list li:last-child {
+            border-bottom: none;
+        }
+
+        .pov-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 6 — AI SUCCESS PLAYBOOK
+        ═══════════════════════════════════════ */
+        .playbook-section {
+            padding: 90px 0;
+            background: #f0f2f5;
+        }
+
+        .playbook-card {
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+        }
+
+        .playbook-content {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 50px;
+            padding: 60px;
         }
 
-        .topic-pill:hover {
-            border-color: var(--cyan);
+        .playbook-text {
+            flex: 1;
+        }
+
+        .playbook-text .section-label {
             color: var(--cyan);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(8, 145, 178, 0.15);
-        }
-
-        .topic-pill i {
-            color: var(--cyan);
-        }
-
-        /* ─── WHY READ ─── */
-        .why-section {
-            padding: 80px 0;
-            background: #1a2332;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .why-card {
-            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
-            padding: 35px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .why-card:hover {
-            border-color: rgba(8, 145, 178, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(8, 145, 178, 0.15);
-        }
-
-        .why-card i {
-            font-size: 36px;
-            color: var(--cyan);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
             margin-bottom: 15px;
             display: block;
         }
 
-        .why-card h4 {
+        .playbook-text h2 {
             color: #fff;
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 34px;
+            margin-bottom: 20px;
         }
 
-        .why-card p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
+        .playbook-text p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 17px;
             line-height: 1.7;
-            margin: 0;
         }
 
-        /* ─── NEWSLETTER ─── */
-        .newsletter-section {
+        .playbook-visual {
+            flex: 0 0 380px;
+        }
+
+        /* Lifecycle diagram - CSS only */
+        .lifecycle-ring {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            border: 2px solid rgba(8, 145, 178, 0.3);
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .lifecycle-step {
+            position: absolute;
+            text-align: center;
+            width: 100px;
+        }
+
+        .lifecycle-step .step-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(8, 145, 178, 0.2);
+            border: 2px solid var(--cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+            font-size: 20px;
+            color: var(--cyan);
+        }
+
+        .lifecycle-step .step-label {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .lifecycle-step:nth-child(1) {
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .lifecycle-step:nth-child(2) {
+            top: 50%;
+            right: -35px;
+            transform: translateY(-50%);
+        }
+
+        .lifecycle-step:nth-child(3) {
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .lifecycle-step:nth-child(4) {
+            top: 50%;
+            left: -35px;
+            transform: translateY(-50%);
+        }
+
+        .lifecycle-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .lifecycle-center i {
+            font-size: 32px;
+            color: var(--cyan);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .lifecycle-center span {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        /* Animated outer ring on lifecycle-ring */
+        .lifecycle-ring {
+            position: relative;
+        }
+        .lifecycle-ring::after {
+            content: '';
+            position: absolute;
+            top: -10px; left: -10px;
+            right: -10px; bottom: -10px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(8,145,178,0.25);
+            animation: orbbitSpin 18s linear infinite;
+        }
+        @keyframes orbbitSpin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        /* ── NEWSLETTER ARCHIVE (moved from Client Impact) ── */
+        .section-newsletter {
+            padding: 100px 0;
+            background: #0d001a;
+        }
+
+        .nl-latest-card {
+            background: linear-gradient(145deg, #1a0933, #0d001a);
+            border: 1px solid rgba(167,139,250,0.25);
+            border-radius: 24px;
+            padding: 48px 52px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nl-latest-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #a78bfa, #7c3aed, transparent);
+        }
+
+        .issue-tag {
+            display: inline-block;
+            background: rgba(167,139,250,0.12);
+            border: 1px solid rgba(167,139,250,0.3);
+            color: #a78bfa;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+        }
+
+        .nl-archives-wrap {
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .nl-archive-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 28px;
+            background: rgba(255,255,255,0.04);
+            cursor: pointer;
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .nl-archive-header:hover, .nl-archive-header.open { background: rgba(167,139,250,0.08); }
+        .nl-archive-header.open #archiveChevron { transform: rotate(180deg); }
+        #archiveChevron { transition: transform 0.3s; }
+
+        .nl-archive-content { display: none; }
+        .nl-archive-content.open { display: block; }
+
+        .archive-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 28px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            gap: 20px;
+        }
+
+        .archive-info { flex: 1; }
+        .archive-info h5 { color: #fff; font-size: 16px; margin: 0 0 6px; }
+        .archive-info p  { color: rgba(255,255,255,0.5); font-size: 13px; margin: 0; }
+
+        .nl-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: #a78bfa; font-weight: 600; font-size: 14px;
+            text-decoration: none; white-space: nowrap;
+            transition: color 0.2s;
+        }
+
+        .nl-link:hover { color: #c4b5fd; }
+
+        /* ── PDF GATE MODAL (copied from work-and-connections) ── */
+        .pdf-gate-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(6px);
+            z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.35s;
+        }
+        .pdf-gate-overlay.active { opacity: 1; pointer-events: all; }
+        .pdf-gate-modal {
+            display: flex;
+            max-width: 840px; width: 92%;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #0f1419;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+            transform: translateY(20px);
+            transition: transform 0.4s;
+        }
+        .pdf-gate-overlay.active .pdf-gate-modal { transform: translateY(0); }
+        .pdf-gate-preview {
+            background: linear-gradient(145deg,#1a0933,#0a0014);
+            padding: 48px 36px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center;
+            min-width: 240px;
+            border-right: 1px solid rgba(255,255,255,0.07);
+        }
+        .pdf-icon-wrap { font-size: 56px; color: #a78bfa; margin-bottom: 18px; }
+        .pdf-gate-preview h6 { color: #fff; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+        .pdf-meta { color: rgba(255,255,255,0.45); font-size: 12px; margin-bottom: 14px; }
+        .pdf-tag { background: rgba(167,139,250,0.12); border: 1px solid rgba(167,139,250,0.3); color: #a78bfa; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; }
+        .pdf-gate-form-panel { flex: 1; padding: 48px 44px; overflow-y: auto; position: relative; }
+        .pdf-gate-close { position: absolute; top: 18px; right: 20px; background: none; border: none; color: rgba(255,255,255,0.4); font-size: 28px; cursor: pointer; line-height: 1; transition: color 0.2s; }
+        .pdf-gate-close:hover { color: #fff; }
+        .gate-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #a78bfa; display: block; margin-bottom: 10px; }
+        .pdf-gate-form-panel h3 { font-family:'Space Grotesk',sans-serif; font-size: 26px; color: #fff; margin-bottom: 8px; }
+        .gate-sub { color: rgba(255,255,255,0.5); font-size: 14px; margin-bottom: 24px; }
+        .gate-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+        .gate-field { margin-bottom: 12px; }
+        .gate-field input, .gate-field select, .gate-field textarea {
+            width: 100%; padding: 13px 16px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+            color: #fff; font-size: 14px;
+            outline: none; transition: border-color 0.2s;
+        }
+        .gate-field input:focus, .gate-field select:focus, .gate-field textarea:focus { border-color: rgba(167,139,250,0.6); }
+        .gate-field select option  { background: #1a2332; }
+        .gate-field textarea        { resize: vertical; min-height: 80px; }
+        .gate-field input.field-err, .gate-field select.field-err, .gate-field textarea.field-err { border-color: #ef4444; }
+        .gate-submit-btn {
+            width: 100%; padding: 15px;
+            background: #a78bfa; color: #fff;
+            border: none; border-radius: 50px;
+            font-weight: 700; font-size: 15px;
+            cursor: pointer; transition: all 0.3s;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .gate-submit-btn:hover { background: #8b5cf6; transform: translateY(-1px); box-shadow: 0 8px 25px rgba(139,92,246,0.35); }
+        .gate-privacy { color: rgba(255,255,255,0.3); font-size: 12px; text-align: center; margin-top: 14px; margin-bottom: 0; }
+        .gate-access-msg { display: flex; align-items: flex-start; gap: 12px; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25); border-radius: 12px; padding: 16px; margin-bottom: 24px; }
+        .gate-access-msg i { font-size: 20px; color: #10b981; flex-shrink: 0; }
+        .gate-access-msg p { color: rgba(255,255,255,0.8); font-size: 14px; margin: 0; line-height: 1.5; }
+        @media (max-width: 640px) {
+            .pdf-gate-modal { flex-direction: column; }
+            .pdf-gate-preview { min-width: unset; padding: 28px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+            .pdf-gate-form-panel { padding: 28px 22px; }
+            .gate-row { grid-template-columns: 1fr; }
+        }
+
+        /* ── EXIT-INTENT TEASER POPUP ── */
+        .nl-teaser-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 9998;
+            pointer-events: none;
+        }
+        .nl-teaser-card {
+            position: fixed;
+            top: 80px;
+            right: -420px;
+            width: 380px;
+            background: rgba(13,0,26,0.96);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(167,139,250,0.3);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(167,139,250,0.1);
+            transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: all;
+            z-index: 9999;
+        }
+        .nl-teaser-overlay.active .nl-teaser-card { right: 24px; }
+        .nl-teaser-close {
+            position: absolute; top: 12px; right: 16px;
+            background: none; border: none;
+            color: rgba(255,255,255,0.4); font-size: 24px;
+            cursor: pointer; line-height: 1; transition: color 0.2s;
+        }
+        .nl-teaser-close:hover { color: #fff; }
+        .nl-teaser-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #a78bfa; margin-bottom: 8px; display: block; }
+        .nl-teaser-card h3 { font-family:'Space Grotesk',sans-serif; font-size: 19px; color: #fff; margin-bottom: 10px; }
+        .nl-teaser-card p  { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 20px; }
+        .nl-teaser-cta {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            width: 100%; padding: 12px; border-radius: 50px;
+            background: #a78bfa; color: #fff; border: none;
+            font-weight: 700; font-size: 14px; cursor: pointer;
+            transition: all 0.3s;
+        }
+        .nl-teaser-cta:hover { background: #8b5cf6; transform: translateY(-1px); }
             padding: 80px 0;
             background: linear-gradient(135deg, var(--cyan) 0%, #0e7490 100%);
             text-align: center;
@@ -349,34 +751,54 @@
             border-radius: 50%;
         }
 
+        .newsletter-section::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: -60px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .newsletter-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
         .newsletter-section h2 {
             font-size: 38px;
             color: #fff;
             margin-bottom: 12px;
         }
 
-        .newsletter-section p {
+        .newsletter-section .newsletter-sub {
             font-size: 18px;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .newsletter-form {
             display: flex;
             gap: 12px;
-            max-width: 500px;
+            max-width: 520px;
             margin: 0 auto;
         }
 
         .newsletter-form input {
             flex: 1;
-            padding: 14px 22px;
+            padding: 16px 24px;
             border-radius: 50px;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.12);
             color: #fff;
             font-size: 15px;
             outline: none;
+            backdrop-filter: blur(8px);
         }
 
         .newsletter-form input::placeholder {
@@ -385,10 +807,11 @@
 
         .newsletter-form input:focus {
             border-color: #fff;
+            background: rgba(255, 255, 255, 0.18);
         }
 
         .newsletter-form button {
-            padding: 14px 30px;
+            padding: 16px 32px;
             border-radius: 50px;
             border: 2px solid #fff;
             background: #fff;
@@ -405,181 +828,475 @@
             color: #fff;
         }
 
-        @media (max-width: 576px) {
-            .newsletter-form {
+        /* ═══════════════════════════════════════
+           SECTION 8 — CTA
+        ═══════════════════════════════════════ */
+        .final-cta {
+            padding: 100px 0;
+            background: #0a0e13;
+            text-align: center;
+            position: relative;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(8, 145, 178, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .final-cta .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-cta h2 {
+            font-size: 42px;
+            color: #fff;
+            margin-bottom: 18px;
+        }
+
+        .final-cta p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-cta {
+            background: var(--cyan);
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid var(--cyan);
+        }
+
+        .btn-primary-cta:hover {
+            background: #0e7490;
+            border-color: #0e7490;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.3);
+        }
+
+        .btn-outline-cta {
+            background: transparent;
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline-cta:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+            transform: translateY(-2px);
+        }
+
+        /* ═══════════════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════════════ */
+        @media (max-width: 992px) {
+            .insights-hero h1 {
+                font-size: 38px;
+            }
+
+            .featured-card {
                 flex-direction: column;
             }
+
+            .featured-content {
+                width: 100%;
+                padding: 40px;
+            }
+
+            .featured-image {
+                width: 100%;
+                min-height: 250px;
+            }
+
+            .insights-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .playbook-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .playbook-visual {
+                flex: 0 0 auto;
+            }
+
+            .pov-card {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .insights-hero h1 {
+                font-size: 30px;
+            }
+
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-content h2 {
+                font-size: 26px;
+            }
+
+            .pov-card h2,
+            .playbook-text h2 {
+                font-size: 26px;
+            }
+
+            .final-cta h2 {
+                font-size: 32px;
+            }
+
+            .lifecycle-ring {
+                width: 260px;
+                height: 260px;
+            }
+
+            .nl-teaser-card { width: calc(100vw - 32px); right: -110%; }
+            .nl-teaser-overlay.active .nl-teaser-card { right: 16px; }
         }
     </style>
 </head>
 
 <body>
-    <!-- Modern Header -->
-    <header class="modern-header">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg">
-                <a class="brand" href="index.html">
-                    <img src="images/setconnect-logo.png" alt="SetConnect Globe">
-                    Set<span>CONNECT</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navModern">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navModern">
-                    <ul class="navbar-nav nav-modern ms-auto align-items-center">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ourservices-2.html">Our Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="work-and-connections.html">Client Impact & Ecosystem</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="ai-blogs.html">AI Blogs</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                        <li class="nav-item ms-3"><a href="contact.html" class="btn-cyan">Contact Us</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <div id="global-header-placeholder" data-root="./"></div>
+    <script src="js/header-loader.js"></script>
 
-    <section class="page-hero">
-        <div class="container text-center">
-            <h1 data-aos="fade-up">AI Blogs</h1>
-            <p data-aos="fade-up" data-aos-delay="100">Expert insights, trends, and thought leadership on AI
-                transformation</p>
+    <!-- ═══════════════════════════════════════
+         SECTION 1 — HERO
+    ═══════════════════════════════════════ -->
+    <section class="insights-hero">
+        <div class="container">
+            <span class="hero-label" data-aos="fade-up">AI INSIGHTS</span>
+            <h1 data-aos="fade-up" data-aos-delay="100">Insights for Leaders Navigating AI Transformation</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Practical perspectives, real-world applications, and executive
+                frameworks to translate AI into measurable business impact.</p>
+            <div class="hero-accent" data-aos="fade-up" data-aos-delay="300"></div>
         </div>
     </section>
 
-    <section class="blogs-section">
+    <!-- ═══════════════════════════════════════
+         SECTION 2 — FEATURED INSIGHT
+    ═══════════════════════════════════════ -->
+    <section class="featured-section">
         <div class="container">
-            <div class="blog-grid">
-                <a href="aiblogs/warranty-cost-analysis.html" class="blog-card text-decoration-none" data-aos="fade-up">
-                    <div class="blog-image">
-                        <img src="images/aiblogs/warranty-cost-analysis.webp" alt="Warranty Cost Analysis"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-category">Cost Optimization</div>
-                        <h3>Warranty Cost Analysis: Reducing Expenses with AI</h3>
-                        <p>How predictive analytics can identify warranty fraud and optimize reserve funds.</p>
-                        <div class="blog-meta">
-                            <span><i class="bi bi-calendar me-1"></i> Feb 10, 2026</span>
-                            <span><i class="bi bi-clock me-1"></i> 5 min read</span>
-                        </div>
-                    </div>
+            <a href="aiblogs/ai-playbook.html" class="featured-card" data-aos="fade-up">
+                <div class="featured-content">
+                    <div class="featured-tag">Featured Insight</div>
+                    <h2>From Pilot to Payoff: Why Most AI Initiatives Fail</h2>
+                    <p>A structured view of how organizations move from experimentation to scalable impact. Learn the
+                        frameworks that separate successful AI programs from expensive experiments.</p>
+                    <span class="featured-cta">Read Insight <i class="bi bi-arrow-right"></i></span>
+                </div>
+                <div class="featured-image">
+                    <img src="images/aiblogs/AdobeStock_187842870.webp" alt="AI Strategy Insight">
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 3 — FILTER CHIPS
+    ═══════════════════════════════════════ -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filter-chips" data-aos="fade-up">
+                <span class="filter-chip active" data-filter="all">All</span>
+                <span class="filter-chip" data-filter="ai-strategy">AI Strategy</span>
+                <span class="filter-chip" data-filter="use-cases">Use Cases</span>
+                <span class="filter-chip" data-filter="generative-ai">Generative AI</span>
+                <span class="filter-chip" data-filter="agentic-ai">Agentic AI</span>
+                <span class="filter-chip" data-filter="industry-insights">Industry Insights</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 4 — INSIGHT GRID
+    ═══════════════════════════════════════ -->
+    <section class="insights-grid-section">
+        <div class="container">
+            <div class="insights-grid">
+                <a href="aiblogs/ai-playbook.html" class="insight-card" data-category="ai-strategy"
+                    data-aos="fade-up">
+                    <span class="insight-category">AI Strategy</span>
+                    <h3>AI Success Playbook: From Data to Strategic Outcomes</h3>
+                    <p class="one-liner">Most AI initiatives fail not in execution, but in framing.</p>
+                    <span class="read-link">Read Insight <i class="bi bi-arrow-right"></i></span>
                 </a>
 
-                <a href="aiblogs/accelerating-ai.html" class="blog-card text-decoration-none" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <div class="blog-image">
-                        <img src="images/aiblogs/AdobeStock_187842870.webp" alt="Accelerating AI"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-category">Strategy</div>
-                        <h3>Accelerating AI Transformation Through Time-Boxed Sprints</h3>
-                        <p>Why infinite timelines fail and how 14-day sprints drive real outcomes.</p>
-                        <div class="blog-meta">
-                            <span><i class="bi bi-calendar me-1"></i> Feb 5, 2026</span>
-                            <span><i class="bi bi-clock me-1"></i> 7 min read</span>
-                        </div>
-                    </div>
+                <a href="aiblogs/accelerating-ai.html" class="insight-card" data-category="ai-strategy"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <span class="insight-category">AI Strategy</span>
+                    <h3>Accelerating AI Transformation Through Time-Boxed Sprints</h3>
+                    <p class="one-liner">Why infinite timelines fail and how 14-day sprints drive real outcomes.</p>
+                    <span class="read-link">Read Insight <i class="bi bi-arrow-right"></i></span>
                 </a>
 
-                <a href="aiblogs/ai-faces.html" class="blog-card text-decoration-none" data-aos="fade-up"
+                <a href="aiblogs/ai-faces.html" class="insight-card" data-category="generative-ai" data-aos="fade-up"
                     data-aos-delay="200">
-                    <div class="blog-image">
-                        <img src="images/aiblogs/blog3+-+1.webp" alt="Three Faces of AI"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-category">Perspective</div>
-                        <h3>AI Is Not One Thing. Are You Ready For Its Three Faces?</h3>
-                        <p>AI isn't just one thing—it's evolving fast, and we're barely scratching the surface.</p>
-                        <div class="blog-meta">
-                            <span><i class="bi bi-calendar me-1"></i> Jan 28, 2026</span>
-                            <span><i class="bi bi-clock me-1"></i> 6 min read</span>
-                        </div>
-                    </div>
+                    <span class="insight-category">Generative AI</span>
+                    <h3>AI Is Not One Thing. Are You Ready For Its Three Faces?</h3>
+                    <p class="one-liner">AI isn't just one thing — it's evolving fast, and we're barely scratching the
+                        surface.</p>
+                    <span class="read-link">Read Insight <i class="bi bi-arrow-right"></i></span>
                 </a>
 
-                <a href="aiblogs/ai-playbook.html" class="blog-card text-decoration-none" data-aos="fade-up">
-                    <div class="blog-image">
-                        <img src="images/aiblogs/AdobeStock_187842870.webp" alt="AI Playbook"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-category">Playbook</div>
-                        <h3>AI Success Playbook: From Data to Strategic Outcomes</h3>
-                        <p>Most AI initiatives fail not in execution, but in framing. Learn how to create a robust AI
-                            playbook.</p>
-                        <div class="blog-meta">
-                            <span><i class="bi bi-calendar me-1"></i> Jan 15, 2026</span>
-                            <span><i class="bi bi-clock me-1"></i> 8 min read</span>
-                        </div>
-                    </div>
+                <a href="aiblogs/warranty-cost-analysis.html" class="insight-card" data-category="use-cases"
+                    data-aos="fade-up">
+                    <span class="insight-category">Use Cases</span>
+                    <h3>Warranty Cost Analysis: Reducing Expenses with AI</h3>
+                    <p class="one-liner">How predictive analytics can identify warranty fraud and optimize reserve
+                        funds.</p>
+                    <span class="read-link">Read Insight <i class="bi bi-arrow-right"></i></span>
+                </a>
+
+                <a href="#" class="insight-card" data-category="agentic-ai" data-aos="fade-up" data-aos-delay="100">
+                    <span class="insight-category">Agentic AI</span>
+                    <h3>Agentic AI: Hype vs Real Enterprise Value</h3>
+                    <p class="one-liner">Where autonomous systems actually deliver measurable impact.</p>
+                    <span class="read-link">Coming Soon <i class="bi bi-arrow-right"></i></span>
+                </a>
+
+                <a href="#" class="insight-card" data-category="industry-insights" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <span class="insight-category">Industry Insights</span>
+                    <h3>AI Discovery for Leaders: A Practical Framework</h3>
+                    <p class="one-liner">How CXOs can identify high-value AI use cases in days, not months.</p>
+                    <span class="read-link">Coming Soon <i class="bi bi-arrow-right"></i></span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ═══ TOPICS WE COVER ═══ -->
-    <section class="topics-section">
-        <div class="container text-center">
-            <div data-aos="fade-up">
-                <div class="section-subtitle">TOPICS WE COVER</div>
-                <h2 class="section-title">Explore Our AI Knowledge Base</h2>
-            </div>
-            <div class="topics-grid" data-aos="fade-up" data-aos-delay="100">
-                <span class="topic-pill"><i class="bi bi-graph-up-arrow"></i> Predictive Analytics</span>
-                <span class="topic-pill"><i class="bi bi-robot"></i> Machine Learning</span>
-                <span class="topic-pill"><i class="bi bi-shield-check"></i> AI Governance</span>
-                <span class="topic-pill"><i class="bi bi-speedometer2"></i> AI Strategy</span>
-                <span class="topic-pill"><i class="bi bi-braces"></i> NLP & LLMs</span>
-                <span class="topic-pill"><i class="bi bi-bar-chart-steps"></i> Data Engineering</span>
-                <span class="topic-pill"><i class="bi bi-cpu"></i> Computer Vision</span>
-                <span class="topic-pill"><i class="bi bi-building-gear"></i> Industry 4.0</span>
-                <span class="topic-pill"><i class="bi bi-people"></i> Executive Leadership</span>
-                <span class="topic-pill"><i class="bi bi-lightning-charge"></i> GenAI & Automation</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ WHY READ OUR BLOG ═══ -->
-    <section class="why-section">
+    <!-- ═══════════════════════════════════════
+         SECTION 5 — OUR POINT OF VIEW
+    ═══════════════════════════════════════ -->
+    <section class="pov-section">
         <div class="container">
-            <div class="text-center" data-aos="fade-up">
-                <div class="section-subtitle">WHY READ</div>
-                <h2 class="section-title">What Sets Our Blog Apart</h2>
+            <div class="pov-card" data-aos="fade-up">
+                <div class="pov-label">Our Point of View</div>
+                <h2>What We Believe</h2>
+                <ul class="pov-list">
+                    <li>AI is a leadership problem, not a technology problem</li>
+                    <li>Business value > model accuracy</li>
+                    <li>Discovery → Activation → Scale</li>
+                    <li>Early wins build organizational confidence faster than grand strategies</li>
+                    <li>The best AI initiatives start with a well-defined business question</li>
+                </ul>
             </div>
-            <div class="why-grid">
-                <div class="why-card" data-aos="fade-up" data-aos-delay="100">
-                    <i class="bi bi-lightbulb"></i>
-                    <h4>Practitioner-Led Insights</h4>
-                    <p>Written by AI practitioners who have delivered real projects, not just theorists.</p>
-                </div>
-                <div class="why-card" data-aos="fade-up" data-aos-delay="200">
-                    <i class="bi bi-briefcase"></i>
-                    <h4>Business-First Perspective</h4>
-                    <p>Every article connects AI concepts directly to measurable business outcomes.</p>
-                </div>
-                <div class="why-card" data-aos="fade-up" data-aos-delay="300">
-                    <i class="bi bi-journal-check"></i>
-                    <h4>Actionable Playbooks</h4>
-                    <p>Walk away with frameworks and templates you can apply to your organization today.</p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 6 — AI SUCCESS PLAYBOOK
+    ═══════════════════════════════════════ -->
+    <section class="playbook-section">
+        <div class="container">
+            <div class="playbook-card" data-aos="fade-up">
+                <div class="playbook-content">
+                    <div class="playbook-text">
+                        <span class="section-label">AI Lifecycle</span>
+                        <h2>The Framework Behind Our Thinking</h2>
+                        <p>Our AI Success Playbook is a proven, sprint-driven methodology that guides organizations from
+                            problem definition through deployment. Each phase is designed to deliver measurable value
+                            while building internal capability — ensuring your AI investment compounds over time.</p>
+                    </div>
+                    <div class="playbook-visual">
+                        <div class="lifecycle-ring">
+                            <div class="lifecycle-step">
+                                <div class="step-icon"><i class="bi bi-search"></i></div>
+                                <span class="step-label">Discover</span>
+                            </div>
+                            <div class="lifecycle-step">
+                                <div class="step-icon"><i class="bi bi-palette"></i></div>
+                                <span class="step-label">Design</span>
+                            </div>
+                            <div class="lifecycle-step">
+                                <div class="step-icon"><i class="bi bi-code-slash"></i></div>
+                                <span class="step-label">Develop</span>
+                            </div>
+                            <div class="lifecycle-step">
+                                <div class="step-icon"><i class="bi bi-rocket-takeoff"></i></div>
+                                <span class="step-label">Deploy</span>
+                            </div>
+                            <div class="lifecycle-center">
+                                <i class="bi bi-cpu"></i>
+                                <span>AI</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ NEWSLETTER SIGNUP ═══ -->
-    <section class="newsletter-section">
-        <div class="container" data-aos="fade-up">
-            <h2>Stay Ahead in AI</h2>
-            <p>Get the latest insights delivered straight to your inbox — no spam, just expert knowledge.</p>
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-                <input type="email" placeholder="Enter your email address" required>
-                <button type="submit">Subscribe</button>
-            </form>
+    <!-- ═══════════════════════════════════════
+         SECTION 7 — NEWSLETTER ARCHIVE (moved from Client Impact)
+    ═══════════════════════════════════════ -->
+    <section class="section-newsletter" id="newsletter">
+        <div class="container">
+            <div data-aos="fade-up" class="mb-5">
+                <div class="issue-tag" style="margin-bottom:16px; font-size:13px;">Thought Leadership</div>
+                <h2 style="font-family:'Space Grotesk',sans-serif; font-size:42px; color:#fff; font-weight:700; margin-bottom:14px;">AI Insights Newsletter</h2>
+                <p style="color:rgba(255,255,255,0.6); font-size:17px; line-height:1.7; max-width:640px;">Practical thinking on AI strategy, execution, and what it really takes to create measurable business value &mdash; delivered to leaders who care about outcomes, not hype.</p>
+            </div>
+
+            <!-- LATEST ISSUE -->
+            <div class="nl-latest-card" data-aos="fade-up" data-aos-delay="100">
+                <span class="issue-tag">Latest &mdash; Issue #1</span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:#fff; font-weight:700; margin-bottom:16px;">AI is Not One Thing: The Three Faces Every Leader Must Understand</h3>
+                <p style="color:rgba(255,255,255,0.6); font-size:16px; line-height:1.7; margin-bottom:28px; max-width:700px;">Automation, Augmentation, and Autonomous systems represent fundamentally different investment decisions. Understanding which &ldquo;face&rdquo; applies to your problem changes everything about how you approach AI strategy.</p>
+                <a href="#" onclick="openPdfGate('Articles/issue-1.pdf','AI is Not One Thing: The Three Faces Every Leader Must Understand', 'Issue #1'); return false;" class="gate-submit-btn" style="width:fit-content; padding:13px 28px; border-radius:50px; display:inline-flex;">
+                    <i class="bi bi-file-earmark-pdf"></i> Access Full Report
+                </a>
+            </div>
+
+            <!-- ARCHIVES -->
+            <div class="nl-archives-wrap" data-aos="fade-up" data-aos-delay="200">
+                <div class="nl-archive-header" onclick="toggleArchive()">
+                    <span><i class="bi bi-archive" style="margin-right:10px;"></i>View Past Issues</span>
+                    <i class="bi bi-chevron-down" id="archiveChevron"></i>
+                </div>
+                <div class="nl-archive-content" id="archiveContent">
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue #2</span>
+                            <h5>Why Data Science Projects Fail &mdash; And What To Do About It</h5>
+                            <p>Unpacks the ten most common failure modes in data science initiatives and practical steps for success.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/issue-2.pdf','Why Data Science Projects Fail', 'Issue #2'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue #3</span>
+                            <h5>AI Meets Theory of Constraints: A Conversation with Rami Goldratt</h5>
+                            <p>Why the most powerful AI use cases start with identifying your true operational bottleneck.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/issue-3.pdf','AI Meets Theory of Constraints', 'Issue #3'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 8 — CTA
+    ═══════════════════════════════════════ -->
+    <section class="final-cta">
+        <div class="container" data-aos="fade-up">
+            <h2>How does AI fit into your strategy?</h2>
+            <p>Let's identify the highest-value AI opportunities for your business.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn-primary-cta">Schedule AI Discovery</a>
+                <a href="ourservices-2.html" class="btn-outline-cta">Explore Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PDF GATE MODAL -->
+    <div class="pdf-gate-overlay" id="pdfGateOverlay" onclick="closePdfGateOnBg(event)">
+        <div class="pdf-gate-modal" role="dialog" aria-modal="true">
+            <div class="pdf-gate-preview">
+                <div class="pdf-icon-wrap"><i class="bi bi-file-earmark-text"></i></div>
+                <h6 id="gatePdfTitle">AI Insights Report</h6>
+                <p class="pdf-meta">SetConnect &middot; AI Insights</p>
+                <span class="pdf-tag" id="gateIssueTag">Issue #1</span>
+            </div>
+            <div class="pdf-gate-form-panel">
+                <button class="pdf-gate-close" onclick="closePdfGate()" aria-label="Close">&times;</button>
+                <!-- State A: Already unlocked -->
+                <div id="gateStateUnlocked" style="display:none;">
+                    <span class="gate-eyebrow">Full Access</span>
+                    <h3>You already have access</h3>
+                    <p class="gate-sub">Welcome back! Your access is saved.</p>
+                    <div class="gate-access-msg">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Click below to open the report instantly &mdash; no form needed.</p>
+                    </div>
+                    <button class="gate-submit-btn" onclick="openPdf()">
+                        <i class="bi bi-file-earmark-arrow-down"></i> Open Report
+                    </button>
+                </div>
+                <!-- State B: Form (all fields optional) -->
+                <div id="gateStateForm">
+                    <span class="gate-eyebrow">Free Download</span>
+                    <h3>Get Instant Access</h3>
+                    <p class="gate-sub">Share your details to access the full report. All fields are optional.</p>
+                    <form id="pdfGateForm" action="https://formsubmit.co/info@setconnectglobal.com" method="POST" target="pdfFormTarget" onsubmit="submitPdfGate(event)">
+                        <input type="hidden" name="_subject" id="gateFormSubject" value="PDF Report Access">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="about:blank">
+                        <input type="text" name="_honey" style="display:none">
+                        <div class="gate-row">
+                            <div class="gate-field"><input type="text" name="first_name" id="gateFirstName" placeholder="First Name (optional)" autocomplete="given-name"></div>
+                            <div class="gate-field"><input type="text" name="last_name" id="gateLastName" placeholder="Last Name (optional)" autocomplete="family-name"></div>
+                        </div>
+                        <div class="gate-field"><input type="email" name="email" id="gateEmail" placeholder="Email Address (optional)" autocomplete="email"></div>
+                        <div class="gate-field"><input type="text" name="company" id="gateCompany" placeholder="Company Name (optional)" autocomplete="organization"></div>
+                        <div class="gate-field">
+                            <select name="interested_in" id="gateInterestedIn">
+                                <option value="">I&rsquo;m Interested In (optional)</option>
+                                <option value="AI Discovery">AI Discovery</option>
+                                <option value="Executive Immersion">Executive Immersion</option>
+                                <option value="Implementation Support">Implementation Support</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="gate-submit-btn">
+                            <i class="bi bi-file-earmark-arrow-down"></i> Access Report Now
+                        </button>
+                    </form>
+                    <iframe name="pdfFormTarget" style="display:none;"></iframe>
+                    <p class="gate-privacy">&#128274; We respect your privacy. Details are never shared.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXIT-INTENT NEWSLETTER TEASER -->
+    <div class="nl-teaser-overlay" id="nlTeaserOverlay">
+        <div class="nl-teaser-card" id="nlTeaserCard">
+            <button class="nl-teaser-close" onclick="dismissTeaser()" aria-label="Close">&times;</button>
+            <span class="nl-teaser-eyebrow">AI Insights &mdash; Issue #1</span>
+            <h3>AI Is Not One Thing. Are You Ready for Its Three Faces?</h3>
+            <p>Most leaders treat AI as a single technology. In Issue&nbsp;#1, we break down the three fundamentally different types of AI &mdash; and why confusing them is the&nbsp;#1 strategic mistake.</p>
+            <button class="nl-teaser-cta" onclick="dismissTeaser(); openPdfGate('Articles/issue-1.pdf','AI is Not One Thing: The Three Faces Every Leader Must Understand', 'Issue #1');">
+                Read the Brief <i class="bi bi-arrow-right"></i>
+            </button>
+        </div>
+    </div>
 
     <div id="global-footer-placeholder" data-root="./"></div>
     <script src="js/footer-loader.js"></script>
@@ -587,11 +1304,93 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
+        AOS.init({ duration: 800, once: true });
+
+        // Filter chips
+        const chips = document.querySelectorAll('.filter-chip');
+        const cards = document.querySelectorAll('.insight-card');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                const filter = chip.getAttribute('data-filter');
+                cards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(10px)';
+                        setTimeout(() => { card.style.display = 'none'; }, 300);
+                    }
+                });
+            });
+        });
+
+        /* ── Archive toggle ── */
+        function toggleArchive() {
+            const content = document.getElementById('archiveContent');
+            const header  = document.querySelector('.nl-archive-header');
+            content.classList.toggle('open');
+            header.classList.toggle('open');
+        }
+
+        /* ── PDF Gate ── */
+        let _pdfUrl = '';
+        function openPdfGate(url, title, issueTag) {
+            _pdfUrl = url;
+            document.getElementById('gatePdfTitle').textContent = title;
+            document.getElementById('gateIssueTag').textContent = issueTag;
+            document.getElementById('gateFormSubject').value = 'PDF Report Access — AI Insights ' + issueTag;
+            const sf = document.getElementById('gateStateForm');
+            const su = document.getElementById('gateStateUnlocked');
+            if (localStorage.getItem('sc_pdf_access')) {
+                sf.style.display = 'none'; su.style.display = 'block';
+            } else {
+                sf.style.display = 'block'; su.style.display = 'none';
+            }
+            document.getElementById('pdfGateOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closePdfGate() {
+            document.getElementById('pdfGateOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        function closePdfGateOnBg(e) {
+            if (e.target === document.getElementById('pdfGateOverlay')) closePdfGate();
+        }
+        function openPdf() { window.open(_pdfUrl, '_blank'); closePdfGate(); }
+        function submitPdfGate(e) {
+            // All fields optional — just save what was provided and open the PDF
+            const fn = document.getElementById('gateFirstName').value.trim();
+            const em = document.getElementById('gateEmail').value.trim();
+            if (fn || em) {
+                localStorage.setItem('sc_pdf_access', JSON.stringify({ firstName: fn, email: em, ts: new Date().toISOString() }));
+            }
+            window.open(_pdfUrl, '_blank');
+            closePdfGate();
+            // Form still submits naturally to iframe
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closePdfGate(); dismissTeaser(); } });
+
+        /* ── Exit-intent teaser ── */
+        let teaserFired = false;
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY <= 0 && !teaserFired && !sessionStorage.getItem('sc_teaser_dismissed')) {
+                document.getElementById('nlTeaserOverlay').classList.add('active');
+                teaserFired = true;
+            }
+        });
+        function dismissTeaser() {
+            document.getElementById('nlTeaserOverlay').classList.remove('active');
+            sessionStorage.setItem('sc_teaser_dismissed', '1');
+        }
+
+        // Header scroll effect
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('.modern-header');
-            if (window.scrollY > 50) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
+            const h = document.querySelector('.modern-header');
+            if (h) { if (window.scrollY > 50) h.classList.add('scrolled'); else h.classList.remove('scrolled'); }
         });
     </script>
 </body>

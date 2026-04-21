@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Impact & Ecosystem — SetConnect</title>
+    <title>Client Impact — SetConnect</title>
     <meta name="description" content="From discovery to deployment, explore how SetConnect partners with global organizations to translate AI into tangible business outcomes.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -36,15 +36,15 @@
         .hm-lbl { font-size: 15px; color: rgba(255,255,255,0.8); font-weight: 500; line-height: 1.5; }
 
         /* ── CREDIBILITY STRIP ── */
-        .section-credibility { background: #0d1b3e; padding: 52px 0; border-top: 1px solid rgba(99, 179, 237, 0.2); border-bottom: 1px solid rgba(99, 179, 237, 0.15); }
-        .section-credibility .strip-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255, 255, 255, 0.4); font-weight: 700; margin-bottom: 28px; text-align: center; }
+        .section-credibility { background: #ffffff; padding: 52px 0; border-top: 1px solid rgba(0, 0, 0, 0.06); border-bottom: 1px solid rgba(0, 0, 0, 0.06); }
+        .section-credibility .strip-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(0, 0, 0, 0.4); font-weight: 700; margin-bottom: 28px; text-align: center; }
         .credibility-logos { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
-        .cred-item { position: relative; padding: 0 32px; border-right: 1px solid rgba(255, 255, 255, 0.08); }
+        .cred-item { position: relative; padding: 0 32px; border-right: 1px solid rgba(0, 0, 0, 0.08); }
         .cred-item:last-child { border-right: none; }
-        .cred-name { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: rgba(255, 255, 255, 0.7); letter-spacing: 1px; white-space: nowrap; transition: color 0.3s; cursor: pointer; text-decoration: none; display: inline-block; padding: 8px 0; text-transform: uppercase; }
+        .cred-name { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: rgba(0, 0, 0, 0.6); letter-spacing: 1px; white-space: nowrap; transition: color 0.3s; cursor: pointer; text-decoration: none; display: inline-block; padding: 8px 0; text-transform: uppercase; }
         .cred-name:hover { color: var(--cyan); }
-        .cred-tooltip { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(6px); width: 230px; background: #0a0e13; color: rgba(255, 255, 255, 0.82); font-size: 13px; line-height: 1.6; padding: 16px 18px; border-radius: 10px; pointer-events: none; opacity: 0; transition: opacity 0.25s, transform 0.25s; z-index: 50; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5); border: 1px solid rgba(8, 145, 178, 0.35); }
-        .cred-tooltip::after { content: ''; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); border: 7px solid transparent; border-bottom-color: rgba(8, 145, 178, 0.35); }
+        .cred-tooltip { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(6px); width: 230px; background: #1a2332; color: rgba(255, 255, 255, 0.9); font-size: 13px; line-height: 1.6; padding: 16px 18px; border-radius: 10px; pointer-events: none; opacity: 0; transition: opacity 0.25s, transform 0.25s; z-index: 50; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25); border: 1px solid rgba(8, 145, 178, 0.35); }
+        .cred-tooltip::after { content: ''; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); border: 7px solid transparent; border-bottom-color: #1a2332; }
         .cred-item:hover .cred-tooltip { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
         @media (max-width: 992px) { .cred-item { padding: 0 20px; border: none; margin-bottom: 12px; } .cred-tooltip { display: none !important; } }
 
@@ -77,6 +77,73 @@
         .step-phase-text { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255, 255, 255, 0.4); font-weight: 600; transition: color 0.3s; }
         .timeline-step h4 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; color: #ffffff; text-align: center; margin-bottom: 10px; }
         .timeline-step p { color: rgba(255, 255, 255, 0.55); font-size: 14px; text-align: center; line-height: 1.6; margin-bottom: 0; }
+
+        /* ── TRIANGLE FLOW PLAYBOOK (desktop) ── */
+        .playbook-triangle-wrap {
+            position: relative;
+            width: 600px;
+            height: 500px;
+            margin: 50px auto 0;
+        }
+        .tri-svg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+        }
+        .tri-center-label {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -42%);
+            text-align: center;
+            pointer-events: none;
+        }
+        .tri-center-label i { font-size: 26px; color: rgba(8,145,178,0.45); display: block; margin-bottom: 5px; }
+        .tri-center-label span { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.28); font-weight: 700; }
+        .tri-node { position: absolute; text-align: center; width: 115px; }
+        .tri-top { top: 0; left: 50%; transform: translateX(-50%); }
+        .tri-bl  { bottom: 15px; left: 15px; }
+        .tri-br  { bottom: 15px; right: 15px; }
+        .tri-circle {
+            width: 82px; height: 82px;
+            border-radius: 50%;
+            background: rgba(10,14,19,0.95);
+            border: 2px solid var(--cyan);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px; font-weight: 700; color: var(--cyan);
+            transition: all 0.35s ease; cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+        .tri-node:hover .tri-circle { background: var(--cyan); color: #fff; box-shadow: 0 0 30px rgba(8,145,178,0.5); transform: scale(1.08); }
+        .tri-node h5 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: #fff; margin: 0 0 4px; }
+        .tri-node p  { font-size: 11px; color: rgba(255,255,255,0.5); line-height: 1.4; margin: 0; }
+        @media (max-width: 768px) { .playbook-triangle-wrap { display: none !important; } }
+
+        /* ── TESTIMONIALS SECTION ── */
+        .section-testimonials { padding: 90px 0; background: #040c16; }
+        .quote-card {
+            background: linear-gradient(145deg,#0a192f,#040c16);
+            padding: 44px 40px; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+            position: relative; height: 100%;
+            transition: all 0.35s ease;
+        }
+        .quote-card:hover { border-color: rgba(8,145,178,0.3); transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+        .quote-card::before { content: '\201C'; position: absolute; top: 14px; left: 28px; font-size: 100px; color: rgba(255,255,255,0.04); font-family: Georgia, serif; line-height: 1; }
+        .quote-icon { font-size: 26px; color: var(--cyan); opacity: 0.6; margin-bottom: 18px; display: block; }
+        .quote-text { color: rgba(255,255,255,0.85); font-size: 17px; line-height: 1.75; font-style: italic; margin-bottom: 24px; }
+        .quote-author h5 { color: #fff; font-weight: 700; font-size: 15px; margin-bottom: 3px; }
+        .quote-author span { color: rgba(255,255,255,0.45); font-size: 13px; }
+
+        /* ── AI INSIGHTS TEASER (replaces newsletter) ── */
+        .section-insights-teaser { padding: 80px 0; background: #1a0933; text-align: center; }
+        .section-insights-teaser .sec-tag { color: #a78bfa; }
+        .section-insights-teaser .sec-h2 { color: #fff; margin-bottom: 14px; }
+        .section-insights-teaser .sec-p  { color: rgba(255,255,255,0.65); max-width: 540px; margin: 0 auto 32px; text-align: center; }
+        .btn-purple { display: inline-flex; align-items: center; gap: 10px; background: #a78bfa; color: #fff; padding: 14px 32px; border-radius: 50px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s; }
+        .btn-purple:hover { background: #8b5cf6; color: #fff; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(139,92,246,0.35); }
+
         @media (max-width: 992px) {
             .playbook-timeline { flex-direction: column; gap: 0; }
             .playbook-timeline::before { display: none; }
@@ -97,22 +164,28 @@
         @media (min-width: 993px) { .mobile-accordion { display: none !important; } }
 
         /* ── ECOSYSTEM ── */
-        .section-ecosystem { padding: 100px 0; background: #040c14; }
+        .section-ecosystem { padding: 100px 0; background: #f0f2f5; }
         .eco-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         @media(max-width: 992px) { .eco-grid { grid-template-columns: 1fr; } }
-        .eco-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 40px; transition: all 0.4s; }
-        .eco-card:hover { background: rgba(8,145,178,0.05); border-color: rgba(8,145,178,0.3); transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
-        .eco-icon { width: 50px; height: 50px; border-radius: 12px; background: rgba(8, 145, 178, 0.15); display: flex; align-items: center; justify-content: center; color: var(--cyan); font-size: 24px; margin-bottom: 24px; transition: transform 0.3s; }
+        .eco-card { background: #ffffff; border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; padding: 40px; transition: all 0.4s; }
+        .eco-card:hover { background: rgba(8,145,178,0.03); border-color: rgba(8,145,178,0.3); transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+        .eco-icon { width: 50px; height: 50px; border-radius: 12px; background: rgba(8, 145, 178, 0.12); display: flex; align-items: center; justify-content: center; color: var(--cyan); font-size: 24px; margin-bottom: 24px; transition: transform 0.3s; }
         .eco-card:hover .eco-icon { transform: scale(1.1); }
-        .eco-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; color: #fff; font-weight: 700; margin-bottom: 12px; }
-        .eco-value { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 24px; }
+        .eco-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; color: #1a2332; font-weight: 700; margin-bottom: 12px; }
+        .eco-value { font-size: 14px; color: rgba(0,0,0,0.6); line-height: 1.6; margin-bottom: 24px; }
         .eco-list { display: flex; flex-wrap: wrap; gap: 8px; }
-        .eco-badge { font-size: 12px; font-weight: 600; background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.85); padding: 6px 14px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s; }
-        .eco-card:hover .eco-badge { border-color: rgba(8, 145, 178, 0.4); color: #fff; background: rgba(8, 145, 178, 0.1); }
+        .eco-badge { font-size: 12px; font-weight: 600; background: rgba(8,145,178,0.06); color: #0891b2; padding: 6px 14px; border-radius: 50px; border: 1px solid rgba(8,145,178,0.15); transition: all 0.3s; }
+        .eco-card:hover .eco-badge { border-color: rgba(8, 145, 178, 0.4); color: #0891b2; background: rgba(8, 145, 178, 0.1); }
 
         .sec-tag { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--cyan); display:inline-block; margin-bottom:14px; }
         .sec-h2 { font-family:'Space Grotesk',sans-serif; font-size:44px; font-weight:700; color:#fff; margin-bottom:14px; }
         .sec-p { font-size:17px; color:rgba(255,255,255,0.6); max-width:640px; line-height:1.7; font-weight:300; }
+
+        /* Light section heading overrides */
+        .section-ecosystem .sec-h2 { color: #1a2332; }
+        .section-ecosystem .sec-tag { color: #0891b2; }
+        .section-ecosystem .sec-p { color: rgba(0,0,0,0.55); }
+        .section-credibility .sec-h2 { color: #1a2332; }
 
         /* ── INTRO — Deep Teal ── */
         .section-intro { padding:80px 0; background:#072533; text-align:center; }
@@ -426,35 +499,15 @@
     </style>
 </head>
 <body>
-    <header class="modern-header">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg">
-                <a class="brand" href="index.html">
-                    <img src="images/setconnect-logo.png" alt="SetConnect Globe">
-                    Set<span>CONNECT</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navWN">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navWN">
-                    <ul class="navbar-nav nav-modern ms-auto align-items-center">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ourservices-2.html">Our Services</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="work-and-connections.html">Client Impact & Ecosystem</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ai-blogs.html">AI Blogs</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                        <li class="nav-item ms-3"><a href="contact.html" class="btn-cyan">Contact Us</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <div id="global-header-placeholder" data-root="./"></div>
+    <script src="js/header-loader.js"></script>
+
 
     <!-- HERO -->
     <section class="hero-wn">
         <div class="container">
             <div data-aos="fade-up">
-                <div class="sec-tag">Client Impact &amp; Ecosystem</div>
+                <div class="sec-tag">Client Impact</div>
                 <h1>Delivering Measurable<br><span>AI Impact</span> Across Industries</h1>
                 <p>From discovery to deployment, we partner with global organizations to translate AI into tangible business outcomes.</p>
                 <div class="hero-metrics">
@@ -657,52 +710,79 @@
 
 
 
-    <!-- SECTION 5: AI SUCCESS PLAYBOOK -->
+    <!-- SECTION 5: AI SUCCESS PLAYBOOK (TRIANGLE FLOW) -->
     <section class="section-playbook" id="playbook">
         <div class="container">
             <div class="text-center" data-aos="fade-up">
                 <span class="section-label" style="text-transform:uppercase; letter-spacing:3px; font-size:11px; color:var(--cyan); font-weight:700;">Methodology</span>
                 <h2 class="section-heading" style="font-family:'Space Grotesk',sans-serif; font-size:44px; color:#fff; font-weight:700;">Our AI Success Playbook</h2>
-            </div>
-            
-            <!-- Graphic Image Placeholder if user uploaded it -->
-            <div class="text-center mt-5 mb-5 d-none d-lg-block">
-                <img src="images/playbook-circular-graphic.png" alt="AI Success Playbook Circular Graphic" style="max-width: 800px; width: 100%; border-radius: 20px;" onerror="this.style.display='none'; document.getElementById('css-stepper').style.display='flex';">
+                <p style="color:rgba(255,255,255,0.55); font-size:16px; margin:0 auto; max-width:520px;">A cyclical, sprint-driven framework from problem framing through enterprise-wide scale.</p>
             </div>
 
-            <!-- CSS Stepper Fallback (active if image misses or on mobile) -->
-            <div id="css-stepper" class="playbook-timeline desktop-stepper" data-aos="fade-up" data-aos-delay="100" style="display:none;">
-                <div class="timeline-step">
-                    <div class="step-number">
-                        <span class="step-num-text">01</span>
-                        <span class="step-phase-text">Phase</span>
-                    </div>
-                    <h4>Design</h4>
-                    <p>Frame the right business problems before investing in execution.</p>
+            <!-- Triangle Flow (desktop) -->
+            <div class="playbook-triangle-wrap desktop-stepper" data-aos="fade-up" data-aos-delay="100">
+                <svg class="tri-svg" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <marker id="ta" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                            <polygon points="0 0, 7 3.5, 0 7" fill="rgba(8,145,178,0.7)"/>
+                        </marker>
+                        <filter id="tri-glow">
+                            <feGaussianBlur stdDeviation="3" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <!-- Triangle outline -->
+                    <polygon points="300,58 58,442 542,442" fill="none" stroke="rgba(8,145,178,0.2)" stroke-width="1.5" stroke-dasharray="8,5"/>
+                    <!-- Direction arrows on edges -->
+                    <!-- Discovery → Activation (bottom edge, left to right) -->
+                    <line x1="108" y1="442" x2="492" y2="442" stroke="rgba(8,145,178,0.6)" stroke-width="1.5" marker-end="url(#ta)"/>
+                    <!-- Activation → Scale (right edge, bottom-right to top) -->
+                    <line x1="528" y1="416" x2="316" y2="90" stroke="rgba(8,145,178,0.6)" stroke-width="1.5" marker-end="url(#ta)"/>
+                    <!-- Scale → Discovery (left edge, top to bottom-left) -->
+                    <line x1="282" y1="90" x2="72" y2="416" stroke="rgba(8,145,178,0.6)" stroke-width="1.5" marker-end="url(#ta)"/>
+                    <!-- Animated dot tracing perimeter -->
+                    <circle r="5" fill="#0891b2" filter="url(#tri-glow)">
+                        <animateMotion dur="9s" repeatCount="indefinite">
+                            <mpath href="#triPerim"/>
+                        </animateMotion>
+                    </circle>
+                    <path id="triPerim" d="M 300,58 L 542,442 L 58,442 Z" fill="none"/>
+                </svg>
+
+                <!-- Center label -->
+                <div class="tri-center-label">
+                    <i class="bi bi-diagram-3-fill"></i>
+                    <span>AI Playbook</span>
                 </div>
-                <div class="timeline-step">
-                    <div class="step-number">
-                        <span class="step-num-text">02</span>
-                        <span class="step-phase-text">Phase</span>
-                    </div>
-                    <h4>Develop</h4>
-                    <p>Build, train, and test models via rapid prototyping and simulation.</p>
+
+                <!-- Node: Scale (top) -->
+                <div class="tri-node tri-top">
+                    <div class="tri-circle">03</div>
+                    <h5>Scale</h5>
+                    <p>Deploy &amp; scale AI enterprise-wide for maximum impact</p>
                 </div>
-                <div class="timeline-step">
-                    <div class="step-number">
-                        <span class="step-num-text">03</span>
-                        <span class="step-phase-text">Phase</span>
-                    </div>
-                    <h4>Deploy</h4>
-                    <p>Integrate solutions and scale across the enterprise for impact.</p>
+
+                <!-- Node: Discovery (bottom-left) -->
+                <div class="tri-node tri-bl">
+                    <div class="tri-circle">01</div>
+                    <h5>Discovery</h5>
+                    <p>Frame the right business problems before investing</p>
+                </div>
+
+                <!-- Node: Activation (bottom-right) -->
+                <div class="tri-node tri-br">
+                    <div class="tri-circle">02</div>
+                    <h5>Activation</h5>
+                    <p>Experiment, validate &amp; prove value with data</p>
                 </div>
             </div>
 
+            <!-- Mobile Accordion -->
             <div class="mobile-accordion" data-aos="fade-up" data-aos-delay="100" style="margin-top:40px;">
                 <div class="playbook-accordion-item active">
                     <button class="accordion-trigger" onclick="toggleAccordion(this)">
                         <span class="acc-num">01</span>
-                        <h4>Design</h4>
+                        <h4>Discovery</h4>
                         <i class="bi bi-chevron-down acc-chevron"></i>
                     </button>
                     <div class="accordion-body">
@@ -712,21 +792,21 @@
                 <div class="playbook-accordion-item">
                     <button class="accordion-trigger" onclick="toggleAccordion(this)">
                         <span class="acc-num">02</span>
-                        <h4>Develop</h4>
+                        <h4>Activation</h4>
                         <i class="bi bi-chevron-down acc-chevron"></i>
                     </button>
                     <div class="accordion-body">
-                        <p>Build, train, and test models via rapid prototyping and simulation.</p>
+                        <p>Experiment, validate, and prove value with data and rapid pilots.</p>
                     </div>
                 </div>
                 <div class="playbook-accordion-item">
                     <button class="accordion-trigger" onclick="toggleAccordion(this)">
                         <span class="acc-num">03</span>
-                        <h4>Deploy</h4>
+                        <h4>Scale</h4>
                         <i class="bi bi-chevron-down acc-chevron"></i>
                     </button>
                     <div class="accordion-body">
-                        <p>Integrate solutions and scale across the enterprise for impact.</p>
+                        <p>Deploy proven AI solutions and scale them across the organization for repeatable impact.</p>
                     </div>
                 </div>
             </div>
@@ -782,28 +862,41 @@
         </div>
     </section>
 
-    <!-- SECTION 7: TESTIMONIALS -->
+    <!-- SECTION 7: WHAT LEADERS SAY -->
     <section class="section-testimonials">
         <div class="container">
-            <h2 class="sec-h2 text-center" style="margin-bottom:56px;" data-aos="fade-up">What Leaders Say</h2>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="sec-tag">Client Voices</div>
+                <h2 class="sec-h2">What Leaders Say</h2>
+            </div>
+            <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4">
                     <div class="quote-card">
                         <i class="bi bi-quote quote-icon"></i>
-                        <p class="quote-text">"SetCONNECT helped us translate AI into real business outcomes. Their bias to action and speed to value fundamentally changed our approach to data."</p>
+                        <p class="quote-text">&ldquo;SetCONNECT helped us identify 15+ high-value AI initiatives in under two weeks. The structure they brought was unlike anything we&rsquo;d experienced &mdash; they start with the business, not the technology.&rdquo;</p>
                         <div class="quote-author">
-                            <h5>Senior Leader</h5>
-                            <span>Global Manufacturing</span>
+                            <h5>VP Operations</h5>
+                            <span>Global Metals &amp; Mining Enterprise</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4">
                     <div class="quote-card">
                         <i class="bi bi-quote quote-icon"></i>
-                        <p class="quote-text">"Their predictive modeling transformed our warranty claims process, saving significant costs and allowing us to act proactively rather than reactively."</p>
+                        <p class="quote-text">&ldquo;Their predictive modeling transformed our warranty analytics process, reducing costs significantly and enabling us to act proactively rather than reactively on field failures.&rdquo;</p>
                         <div class="quote-author">
-                            <h5>Operations Executive</h5>
-                            <span>Automotive Supplier</span>
+                            <h5>Director of Quality</h5>
+                            <span>Tier-1 Automotive Supplier</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="quote-card">
+                        <i class="bi bi-quote quote-icon"></i>
+                        <p class="quote-text">&ldquo;SetCONNECT&rsquo;s AI Discovery workshop aligned our leadership team on AI priorities for the first time. We left with a clear, ranked portfolio of use cases &mdash; and the conviction to act on them immediately.&rdquo;</p>
+                        <div class="quote-author">
+                            <h5>Chief Data Officer</h5>
+                            <span>Financial Services Firm</span>
                         </div>
                     </div>
                 </div>
@@ -811,130 +904,17 @@
         </div>
     </section>
 
-    <!-- NEWSLETTER ARCHIVE (2nd Hero Section) -->
-    <section class="section-newsletter" id="newsletter">
-        <div class="container">
-            <div data-aos="fade-up" class="mb-5">
-                <div class="sec-tag">Thought Leadership</div>
-                <h2 class="sec-h2">AI Insights Newsletter</h2>
-                <p class="sec-p">Practical thinking on AI strategy, execution, and what it really takes to create measurable business value — delivered to leaders who care about outcomes, not hype.</p>
-            </div>
-            <!-- LATEST ISSUE -->
-            <div class="nl-latest-card" data-aos="fade-up" data-aos-delay="100">
-                <span class="issue-tag">Latest &mdash; Issue #1</span>
-                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:#fff; font-weight:700; margin-bottom:16px;">AI is Not One Thing: The Three Faces Every Leader Must Understand</h3>
-                <p style="color:rgba(255,255,255,0.6); font-size:16px; line-height:1.7; margin-bottom:28px; max-width:700px;">Automation, Augmentation, and Autonomous systems represent fundamentally different investment decisions. Understanding which "face" applies to your problem changes everything about how you approach AI strategy.</p>
-                <a href="#" onclick="openPdfGate('Articles/issue-1.pdf','AI is Not One Thing: The Three Faces Every Leader Must Understand', 'Issue #1'); return false;" class="btn-primary-bain" style="border-radius:50px; padding:12px 28px; border-color:#a78bfa; background:#a78bfa; width:fit-content;">
-                    <i class="bi bi-file-earmark-pdf"></i> Access Full Report
-                </a>
-            </div>
-
-            <!-- ARCHIVES -->
-            <div class="nl-archives-wrap" data-aos="fade-up" data-aos-delay="200">
-                <div class="nl-archive-header" onclick="toggleArchive()">
-                    <span><i class="bi bi-archive" style="margin-right:10px;"></i> View Past Issues</span>
-                    <i class="bi bi-chevron-down" id="archiveChevron"></i>
-                </div>
-                <div class="nl-archive-content" id="archiveContent">
-                    <div class="archive-item">
-                        <div class="archive-info">
-                            <span class="issue-tag" style="margin-bottom:8px;">Issue #2</span>
-                            <h5>Why Data Science Projects Fail &mdash; And What To Do About It</h5>
-                            <p>Unpacks the ten most common failure modes in data science initiatives and practical steps for success.</p>
-                        </div>
-                        <a href="#" onclick="openPdfGate('Articles/issue-2.pdf','Why Data Science Projects Fail', 'Issue #2'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                    <div class="archive-item">
-                        <div class="archive-info">
-                            <span class="issue-tag" style="margin-bottom:8px;">Issue #3</span>
-                            <h5>AI Meets Theory of Constraints: A Conversation with Rami Goldratt</h5>
-                            <p>Why the most powerful AI use cases start with identifying your true operational bottleneck.</p>
-                        </div>
-                        <a href="#" onclick="openPdfGate('Articles/issue-3.pdf','AI Meets Theory of Constraints', 'Issue #3'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-
+    <!-- AI INSIGHTS TEASER (newsletter moved to AI Insights page) -->
+    <section class="section-insights-teaser">
+        <div class="container" data-aos="fade-up">
+            <div class="sec-tag">Thought Leadership</div>
+            <h2 class="sec-h2">AI Insights Newsletter</h2>
+            <p class="sec-p">Practical frameworks for leaders navigating AI transformation. Access our full archive &mdash; including gated reports &mdash; on the AI Insights page.</p>
+            <a href="ai-blogs.html#newsletter" class="btn-purple">
+                <i class="bi bi-newspaper"></i> Explore AI Insights &amp; Reports
+            </a>
         </div>
     </section>
-
-    <!-- SECTION 8: CTA -->
-    <section class="section-cta">
-        <div class="container text-center" data-aos="fade-up">
-            <h2>Ready to unlock AI impact?</h2>
-            <p style="font-size:18px; color:rgba(255,255,255,0.7); max-width:600px; margin:0 auto 36px; line-height:1.7;">Let's build a customized roadmap for your enterprise, driven by data and focused on ROI.</p>
-            <div class="d-flex flex-wrap gap-3 justify-content-center">
-                <a href="contact.html" class="btn-cyan">Schedule AI Discovery <i class="bi bi-calendar2-week"></i></a>
-                <a href="ourservices-2.html" class="btn-outline-lt">Explore Our Services <i class="bi bi-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PDF GATE MODAL -->
-    <div class="pdf-gate-overlay" id="pdfGateOverlay" onclick="closePdfGateOnBg(event)">
-        <div class="pdf-gate-modal" role="dialog" aria-modal="true">
-            <!-- Left: Preview -->
-            <div class="pdf-gate-preview">
-                <div class="pdf-icon-wrap"><i class="bi bi-file-earmark-text"></i></div>
-                <h6 id="gatePdfTitle">AI Insights Report</h6>
-                <p class="pdf-meta">SetConnect &middot; AI Insights</p>
-                <span class="pdf-tag" id="gateIssueTag">Issue #1</span>
-            </div>
-            <!-- Right: Form / Access -->
-            <div class="pdf-gate-form-panel">
-                <button class="pdf-gate-close" onclick="closePdfGate()" aria-label="Close">&times;</button>
-
-                <!-- State A: Already unlocked -->
-                <div id="gateStateUnlocked" style="display:none;">
-                    <span class="gate-eyebrow">Full Access</span>
-                    <h3>You already have access</h3>
-                    <p class="gate-sub">Welcome back! Your access is saved.</p>
-                    <div class="gate-access-msg">
-                        <i class="bi bi-check-circle-fill"></i>
-                        <p>Click below to open the report instantly &mdash; no form needed.</p>
-                    </div>
-                    <button class="gate-submit-btn" onclick="openPdf()">
-                        <i class="bi bi-file-earmark-arrow-down"></i> Open Report
-                    </button>
-                </div>
-
-                <!-- State B: Form -->
-                <div id="gateStateForm">
-                    <span class="gate-eyebrow">Free Download</span>
-                    <h3>Get Instant Access</h3>
-                    <p class="gate-sub">Fill in your details once &mdash; you'll never be asked again.</p>
-                    <form id="pdfGateForm" action="https://formsubmit.co/nishanthattarki23@gmail.com" method="POST" target="pdfFormTarget" onsubmit="submitPdfGate(event)">
-                        <input type="hidden" name="_subject" id="gateFormSubject" value="PDF Report Access">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_next" value="about:blank">
-                        <input type="text" name="_honey" style="display:none">
-                        <div class="gate-row">
-                            <div class="gate-field"><input type="text" name="first_name" id="gateFirstName" placeholder="First Name *" autocomplete="given-name"></div>
-                            <div class="gate-field"><input type="text" name="last_name" id="gateLastName" placeholder="Last Name *" autocomplete="family-name"></div>
-                        </div>
-                        <div class="gate-field"><input type="email" name="email" id="gateEmail" placeholder="Email Address *" autocomplete="email"></div>
-                        <div class="gate-field"><input type="text" name="company" id="gateCompany" placeholder="Company Name *" autocomplete="organization"></div>
-                        <div class="gate-field">
-                            <select name="interested_in" id="gateInterestedIn">
-                                <option value="">I'm Interested In *</option>
-                                <option value="AI Discovery">AI Discovery</option>
-                                <option value="Executive Immersion">Executive Immersion</option>
-                                <option value="Implementation Support">Implementation Support</option>
-                                <option value="General Inquiry">General Inquiry</option>
-                            </select>
-                        </div>
-                        <div class="gate-field"><textarea name="message" id="gateMessage" rows="3" placeholder="Tell us about your AI transformation goals... *"></textarea></div>
-                        <button type="submit" class="gate-submit-btn">
-                            <i class="bi bi-file-earmark-arrow-down"></i> Access Report Now
-                        </button>
-                    </form>
-                    <iframe name="pdfFormTarget" style="display:none;"></iframe>
-                    <p class="gate-privacy">&#128274; We respect your privacy. Details are never shared.</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div id="global-footer-placeholder" data-root="./"></div>
     <script src="js/footer-loader.js"></script>

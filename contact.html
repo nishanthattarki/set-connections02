@@ -169,30 +169,9 @@
 </head>
 
 <body>
-    <!-- Modern Header -->
-    <header class="modern-header">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg">
-                <a class="brand" href="index.html">
-                    <img src="images/setconnect-logo.png" alt="SetConnect Globe">
-                    Set<span>CONNECT</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navModern">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navModern">
-                    <ul class="navbar-nav nav-modern ms-auto align-items-center">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ourservices-2.html">Our Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="work-and-connections.html">Client Impact & Ecosystem</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ai-blogs.html">AI Blogs</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                        <li class="nav-item ms-3"><a href="contact.html" class="btn-cyan active">Contact Us</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <div id="global-header-placeholder" data-root="./"></div>
+    <script src="js/header-loader.js"></script>
+
 
     <section class="contact-section">
         <div class="container">
@@ -211,8 +190,8 @@
                             <i class="bi bi-envelope-fill"></i>
                             <div>
                                 <strong>Email</strong><br>
-                                <a href="mailto:contact@setconnect.ai"
-                                    style="color: var(--cyan);">contact@setconnect.ai</a>
+                                <a href="mailto:info@setconnectglobal.com"
+                                    style="color: var(--cyan);">info@setconnectglobal.com</a>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -243,7 +222,7 @@
                 <div class="col-lg-8">
                     <div class="contact-form">
                         <h3 style="color: var(--navy); margin-bottom: 30px;">Send Us a Message</h3>
-                        <form action="https://formsubmit.co/nishanthattarki23@gmail.com" method="POST">
+                        <form action="https://formsubmit.co/info@setconnectglobal.com" method="POST">
                             <!-- Formsubmit config -->
                             <input type="hidden" name="_subject"
                                 value="New Contact Form Submission — SetConnect Website">
@@ -254,12 +233,11 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>First Name</label>
-                                    <input type="text" name="first_name" class="form-control" placeholder="John"
-                                        required>
+                                    <input type="text" name="first_name" class="form-control" placeholder="John">
                                 </div>
                                 <div class="col-md-6">
                                     <label>Last Name</label>
-                                    <input type="text" name="last_name" class="form-control" placeholder="Doe" required>
+                                    <input type="text" name="last_name" class="form-control" placeholder="Doe">
                                 </div>
                             </div>
                             <label>Email Address</label>
@@ -267,10 +245,10 @@
                                 required>
 
                             <label>Company Name</label>
-                            <input type="text" name="company" class="form-control" placeholder="Your Company" required>
+                            <input type="text" name="company" class="form-control" placeholder="Your Company">
 
                             <label>I'm Interested In</label>
-                            <select name="interested_in" class="form-select" required>
+                            <select name="interested_in" class="form-select">
                                 <option value="">Select a service</option>
                                 <option value="AI Discovery">AI Discovery</option>
                                 <option value="Executive Immersion">Executive Immersion</option>
@@ -280,7 +258,7 @@
 
                             <label>Message</label>
                             <textarea name="message" class="form-control" rows="5"
-                                placeholder="Tell us about your AI transformation goals..." required></textarea>
+                                placeholder="Tell us about your AI transformation goals..."></textarea>
 
                             <button type="submit" class="btn-cyan btn-lg w-100 mt-3" id="contactSubmitBtn">
                                 <i class="bi bi-send me-2"></i>Send Message

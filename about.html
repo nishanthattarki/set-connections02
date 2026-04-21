@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Discover Our Vision — SetConnect</title>
+    <title>Who We Are | Built to Deliver AI Impact — SetConnect</title>
     <meta name="description"
-        content="Learn about our vision, leadership, and mission to empower global businesses with transformative AI solutions for innovative growth and decision-making.">
+        content="SetConnect partners with enterprise leaders to translate AI into measurable outcomes. Learn about our mission, leadership, proven playbook, and global ecosystem.">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -28,16 +28,16 @@
             color: #ffffff;
         }
 
-        /* ─── PAGE HERO ─── */
-        .page-hero {
+        /* ─── SECTION 1: HERO ─── */
+        .who-hero {
             margin-top: 80px;
-            padding: 120px 0 100px;
-            background: linear-gradient(135deg, #1a2332 0%, #1e3a3a 100%);
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #0d1b3e 0%, #0a2545 50%, #0e163a 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .page-hero::before {
+        .who-hero::before {
             content: '';
             position: absolute;
             right: -200px;
@@ -45,11 +45,11 @@
             width: 600px;
             height: 600px;
             background: var(--cyan);
-            opacity: 0.08;
+            opacity: 0.06;
             border-radius: 50%;
         }
 
-        .page-hero::after {
+        .who-hero::after {
             content: '';
             position: absolute;
             left: -150px;
@@ -57,110 +57,430 @@
             width: 400px;
             height: 400px;
             background: var(--cyan);
-            opacity: 0.05;
+            opacity: 0.04;
             border-radius: 50%;
         }
 
-        .page-hero h1 {
-            font-size: 56px;
+        .who-hero h1 {
+            font-size: 54px;
             color: #ffffff;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
+            line-height: 1.15;
         }
 
-        .page-hero p {
+        .who-hero h1 span {
+            color: var(--cyan);
+        }
+
+        .who-hero p {
             font-size: 20px;
             color: rgba(255, 255, 255, 0.8);
             max-width: 700px;
-            margin: 0 auto;
+            line-height: 1.7;
         }
 
-        /* ─── VISION / MISSION STATEMENT CARDS ─── */
-        .vision-section,
+        @media (max-width: 768px) {
+            .who-hero h1 {
+                font-size: 34px;
+            }
+
+            .who-hero {
+                padding: 80px 0 60px;
+                text-align: center;
+            }
+
+            .who-hero p {
+                margin: 0 auto;
+            }
+        }
+
+        /* ─── SECTION 2: CREDIBILITY SNAPSHOT ─── */
+        .credibility-strip {
+            padding: 60px 0;
+            background: #ffffff;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .cred-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .cred-item {
+            text-align: center;
+            padding: 32px 20px;
+            background: #f8f9fa;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cred-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), #0e7490);
+            transition: width 0.4s ease;
+        }
+
+        .cred-item:hover::before {
+            width: 80%;
+        }
+
+        .cred-item:hover {
+            border-color: rgba(8, 145, 178, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(8, 145, 178, 0.08);
+        }
+
+        .cred-item .cred-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.18), rgba(8, 145, 178, 0.06));
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            transition: transform 0.3s;
+        }
+
+        .cred-item:hover .cred-icon {
+            transform: scale(1.1);
+        }
+
+        .cred-item .cred-icon i {
+            font-size: 26px;
+            color: var(--cyan);
+        }
+
+        .cred-item .cred-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--cyan);
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .cred-item .cred-label {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.55);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 992px) {
+            .cred-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .cred-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ─── SECTION 3: MISSION ─── */
         .mission-section {
             padding: 100px 0;
             background: #0f1419;
         }
 
-        .statement-card {
+        .mission-card {
             background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
-            padding: 60px;
+            padding: 60px 70px;
             border-radius: 24px;
             border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
-        .statement-card::before {
+        .mission-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--cyan), transparent);
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
         }
 
-        .statement-card .section-label {
+        .mission-card .mission-label {
             color: var(--cyan);
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             display: inline-block;
         }
 
-        .statement-card h2 {
-            color: #ffffff;
+        .mission-card blockquote {
             font-size: 30px;
-            line-height: 1.5;
-            margin-bottom: 25px;
+            color: #ffffff;
             font-weight: 600;
+            line-height: 1.5;
+            margin: 0;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
-        .statement-card p {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.75);
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-
-        .statement-card .highlight-text {
+        .mission-card blockquote::before {
+            content: '\201C';
+            font-size: 60px;
             color: var(--cyan);
-            font-weight: 700;
-            font-size: 22px;
-            font-style: italic;
+            opacity: 0.4;
+            display: block;
+            line-height: 0.5;
+            margin-bottom: 10px;
         }
 
-        /* ─── TEAM SECTION ─── */
-        .team-section {
-            padding: 100px 0;
-            background: #1a2332;
-        }
+        @media (max-width: 768px) {
+            .mission-card {
+                padding: 40px 25px;
+            }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-        }
-
-        @media (max-width: 992px) {
-            .team-grid {
-                grid-template-columns: 1fr;
+            .mission-card blockquote {
+                font-size: 22px;
             }
         }
 
-        .team-card {
-            background: linear-gradient(145deg, #0d1117 0%, #1a2332 100%);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 40px;
+        /* ─── SECTION 4: THE SETCONNECT ADVANTAGE ─── */
+        .advantage-section {
+            padding: 100px 0;
+            background: #f0f2f5;
+        }
+
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+
+        .advantage-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            padding: 40px 28px;
+            text-align: center;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             overflow: hidden;
         }
 
-        .team-card::before {
+        .advantage-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .advantage-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .advantage-card:hover {
+            border-color: rgba(8, 145, 178, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.1);
+        }
+
+        .advantage-card .adv-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.18), rgba(8, 145, 178, 0.06));
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 22px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .advantage-card:hover .adv-icon {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(8, 145, 178, 0.2);
+        }
+
+        .advantage-card .adv-icon i {
+            font-size: 30px;
+            color: var(--cyan);
+        }
+
+        .advantage-card h4 {
+            color: #1a2332;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .advantage-card p {
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 14.5px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        @media (max-width: 992px) {
+            .advantage-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .advantage-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ─── SECTION 5: AI PLAYBOOK ─── */
+        .playbook-section-about {
+            padding: 100px 0;
+            background: #072533;
+        }
+
+        .playbook-progress-about {
+            display: flex;
+            align-items: flex-start;
+            gap: 0;
+            position: relative;
+        }
+
+        .playbook-progress-about::before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            left: calc(12.5%);
+            width: 75%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), #0e7490, rgba(14, 116, 144, 0.4));
+            z-index: 0;
+        }
+
+        .pb-card-wrap {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+            padding: 0 8px;
+        }
+
+        .pb-card {
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            height: 100%;
+        }
+
+        .pb-card:hover {
+            border-color: rgba(8, 145, 178, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.18);
+        }
+
+        .pb-card-head {
+            text-align: center;
+            padding: 28px 20px 18px;
+        }
+
+        .pb-card-head .step-num {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--cyan), #0e7490);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            box-shadow: 0 0 0 6px rgba(8, 145, 178, 0.15);
+        }
+
+        .pb-card-head h3 {
+            font-size: 19px;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .pb-card-head .stage-tag {
+            display: inline-block;
+            background: rgba(8, 145, 178, 0.12);
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            color: var(--cyan);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .pb-card-body {
+            padding: 0 20px 24px;
+        }
+
+        .pb-card-body p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 992px) {
+            .playbook-progress-about {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .playbook-progress-about::before {
+                display: none;
+            }
+
+            .pb-card-wrap {
+                padding: 0;
+            }
+        }
+
+        /* ─── SECTION 6: LEADERSHIP ─── */
+        .leadership-section {
+            padding: 100px 0;
+            background: #0f1419;
+        }
+
+        .leader-card {
+            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 44px 40px;
+            margin-bottom: 30px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leader-card::before {
             content: '';
             position: absolute;
             inset: 0;
@@ -174,23 +494,28 @@
             transition: opacity 0.4s;
         }
 
-        .team-card:hover::before {
+        .leader-card:hover::before {
             opacity: 1;
         }
 
-        .team-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 60px rgba(8, 145, 178, 0.15);
+        .leader-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(8, 145, 178, 0.12);
         }
 
-        .team-card-header {
+        .leader-card.featured {
+            background: linear-gradient(145deg, #1e3a3a 0%, #134e4a 100%);
+            border-color: rgba(8, 145, 178, 0.2);
+        }
+
+        .leader-header {
             display: flex;
-            gap: 25px;
+            gap: 30px;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
-        .team-photo {
+        .leader-photo {
             width: 110px;
             height: 110px;
             border-radius: 50%;
@@ -200,32 +525,56 @@
             transition: all 0.4s ease;
         }
 
-        .team-card:hover .team-photo {
+        .leader-card:hover .leader-photo {
             border-color: var(--cyan);
             box-shadow: 0 0 30px rgba(8, 145, 178, 0.3);
         }
 
-        .team-info h3 {
+        .leader-meta h3 {
             color: #ffffff;
-            font-size: 22px;
+            font-size: 24px;
             margin-bottom: 4px;
         }
 
-        .team-info .title {
+        .leader-meta .leader-title {
             color: var(--cyan);
             font-size: 14px;
             font-weight: 600;
             letter-spacing: 0.5px;
+            margin-bottom: 10px;
         }
 
-        .team-bio {
-            color: rgba(255, 255, 255, 0.7);
+        .leader-meta .positioning-line {
+            color: rgba(255, 255, 255, 0.8);
             font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 15px;
+            font-style: italic;
+            line-height: 1.6;
         }
 
-        .linkedin-btn {
+        .leader-credentials {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+        }
+
+        .leader-credentials li {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 13.5px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .leader-credentials li i {
+            color: var(--cyan);
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .leader-linkedin {
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -237,44 +586,28 @@
             border-radius: 50px;
             border: 1px solid rgba(8, 145, 178, 0.3);
             transition: all 0.3s ease;
+            margin-top: 16px;
         }
 
-        .linkedin-btn:hover {
+        .leader-linkedin:hover {
             background: rgba(8, 145, 178, 0.15);
             border-color: var(--cyan);
             color: var(--cyan);
             transform: scale(1.05);
         }
 
-        .linkedin-btn i {
+        .leader-linkedin i {
             font-size: 18px;
         }
 
-        /* ─── ADVISORS NETWORK ─── */
-        .advisors-section {
-            padding: 100px 0;
-            background: #0f1419;
-        }
-
-        .advisors-grid {
+        .leaders-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 28px;
+            margin-top: 40px;
         }
 
-        @media (max-width: 992px) {
-            .advisors-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 576px) {
-            .advisors-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .advisor-card {
+        .leader-card-sm {
             background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -283,13 +616,13 @@
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        .advisor-card:hover {
+        .leader-card-sm:hover {
             border-color: rgba(8, 145, 178, 0.4);
             transform: translateY(-8px);
             box-shadow: 0 20px 50px rgba(8, 145, 178, 0.12);
         }
 
-        .advisor-photo {
+        .leader-card-sm .leader-photo-sm {
             width: 100px;
             height: 100px;
             border-radius: 50%;
@@ -299,89 +632,81 @@
             transition: all 0.4s ease;
         }
 
-        .advisor-card:hover .advisor-photo {
+        .leader-card-sm:hover .leader-photo-sm {
             border-color: var(--cyan);
             box-shadow: 0 0 25px rgba(8, 145, 178, 0.25);
         }
 
-        .advisor-card h4 {
+        .leader-card-sm h4 {
             color: #ffffff;
             font-size: 19px;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
-        .advisor-card .advisor-title {
-            color: rgba(255, 255, 255, 0.6);
+        .leader-card-sm .sm-title {
+            color: var(--cyan);
             font-size: 13px;
-            line-height: 1.5;
-            margin-bottom: 15px;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
 
-        .advisor-card .linkedin-btn {
+        .leader-card-sm .sm-positioning {
+            color: rgba(255, 255, 255, 0.55);
             font-size: 13px;
-            padding: 6px 14px;
+            line-height: 1.6;
+            margin-top: 10px;
+            margin-bottom: 14px;
+            font-style: italic;
         }
 
-        /* ─── STATS ─── */
-        .stats-section {
-            padding: 80px 0;
-            background: #1a2332;
+        .leader-card-sm .sm-creds {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 14px;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+        .leader-card-sm .sm-creds li {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 12px;
+            padding: 3px 0;
         }
 
-        @media (max-width: 768px) {
-            .stats-grid {
+        @media (max-width: 992px) {
+            .leaders-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .leader-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .leader-meta {
+                text-align: center;
+            }
+
+            .leader-credentials {
+                justify-content: center;
+            }
+
+            .leader-photo {
+                width: 90px;
+                height: 90px;
             }
         }
 
-        .stat-box {
-            background: linear-gradient(145deg, #0d1117 0%, #1a2332 100%);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.4s ease;
-        }
-
-        .stat-box:hover {
-            border-color: var(--cyan);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.2);
-        }
-
-        .stat-box .number {
-            font-size: 52px;
-            font-weight: 700;
-            color: var(--cyan);
-            display: block;
-            line-height: 1;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .stat-box .label {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.7);
-            margin-top: 15px;
-        }
-
-        /* ─── TIMELINE ─── */
-        .timeline-section {
+        /* ─── SECTION 7: OUR JOURNEY ─── */
+        .journey-section {
             padding: 100px 0;
-            background: #0f1419;
+            background: #1a2332;
         }
 
-        .timeline {
+        .journey-timeline {
             position: relative;
             padding: 40px 0;
         }
 
-        .timeline::before {
+        .journey-timeline::before {
             content: '';
             position: absolute;
             left: 75px;
@@ -391,21 +716,15 @@
             background: linear-gradient(180deg, transparent, rgba(8, 145, 178, 0.4), transparent);
         }
 
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 30px;
-            }
-        }
-
-        .timeline-item {
+        .journey-item {
             display: flex;
             gap: 40px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             position: relative;
         }
 
-        .timeline-year {
-            font-size: 44px;
+        .journey-year {
+            font-size: 40px;
             font-weight: 700;
             color: var(--cyan);
             min-width: 150px;
@@ -413,95 +732,215 @@
             font-family: 'Space Grotesk', sans-serif;
         }
 
-        @media (max-width: 768px) {
-            .timeline-year {
-                font-size: 28px;
-                min-width: 60px;
-            }
-        }
-
-        .timeline-content {
+        .journey-content {
             flex: 1;
-            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
-            padding: 30px;
+            background: linear-gradient(145deg, #0d1117 0%, #1a2332 100%);
+            padding: 28px;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.3s ease;
         }
 
-        .timeline-content:hover {
+        .journey-content:hover {
             border-color: rgba(8, 145, 178, 0.3);
         }
 
-        .timeline-content h3 {
+        .journey-content h3 {
             color: #ffffff;
-            font-size: 22px;
-            margin-bottom: 12px;
+            font-size: 20px;
+            margin-bottom: 10px;
         }
 
-        .timeline-content p {
+        .journey-content p {
             color: rgba(255, 255, 255, 0.7);
             line-height: 1.7;
             margin: 0;
+            font-size: 15px;
         }
 
-        /* ─── CTA BANNER ─── */
-        .cta-banner {
+        @media (max-width: 768px) {
+            .journey-timeline::before {
+                left: 30px;
+            }
+
+            .journey-year {
+                font-size: 26px;
+                min-width: 60px;
+            }
+        }
+
+        /* ─── SECTION 8: ECOSYSTEM ─── */
+        .ecosystem-section {
             padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .eco-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .eco-card {
+            background: #f8f9fa;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            padding: 44px 32px;
+            text-align: center;
+            transition: all 0.35s ease;
+        }
+
+        .eco-card:hover {
+            border-color: rgba(8, 145, 178, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(8, 145, 178, 0.08);
+        }
+
+        .eco-card .eco-icon {
+            width: 68px;
+            height: 68px;
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.18), rgba(8, 145, 178, 0.06));
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: transform 0.3s;
+        }
+
+        .eco-card:hover .eco-icon {
+            transform: scale(1.1);
+        }
+
+        .eco-card .eco-icon i {
+            font-size: 28px;
+            color: var(--cyan);
+        }
+
+        .eco-card h4 {
+            color: #1a2332;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .eco-card p {
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .eco-card .eco-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .eco-card .eco-tag {
+            background: rgba(8, 145, 178, 0.1);
+            border: 1px solid rgba(8, 145, 178, 0.25);
+            color: var(--cyan);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .eco-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ─── SECTION 9: CTA ─── */
+        .who-cta {
+            padding: 100px 0;
             background: linear-gradient(135deg, var(--cyan) 0%, #0e7490 100%);
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .cta-banner::before {
+        .who-cta::before {
             content: '';
             position: absolute;
             top: -100px;
             right: -100px;
-            width: 300px;
-            height: 300px;
+            width: 350px;
+            height: 350px;
             background: rgba(255, 255, 255, 0.08);
             border-radius: 50%;
         }
 
-        .cta-banner::after {
+        .who-cta::after {
             content: '';
             position: absolute;
             bottom: -80px;
             left: -80px;
-            width: 250px;
-            height: 250px;
-            background: rgba(255, 255, 255, 0.06);
+            width: 280px;
+            height: 280px;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
         }
 
-        .cta-banner h2 {
+        .who-cta h2 {
             font-size: 44px;
             color: #fff;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             position: relative;
             z-index: 1;
         }
 
-        .cta-banner p {
-            font-size: 20px;
+        .who-cta p {
+            font-size: 18px;
             color: rgba(255, 255, 255, 0.9);
             max-width: 600px;
-            margin: 0 auto 30px;
+            margin: 0 auto 36px;
+            position: relative;
+            z-index: 1;
+            line-height: 1.7;
+        }
+
+        .who-cta .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
             position: relative;
             z-index: 1;
         }
 
-        .cta-banner .btn-white-outline {
-            position: relative;
-            z-index: 1;
+        .btn-white-solid {
+            background: #ffffff;
+            color: #0e7490;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-white-solid:hover {
+            background: #f0fdfa;
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+            color: #0e7490;
+        }
+
+        @media (max-width: 768px) {
+            .who-cta h2 {
+                font-size: 30px;
+            }
         }
 
         /* ─── SECTION HEADERS ─── */
         .section-subtitle {
             color: var(--cyan);
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -521,43 +960,8 @@
             margin: 0 auto;
         }
 
-        /* ─── RESPONSIVE HERO ─── */
         @media (max-width: 768px) {
-            .page-hero h1 {
-                font-size: 36px;
-            }
-
-            .page-hero {
-                padding: 80px 0 60px;
-            }
-
-            .statement-card {
-                padding: 35px 25px;
-            }
-
-            .statement-card h2 {
-                font-size: 22px;
-            }
-
-            .team-card-header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .team-photo {
-                width: 90px;
-                height: 90px;
-            }
-
-            .team-info {
-                text-align: center;
-            }
-
             .section-title {
-                font-size: 30px;
-            }
-
-            .cta-banner h2 {
                 font-size: 30px;
             }
         }
@@ -565,302 +969,241 @@
 </head>
 
 <body>
-    <!-- Modern Header -->
-    <header class="modern-header">
+    <div id="global-header-placeholder" data-root="./"></div>
+    <script src="js/header-loader.js"></script>
+
+
+    <!-- ═══ SECTION 1: HERO ═══ -->
+    <section class="who-hero" id="hero">
         <div class="container">
-            <nav class="navbar navbar-expand-lg">
-                <a class="brand" href="index.html">
-                    <img src="images/setconnect-logo.png" alt="SetConnect Globe">
-                    Set<span>CONNECT</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navModern">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navModern">
-                    <ul class="navbar-nav nav-modern ms-auto align-items-center">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ourservices-2.html">Our Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="work-and-connections.html">Client Impact & Ecosystem</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ai-blogs.html">AI Blogs</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
-                        <li class="nav-item ms-3"><a href="contact.html" class="btn-cyan">Contact Us</a></li>
-                    </ul>
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 data-aos="fade-up">Built to Deliver AI That<br>Drives <span>Business Impact</span></h1>
+                    <p data-aos="fade-up" data-aos-delay="100">We partner with enterprise leaders to translate AI into
+                        measurable outcomes—faster, smarter, and at scale.</p>
                 </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- ═══ HERO ═══ -->
-    <section class="page-hero">
-        <div class="container text-center">
-            <h1 data-aos="fade-up">Our Vision, People, and Partners</h1>
-            <p data-aos="fade-up" data-aos-delay="100">Empowering global businesses and leaders with transformative AI
-                solutions for sustainable growth and innovation.</p>
-        </div>
-    </section>
-
-    <!-- ═══ OUR VISION ═══ -->
-    <section class="vision-section">
-        <div class="container">
-            <div class="statement-card" data-aos="fade-up">
-                <span class="section-label">OUR VISION—</span>
-                <h2>To empower global businesses and leaders with transformative AI solutions, enabling sustainable
-                    growth, innovation, and a future where AI drives intelligent decision-making and meaningful
-                    impact.</h2>
-                <p>AI is reshaping industries, yet many business leaders struggle to move from ambition to execution.
-                    SetConnect bridges this gap with a structured AI success framework, expert guidance, and a proven
-                    process to help organizations discover, learn, pilot, and scale to deliver real results.</p>
             </div>
         </div>
     </section>
 
-    <!-- ═══ LEADERSHIP TEAM ═══ -->
-    <section class="team-section">
+    <!-- ═══ SECTION 2: CREDIBILITY SNAPSHOT ═══ -->
+    <section class="credibility-strip" id="credibility">
+        <div class="container">
+            <div class="cred-grid">
+                <div class="cred-item" data-aos="fade-up">
+                    <div class="cred-icon"><i class="bi bi-lightbulb"></i></div>
+                    <div class="cred-number">100+</div>
+                    <div class="cred-label">AI use cases identified</div>
+                </div>
+                <div class="cred-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cred-icon"><i class="bi bi-people"></i></div>
+                    <div class="cred-number">500+</div>
+                    <div class="cred-label">Senior leaders trained</div>
+                </div>
+                <div class="cred-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cred-icon"><i class="bi bi-globe2"></i></div>
+                    <div class="cred-number">Global</div>
+                    <div class="cred-label">Clients across manufacturing, energy, and finance</div>
+                </div>
+                <div class="cred-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="cred-icon"><i class="bi bi-geo-alt"></i></div>
+                    <div class="cred-number">Austin</div>
+                    <div class="cred-label">Founded in Texas, with a strong India innovation hub</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SECTION 3: OUR MISSION ═══ -->
+    <section class="mission-section" id="mission">
+        <div class="container">
+            <div class="mission-card" data-aos="fade-up">
+                <span class="mission-label">OUR MISSION</span>
+                <blockquote>To help organizations move from AI experimentation to measurable business impact.</blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SECTION 4: THE SETCONNECT ADVANTAGE ═══ -->
+    <section class="advantage-section" id="advantage">
+        <style>
+            .advantage-section .section-title { color: #1a2332; }
+            .advantage-section .section-subtitle { color: #0891b2; }
+            
+            .ecosystem-section .section-title { color: #1a2332; }
+            .ecosystem-section .section-subtitle { color: #0891b2; }
+        </style>
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
-                <div class="section-subtitle">MEET THE TEAM</div>
-                <h2 class="section-title">Our Leadership Team</h2>
+                <div class="section-subtitle">WHAT MAKES US DIFFERENT</div>
+                <h2 class="section-title">The Set<span style="color:var(--cyan)">CONNECT</span> Advantage</h2>
             </div>
 
-            <div class="team-grid">
-                <!-- Ramesh Rajagopalan -->
-                <div class="team-card" data-aos="fade-up">
-                    <div class="team-card-header">
-                        <img src="images/About-images/Ramesh+R+copy.webp" alt="Ramesh Rajagopalan" class="team-photo">
-                        <div class="team-info">
-                            <h3>Ramesh Rajagopalan, Ph.D.</h3>
-                            <div class="title">Founder and CEO</div>
-                        </div>
-                    </div>
-                    <p class="team-bio">Ramesh is a globally recognized speaker and thought leader in AI and Analytics.
-                        He has over 30 years of experience having held corporate leadership roles at Dell, Deloitte, and
-                        IBM. Ramesh has held academic leadership roles at University of Texas, Austin, and Mercer
-                        University. B.Tech. (NITK), MSIE. Ramesh holds a PhD (Texas Tech), and Executive MBA (UT
-                        Austin), PG Certificate (MIT Sloan).</p>
-                    <a href="https://www.linkedin.com/in/rameshraj05/" target="_blank" class="linkedin-btn">
-                        <i class="bi bi-linkedin"></i> LinkedIn Profile
-                    </a>
+            <div class="advantage-grid">
+                <div class="advantage-card" data-aos="fade-up">
+                    <div class="adv-icon"><i class="bi bi-briefcase"></i></div>
+                    <h4>Business-First AI</h4>
+                    <p>We start with business problems—not models. Every engagement begins with understanding your strategic priorities.</p>
                 </div>
+                <div class="advantage-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="adv-icon"><i class="bi bi-journal-check"></i></div>
+                    <h4>Proven Playbook</h4>
+                    <p>Structured 7-step AI Success Playbook that has guided organizations from discovery through scale.</p>
+                </div>
+                <div class="advantage-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="adv-icon"><i class="bi bi-diagram-3"></i></div>
+                    <h4>Executive Alignment</h4>
+                    <p>CxO-led discovery and prioritization ensures AI initiatives have leadership buy-in from day one.</p>
+                </div>
+                <div class="advantage-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="adv-icon"><i class="bi bi-lightning-charge"></i></div>
+                    <h4>Speed to Impact</h4>
+                    <p>From idea to deployment in weeks, not years. We compress AI timelines without compromising quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Muralidhar Rao -->
-                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="team-card-header">
-                        <img src="images/About-images/Murali.webp" alt="Muralidhar Rao" class="team-photo">
-                        <div class="team-info">
-                            <h3>Muralidhar Rao</h3>
-                            <div class="title">Head of India</div>
+    <!-- ═══ SECTION 5: AI SUCCESS PLAYBOOK ═══ -->
+    <section class="playbook-section-about" id="playbook">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="section-subtitle">OUR FOUNDATION</div>
+                <h2 class="section-title">The AI Success Playbook</h2>
+                <p class="section-desc">A structured, repeatable framework that guides organizations from AI ambition to measurable business outcomes.</p>
+            </div>
+
+            <div class="playbook-progress-about" data-aos="fade-up" data-aos-delay="100">
+                <!-- Step 1 -->
+                <div class="pb-card-wrap">
+                    <div class="pb-card">
+                        <div class="pb-card-head">
+                            <div class="step-num">1</div>
+                            <span class="stage-tag">DISCOVER</span>
+                            <h3>AI Discovery</h3>
+                        </div>
+                        <div class="pb-card-body">
+                            <p>Identify high-value AI use cases aligned with your strategic business objectives.</p>
                         </div>
                     </div>
-                    <p class="team-bio">Muralidhar Rao, Head of India Operations, is an accomplished professional in the
-                        field of corporate training, leadership development, and business analytics. He has served in
-                        various capacities across organizations like NIIT, NIS Sparta, Reliance Industries, Future
-                        Group, HT Media. He currently heads SetCONNECT India. He holds a B.Tech. degree in Chemical
-                        Engineering and MBA from IIMB.</p>
-                    <a href="https://www.linkedin.com/in/muralidharrao/" target="_blank" class="linkedin-btn">
-                        <i class="bi bi-linkedin"></i> LinkedIn Profile
+                </div>
+                <!-- Step 2 -->
+                <div class="pb-card-wrap">
+                    <div class="pb-card">
+                        <div class="pb-card-head">
+                            <div class="step-num">2</div>
+                            <span class="stage-tag">LEARN</span>
+                            <h3>AI Immersion</h3>
+                        </div>
+                        <div class="pb-card-body">
+                            <p>Build AI literacy and readiness across leadership and functional teams.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="pb-card-wrap">
+                    <div class="pb-card">
+                        <div class="pb-card-head">
+                            <div class="step-num">3</div>
+                            <span class="stage-tag">BUILD</span>
+                            <h3>AI Activation</h3>
+                        </div>
+                        <div class="pb-card-body">
+                            <p>Prototype and validate AI solutions with rapid pilots that demonstrate ROI.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="pb-card-wrap">
+                    <div class="pb-card">
+                        <div class="pb-card-head">
+                            <div class="step-num">4</div>
+                            <span class="stage-tag">SCALE</span>
+                            <h3>AI@Scale</h3>
+                        </div>
+                        <div class="pb-card-body">
+                            <p>Deploy and scale proven AI solutions across the organization for maximum impact.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SECTION 6: LEADERSHIP ═══ -->
+    <section class="leadership-section" id="leadership">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="section-subtitle">LEADERSHIP</div>
+                <h2 class="section-title">The Team Behind SetCONNECT</h2>
+            </div>
+
+            <!-- Featured Leader: Ramesh -->
+            <div class="leader-card featured" data-aos="fade-up">
+                <div class="leader-header">
+                    <img src="images/About-images/Ramesh+R+copy.webp" alt="Ramesh Rajagopalan" class="leader-photo">
+                    <div class="leader-meta">
+                        <h3>Ramesh Rajagopalan, Ph.D.</h3>
+                        <div class="leader-title">Founder & CEO</div>
+                        <p class="positioning-line">"Bringing together academia, industry, and applied AI to drive measurable business outcomes."</p>
+                    </div>
+                </div>
+                <ul class="leader-credentials">
+                    <li><i class="bi bi-check-circle-fill"></i> Former UT Austin McCombs faculty; industry experience at Dell, Deloitte, and IBM</li>
+                    <li><i class="bi bi-check-circle-fill"></i> PhD (Texas Tech), Executive MBA (UT Austin), PG Certificate (MIT Sloan)</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Led global AI and analytics transformation programs across manufacturing, energy, and finance</li>
+                </ul>
+                <a href="https://www.linkedin.com/in/rameshraj05/" target="_blank" class="leader-linkedin">
+                    <i class="bi bi-linkedin"></i> LinkedIn Profile
+                </a>
+            </div>
+
+            <!-- Other Leaders Grid -->
+            <div class="leaders-grid">
+                <!-- Muralidhar Rao -->
+                <div class="leader-card-sm" data-aos="fade-up">
+                    <img src="images/About-images/Murali.webp" alt="Muralidhar Rao" class="leader-photo-sm">
+                    <h4>Muralidhar Rao</h4>
+                    <div class="sm-title">Head of India</div>
+                    <ul class="sm-creds">
+                        <li>25+ years across NIIT, Reliance, and HT Media</li>
+                        <li>B.Tech in Engineering; MBA from IIM Bangalore (IIMB)</li>
+                        <li>Leads SetCONNECT's India innovation hub and Asia-Pacific expansion</li>
+                    </ul>
+                    <p class="sm-positioning">"Connecting global AI frameworks with local market intelligence to deliver enterprise-grade impact."</p>
+                    <a href="https://www.linkedin.com/in/muralidharrao/" target="_blank" class="leader-linkedin">
+                        <i class="bi bi-linkedin"></i> LinkedIn
                     </a>
                 </div>
 
                 <!-- Mike Masterson -->
-                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="team-card-header">
-                        <img src="images/About-images/mike+masterson.webp" alt="Mike Masterson" class="team-photo">
-                        <div class="team-info">
-                            <h3>Mike Masterson</h3>
-                            <div class="title">Lead Advisor</div>
-                        </div>
-                    </div>
-                    <p class="team-bio">Mike Masterson is a technology industry executive driving growth for early
-                        innovators and large scale global tech powerhouses such as IBM, Dell Technologies, Nutanix,
-                        Salesforce and Cybersecurity leader Optiv. Mike has been at the forefront of new technology
-                        transitions in cyber security and infrastructure while assisting clients worldwide on emerging
-                        technologies.</p>
-                    <a href="https://www.linkedin.com/in/mjmasterson/" target="_blank" class="linkedin-btn">
-                        <i class="bi bi-linkedin"></i> LinkedIn Profile
+                <div class="leader-card-sm" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/About-images/mike+masterson.webp" alt="Mike Masterson" class="leader-photo-sm">
+                    <h4>Mike Masterson</h4>
+                    <div class="sm-title">Lead Advisor</div>
+                    <ul class="sm-creds">
+                        <li>30+ years in enterprise technology at IBM, Dell, Nutanix, and Salesforce</li>
+                        <li>Deep expertise in cybersecurity, AI infrastructure, and Fortune 500 strategy</li>
+                        <li>Brings a multi-decade executive perspective on technology adoption</li>
+                    </ul>
+                    <p class="sm-positioning">"Accelerating AI adoption by connecting enterprise leaders with the right technology at the right moment."</p>
+                    <a href="https://www.linkedin.com/in/mjmasterson/" target="_blank" class="leader-linkedin">
+                        <i class="bi bi-linkedin"></i> LinkedIn
                     </a>
                 </div>
 
                 <!-- Novin Ghaffari -->
-                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="team-card-header">
-                        <img src="images/About-images/novin.webp" alt="Novin Ghaffari" class="team-photo">
-                        <div class="team-info">
-                            <h3>Novin Ghaffari, Ph.D.</h3>
-                            <div class="title">AI Architect</div>
-                        </div>
-                    </div>
-                    <p class="team-bio">Novin heads up our content team and is a leading expert in AI and Data Science.
-                        His AI expertise comes from conducting research for academic, corporate, and national laboratory
-                        end users. His research interests include mathematical statistics, probability theory, machine
-                        learning, optimization, and predictive analytics. Novin holds BA Honors, BS Mathematics, MS, PhD
-                        Statistics (UT Austin).</p>
-                    <a href="https://www.linkedin.com/in/novin-ghaffari-638b41180/" target="_blank"
-                        class="linkedin-btn">
-                        <i class="bi bi-linkedin"></i> LinkedIn Profile
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ OUR MISSION ═══ -->
-    <section class="mission-section">
-        <div class="container">
-            <div class="statement-card" data-aos="fade-up">
-                <span class="section-label">OUR MISSION—</span>
-                <h2>To advance global competency in AI, through strategic frameworks, transformative solutions, expert
-                    advisory services, and immersive learning programs that drive measurable business outcomes.</h2>
-                <p class="highlight-text">The Result: Successful AI Outcomes.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ CORE VALUES ═══ -->
-    <section style="padding: 100px 0; background: #0f1419;">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <div class="section-subtitle">OUR PRINCIPLES</div>
-                <h2 class="section-title">Core Values That Drive Us</h2>
-            </div>
-            <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 25px;">
-                <div data-aos="fade-up" data-aos-delay="100"
-                    style="background: linear-gradient(145deg, #1a2332, #0d1117); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 35px; text-align: center; transition: all 0.3s ease;">
-                    <i class="bi bi-lightbulb"
-                        style="font-size: 40px; color: var(--cyan); margin-bottom: 15px; display: block;"></i>
-                    <h4 style="color: #fff; font-size: 20px; margin-bottom: 10px;">Innovation</h4>
-                    <p style="color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.7; margin: 0;">Pushing the
-                        boundaries of what's possible with AI, continuously evolving our methodologies and frameworks.
-                    </p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200"
-                    style="background: linear-gradient(145deg, #1a2332, #0d1117); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 35px; text-align: center; transition: all 0.3s ease;">
-                    <i class="bi bi-shield-check"
-                        style="font-size: 40px; color: var(--cyan); margin-bottom: 15px; display: block;"></i>
-                    <h4 style="color: #fff; font-size: 20px; margin-bottom: 10px;">Integrity</h4>
-                    <p style="color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.7; margin: 0;">Transparent
-                        partnerships built on trust, ethical AI practices, and honest counsel at every stage.</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300"
-                    style="background: linear-gradient(145deg, #1a2332, #0d1117); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 35px; text-align: center; transition: all 0.3s ease;">
-                    <i class="bi bi-graph-up-arrow"
-                        style="font-size: 40px; color: var(--cyan); margin-bottom: 15px; display: block;"></i>
-                    <h4 style="color: #fff; font-size: 20px; margin-bottom: 10px;">Impact</h4>
-                    <p style="color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.7; margin: 0;">Delivering
-                        measurable business outcomes, not just technology implementations — results that matter.</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="400"
-                    style="background: linear-gradient(145deg, #1a2332, #0d1117); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 35px; text-align: center; transition: all 0.3s ease;">
-                    <i class="bi bi-globe-americas"
-                        style="font-size: 40px; color: var(--cyan); margin-bottom: 15px; display: block;"></i>
-                    <h4 style="color: #fff; font-size: 20px; margin-bottom: 10px;">Inclusivity</h4>
-                    <p style="color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.7; margin: 0;">Making AI
-                        accessible to organizations of all sizes, fostering a diverse global network of expertise.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ GLOBAL PRESENCE ═══ -->
-    <section style="padding: 80px 0; background: #1a2332;">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <div class="section-subtitle">WHERE WE OPERATE</div>
-                <h2 class="section-title">Global Presence</h2>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px;">
-                <div data-aos="fade-up" data-aos-delay="100"
-                    style="background: linear-gradient(145deg, rgba(8,145,178,0.08), transparent); border: 1px solid rgba(8,145,178,0.2); border-radius: 20px; padding: 35px; text-align: center;">
-                    <i class="bi bi-geo-alt"
-                        style="font-size: 32px; color: var(--cyan); margin-bottom: 12px; display: block;"></i>
-                    <h4 style="color: #fff; font-size: 20px; margin-bottom: 6px;">Austin, Texas</h4>
-                    <p style="color: rgba(255,255,255,0.5); font-size: 14px; margin: 0;">Global Headquarters</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200"
-                    style="background: linear-gradient(145deg, rgba(8,145,178,0.08), transparent); border: 1px solid rgba(8,145,178,0.2); border-radius: 20px; padding: 35px; text-align: center;">
-                    <i class="bi bi-geo-alt"
-                        style="font-size: 32px; color: var(--cyan); margin-bottom: 12px; display: block;"></i>
-                    <h4 style="color: #fff; font-size: 20px; margin-bottom: 6px;">India</h4>
-                    <p style="color: rgba(255,255,255,0.5); font-size: 14px; margin: 0;">Innovation Hub & Operations</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300"
-                    style="background: linear-gradient(145deg, rgba(8,145,178,0.08), transparent); border: 1px solid rgba(8,145,178,0.2); border-radius: 20px; padding: 35px; text-align: center;">
-                    <i class="bi bi-globe2"
-                        style="font-size: 32px; color: var(--cyan); margin-bottom: 12px; display: block;"></i>
-                    <h4 style="color: #fff; font-size: 20px; margin-bottom: 6px;">Global</h4>
-                    <p style="color: rgba(255,255,255,0.5); font-size: 14px; margin: 0;">Remote Expert Network Worldwide
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ NETWORK OF ADVISORS ═══ -->
-    <section class="advisors-section">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <div class="section-subtitle">OUR NETWORK</div>
-                <h2 class="section-title">Network of Business Leaders and AI Practitioners</h2>
-                <p class="section-desc">Industry veterans and thought leaders driving AI transformation across global
-                    enterprises.</p>
-            </div>
-
-            <div class="advisors-grid">
-                <!-- Doug Gray -->
-                <div class="advisor-card" data-aos="fade-up">
-                    <img src="images/About-images/Doug+Gray.webp" alt="Doug Gray" class="advisor-photo">
-                    <h4>Doug Gray</h4>
-                    <p class="advisor-title">Director, Data Science @ Walmart, SMU, Author, & Advisor</p>
-                    <a href="https://www.linkedin.com/in/doug-gray-06bb4a4/" target="_blank" class="linkedin-btn">
-                        <i class="bi bi-linkedin"></i> LinkedIn
-                    </a>
-                </div>
-
-                <!-- Jai Ugra -->
-                <div class="advisor-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/About-images/Jai+Ugra.webp" alt="Jai Ugra" class="advisor-photo">
-                    <h4>Jai Ugra</h4>
-                    <p class="advisor-title">Senior Manager Target, UT McCombs School of Business</p>
-                    <a href="https://www.linkedin.com/in/jaiugra/" target="_blank" class="linkedin-btn">
-                        <i class="bi bi-linkedin"></i> LinkedIn
-                    </a>
-                </div>
-
-                <!-- Dr. Mano Rao -->
-                <div class="advisor-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/About-images/MAno+Rao.webp" alt="Dr. Mano Rao" class="advisor-photo">
-                    <h4>Dr. Mano Rao</h4>
-                    <p class="advisor-title">PhD CMU, IIT B, Senior Leader for IBM, Dell, HP, GM</p>
-                    <a href="https://www.linkedin.com/in/manorao/" target="_blank" class="linkedin-btn">
-                        <i class="bi bi-linkedin"></i> LinkedIn
-                    </a>
-                </div>
-
-                <!-- Dilip Kumar Sinha -->
-                <div class="advisor-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/About-images/Dilip+Sinha.webp" alt="Dilip Kumar Sinha" class="advisor-photo">
-                    <h4>Dilip Kumar Sinha</h4>
-                    <p class="advisor-title">President and CHRO at Jindal Steel Odisha</p>
-                    <a href="https://www.linkedin.com/in/dilip-sinha-766364a/" target="_blank" class="linkedin-btn">
-                        <i class="bi bi-linkedin"></i> LinkedIn
-                    </a>
-                </div>
-
-                <!-- Atul Jain -->
-                <div class="advisor-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/About-images/Atul+Jain.webp" alt="Atul Jain" class="advisor-photo">
-                    <h4>Atul Jain</h4>
-                    <p class="advisor-title">CEO Aptech, Former CEO Samsung Electronics India. IIT D, IIM C.</p>
-                    <a href="https://www.linkedin.com/in/atul-jain/" target="_blank" class="linkedin-btn">
-                        <i class="bi bi-linkedin"></i> LinkedIn
-                    </a>
-                </div>
-
-                <!-- Kiran Shetty -->
-                <div class="advisor-card" data-aos="fade-up" data-aos-delay="300">
-                    <img src="images/About-images/kiran-shetty.webp" alt="Kiran Shetty" class="advisor-photo">
-                    <h4>Kiran Shetty</h4>
-                    <p class="advisor-title">President and Head of Digital Transformation at Hindalco</p>
-                    <a href="https://www.linkedin.com/in/kiranshetty-abg/" target="_blank" class="linkedin-btn">
+                <div class="leader-card-sm" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/About-images/novin.webp" alt="Novin Ghaffari" class="leader-photo-sm">
+                    <h4>Novin Ghaffari, Ph.D.</h4>
+                    <div class="sm-title">AI Architect</div>
+                    <ul class="sm-creds">
+                        <li>PhD in Statistics from UT Austin; specialization in ML and stochastic optimization</li>
+                        <li>Research focus on predictive analytics, simulation modeling, and operations research</li>
+                        <li>Drives the technical rigor behind SetCONNECT's AI frameworks and client solutions</li>
+                    </ul>
+                    <p class="sm-positioning">"Translating advanced statistical methods into AI solutions that solve real-world business problems."</p>
+                    <a href="https://www.linkedin.com/in/novin-ghaffari-638b41180/" target="_blank" class="leader-linkedin">
                         <i class="bi bi-linkedin"></i> LinkedIn
                     </a>
                 </div>
@@ -868,74 +1211,107 @@
         </div>
     </section>
 
-    <!-- ═══ STATS ═══ -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <div class="section-subtitle">BY THE NUMBERS</div>
-                <h2 class="section-title">Impact & Reach</h2>
-            </div>
-            <div class="stats-grid">
-                <div class="stat-box" data-aos="fade-up">
-                    <span class="number" data-target="150">0</span><span class="number" style="display:inline">+</span>
-                    <div class="label">Projects Delivered</div>
-                </div>
-                <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
-                    <span class="number" data-target="74">0</span><span class="number" style="display:inline">+</span>
-                    <div class="label">Executives Trained</div>
-                </div>
-                <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
-                    <span class="number" data-target="15">0</span><span class="number" style="display:inline">+</span>
-                    <div class="label">Industries Served</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ TIMELINE ═══ -->
-    <section class="timeline-section">
+    <!-- ═══ SECTION 7: OUR JOURNEY ═══ -->
+    <section class="journey-section" id="journey">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
                 <div class="section-subtitle">OUR JOURNEY</div>
                 <h2 class="section-title">Milestones That Define Us</h2>
             </div>
 
-            <div class="timeline">
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-year">2020</div>
-                    <div class="timeline-content">
+            <div class="journey-timeline">
+                <div class="journey-item" data-aos="fade-right">
+                    <div class="journey-year">2020</div>
+                    <div class="journey-content">
                         <h3>Founded in Austin, Texas</h3>
-                        <p>SetConnect was established with a mission to equip business leaders with data-driven
-                            decision-making capabilities through structured AI frameworks.</p>
+                        <p>SetConnect was established with a mission to equip business leaders with data-driven decision-making capabilities through structured AI frameworks.</p>
                     </div>
                 </div>
 
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-year">2021</div>
-                    <div class="timeline-content">
-                        <h3>Global Expansion</h3>
-                        <p>Expanded operations to India, establishing a key innovation hub to serve the rapidly growing
-                            Asian market and global enterprises.</p>
+                <div class="journey-item" data-aos="fade-right">
+                    <div class="journey-year">2021</div>
+                    <div class="journey-content">
+                        <h3>Expanded to India Innovation Hub</h3>
+                        <p>Launched India operations, establishing a key innovation hub to serve the rapidly growing Asian market and global enterprises.</p>
                     </div>
                 </div>
 
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-year">2023</div>
-                    <div class="timeline-content">
-                        <h3>150+ Projects Milestone</h3>
-                        <p>Successfully delivered over 150 AI transformation projects across 15+ industries, training
-                            74+ executives in AI leadership.</p>
+                <div class="journey-item" data-aos="fade-right">
+                    <div class="journey-year">2023</div>
+                    <div class="journey-content">
+                        <h3>Delivered Global AI Engagements</h3>
+                        <p>Successfully delivered over 100 AI transformation projects across 15+ industries, training 500+ executives in AI leadership and strategy.</p>
                     </div>
                 </div>
 
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-year">2026</div>
-                    <div class="timeline-content">
-                        <h3>Continued Innovation</h3>
-                        <p>Leading the industry with proven AI success frameworks, empowering enterprises worldwide to
-                            navigate AI adoption with confidence and achieve measurable business outcomes.</p>
+                <div class="journey-item" data-aos="fade-right">
+                    <div class="journey-year">2025</div>
+                    <div class="journey-content">
+                        <h3>Built AI Playbook + Executive Programs</h3>
+                        <p>Codified our proven approach into the AI Success Playbook and launched executive programs empowering C-suite leaders worldwide.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SECTION 8: ECOSYSTEM ═══ -->
+    <section class="ecosystem-section" id="ecosystem">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="section-subtitle">OUR ECOSYSTEM</div>
+                <h2 class="section-title">A Network Built for Impact</h2>
+                <p class="section-desc">We work alongside a global network of clients, academic institutions, and technology partners.</p>
+            </div>
+
+            <div class="eco-grid">
+                <div class="eco-card" data-aos="fade-up">
+                    <div class="eco-icon"><i class="bi bi-building"></i></div>
+                    <h4>Clients</h4>
+                    <p>Leading enterprises across manufacturing, energy, finance, and technology trust SetCONNECT to guide their AI transformation.</p>
+                    <div class="eco-tags">
+                        <span class="eco-tag">Manufacturing</span>
+                        <span class="eco-tag">Energy</span>
+                        <span class="eco-tag">Finance</span>
+                        <span class="eco-tag">Technology</span>
+                    </div>
+                </div>
+                <div class="eco-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="eco-icon"><i class="bi bi-mortarboard"></i></div>
+                    <h4>Academic Partners</h4>
+                    <p>Deep ties to top-tier universities ensure our frameworks are grounded in the latest research and academic rigor.</p>
+                    <div class="eco-tags">
+                        <span class="eco-tag">UT Austin</span>
+                        <span class="eco-tag">SMU</span>
+                        <span class="eco-tag">Mercer</span>
+                    </div>
+                </div>
+                <div class="eco-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="eco-icon"><i class="bi bi-cpu"></i></div>
+                    <h4>Technology Partners</h4>
+                    <p>Strategic alliances with leading technology platforms to deliver cutting-edge AI solutions at enterprise scale.</p>
+                    <div class="eco-tags">
+                        <span class="eco-tag">Cloud</span>
+                        <span class="eco-tag">AI/ML</span>
+                        <span class="eco-tag">Analytics</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="work-and-connections.html" class="btn-cyan" style="padding: 14px 36px; font-size: 16px;">Explore Client Impact <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SECTION 9: CTA ═══ -->
+    <section class="who-cta" id="cta">
+        <div class="container">
+            <h2 data-aos="fade-up">Ready to Translate AI into Business Impact?</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Partner with a team that has delivered real AI outcomes across industries and geographies.</p>
+            <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+                <a href="contact.html" class="btn-white-solid">Schedule AI Discovery</a>
+                <a href="ourservices-2.html" class="btn-white-outline">Explore Our Services</a>
             </div>
         </div>
     </section>
@@ -954,41 +1330,6 @@
             if (window.scrollY > 50) header.classList.add('scrolled');
             else header.classList.remove('scrolled');
         });
-
-        // Animated stat counters
-        function animateCounters() {
-            const counters = document.querySelectorAll('.number[data-target]');
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const duration = 2000;
-                const step = target / (duration / 16);
-                let current = 0;
-
-                const update = () => {
-                    current += step;
-                    if (current < target) {
-                        counter.textContent = Math.ceil(current);
-                        requestAnimationFrame(update);
-                    } else {
-                        counter.textContent = target;
-                    }
-                };
-                update();
-            });
-        }
-
-        // Trigger counters when stats section is in view
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-
-        const statsSection = document.querySelector('.stats-section');
-        if (statsSection) statsObserver.observe(statsSection);
     </script>
 </body>
 
