@@ -110,22 +110,22 @@
         ═══════════════════════════════════════ */
         .featured-section {
             padding: 80px 0 60px;
-            background: #0a0e13;
+            background: #ffffff; /* Changed to Light */
         }
 
         .featured-card {
             display: flex;
-            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            background: #f8f9fa; /* Light card */
             border-radius: 24px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.08); /* Dark border */
             transition: all 0.4s ease;
             text-decoration: none;
         }
 
         .featured-card:hover {
             border-color: rgba(8, 145, 178, 0.4);
-            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.12);
+            box-shadow: 0 20px 60px rgba(8, 145, 178, 0.08);
             transform: translateY(-4px);
         }
 
@@ -147,14 +147,14 @@
         }
 
         .featured-content h2 {
-            color: #fff;
+            color: #1a2332; /* Dark text */
             font-size: 32px;
             line-height: 1.25;
             margin-bottom: 18px;
         }
 
         .featured-content p {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(0, 0, 0, 0.65); /* Dark text */
             font-size: 17px;
             line-height: 1.7;
             margin-bottom: 28px;
@@ -197,8 +197,8 @@
            SECTION 3 — FILTER CHIPS
         ═══════════════════════════════════════ */
         .filters-section {
-            padding: 40px 0 20px;
-            background: #ffffff;
+            padding: 80px 0 20px;
+            background: #0a0e13; /* Dark background */
         }
 
         .filter-chips {
@@ -211,9 +211,9 @@
         .filter-chip {
             padding: 10px 24px;
             border-radius: 50px;
-            border: 1px solid rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.12); /* Light border */
             background: transparent;
-            color: rgba(0, 0, 0, 0.6);
+            color: rgba(255, 255, 255, 0.6); /* Light text */
             font-size: 14px;
             font-weight: 500;
             cursor: pointer;
@@ -225,11 +225,11 @@
         .filter-chip.active {
             border-color: var(--cyan);
             color: var(--cyan);
-            background: rgba(8, 145, 178, 0.1);
+            background: rgba(8, 145, 178, 0.15); /* Slightly stronger dark background mix */
         }
 
         .filter-chip.active {
-            background: rgba(8, 145, 178, 0.18);
+            background: rgba(8, 145, 178, 0.25);
             font-weight: 600;
         }
 
@@ -238,7 +238,7 @@
         ═══════════════════════════════════════ */
         .insights-grid-section {
             padding: 50px 0 80px;
-            background: #ffffff;
+            background: #0a0e13; /* Dark background */
         }
 
         .insights-grid {
@@ -248,9 +248,9 @@
         }
 
         .insight-card {
-            background: #f8f9fa;
+            background: #111822; /* Dark card */
             border-radius: 20px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.08); /* Light border */
             padding: 35px;
             transition: all 0.35s ease;
             text-decoration: none;
@@ -259,9 +259,9 @@
         }
 
         .insight-card:hover {
-            border-color: rgba(8, 145, 178, 0.3);
+            border-color: rgba(8, 145, 178, 0.4);
             transform: translateY(-6px);
-            box-shadow: 0 15px 45px rgba(8, 145, 178, 0.08);
+            box-shadow: 0 15px 45px rgba(8, 145, 178, 0.15); /* Stronger shadow */
         }
 
         .insight-category {
@@ -279,7 +279,7 @@
         }
 
         .insight-card h3 {
-            color: #1a2332;
+            color: #ffffff; /* Light text */
             font-size: 20px;
             line-height: 1.35;
             margin-bottom: 14px;
@@ -287,7 +287,7 @@
         }
 
         .insight-card .one-liner {
-            color: rgba(0, 0, 0, 0.6);
+            color: rgba(255, 255, 255, 0.65); /* Light text */
             font-size: 14px;
             line-height: 1.6;
             margin-bottom: 20px;
@@ -533,7 +533,8 @@
 
         /* ── NEWSLETTER ARCHIVE (moved from Client Impact) ── */
         .section-newsletter {
-            padding: 100px 0;
+            padding: 70px 0 30px;
+            margin-top: 80px;
             background: #0d001a;
         }
 
@@ -993,15 +994,43 @@
     <script src="js/header-loader.js"></script>
 
     <!-- ═══════════════════════════════════════
-         SECTION 1 — HERO
+         SECTION 1 — HERO (NEWSLETTER)
     ═══════════════════════════════════════ -->
-    <section class="insights-hero">
+    <section class="section-newsletter" id="hero" style="padding-top: 150px; padding-bottom: 80px;">
         <div class="container">
-            <span class="hero-label" data-aos="fade-up">AI INSIGHTS</span>
-            <h1 data-aos="fade-up" data-aos-delay="100">Insights for Leaders Navigating AI Transformation</h1>
-            <p data-aos="fade-up" data-aos-delay="200">Practical perspectives, real-world applications, and executive
-                frameworks to translate AI into measurable business impact.</p>
-            <div class="hero-accent" data-aos="fade-up" data-aos-delay="300"></div>
+            <div data-aos="fade-up" class="mb-5">
+                <div class="issue-tag" style="margin-bottom:16px; font-size:13px;">Neural Brief</div>
+                <h1 style="font-family:'Space Grotesk',sans-serif; font-size:48px; color:#fff; font-weight:700; margin-bottom:14px;">The Neural Brief Newsletter</h1>
+                <p style="color:rgba(255,255,255,0.6); font-size:18px; line-height:1.7; max-width:680px;">Insights for leaders navigating AI transformation. Practical perspectives, real-world applications, and executive frameworks to translate AI into measurable business impact.</p>
+            </div>
+
+            <!-- LATEST ISSUE -->
+            <div class="nl-latest-card" data-aos="fade-up" data-aos-delay="100">
+                <span class="issue-tag">Volume 6, Issue Two</span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:#fff; font-weight:700; margin-bottom:16px;">AI is Not One Thing: The Three Faces Every Leader Must Understand</h3>
+                <p style="color:rgba(255,255,255,0.6); font-size:16px; line-height:1.7; margin-bottom:28px; max-width:700px;">Automation, Augmentation, and Autonomous systems represent fundamentally different investment decisions. Understanding which "face" applies to your problem changes everything about how you approach AI strategy. In this issue, we break down the critical differences and how to select the right approach.</p>
+                <a href="#" onclick="openPdfGate('Articles/issue-1.pdf','AI is Not One Thing: The Three Faces Every Leader Must Understand', 'Volume 6, Issue Two'); return false;" class="gate-submit-btn" style="width:fit-content; padding:13px 28px; border-radius:50px; display:inline-flex; text-decoration: none; color: #fff;">
+                    <i class="bi bi-file-earmark-pdf" style="margin-right: 8px;"></i> Access Full Report
+                </a>
+            </div>
+
+            <!-- ARCHIVES -->
+            <div class="nl-archives-wrap" data-aos="fade-up" data-aos-delay="200" style="margin-top: 30px;">
+                <div class="nl-archive-header" onclick="toggleArchive()">
+                    <span><i class="bi bi-archive" style="margin-right:10px;"></i>View Past Issues</span>
+                    <i class="bi bi-chevron-down" id="archiveChevron"></i>
+                </div>
+                <div class="nl-archive-content" id="archiveContent">
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Volume 6, Issue One</span>
+                            <h5>Why Data Science Projects Fail &mdash; And What To Do About It</h5>
+                            <p>Unpacks the ten most common failure modes in data science initiatives and practical steps for success.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/issue-2.pdf','Why Data Science Projects Fail', 'Volume 6, Issue One'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1161,54 +1190,7 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         SECTION 7 — NEWSLETTER ARCHIVE (moved from Client Impact)
-    ═══════════════════════════════════════ -->
-    <section class="section-newsletter" id="newsletter">
-        <div class="container">
-            <div data-aos="fade-up" class="mb-5">
-                <div class="issue-tag" style="margin-bottom:16px; font-size:13px;">Thought Leadership</div>
-                <h2 style="font-family:'Space Grotesk',sans-serif; font-size:42px; color:#fff; font-weight:700; margin-bottom:14px;">AI Insights Newsletter</h2>
-                <p style="color:rgba(255,255,255,0.6); font-size:17px; line-height:1.7; max-width:640px;">Practical thinking on AI strategy, execution, and what it really takes to create measurable business value &mdash; delivered to leaders who care about outcomes, not hype.</p>
-            </div>
-
-            <!-- LATEST ISSUE -->
-            <div class="nl-latest-card" data-aos="fade-up" data-aos-delay="100">
-                <span class="issue-tag">Latest &mdash; Issue #1</span>
-                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:#fff; font-weight:700; margin-bottom:16px;">AI is Not One Thing: The Three Faces Every Leader Must Understand</h3>
-                <p style="color:rgba(255,255,255,0.6); font-size:16px; line-height:1.7; margin-bottom:28px; max-width:700px;">Automation, Augmentation, and Autonomous systems represent fundamentally different investment decisions. Understanding which &ldquo;face&rdquo; applies to your problem changes everything about how you approach AI strategy.</p>
-                <a href="#" onclick="openPdfGate('Articles/issue-1.pdf','AI is Not One Thing: The Three Faces Every Leader Must Understand', 'Issue #1'); return false;" class="gate-submit-btn" style="width:fit-content; padding:13px 28px; border-radius:50px; display:inline-flex;">
-                    <i class="bi bi-file-earmark-pdf"></i> Access Full Report
-                </a>
-            </div>
-
-            <!-- ARCHIVES -->
-            <div class="nl-archives-wrap" data-aos="fade-up" data-aos-delay="200">
-                <div class="nl-archive-header" onclick="toggleArchive()">
-                    <span><i class="bi bi-archive" style="margin-right:10px;"></i>View Past Issues</span>
-                    <i class="bi bi-chevron-down" id="archiveChevron"></i>
-                </div>
-                <div class="nl-archive-content" id="archiveContent">
-                    <div class="archive-item">
-                        <div class="archive-info">
-                            <span class="issue-tag" style="margin-bottom:8px;">Issue #2</span>
-                            <h5>Why Data Science Projects Fail &mdash; And What To Do About It</h5>
-                            <p>Unpacks the ten most common failure modes in data science initiatives and practical steps for success.</p>
-                        </div>
-                        <a href="#" onclick="openPdfGate('Articles/issue-2.pdf','Why Data Science Projects Fail', 'Issue #2'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                    <div class="archive-item">
-                        <div class="archive-info">
-                            <span class="issue-tag" style="margin-bottom:8px;">Issue #3</span>
-                            <h5>AI Meets Theory of Constraints: A Conversation with Rami Goldratt</h5>
-                            <p>Why the most powerful AI use cases start with identifying your true operational bottleneck.</p>
-                        </div>
-                        <a href="#" onclick="openPdfGate('Articles/issue-3.pdf','AI Meets Theory of Constraints', 'Issue #3'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- SECTION 7 — NEWSLETTER ARCHIVE (Moved to Hero) -->
 
     <!-- ═══════════════════════════════════════
          SECTION 8 — CTA
@@ -1289,10 +1271,10 @@
     <div class="nl-teaser-overlay" id="nlTeaserOverlay">
         <div class="nl-teaser-card" id="nlTeaserCard">
             <button class="nl-teaser-close" onclick="dismissTeaser()" aria-label="Close">&times;</button>
-            <span class="nl-teaser-eyebrow">AI Insights &mdash; Issue #1</span>
+            <span class="nl-teaser-eyebrow">Neural Brief &mdash; Volume 6, Issue Two</span>
             <h3>AI Is Not One Thing. Are You Ready for Its Three Faces?</h3>
-            <p>Most leaders treat AI as a single technology. In Issue&nbsp;#1, we break down the three fundamentally different types of AI &mdash; and why confusing them is the&nbsp;#1 strategic mistake.</p>
-            <button class="nl-teaser-cta" onclick="dismissTeaser(); openPdfGate('Articles/issue-1.pdf','AI is Not One Thing: The Three Faces Every Leader Must Understand', 'Issue #1');">
+            <p>Most leaders treat AI as a single technology. In this issue, we break down the three fundamentally different types of AI &mdash; and why confusing them is the #1 strategic mistake.</p>
+            <button class="nl-teaser-cta" onclick="dismissTeaser(); openPdfGate('Articles/issue-1.pdf','AI is Not One Thing: The Three Faces Every Leader Must Understand', 'Volume 6, Issue Two');">
                 Read the Brief <i class="bi bi-arrow-right"></i>
             </button>
         </div>
@@ -1374,17 +1356,27 @@
         }
         document.addEventListener('keydown', e => { if (e.key === 'Escape') { closePdfGate(); dismissTeaser(); } });
 
-        /* ── Exit-intent teaser ── */
+        /* ── Teaser Popup ── */
         let teaserFired = false;
-        document.addEventListener('mouseleave', function(e) {
-            if (e.clientY <= 0 && !teaserFired && !sessionStorage.getItem('sc_teaser_dismissed')) {
+        function showTeaser() {
+            if (!teaserFired) {
                 document.getElementById('nlTeaserOverlay').classList.add('active');
                 teaserFired = true;
             }
+        }
+
+        // Ensure it appears every time the page is visited
+        setTimeout(showTeaser, 2500);
+
+        // Keep exit intent for fast leavers
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY <= 0) {
+                showTeaser();
+            }
         });
+
         function dismissTeaser() {
             document.getElementById('nlTeaserOverlay').classList.remove('active');
-            sessionStorage.setItem('sc_teaser_dismissed', '1');
         }
 
         // Header scroll effect

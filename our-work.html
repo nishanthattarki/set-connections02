@@ -676,6 +676,58 @@
                 padding: 36px 28px;
             }
         }
+        
+        /* ── ALTERNATING LIGHT SECTION STYLES ── */
+        .bg-light-alt {
+            background-color: #ffffff !important;
+        }
+        .bg-light-alt h2 { color: #1a2332 !important; }
+        .bg-light-alt p { color: rgba(0, 0, 0, 0.65) !important; }
+        
+        .bg-light-alt .impact-card {
+            background: #f8f9fa !important;
+            border-color: rgba(0,0,0,0.08) !important;
+        }
+        .bg-light-alt .impact-card h4 { color: #1a2332 !important; }
+        .bg-light-alt .impact-card .impact-desc { color: rgba(0,0,0,0.65) !important; }
+        
+        .bg-light-alt .client-logo-card {
+            background: #f8f9fa !important;
+            border-color: rgba(0,0,0,0.08) !important;
+        }
+        .bg-light-alt .client-logo-card h4 { color: #1a2332 !important; }
+        .bg-light-alt .client-logo-card p { color: rgba(0,0,0,0.65) !important; }
+        .bg-light-alt .client-logo { filter: none !important; }
+        
+        .bg-light-alt .engage-card {
+            background: #f8f9fa !important;
+            border-color: rgba(0,0,0,0.08) !important;
+        }
+        .bg-light-alt .engage-card h4 { color: #1a2332 !important; }
+        .bg-light-alt .engage-card p { color: rgba(0,0,0,0.65) !important; }
+        
+        .bg-light-alt .philosophy-card {
+            background: #f8f9fa !important;
+            border-color: rgba(0,0,0,0.08) !important;
+        }
+        .bg-light-alt .philosophy-card h2 { color: #1a2332 !important; }
+        .bg-light-alt .philosophy-card p { color: rgba(0,0,0,0.65) !important; }
+        .bg-light-alt .philosophy-metric { background: #ffffff !important; border-color: rgba(0,0,0,0.08) !important; }
+        .bg-light-alt .philosophy-metric .metric-desc { color: rgba(0,0,0,0.65) !important; }
+        
+        .bg-light-alt .testimonial-quote-card {
+            background: #f8f9fa !important;
+            border-color: rgba(0,0,0,0.08) !important;
+        }
+        .bg-light-alt .testimonial-quote-card blockquote { color: #1a2332 !important; }
+        .bg-light-alt .testimonial-quote-card .role { color: rgba(0,0,0,0.65) !important; }
+        
+        .bg-light-alt.stats-bar { border-color: rgba(0,0,0,0.08) !important; }
+        .bg-light-alt .stat-label { color: rgba(0,0,0,0.65) !important; }
+        .bg-light-alt .stat-divider { background: rgba(0,0,0,0.1) !important; }
+        
+        .bg-light-alt .outcome-item h5 { color: #1a2332 !important; }
+        .bg-light-alt .outcome-item p { color: rgba(0,0,0,0.65) !important; }
     </style>
 </head>
 
@@ -770,6 +822,51 @@
         </div>
     </section>
 
+    <!-- ══ CLIENT LOGO CARDS ══ -->
+    <section class="clients-section bg-light-alt">
+        <div class="container">
+            <div class="section-header-modern text-center" data-aos="fade-up">
+                <div class="subtitle">TRUSTED BY INDUSTRY LEADERS</div>
+                <h2 style="color: #ffffff;">Our Clients</h2>
+            </div>
+            <div class="row align-items-stretch justify-content-center g-5" style="margin-top: 40px;">
+                <div class="col-lg-4 col-md-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <a href="our-work/vedanta.html" style="text-decoration: none;">
+                        <div class="client-logo-card">
+                            <img src="images/vedanta+(1).webp" alt="Vedanta Limited" class="client-logo">
+                            <span class="industry-tag">Mining &amp; Resources</span>
+                            <h4>Vedanta Limited</h4>
+                            <p>Enterprise-Wide AI Transformation</p>
+                            <span class="case-link">View Case Study <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <a href="our-work/zfgroup.html" style="text-decoration: none;">
+                        <div class="client-logo-card">
+                            <img src="images/ZF-logo.webp" alt="ZF Group" class="client-logo">
+                            <span class="industry-tag">Automotive</span>
+                            <h4>ZF Group</h4>
+                            <p>AI-Driven Innovation in Automotive</p>
+                            <span class="case-link">View Case Study <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <a href="our-work/tvstraining.html" style="text-decoration: none;">
+                        <div class="client-logo-card">
+                            <img src="images/lucas-tvs+(1).webp" alt="Lucas TVS" class="client-logo">
+                            <span class="industry-tag">Auto Components</span>
+                            <h4>Lucas TVS</h4>
+                            <p>AI-Powered Supply Chain Optimization</p>
+                            <span class="case-link">View Case Study <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ══ IMPACT HIGHLIGHTS ══ -->
     <section class="impact-section">
         <div class="container">
@@ -815,7 +912,7 @@
     </section>
 
     <!-- ══ INDUSTRIES WE TRANSFORM ══ -->
-    <section class="industries-section">
+    <section class="industries-section bg-light-alt">
         <div class="container">
             <div class="section-header-modern text-center mb-5" data-aos="fade-up">
                 <div class="subtitle">INDUSTRIES WE TRANSFORM</div>
@@ -876,56 +973,14 @@
         </div>
     </section>
 
-    <!-- ══ CLIENT LOGO CARDS ══ -->
-    <section class="clients-section">
-        <div class="container">
-            <div class="section-header-modern text-center" data-aos="fade-up">
-                <div class="subtitle">TRUSTED BY INDUSTRY LEADERS</div>
-                <h2 style="color: #ffffff;">Our Clients</h2>
-            </div>
-            <div class="row align-items-stretch justify-content-center g-5" style="margin-top: 40px;">
-                <div class="col-lg-4 col-md-6 text-center" data-aos="fade-up" data-aos-delay="100">
-                    <a href="our-work/vedanta.html" style="text-decoration: none;">
-                        <div class="client-logo-card">
-                            <img src="images/vedanta+(1).webp" alt="Vedanta Limited" class="client-logo">
-                            <span class="industry-tag">Mining &amp; Resources</span>
-                            <h4>Vedanta Limited</h4>
-                            <p>Enterprise-Wide AI Transformation</p>
-                            <span class="case-link">View Case Study <i class="bi bi-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
-                    <a href="our-work/zfgroup.html" style="text-decoration: none;">
-                        <div class="client-logo-card">
-                            <img src="images/ZF-logo.webp" alt="ZF Group" class="client-logo">
-                            <span class="industry-tag">Automotive</span>
-                            <h4>ZF Group</h4>
-                            <p>AI-Driven Innovation in Automotive</p>
-                            <span class="case-link">View Case Study <i class="bi bi-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center" data-aos="fade-up" data-aos-delay="300">
-                    <a href="our-work/tvstraining.html" style="text-decoration: none;">
-                        <div class="client-logo-card">
-                            <img src="images/lucas-tvs+(1).webp" alt="Lucas TVS" class="client-logo">
-                            <span class="industry-tag">Auto Components</span>
-                            <h4>Lucas TVS</h4>
-                            <p>AI-Powered Supply Chain Optimization</p>
-                            <span class="case-link">View Case Study <i class="bi bi-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══ HOW WE ENGAGE ══ -->
-    <section class="engage-section">
+    <!-- ═════════════════════════════════════════ -->
+    <!-- ══ OUR METHODOLOGY / HOW WE ENGAGE   ══ -->
+    <!-- ═════════════════════════════════════════ -->
+    <div style="width: 100%; height: 20px; background: linear-gradient(90deg, #0f1419, #0891b2, #0f1419);"></div>
+    <section class="engage-section" id="methodology">
         <div class="container">
             <div class="section-header-modern text-center mb-5" data-aos="fade-up">
-                <div class="subtitle">OUR PROCESS</div>
+                <div class="subtitle" style="font-size: 15px;">OUR METHODOLOGY</div>
                 <h2 style="color:#fff;">How We Engage</h2>
                 <p>A proven three-phase model that moves from discovery to deployable AI — without the guesswork.</p>
             </div>
@@ -972,7 +1027,7 @@
     </section>
 
     <!-- ══ METHODOLOGY / PHILOSOPHY ══ -->
-    <section class="philosophy-section">
+    <section class="philosophy-section bg-light-alt">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-8" data-aos="fade-right">

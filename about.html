@@ -960,6 +960,107 @@
             margin: 0 auto;
         }
 
+        /* Lifecycle diagram - CSS only */
+        .lifecycle-ring {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            border: 2px solid rgba(8, 145, 178, 0.3);
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .lifecycle-step {
+            position: absolute;
+            text-align: center;
+            width: 100px;
+        }
+
+        .lifecycle-step .step-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(8, 145, 178, 0.2);
+            border: 2px solid var(--cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+            font-size: 20px;
+            color: var(--cyan);
+        }
+
+        .lifecycle-step .step-label {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .lifecycle-step:nth-child(1) {
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .lifecycle-step:nth-child(2) {
+            top: 50%;
+            right: -35px;
+            transform: translateY(-50%);
+        }
+
+        .lifecycle-step:nth-child(3) {
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .lifecycle-step:nth-child(4) {
+            top: 50%;
+            left: -35px;
+            transform: translateY(-50%);
+        }
+
+        .lifecycle-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .lifecycle-center i {
+            font-size: 32px;
+            color: var(--cyan);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .lifecycle-center span {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        /* Animated outer ring on lifecycle-ring */
+        .lifecycle-ring {
+            position: relative;
+        }
+        .lifecycle-ring::after {
+            content: '';
+            position: absolute;
+            top: -10px; left: -10px;
+            right: -10px; bottom: -10px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(8,145,178,0.25);
+            animation: orbbitSpin 18s linear infinite;
+        }
+        @keyframes orbbitSpin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
         @media (max-width: 768px) {
             .section-title {
                 font-size: 30px;
@@ -1064,65 +1165,50 @@
         </div>
     </section>
 
-    <!-- ═══ SECTION 5: AI SUCCESS PLAYBOOK ═══ -->
-    <section class="playbook-section-about" id="playbook">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <div class="section-subtitle">OUR FOUNDATION</div>
-                <h2 class="section-title">The AI Success Playbook</h2>
-                <p class="section-desc">A structured, repeatable framework that guides organizations from AI ambition to measurable business outcomes.</p>
+    <!-- ═══ SECTION 5: OUR STORY & PLAYBOOK ═══ -->
+    <section class="story-playbook-section" id="playbook" style="padding: 0; background: #0f1419;">
+        <div class="row g-0">
+            <!-- Left Half (Dark) - Narrative -->
+            <div class="col-lg-6" style="background: #0d1117; padding: 100px 5%; display: flex; flex-direction: column; justify-content: center;">
+                <div class="section-subtitle" style="color: var(--cyan); font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px;">OUR STORY</div>
+                <h2 class="section-title" style="color: #ffffff; font-size: 42px; margin-bottom: 24px;">Our Story</h2>
+                <div style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.8;">
+                    <!-- Placeholder text for History write-up -->
+                    <p>At SetConnect, our journey began with a simple observation: while AI technology was advancing rapidly, organizations struggled to translate it into measurable business value. Our founders recognized that the gap wasn't a lack of technological capability, but a lack of strategic alignment.</p>
+                    <p>We built our practice precisely to bridge this divide. By bringing together deep academic rigor with decades of enterprise experience, we developed a structured approach that demystifies AI for leadership teams. We start with the business problem, map it to the right data ecosystem, and rapidly prototype solutions that prove ROI.</p>
+                    <p>Today, SetConnect is a trusted partner for global enterprises across manufacturing, energy, and finance. We don't just deliver models; we build AI-ready organizations capable of sustaining innovation.</p>
+                    <p><em style="color: var(--cyan); font-size: 14px;">[Note: This space accommodates approx. ~200 words comfortably. Ramesh to update history.]</em></p>
+                </div>
             </div>
-
-            <div class="playbook-progress-about" data-aos="fade-up" data-aos-delay="100">
-                <!-- Step 1 -->
-                <div class="pb-card-wrap">
-                    <div class="pb-card">
-                        <div class="pb-card-head">
-                            <div class="step-num">1</div>
-                            <span class="stage-tag">DISCOVER</span>
-                            <h3>AI Discovery</h3>
-                        </div>
-                        <div class="pb-card-body">
-                            <p>Identify high-value AI use cases aligned with your strategic business objectives.</p>
-                        </div>
-                    </div>
+            <!-- Right Half (Slightly Lighter Dark) - Playbook Animation -->
+            <div class="col-lg-6" style="background: #111822; padding: 100px 5%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <div class="section-subtitle" style="color: var(--cyan); font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px;">OUR FOUNDATION</div>
+                    <h2 class="section-title" style="color:#ffffff; font-size: 42px; margin-bottom: 20px;">The AI Success Playbook</h2>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 16px; line-height: 1.7; max-width: 450px; margin: 0 auto;">A structured, repeatable framework that guides organizations from AI ambition to measurable business outcomes.</p>
                 </div>
-                <!-- Step 2 -->
-                <div class="pb-card-wrap">
-                    <div class="pb-card">
-                        <div class="pb-card-head">
-                            <div class="step-num">2</div>
-                            <span class="stage-tag">LEARN</span>
-                            <h3>AI Immersion</h3>
+                
+                <div class="playbook-visual" style="margin: 30px auto; width: 100%;">
+                    <div class="lifecycle-ring">
+                        <div class="lifecycle-step">
+                            <div class="step-icon"><i class="bi bi-search"></i></div>
+                            <span class="step-label">Discover</span>
                         </div>
-                        <div class="pb-card-body">
-                            <p>Build AI literacy and readiness across leadership and functional teams.</p>
+                        <div class="lifecycle-step">
+                            <div class="step-icon"><i class="bi bi-palette"></i></div>
+                            <span class="step-label">Design</span>
                         </div>
-                    </div>
-                </div>
-                <!-- Step 3 -->
-                <div class="pb-card-wrap">
-                    <div class="pb-card">
-                        <div class="pb-card-head">
-                            <div class="step-num">3</div>
-                            <span class="stage-tag">BUILD</span>
-                            <h3>AI Activation</h3>
+                        <div class="lifecycle-step">
+                            <div class="step-icon"><i class="bi bi-code-slash"></i></div>
+                            <span class="step-label">Develop</span>
                         </div>
-                        <div class="pb-card-body">
-                            <p>Prototype and validate AI solutions with rapid pilots that demonstrate ROI.</p>
+                        <div class="lifecycle-step">
+                            <div class="step-icon"><i class="bi bi-rocket-takeoff"></i></div>
+                            <span class="step-label">Deploy</span>
                         </div>
-                    </div>
-                </div>
-                <!-- Step 4 -->
-                <div class="pb-card-wrap">
-                    <div class="pb-card">
-                        <div class="pb-card-head">
-                            <div class="step-num">4</div>
-                            <span class="stage-tag">SCALE</span>
-                            <h3>AI@Scale</h3>
-                        </div>
-                        <div class="pb-card-body">
-                            <p>Deploy and scale proven AI solutions across the organization for maximum impact.</p>
+                        <div class="lifecycle-center">
+                            <i class="bi bi-cpu"></i>
+                            <span>AI</span>
                         </div>
                     </div>
                 </div>
@@ -1153,7 +1239,7 @@
                     <li><i class="bi bi-check-circle-fill"></i> PhD (Texas Tech), Executive MBA (UT Austin), PG Certificate (MIT Sloan)</li>
                     <li><i class="bi bi-check-circle-fill"></i> Led global AI and analytics transformation programs across manufacturing, energy, and finance</li>
                 </ul>
-                <a href="https://www.linkedin.com/in/rameshraj05/" target="_blank" class="leader-linkedin">
+                <a href="https://www.linkedin.com/in/rameshraj05/" target="_blank" class="leader-linkedin" style="position: relative; z-index: 10;">
                     <i class="bi bi-linkedin"></i> LinkedIn Profile
                 </a>
             </div>
@@ -1183,8 +1269,8 @@
                     <div class="sm-title">Lead Advisor</div>
                     <ul class="sm-creds">
                         <li>30+ years in enterprise technology at IBM, Dell, Nutanix, and Salesforce</li>
+                        <li>[Education details needed]</li>
                         <li>Deep expertise in cybersecurity, AI infrastructure, and Fortune 500 strategy</li>
-                        <li>Brings a multi-decade executive perspective on technology adoption</li>
                     </ul>
                     <p class="sm-positioning">"Accelerating AI adoption by connecting enterprise leaders with the right technology at the right moment."</p>
                     <a href="https://www.linkedin.com/in/mjmasterson/" target="_blank" class="leader-linkedin">
@@ -1198,9 +1284,9 @@
                     <h4>Novin Ghaffari, Ph.D.</h4>
                     <div class="sm-title">AI Architect</div>
                     <ul class="sm-creds">
+                        <li>Drives the technical rigor behind SetCONNECT's AI frameworks and client solutions</li>
                         <li>PhD in Statistics from UT Austin; specialization in ML and stochastic optimization</li>
                         <li>Research focus on predictive analytics, simulation modeling, and operations research</li>
-                        <li>Drives the technical rigor behind SetCONNECT's AI frameworks and client solutions</li>
                     </ul>
                     <p class="sm-positioning">"Translating advanced statistical methods into AI solutions that solve real-world business problems."</p>
                     <a href="https://www.linkedin.com/in/novin-ghaffari-638b41180/" target="_blank" class="leader-linkedin">
