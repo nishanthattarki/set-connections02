@@ -23,8 +23,8 @@
 
         html,
         body {
-            background-color: #0a0e13 !important;
-            color: #ffffff;
+            background-color: #ffffff !important;
+            color: #1a2332;
         }
 
         /* ═══════════════════════════════════════
@@ -198,7 +198,7 @@
         ═══════════════════════════════════════ */
         .filters-section {
             padding: 80px 0 20px;
-            background: #0a0e13; /* Dark background */
+            background: #0a192f; /* Dark background */
         }
 
         .filter-chips {
@@ -238,7 +238,7 @@
         ═══════════════════════════════════════ */
         .insights-grid-section {
             padding: 50px 0 80px;
-            background: #0a0e13; /* Dark background */
+            background: #0a192f; /* Dark background */
         }
 
         .insights-grid {
@@ -248,7 +248,7 @@
         }
 
         .insight-card {
-            background: #111822; /* Dark card */
+            background: #0d2236; /* Dark card */
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.08); /* Light border */
             padding: 35px;
@@ -313,13 +313,13 @@
         ═══════════════════════════════════════ */
         .pov-section {
             padding: 90px 0;
-            background: #0f1419;
+            background: #ffffff;
         }
 
         .pov-card {
-            background: linear-gradient(145deg, #1a2332 0%, #0d1117 100%);
+            background: #f8f9fa;
             border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             padding: 60px;
             position: relative;
             overflow: hidden;
@@ -345,7 +345,7 @@
         }
 
         .pov-card h2 {
-            color: #fff;
+            color: #1a2332;
             font-size: 34px;
             margin-bottom: 35px;
         }
@@ -357,12 +357,12 @@
         }
 
         .pov-list li {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(0, 0, 0, 0.8);
             font-size: 18px;
             line-height: 1.7;
             padding: 14px 0 14px 30px;
             position: relative;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         .pov-list li:last-child {
@@ -383,7 +383,7 @@
         ═══════════════════════════════════════ */
         .playbook-section {
             padding: 90px 0;
-            background: #f0f2f5;
+            background: #0d2236;
         }
 
         .playbook-card {
@@ -535,12 +535,12 @@
         .section-newsletter {
             padding: 70px 0 30px;
             margin-top: 80px;
-            background: #0d001a;
+            background: #0a192f;
         }
 
         .nl-latest-card {
-            background: linear-gradient(145deg, #1a0933, #0d001a);
-            border: 1px solid rgba(167,139,250,0.25);
+            background: linear-gradient(145deg, #1a2332, #0d1117);
+            border: 1px solid rgba(8,145,178,0.25);
             border-radius: 24px;
             padding: 48px 52px;
             margin-bottom: 28px;
@@ -553,14 +553,14 @@
             position: absolute;
             top: 0; left: 0; right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #a78bfa, #7c3aed, transparent);
+            background: linear-gradient(90deg, #0891b2, #0e7490, transparent);
         }
 
         .issue-tag {
             display: inline-block;
-            background: rgba(167,139,250,0.12);
-            border: 1px solid rgba(167,139,250,0.3);
-            color: #a78bfa;
+            background: rgba(8,145,178,0.12);
+            border: 1px solid rgba(8,145,178,0.3);
+            color: #0891b2;
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 1.5px;
@@ -588,34 +588,49 @@
             transition: background 0.3s;
         }
 
-        .nl-archive-header:hover, .nl-archive-header.open { background: rgba(167,139,250,0.08); }
+        .nl-archive-header:hover, .nl-archive-header.open { background: rgba(8,145,178,0.08); }
         .nl-archive-header.open #archiveChevron { transform: rotate(180deg); }
         #archiveChevron { transition: transform 0.3s; }
 
         .nl-archive-content { display: none; }
-        .nl-archive-content.open { display: block; }
+        .nl-archive-content.open { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+            gap: 20px; 
+            padding: 24px 0;
+        }
 
         .archive-item {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 22px 28px;
-            border-top: 1px solid rgba(255,255,255,0.06);
-            gap: 20px;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 24px;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            background: rgba(255,255,255,0.02);
+            transition: all 0.3s ease;
         }
 
-        .archive-info { flex: 1; }
-        .archive-info h5 { color: #fff; font-size: 16px; margin: 0 0 6px; }
-        .archive-info p  { color: rgba(255,255,255,0.5); font-size: 13px; margin: 0; }
+        .archive-item:hover {
+            border-color: rgba(8,145,178,0.4);
+            background: rgba(255,255,255,0.04);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .archive-info { width: 100%; margin-bottom: 16px; }
+        .archive-info h5 { color: #fff; font-size: 18px; margin: 0 0 10px; font-family: 'Space Grotesk', sans-serif; }
+        .archive-info p  { color: rgba(255,255,255,0.55); font-size: 14px; margin: 0; line-height: 1.6; }
 
         .nl-link {
             display: inline-flex; align-items: center; gap: 8px;
-            color: #a78bfa; font-weight: 600; font-size: 14px;
+            color: #0891b2; font-weight: 600; font-size: 14px;
             text-decoration: none; white-space: nowrap;
-            transition: color 0.2s;
+            transition: all 0.2s;
+            margin-top: auto;
         }
 
-        .nl-link:hover { color: #c4b5fd; }
+        .nl-link:hover { color: #0e7490; gap: 12px; }
 
         /* ── PDF GATE MODAL (copied from work-and-connections) ── */
         .pdf-gate-overlay {
@@ -834,7 +849,7 @@
         ═══════════════════════════════════════ */
         .final-cta {
             padding: 100px 0;
-            background: #0a0e13;
+            background: #ffffff;
             text-align: center;
             position: relative;
         }
@@ -858,13 +873,13 @@
 
         .final-cta h2 {
             font-size: 42px;
-            color: #fff;
+            color: #1a2332;
             margin-bottom: 18px;
         }
 
         .final-cta p {
             font-size: 18px;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(0, 0, 0, 0.7);
             margin-bottom: 40px;
             max-width: 500px;
             margin-left: auto;
@@ -900,14 +915,14 @@
 
         .btn-outline-cta {
             background: transparent;
-            color: #fff;
+            color: #1a2332;
             padding: 16px 36px;
             border-radius: 50px;
             font-weight: 700;
             font-size: 15px;
             text-decoration: none;
             transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(0, 0, 0, 0.3);
         }
 
         .btn-outline-cta:hover {
@@ -1006,10 +1021,10 @@
 
             <!-- LATEST ISSUE -->
             <div class="nl-latest-card" data-aos="fade-up" data-aos-delay="100">
-                <span class="issue-tag">Volume 6, Issue Two</span>
+                <span class="issue-tag">Issue 17</span>
                 <h3 style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:#fff; font-weight:700; margin-bottom:16px;">AI is Not One Thing: The Three Faces Every Leader Must Understand</h3>
                 <p style="color:rgba(255,255,255,0.6); font-size:16px; line-height:1.7; margin-bottom:28px; max-width:700px;">Automation, Augmentation, and Autonomous systems represent fundamentally different investment decisions. Understanding which "face" applies to your problem changes everything about how you approach AI strategy. In this issue, we break down the critical differences and how to select the right approach.</p>
-                <a href="#" onclick="openPdfGate('Articles/issue-1.pdf','AI is Not One Thing: The Three Faces Every Leader Must Understand', 'Volume 6, Issue Two'); return false;" class="gate-submit-btn" style="width:fit-content; padding:13px 28px; border-radius:50px; display:inline-flex; text-decoration: none; color: #fff;">
+                <a href="#" onclick="openPdfGate('Articles/17.pdf','AI is Not One Thing: The Three Faces Every Leader Must Understand', 'Issue 17'); return false;" class="gate-submit-btn" style="width:fit-content; padding:13px 28px; border-radius:50px; display:inline-flex; text-decoration: none; color: #fff;">
                     <i class="bi bi-file-earmark-pdf" style="margin-right: 8px;"></i> Access Full Report
                 </a>
             </div>
@@ -1023,11 +1038,131 @@
                 <div class="nl-archive-content" id="archiveContent">
                     <div class="archive-item">
                         <div class="archive-info">
-                            <span class="issue-tag" style="margin-bottom:8px;">Volume 6, Issue One</span>
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 16</span>
                             <h5>Why Data Science Projects Fail &mdash; And What To Do About It</h5>
                             <p>Unpacks the ten most common failure modes in data science initiatives and practical steps for success.</p>
                         </div>
-                        <a href="#" onclick="openPdfGate('Articles/issue-2.pdf','Why Data Science Projects Fail', 'Volume 6, Issue One'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                        <a href="#" onclick="openPdfGate('Articles/16.pdf','Why Data Science Projects Fail', 'Issue 16'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 15</span>
+                            <h5>AI Insights Report</h5>
+                            <p>Strategic perspectives and actionable frameworks for leaders navigating AI transformation.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/15.pdf','AI Insights Report', 'Issue 15'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 14</span>
+                            <h5>AI Insights Report</h5>
+                            <p>Strategic perspectives and actionable frameworks for leaders navigating AI transformation.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/14.pdf','AI Insights Report', 'Issue 14'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 13</span>
+                            <h5>AI Insights Report</h5>
+                            <p>Strategic perspectives and actionable frameworks for leaders navigating AI transformation.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/13.pdf','AI Insights Report', 'Issue 13'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 12</span>
+                            <h5>AI Insights Report</h5>
+                            <p>Strategic perspectives and actionable frameworks for leaders navigating AI transformation.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/12.pdf','AI Insights Report', 'Issue 12'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 11</span>
+                            <h5>AI Insights Report</h5>
+                            <p>Strategic perspectives and actionable frameworks for leaders navigating AI transformation.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/11.pdf','AI Insights Report', 'Issue 11'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 10</span>
+                            <h5>AI Insights Report</h5>
+                            <p>Strategic perspectives and actionable frameworks for leaders navigating AI transformation.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/10.pdf','AI Insights Report', 'Issue 10'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 9</span>
+                            <h5>AI Insights Report</h5>
+                            <p>Strategic perspectives and actionable frameworks for leaders navigating AI transformation.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/9.pdf','AI Insights Report', 'Issue 9'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 8</span>
+                            <h5>AI Insights Report</h5>
+                            <p>Strategic perspectives and actionable frameworks for leaders navigating AI transformation.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/8.pdf','AI Insights Report', 'Issue 8'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 7</span>
+                            <h5>AI Insights Report</h5>
+                            <p>Strategic perspectives and actionable frameworks for leaders navigating AI transformation.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/7.pdf','AI Insights Report', 'Issue 7'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 6</span>
+                            <h5>AI Insights Report</h5>
+                            <p>Strategic perspectives and actionable frameworks for leaders navigating AI transformation.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/6.pdf','AI Insights Report', 'Issue 6'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 5</span>
+                            <h5>AI Insights Report</h5>
+                            <p>Strategic perspectives and actionable frameworks for leaders navigating AI transformation.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/5.pdf','AI Insights Report', 'Issue 5'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 4</span>
+                            <h5>AI Insights Report</h5>
+                            <p>Strategic perspectives and actionable frameworks for leaders navigating AI transformation.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/4.pdf','AI Insights Report', 'Issue 4'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 3</span>
+                            <h5>AI Insights Report</h5>
+                            <p>Strategic perspectives and actionable frameworks for leaders navigating AI transformation.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/3.pdf','AI Insights Report', 'Issue 3'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 2</span>
+                            <h5>AI Insights Report</h5>
+                            <p>Strategic perspectives and actionable frameworks for leaders navigating AI transformation.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/2.pdf','AI Insights Report', 'Issue 2'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="archive-item">
+                        <div class="archive-info">
+                            <span class="issue-tag" style="margin-bottom:8px;">Issue 1</span>
+                            <h5>AI Insights Report</h5>
+                            <p>Strategic perspectives and actionable frameworks for leaders navigating AI transformation.</p>
+                        </div>
+                        <a href="#" onclick="openPdfGate('Articles/1.pdf','AI Insights Report', 'Issue 1'); return false;" class="nl-link"><i class="bi bi-file-earmark-pdf"></i> Access Report <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -1271,10 +1406,10 @@
     <div class="nl-teaser-overlay" id="nlTeaserOverlay">
         <div class="nl-teaser-card" id="nlTeaserCard">
             <button class="nl-teaser-close" onclick="dismissTeaser()" aria-label="Close">&times;</button>
-            <span class="nl-teaser-eyebrow">Neural Brief &mdash; Volume 6, Issue Two</span>
+            <span class="nl-teaser-eyebrow">Neural Brief &mdash; Issue 17</span>
             <h3>AI Is Not One Thing. Are You Ready for Its Three Faces?</h3>
             <p>Most leaders treat AI as a single technology. In this issue, we break down the three fundamentally different types of AI &mdash; and why confusing them is the #1 strategic mistake.</p>
-            <button class="nl-teaser-cta" onclick="dismissTeaser(); openPdfGate('Articles/issue-1.pdf','AI is Not One Thing: The Three Faces Every Leader Must Understand', 'Volume 6, Issue Two');">
+            <button class="nl-teaser-cta" onclick="dismissTeaser(); openPdfGate('Articles/17.pdf','AI is Not One Thing: The Three Faces Every Leader Must Understand', 'Issue 17');">
                 Read the Brief <i class="bi bi-arrow-right"></i>
             </button>
         </div>
