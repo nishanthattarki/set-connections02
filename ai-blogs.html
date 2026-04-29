@@ -632,79 +632,136 @@
 
         .nl-link:hover { color: #0e7490; gap: 12px; }
 
-        /* ── PDF GATE MODAL (copied from work-and-connections) ── */
+        /* ── PDF GATE MODAL ── */
         .pdf-gate-overlay {
             position: fixed; inset: 0;
-            background: rgba(0,0,0,0.75);
-            backdrop-filter: blur(6px);
+            background: rgba(0,0,0,0.80);
+            backdrop-filter: blur(8px);
             z-index: 9999;
             display: flex; align-items: center; justify-content: center;
             opacity: 0; pointer-events: none;
             transition: opacity 0.35s;
+            padding: 20px;
         }
         .pdf-gate-overlay.active { opacity: 1; pointer-events: all; }
         .pdf-gate-modal {
             display: flex;
-            max-width: 840px; width: 92%;
+            max-width: 860px; width: 100%;
             border-radius: 24px;
             overflow: hidden;
-            background: #0f1419;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
-            transform: translateY(20px);
-            transition: transform 0.4s;
+            background: #0a192f;
+            border: 1px solid rgba(8,145,178,0.25);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(8,145,178,0.1);
+            transform: translateY(24px) scale(0.98);
+            transition: transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
         }
-        .pdf-gate-overlay.active .pdf-gate-modal { transform: translateY(0); }
+        .pdf-gate-overlay.active .pdf-gate-modal { transform: translateY(0) scale(1); }
+
+        /* LEFT PREVIEW PANEL */
         .pdf-gate-preview {
-            background: linear-gradient(145deg,#1a0933,#0a0014);
-            padding: 48px 36px;
+            background: linear-gradient(160deg, #0d2236 0%, #0a192f 60%, #061525 100%);
+            padding: 48px 32px;
             display: flex; flex-direction: column;
             align-items: center; justify-content: center;
             text-align: center;
-            min-width: 240px;
-            border-right: 1px solid rgba(255,255,255,0.07);
+            min-width: 260px;
+            max-width: 260px;
+            border-right: 1px solid rgba(8,145,178,0.15);
+            position: relative;
+            overflow: hidden;
         }
-        .pdf-icon-wrap { font-size: 56px; color: #a78bfa; margin-bottom: 18px; }
-        .pdf-gate-preview h6 { color: #fff; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-        .pdf-meta { color: rgba(255,255,255,0.45); font-size: 12px; margin-bottom: 14px; }
-        .pdf-tag { background: rgba(167,139,250,0.12); border: 1px solid rgba(167,139,250,0.3); color: #a78bfa; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; }
-        .pdf-gate-form-panel { flex: 1; padding: 48px 44px; overflow-y: auto; position: relative; }
-        .pdf-gate-close { position: absolute; top: 18px; right: 20px; background: none; border: none; color: rgba(255,255,255,0.4); font-size: 28px; cursor: pointer; line-height: 1; transition: color 0.2s; }
-        .pdf-gate-close:hover { color: #fff; }
-        .gate-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #a78bfa; display: block; margin-bottom: 10px; }
-        .pdf-gate-form-panel h3 { font-family:'Space Grotesk',sans-serif; font-size: 26px; color: #fff; margin-bottom: 8px; }
-        .gate-sub { color: rgba(255,255,255,0.5); font-size: 14px; margin-bottom: 24px; }
-        .gate-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-        .gate-field { margin-bottom: 12px; }
-        .gate-field input, .gate-field select, .gate-field textarea {
-            width: 100%; padding: 13px 16px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.12);
+        .pdf-gate-preview::before {
+            content: '';
+            position: absolute;
+            top: -60px; left: -60px;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(8,145,178,0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .pdf-gate-preview::after {
+            content: '';
+            position: absolute;
+            bottom: -40px; right: -40px;
+            width: 150px; height: 150px;
+            background: radial-gradient(circle, rgba(8,145,178,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        /* Document mockup */
+        .pdf-doc-mockup {
+            width: 130px;
+            background: linear-gradient(145deg, #1a2e4a, #122036);
+            border: 1px solid rgba(8,145,178,0.3);
+            border-radius: 12px;
+            padding: 18px 14px;
+            margin-bottom: 22px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(8,145,178,0.1);
+        }
+        .pdf-doc-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 28px; height: 28px;
+            background: #0a192f;
+            border-bottom-left-radius: 8px;
+            border-top-right-radius: 12px;
+            border-left: 1px solid rgba(8,145,178,0.3);
+            border-bottom: 1px solid rgba(8,145,178,0.3);
+        }
+        .pdf-doc-line {
+            height: 5px; border-radius: 3px;
+            background: rgba(8,145,178,0.25);
+            margin-bottom: 7px;
+        }
+        .pdf-doc-line.short { width: 60%; }
+        .pdf-doc-line.cyan  { background: rgba(8,145,178,0.6); }
+        .pdf-icon-wrap { font-size: 32px; color: var(--cyan); margin-bottom: 4px; position: relative; z-index: 1; }
+        .pdf-gate-preview h6 { color: #fff; font-size: 15px; font-weight: 700; margin-bottom: 6px; line-height: 1.4; position: relative; z-index: 1; }
+        .pdf-meta { color: rgba(255,255,255,0.4); font-size: 12px; margin-bottom: 14px; position: relative; z-index: 1; }
+        .pdf-tag { background: rgba(8,145,178,0.15); border: 1px solid rgba(8,145,178,0.35); color: var(--cyan); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; position: relative; z-index: 1; }
+
+        /* RIGHT FORM PANEL */
+        .pdf-gate-form-panel { flex: 1; padding: 44px 40px; overflow-y: auto; position: relative; background: #0f1c2e; }
+        .pdf-gate-close { position: absolute; top: 16px; right: 18px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 18px; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+        .pdf-gate-close:hover { background: rgba(255,255,255,0.12); color: #fff; }
+        .gate-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--cyan); display: block; margin-bottom: 10px; }
+        .pdf-gate-form-panel h3 { font-family:'Space Grotesk',sans-serif; font-size: 26px; color: #fff; margin-bottom: 8px; line-height: 1.2; }
+        .gate-sub { color: rgba(255,255,255,0.45); font-size: 14px; margin-bottom: 22px; line-height: 1.5; }
+        .gate-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+        .gate-field { margin-bottom: 10px; }
+        .gate-field input, .gate-field select {
+            width: 100%; padding: 11px 14px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 10px;
-            color: #fff; font-size: 14px;
-            outline: none; transition: border-color 0.2s;
+            color: #fff; font-size: 14px; font-family: 'Inter', sans-serif;
+            outline: none; transition: border-color 0.2s, background 0.2s;
         }
-        .gate-field input:focus, .gate-field select:focus, .gate-field textarea:focus { border-color: rgba(167,139,250,0.6); }
-        .gate-field select option  { background: #1a2332; }
-        .gate-field textarea        { resize: vertical; min-height: 80px; }
-        .gate-field input.field-err, .gate-field select.field-err, .gate-field textarea.field-err { border-color: #ef4444; }
+        .gate-field input::placeholder { color: rgba(255,255,255,0.3); }
+        .gate-field input:focus, .gate-field select:focus { border-color: rgba(8,145,178,0.5); background: rgba(8,145,178,0.05); }
+        .gate-field select { color: rgba(255,255,255,0.7); }
+        .gate-field select option { background: #1a2332; color: #fff; }
+        .gate-field input.field-err, .gate-field select.field-err { border-color: #ef4444; }
         .gate-submit-btn {
-            width: 100%; padding: 15px;
-            background: #a78bfa; color: #fff;
-            border: none; border-radius: 50px;
-            font-weight: 700; font-size: 15px;
+            width: 100%; padding: 14px;
+            background: linear-gradient(135deg, var(--cyan) 0%, #0e7490 100%);
+            color: #fff; border: none; border-radius: 50px;
+            font-weight: 700; font-size: 15px; font-family: 'Space Grotesk', sans-serif;
             cursor: pointer; transition: all 0.3s;
             display: flex; align-items: center; justify-content: center; gap: 10px;
+            box-shadow: 0 4px 20px rgba(8,145,178,0.3);
         }
-        .gate-submit-btn:hover { background: #8b5cf6; transform: translateY(-1px); box-shadow: 0 8px 25px rgba(139,92,246,0.35); }
-        .gate-privacy { color: rgba(255,255,255,0.3); font-size: 12px; text-align: center; margin-top: 14px; margin-bottom: 0; }
-        .gate-access-msg { display: flex; align-items: flex-start; gap: 12px; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25); border-radius: 12px; padding: 16px; margin-bottom: 24px; }
-        .gate-access-msg i { font-size: 20px; color: #10b981; flex-shrink: 0; }
-        .gate-access-msg p { color: rgba(255,255,255,0.8); font-size: 14px; margin: 0; line-height: 1.5; }
+        .gate-submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(8,145,178,0.45); }
+        .gate-privacy { color: rgba(255,255,255,0.25); font-size: 12px; text-align: center; margin-top: 12px; margin-bottom: 0; }
+        .gate-access-msg { display: flex; align-items: flex-start; gap: 12px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); border-radius: 12px; padding: 14px; margin-bottom: 20px; }
+        .gate-access-msg i { font-size: 18px; color: #10b981; flex-shrink: 0; margin-top: 1px; }
+        .gate-access-msg p { color: rgba(255,255,255,0.75); font-size: 13px; margin: 0; line-height: 1.5; }
         @media (max-width: 640px) {
-            .pdf-gate-modal { flex-direction: column; }
-            .pdf-gate-preview { min-width: unset; padding: 28px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
-            .pdf-gate-form-panel { padding: 28px 22px; }
+            .pdf-gate-modal { flex-direction: column; max-height: 90vh; }
+            .pdf-gate-preview { min-width: unset; max-width: unset; padding: 28px 20px; border-right: none; border-bottom: 1px solid rgba(8,145,178,0.15); flex-direction: row; gap: 16px; text-align: left; }
+            .pdf-doc-mockup { display: none; }
+            .pdf-gate-form-panel { padding: 28px 20px; }
             .gate-row { grid-template-columns: 1fr; }
         }
 
@@ -1345,6 +1402,15 @@
     <div class="pdf-gate-overlay" id="pdfGateOverlay" onclick="closePdfGateOnBg(event)">
         <div class="pdf-gate-modal" role="dialog" aria-modal="true">
             <div class="pdf-gate-preview">
+                <div class="pdf-doc-mockup">
+                    <div class="pdf-doc-line cyan"></div>
+                    <div class="pdf-doc-line"></div>
+                    <div class="pdf-doc-line short"></div>
+                    <div class="pdf-doc-line"></div>
+                    <div class="pdf-doc-line short"></div>
+                    <div class="pdf-doc-line"></div>
+                    <div class="pdf-doc-line short" style="width:40%;"></div>
+                </div>
                 <div class="pdf-icon-wrap"><i class="bi bi-file-earmark-text"></i></div>
                 <h6 id="gatePdfTitle">AI Insights Report</h6>
                 <p class="pdf-meta">SetConnect &middot; AI Insights</p>
@@ -1370,7 +1436,7 @@
                     <span class="gate-eyebrow">Free Download</span>
                     <h3>Get Instant Access</h3>
                     <p class="gate-sub">Share your details to access the full report. All fields are optional.</p>
-                    <form id="pdfGateForm" action="https://formsubmit.co/info@setconnectglobal.com" method="POST" target="pdfFormTarget" onsubmit="submitPdfGate(event)">
+                    <form id="pdfGateForm" action="https://formsubmit.co/nishanthattarki23@gmail.com" method="POST" target="pdfFormTarget" onsubmit="submitPdfGate(event)">
                         <input type="hidden" name="_subject" id="gateFormSubject" value="PDF Report Access">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_template" value="table">
@@ -1395,7 +1461,6 @@
                             <i class="bi bi-file-earmark-arrow-down"></i> Access Report Now
                         </button>
                     </form>
-                    <iframe name="pdfFormTarget" style="display:none;"></iframe>
                     <p class="gate-privacy">&#128274; We respect your privacy. Details are never shared.</p>
                 </div>
             </div>
@@ -1479,15 +1544,46 @@
         }
         function openPdf() { window.open(_pdfUrl, '_blank'); closePdfGate(); }
         function submitPdfGate(e) {
-            // All fields optional — just save what was provided and open the PDF
-            const fn = document.getElementById('gateFirstName').value.trim();
-            const em = document.getElementById('gateEmail').value.trim();
+            e.preventDefault(); // We'll handle submission manually via fetch
+
+            const fn  = document.getElementById('gateFirstName').value.trim();
+            const ln  = document.getElementById('gateLastName').value.trim();
+            const em  = document.getElementById('gateEmail').value.trim();
+            const co  = document.getElementById('gateCompany').value.trim();
+            const int = document.getElementById('gateInterestedIn').value;
+
+            // Save to localStorage if any personal info given
             if (fn || em) {
                 localStorage.setItem('sc_pdf_access', JSON.stringify({ firstName: fn, email: em, ts: new Date().toISOString() }));
             }
+
+            // Always open the PDF immediately — don't block on fetch
             window.open(_pdfUrl, '_blank');
             closePdfGate();
-            // Form still submits naturally to iframe
+
+            // Send notification email via formsubmit AJAX (fire-and-forget)
+            const reportTitle = document.getElementById('gatePdfTitle').textContent;
+            const issueTag    = document.getElementById('gateIssueTag').textContent;
+            const now         = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short' });
+
+            const payload = new FormData();
+            payload.append('_subject',      '📄 Report Accessed — ' + reportTitle + ' (' + issueTag + ')');
+            payload.append('_captcha',      'false');
+            payload.append('_template',     'table');
+            payload.append('Report',        reportTitle + ' — ' + issueTag);
+            payload.append('Accessed At',   now + ' IST');
+            payload.append('First Name',    fn  || '(not provided)');
+            payload.append('Last Name',     ln  || '(not provided)');
+            payload.append('Email',         em  || '(not provided)');
+            payload.append('Company',       co  || '(not provided)');
+            payload.append('Interested In', int || '(not selected)');
+            payload.append('PDF URL',       window.location.origin + '/' + _pdfUrl);
+
+            fetch('https://formsubmit.co/ajax/nishanthattarki23@gmail.com', {
+                method: 'POST',
+                body: payload,
+                headers: { 'Accept': 'application/json' }
+            }).catch(() => {}); // Silent fail — PDF is already open
         }
         document.addEventListener('keydown', e => { if (e.key === 'Escape') { closePdfGate(); dismissTeaser(); } });
 
