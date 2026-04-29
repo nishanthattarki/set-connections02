@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     <img src="${rootPath}images/setconnect-logo.png" alt="SetConnect Globe">
                     Set<span>CONNECT</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navModern" aria-controls="navModern" aria-expanded="false" aria-label="Toggle navigation" style="border: none; background: none; padding: 4px 2px; box-shadow: none;">
-                    <span class="navbar-toggler-icon" style="background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\"); width: 26px; height: 26px; display: block;"></span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navModern" aria-controls="navModern" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navModern">
                     <ul class="navbar-nav nav-modern ms-auto align-items-center">
