@@ -50,7 +50,7 @@
             z-index: 0;
         }
 
-        .hero-video-bg video {
+        .hero-video-bg .hero-vid {
             position: absolute;
             top: 0; left: 0;
             width: 100%;
@@ -60,7 +60,7 @@
             transition: opacity 1.8s ease;
         }
 
-        .hero-video-bg video.hero-vid-active {
+        .hero-video-bg .hero-vid.hero-vid-active {
             opacity: 0.35;
         }
 
@@ -328,6 +328,14 @@
         }
 
         /* Light section overrides */
+        .section-playbook .section-heading {
+            color: #1a2332;
+        }
+
+        .section-playbook .section-label {
+            color: #0891b2;
+        }
+
         .section-value .section-heading {
             color: #1a2332;
         }
@@ -360,6 +368,7 @@
             color: rgba(255, 255, 255, 0.65);
         }
 
+        .section-playbook .section-desc,
         .section-value .section-desc,
         .section-work .section-desc,
         .section-insights .section-desc {
@@ -434,10 +443,10 @@
             margin: 0;
         }
 
-        /* ── 3. PLAYBOOK — Deep Teal ── */
+        /* ── 3. PLAYBOOK — Light ── */
         .section-playbook {
             padding: 100px 0;
-            background: #0d2236;
+            background: #f8f9fa;
             position: relative;
             overflow: hidden;
         }
@@ -519,13 +528,13 @@
         .timeline-step h4 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 22px;
-            color: #ffffff;
+            color: #1a2332;
             text-align: center;
             margin-bottom: 10px;
         }
 
         .timeline-step p {
-            color: rgba(255, 255, 255, 0.55);
+            color: rgba(0, 0, 0, 0.6);
             font-size: 14px;
             text-align: center;
             line-height: 1.6;
@@ -557,12 +566,12 @@
                 align-items: center;
                 gap: 16px;
                 padding: 20px 24px;
-                background: rgba(15, 20, 25, 0.8);
+                background: #ffffff;
                 border: none;
                 width: 100%;
                 cursor: pointer;
                 transition: background 0.3s;
-                color: #fff;
+                color: #1a2332;
             }
 
             .playbook-accordion-item .accordion-trigger:hover {
@@ -588,11 +597,11 @@
                 text-align: left;
                 font-size: 18px;
                 flex-grow: 1;
-                color: #fff;
+                color: #1a2332;
             }
 
             .playbook-accordion-item .accordion-trigger .acc-chevron {
-                color: rgba(255, 255, 255, 0.4);
+                color: rgba(0, 0, 0, 0.4);
                 font-size: 18px;
                 transition: transform 0.3s;
             }
@@ -616,7 +625,7 @@
             .playbook-accordion-item .accordion-body p {
                 text-align: left;
                 margin: 0;
-                color: rgba(255, 255, 255, 0.55);
+                color: rgba(0, 0, 0, 0.6);
             }
 
             .desktop-stepper {
@@ -673,7 +682,7 @@
         }
 
         .orbit-center i { font-size: 26px; color: var(--cyan); margin-bottom: 4px; }
-        .orbit-center span { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 700; }
+        .orbit-center span { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(0,0,0,0.55); font-weight: 700; }
 
         .orbit-node-item {
             position: absolute;
@@ -726,11 +735,11 @@
 
         .orbit-node-item h5 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 13px; font-weight: 600; color: #fff; margin: 0 0 4px;
+            font-size: 13px; font-weight: 600; color: #1a2332; margin: 0 0 4px;
         }
 
         .orbit-node-item p {
-            font-size: 11px; color: rgba(255,255,255,0.5); line-height: 1.4; margin: 0;
+            font-size: 11px; color: rgba(0,0,0,0.6); line-height: 1.4; margin: 0;
         }
 
         @media (max-width: 700px) {
@@ -1067,7 +1076,7 @@
         .cta-fullbleed {
             position: relative;
             padding: 120px 0;
-            background: #ffffff;
+            background: #0a192f;
             text-align: center;
             overflow: hidden;
         }
@@ -1084,14 +1093,14 @@
         .cta-fullbleed h2 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 48px;
-            color: #1a2332;
+            color: #ffffff;
             margin-bottom: 20px;
             font-weight: 700;
         }
 
         .cta-fullbleed p {
             font-size: 18px;
-            color: rgba(0, 0, 0, 0.6);
+            color: rgba(255, 255, 255, 0.65);
             max-width: 560px;
             margin: 0 auto 40px;
             line-height: 1.7;
@@ -1240,24 +1249,65 @@
     <!-- ══════════════════════════════════════════════
          1. HERO — FULL-SCREEN VIDEO BACKGROUND
          ══════════════════════════════════════════════ -->
+    <style>
+        .hero-slide-content {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            transform: translateY(-50%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 1.2s ease-in-out;
+            z-index: 2;
+        }
+        .hero-slide-content.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
     <section id="home" class="hero-home">
         <div class="hero-video-bg">
-            <video autoplay muted loop playsinline class="hero-vid">
+            <video autoplay muted loop playsinline class="hero-vid hero-vid-active">
                 <source src="images/AI_Video_Generation_Request_Fulfilled (1).mp4" type="video/mp4">
             </video>
-            <video muted loop playsinline class="hero-vid">
+            <video autoplay muted loop playsinline class="hero-vid">
                 <source src="videos/finalvide.mp4" type="video/mp4">
             </video>
+            <img src="C:/Users/OM/.gemini/antigravity/brain/82a4834a-2a9e-4c1e-a660-39b49c8501c8/premium_enterprise_ai_scale_1777358336954.png" class="hero-vid" style="object-fit: cover; width: 100%; height: 100%;" alt="Scale AI">
         </div>
-        <div class="container">
-            <div data-aos="fade-up">
-                <h1>Turn AI into <span>Measurable Business Outcomes</span></h1>
-                <p class="hero-sub">We help organizations identify high-value AI opportunities, validate them with
-                    data, and scale them across operations.</p>
-                <div class="hero-cta-group">
-                    <a href="contact.html" class="btn-primary-bain">Book a Discovery Session <i
-                            class="bi bi-arrow-right"></i></a>
-                    <a href="work-and-connections.html" class="btn-outline-light-custom">See Our Work</a>
+        <div class="container position-relative" style="height: 100%; z-index: 2;">
+            <!-- Slide 1 -->
+            <div class="hero-slide-content active">
+                <div data-aos="fade-up">
+                    <h1>Turn AI into <span>Measurable Outcomes</span></h1>
+                    <p class="hero-sub">Identify high-value opportunities, validate with real data, and deliver impact tied to revenue, cost, and performance.</p>
+                    <div class="hero-cta-group">
+                        <a href="contact.html" class="btn-primary-bain">Book a Discovery Session <i class="bi bi-arrow-right"></i></a>
+                        <a href="work-and-connections.html" class="btn-outline-light-custom">See Our Work</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="hero-slide-content">
+                <div>
+                    <h1>Optimize Flow with AI +<br><span>Constraints</span></h1>
+                    <p class="hero-sub">Apply AI with Theory of Constraints to pinpoint bottlenecks, improve throughput, and accelerate end-to-end performance.</p>
+                    <div class="hero-cta-group">
+                        <a href="contact.html" class="btn-primary-bain">Book a Discovery Session <i class="bi bi-arrow-right"></i></a>
+                        <a href="work-and-connections.html" class="btn-outline-light-custom">See Our Work</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="hero-slide-content">
+                <div>
+                    <h1>Scale AI Across the <span>Enterprise</span></h1>
+                    <p class="hero-sub">Move beyond pilots - embed AI into core processes, decisions, and workflows to drive sustained, organization-wide value.</p>
+                    <div class="hero-cta-group">
+                        <a href="contact.html" class="btn-primary-bain">Book a Discovery Session <i class="bi bi-arrow-right"></i></a>
+                        <a href="work-and-connections.html" class="btn-outline-light-custom">See Our Work</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1265,6 +1315,7 @@
         <div class="hero-vid-dots" id="heroDots">
             <div class="hero-vid-dot active" onclick="switchHeroVid(0)"></div>
             <div class="hero-vid-dot" onclick="switchHeroVid(1)"></div>
+            <div class="hero-vid-dot" onclick="switchHeroVid(2)"></div>
         </div>
     </section>
 
@@ -1321,7 +1372,7 @@
                                 <p style="color: rgba(255, 255, 255, 0.65); font-size: 13px; line-height: 1.6; margin-bottom: 16px;">SetConnect proudly presented at the 2026 INFORMS Analytics+ Conference — showcasing how we translate AI research into measurable business impact for global enterprises.</p>
                             </div>
                             <div style="text-align: right; margin-top: auto;">
-                                <a href="certificates%26extras/[Certificate%20of%20Presentation]%202026%20INFORMS%20Analytics+%20Conference.pdf" target="_blank" style="color: var(--cyan); font-weight: 600; text-decoration: none; font-size: 14px;">Certificate &rarr;</a>
+                                <a href="certificates%26extras/[Certificate%20of%20Presentation]%202026%20INFORMS%20Analytics+%20Conference.pdf" target="_blank" style="color: var(--cyan); font-weight: 600; text-decoration: none; font-size: 14px;">AI Driven Optimization &rarr;</a>
                             </div>
                         </div>
                     </div>
@@ -1333,32 +1384,184 @@
     <!-- ══════════════════════════════════════════════
          2. IMMEDIATE VALUE PROOF
          ══════════════════════════════════════════════ -->
-    <section class="section-value" id="value-proof">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
+    <style>
+        .marquee-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+        .marquee-content {
+            display: flex;
+            gap: 24px;
+            animation: scrollMarquee 35s linear infinite;
+        }
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+        @keyframes scrollMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Scrolls exactly half the width since we duplicate items */
+        }
+        .marquee-item {
+            flex: 0 0 350px;
+        }
+        /* Fade edges */
+        .marquee-wrapper::before, .marquee-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+        }
+        .marquee-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, #f8f9fa, transparent);
+        }
+        .marquee-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, #f8f9fa, transparent);
+        }
+    </style>
+    <section class="section-value" id="value-proof" style="overflow: hidden;">
+        <div class="container mb-5">
+            <div class="text-center" data-aos="fade-up">
                 <span class="section-label">Industries We Serve</span>
-                <h2 class="section-heading">Where AI is Delivering Real Business Value</h2>
+                <h2 class="section-heading">Where AI Delivers Measurable Business Impact</h2>
             </div>
-            <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-md-4">
+        </div>
+        <div class="marquee-wrapper" data-aos="fade-up" data-aos-delay="100">
+            <!-- First Set -->
+            <div class="marquee-content">
+                <div class="marquee-item">
                     <div class="value-card">
                         <div class="value-icon"><i class="bi bi-gear-wide-connected"></i></div>
                         <h4>Manufacturing</h4>
-                        <p>Improving throughput, yield optimization, and intelligent production scheduling.</p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From planning to execution</p>
+                        <p>Drive throughput, improve yield, and optimize production scheduling using AI-powered decision systems embedded into shop-floor operations.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="marquee-item">
                     <div class="value-card">
                         <div class="value-icon"><i class="bi bi-lightning-charge"></i></div>
                         <h4>Energy</h4>
-                        <p>AI-powered demand forecasting and operational optimization across the value chain.</p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From forecasting to optimization</p>
+                        <p>Enhance demand forecasting, optimize asset performance, and enable real-time operational decisions across the energy value chain.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="marquee-item">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="bi bi-box-seam"></i></div>
+                        <h4>Distribution</h4>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From network to delivery</p>
+                        <p>Optimize inventory, improve demand-supply alignment, and enhance logistics efficiency through AI-driven planning and network optimization.</p>
+                    </div>
+                </div>
+                <div class="marquee-item">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="bi bi-bank"></i></div>
+                        <h4>Finance</h4>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From data to decisions</p>
+                        <p>Strengthen risk management, improve forecasting accuracy, and enable faster, data-driven decision-making across financial operations.</p>
+                    </div>
+                </div>
+                <div class="marquee-item">
                     <div class="value-card">
                         <div class="value-icon"><i class="bi bi-diagram-3"></i></div>
                         <h4>Enterprise</h4>
-                        <p>Smarter decision systems and streamlined operations at scale.</p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From insight to action</p>
+                        <p>Build intelligent decision systems and streamline end-to-end operations—unlocking speed, consistency, and scalability across functions.</p>
+                    </div>
+                </div>
+
+                <!-- Duplicated Set for Infinite Scroll -->
+                <div class="marquee-item">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="bi bi-gear-wide-connected"></i></div>
+                        <h4>Manufacturing</h4>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From planning to execution</p>
+                        <p>Drive throughput, improve yield, and optimize production scheduling using AI-powered decision systems embedded into shop-floor operations.</p>
+                    </div>
+                </div>
+                <div class="marquee-item">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="bi bi-lightning-charge"></i></div>
+                        <h4>Energy</h4>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From forecasting to optimization</p>
+                        <p>Enhance demand forecasting, optimize asset performance, and enable real-time operational decisions across the energy value chain.</p>
+                    </div>
+                </div>
+                <div class="marquee-item">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="bi bi-box-seam"></i></div>
+                        <h4>Distribution</h4>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From network to delivery</p>
+                        <p>Optimize inventory, improve demand-supply alignment, and enhance logistics efficiency through AI-driven planning and network optimization.</p>
+                    </div>
+                </div>
+                <div class="marquee-item">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="bi bi-bank"></i></div>
+                        <h4>Finance</h4>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From data to decisions</p>
+                        <p>Strengthen risk management, improve forecasting accuracy, and enable faster, data-driven decision-making across financial operations.</p>
+                    </div>
+                </div>
+                <div class="marquee-item">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="bi bi-diagram-3"></i></div>
+                        <h4>Enterprise</h4>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From insight to action</p>
+                        <p>Build intelligent decision systems and streamline end-to-end operations—unlocking speed, consistency, and scalability across functions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Work Section Removed as per request -->
+
+    <!-- ══════════════════════════════════════════════
+         4.5 FEATURED VIDEO — AI MEETS TOC
+         ══════════════════════════════════════════════ -->
+    <section class="section-featured-video" id="featured-video">
+        <div class="featured-video-wrapper">
+            <!-- Background: same video at low opacity for cinematic feel -->
+            <div class="featured-video-bg">
+                <video autoplay muted loop playsinline>
+                    <source src="videos/finalvide.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="container">
+                <div class="featured-video-content" data-aos="fade-up">
+                    <!-- Playable Video -->
+                    <div class="featured-video-player">
+                        <div class="video-container">
+                            <video controls preload="metadata" poster="">
+                                <source src="videos/finalvide.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <!-- Info Panel -->
+                    <div class="featured-video-info">
+                        <div class="video-label">
+                            <i class="bi bi-play-circle-fill"></i> Featured Video
+                        </div>
+                        <h3>AI Meets Theory of Constraints</h3>
+                        <div class="video-subtitle">Founder & CEO</div>
+                        <div class="video-guest">Dr. Ramesh Rajagopalan<br>
+                            <span
+                                style="font-size: 16px; color: rgba(255,255,255,0.45); font-weight: 300;">with</span><br>
+                            Rami Goldratt
+                        </div>
+                        <p class="video-desc">CEO of Goldratt Consulting — exploring how AI and the Theory of
+                            Constraints converge to deliver breakthrough business performance.</p>
                     </div>
                 </div>
             </div>
@@ -1367,9 +1570,6 @@
 
     <hr class="thin-divider">
 
-    <!-- ══════════════════════════════════════════════
-         3. AI SUCCESS PLAYBOOK
-         ══════════════════════════════════════════════ -->
     <section class="section-playbook" id="playbook">
         <div class="container">
             <div class="text-center" data-aos="fade-up">
@@ -1506,94 +1706,6 @@
     </section>
 
     <!-- ══════════════════════════════════════════════
-         4. SELECTED WORK
-         ══════════════════════════════════════════════ -->
-    <section class="section-work" id="selected-work">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <span class="section-label">Client Impact</span>
-                <h2 class="section-heading">Selected Work</h2>
-            </div>
-            <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-lg-4 col-md-6">
-                    <a href="casestudies/zf-automotive.html" class="work-card">
-                        <div class="work-card-body">
-                            <img src="images/clientlogos/zf group.webp" alt="ZF" class="work-card-logo">
-                            <h4>ZF</h4>
-                            <p>Improving AI-driven decision-making in automotive systems.</p>
-                            <span class="work-card-link">View Case Study <i class="bi bi-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <a href="casestudies/lucas-tvs.html" class="work-card">
-                        <div class="work-card-body">
-                            <img src="images/clientlogos/Lucas TVS Driven.webp" alt="Lucas TVS" class="work-card-logo">
-                            <h4>Lucas TVS</h4>
-                            <p>Optimizing procurement and supply chain with AI.</p>
-                            <span class="work-card-link">View Case Study <i class="bi bi-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <a href="casestudies/vedanta.html" class="work-card">
-                        <div class="work-card-body">
-                            <img src="images/clientlogos/vedanta.webp" alt="Vedanta" class="work-card-logo">
-                            <h4>Vedanta</h4>
-                            <p>Scaling AI across enterprise operations.</p>
-                            <span class="work-card-link">View Case Study <i class="bi bi-arrow-right"></i></span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════
-         4.5 FEATURED VIDEO — AI MEETS TOC
-         ══════════════════════════════════════════════ -->
-    <section class="section-featured-video" id="featured-video">
-        <div class="featured-video-wrapper">
-            <!-- Background: same video at low opacity for cinematic feel -->
-            <div class="featured-video-bg">
-                <video autoplay muted loop playsinline>
-                    <source src="videos/finalvide.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="container">
-                <div class="featured-video-content" data-aos="fade-up">
-                    <!-- Playable Video -->
-                    <div class="featured-video-player">
-                        <div class="video-container">
-                            <video controls preload="metadata" poster="">
-                                <source src="videos/finalvide.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-
-                    <!-- Info Panel -->
-                    <div class="featured-video-info">
-                        <div class="video-label">
-                            <i class="bi bi-play-circle-fill"></i> Featured Video
-                        </div>
-                        <h3>AI Meets Theory of Constraints</h3>
-                        <div class="video-subtitle">Founder & CEO</div>
-                        <div class="video-guest">Dr. Ramesh Rajagopalan<br>
-                            <span
-                                style="font-size: 16px; color: rgba(255,255,255,0.45); font-weight: 300;">with</span><br>
-                            Rami Goldratt
-                        </div>
-                        <p class="video-desc">CEO of Goldratt Consulting — exploring how AI and the Theory of
-                            Constraints converge to deliver breakthrough business performance.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════
          6. FINAL CTA
          ══════════════════════════════════════════════ -->
     <section class="cta-fullbleed" id="cta-final">
@@ -1606,7 +1718,7 @@
             <div class="cta-buttons-group">
                 <a href="contact.html" class="btn-primary-bain">Book a Discovery Conversation <i
                         class="bi bi-arrow-right"></i></a>
-                <a href="work-and-connections.html" class="btn-outline-light-custom" style="border-color: rgba(0, 0, 0, 0.2); color: #1a2332;">See Client Results</a>
+                <a href="casestudies/vedanta.html" class="btn-outline-light-custom">See Client Results</a>
             </div>
         </div>
     </section>
@@ -1639,35 +1751,43 @@
 
         /* ── Hero Video Cycling ── */
         (function () {
-            const vids  = document.querySelectorAll('.hero-video-bg .hero-vid');
-            const dots  = document.querySelectorAll('#heroDots .hero-vid-dot');
-            if (!vids.length) return;
+            const vids = document.querySelectorAll('.hero-video-bg .hero-vid');
+            const slides = document.querySelectorAll('.hero-slide-content');
+            const dots = document.querySelectorAll('#heroDots .hero-vid-dot');
+            if (!vids.length || !slides.length) return;
             let cur = 0;
             let timer;
 
             function showVid(idx) {
                 vids.forEach((v, i) => v.classList.toggle('hero-vid-active', i === idx));
+                slides.forEach((s, i) => s.classList.toggle('active', i === idx));
                 dots.forEach((d, i) => d.classList.toggle('active', i === idx));
             }
 
             function next() {
                 cur = (cur + 1) % vids.length;
-                vids[cur].currentTime = 0;
-                vids[cur].play().catch(() => {});
+                if (vids[cur].play) {
+                    vids[cur].currentTime = 0;
+                    vids[cur].play().catch(() => {});
+                }
                 showVid(cur);
             }
 
             window.switchHeroVid = function(idx) {
                 clearInterval(timer);
                 cur = idx;
-                vids[cur].currentTime = 0;
-                vids[cur].play().catch(() => {});
+                if (vids[cur].play) {
+                    vids[cur].currentTime = 0;
+                    vids[cur].play().catch(() => {});
+                }
                 showVid(cur);
                 timer = setInterval(next, 9000);
             };
 
             // Init first video
-            vids[0].play().catch(() => {});
+            if (vids[0].play) {
+                vids[0].play().catch(() => {});
+            }
             showVid(0);
             timer = setInterval(next, 9000);
         })();

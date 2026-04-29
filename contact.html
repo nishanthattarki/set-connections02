@@ -222,10 +222,22 @@
                 <div class="col-lg-8">
                     <div class="contact-form">
                         <h3 style="color: #ffffff; margin-bottom: 30px;">Send Us a Message</h3>
-                        <form action="https://formsubmit.co/info@setconnectglobal.com" method="POST">
+
+                        <!-- Success message (hidden by default) -->
+                        <div id="formSuccess" style="display:none; background: rgba(8,145,178,0.15); border: 1px solid var(--cyan); border-radius: 12px; padding: 24px; text-align: center; margin-bottom: 20px;">
+                            <i class="bi bi-check-circle-fill" style="font-size: 40px; color: var(--cyan); display: block; margin-bottom: 12px;"></i>
+                            <h4 style="color:#ffffff; margin-bottom: 8px;">Message Sent!</h4>
+                            <p style="color: rgba(255,255,255,0.8); margin: 0;">Thank you for reaching out. We'll get back to you within 24–48 hours.</p>
+                        </div>
+
+                        <!-- Error message (hidden by default) -->
+                        <div id="formError" style="display:none; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.5); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
+                            <p style="color: #fca5a5; margin: 0;"><i class="bi bi-exclamation-triangle me-2"></i>Something went wrong. Please email us directly at <a href="mailto:info@setconnectglobal.com" style="color:var(--cyan);">info@setconnectglobal.com</a></p>
+                        </div>
+
+                        <form id="contactForm" action="https://formsubmit.co/ajax/info@setconnectglobal.com" method="POST">
                             <!-- Formsubmit config -->
-                            <input type="hidden" name="_subject"
-                                value="New Contact Form Submission — SetConnect Website">
+                            <input type="hidden" name="_subject" value="New Contact Form Submission — SetConnect Website">
                             <input type="hidden" name="_captcha" value="false">
                             <input type="hidden" name="_template" value="table">
                             <input type="text" name="_honey" style="display:none">
@@ -241,8 +253,7 @@
                                 </div>
                             </div>
                             <label>Email Address</label>
-                            <input type="email" name="email" class="form-control" placeholder="john.doe@company.com"
-                                required>
+                            <input type="email" name="email" class="form-control" placeholder="john.doe@company.com" required>
 
                             <label>Company Name</label>
                             <input type="text" name="company" class="form-control" placeholder="Your Company">
@@ -257,11 +268,11 @@
                             </select>
 
                             <label>Message</label>
-                            <textarea name="message" class="form-control" rows="5"
-                                placeholder="Tell us about your AI transformation goals..."></textarea>
+                            <textarea name="message" class="form-control" rows="5" placeholder="Tell us about your AI transformation goals..."></textarea>
 
                             <button type="submit" class="btn-cyan btn-lg w-100 mt-3" id="contactSubmitBtn">
-                                <i class="bi bi-send me-2"></i>Send Message
+                                <i class="bi bi-send me-2" id="btnIcon"></i>
+                                <span id="btnText">Send Message</span>
                             </button>
                         </form>
 
@@ -282,7 +293,60 @@
             else h.classList.remove('scrolled');
         });
 
+        // AJAX form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
 
+                const btn = document.getElementById('contactSubmitBtn');
+                const btnIcon = document.getElementById('btnIcon');
+                const btnText = document.getElementById('btnText');
+                const successDiv = document.getElementById('formSuccess');
+                const errorDiv = document.getElementById('formError');
+
+                // Loading state
+                btn.disabled = true;
+                btnIcon.className = 'bi bi-arrow-repeat me-2';
+                btnIcon.style.animation = 'spin 1s linear infinite';
+                btnText.textContent = 'Sending...';
+
+                // Add spin keyframe if not present
+                if (!document.getElementById('spinStyle')) {
+                    const s = document.createElement('style');
+                    s.id = 'spinStyle';
+                    s.textContent = '@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }';
+                    document.head.appendChild(s);
+                }
+
+                try {
+                    const formData = new FormData(contactForm);
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        // Show success
+                        contactForm.style.display = 'none';
+                        successDiv.style.display = 'block';
+                        errorDiv.style.display = 'none';
+                    } else {
+                        throw new Error('Server error');
+                    }
+                } catch (err) {
+                    // Show error
+                    errorDiv.style.display = 'block';
+                    successDiv.style.display = 'none';
+                    // Restore button
+                    btn.disabled = false;
+                    btnIcon.className = 'bi bi-send me-2';
+                    btnIcon.style.animation = '';
+                    btnText.textContent = 'Send Message';
+                }
+            });
+        }
     </script>
 </body>
 </html>
