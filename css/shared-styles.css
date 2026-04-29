@@ -684,3 +684,10 @@ h6 {
     padding-left: 20px !important;
     padding-right: 20px !important;
 }
+
+/* Clean hamburger — no border, no focus ring */
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
