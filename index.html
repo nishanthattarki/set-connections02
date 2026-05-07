@@ -52,7 +52,8 @@
 
         .hero-video-bg .hero-vid {
             position: absolute;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -76,10 +77,11 @@
         }
 
         .hero-vid-dot {
-            width: 8px; height: 8px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.35);
-            border: 1px solid rgba(255,255,255,0.5);
+            background: rgba(255, 255, 255, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             transition: all 0.4s ease;
             cursor: pointer;
         }
@@ -87,7 +89,7 @@
         .hero-vid-dot.active {
             background: var(--cyan);
             border-color: var(--cyan);
-            box-shadow: 0 0 10px rgba(8,145,178,0.7);
+            box-shadow: 0 0 10px rgba(8, 145, 178, 0.7);
             width: 22px;
             border-radius: 4px;
         }
@@ -659,30 +661,45 @@
 
         .orbit-svg-bg {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
         }
 
         .orbit-center {
             position: absolute;
-            top: 50%; left: 50%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            width: 110px; height: 110px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            background: linear-gradient(135deg, rgba(8,145,178,0.18), rgba(8,145,178,0.05));
-            border: 2px solid rgba(8,145,178,0.5);
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.18), rgba(8, 145, 178, 0.05));
+            border: 2px solid rgba(8, 145, 178, 0.5);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             z-index: 3;
-            box-shadow: 0 0 40px rgba(8,145,178,0.2), 0 0 80px rgba(8,145,178,0.08);
+            box-shadow: 0 0 40px rgba(8, 145, 178, 0.2), 0 0 80px rgba(8, 145, 178, 0.08);
         }
 
-        .orbit-center i { font-size: 26px; color: var(--cyan); margin-bottom: 4px; }
-        .orbit-center span { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(0,0,0,0.55); font-weight: 700; }
+        .orbit-center i {
+            font-size: 26px;
+            color: var(--cyan);
+            margin-bottom: 4px;
+        }
+
+        .orbit-center span {
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(0, 0, 0, 0.55);
+            font-weight: 700;
+        }
 
         .orbit-node-item {
             position: absolute;
@@ -696,27 +713,50 @@
         /* Node circle center targets: Top(260,110) Right(410,260) Bottom(260,410) Left(110,260) */
         /* orb-circle is 80px, so top-of-circle = circle-center - 40 */
         /* node top = circle-center-y - 40 */
-        .orbit-node-item.n-top    { top: 70px;  left: 205px; }
-        .orbit-node-item.n-right  { top: 220px; left: 365px; }
-        .orbit-node-item.n-bottom { top: 370px; left: 205px; }
-        .orbit-node-item.n-left   { top: 220px; left: 40px;  }
+        .orbit-node-item.n-top {
+            top: 70px;
+            left: 205px;
+        }
+
+        .orbit-node-item.n-right {
+            top: 220px;
+            left: 365px;
+        }
+
+        .orbit-node-item.n-bottom {
+            top: 370px;
+            left: 205px;
+        }
+
+        .orbit-node-item.n-left {
+            top: 220px;
+            left: 40px;
+        }
 
         .orbit-node-item:hover .orb-circle {
             background: var(--cyan);
             transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(8,145,178,0.5);
+            box-shadow: 0 0 30px rgba(8, 145, 178, 0.5);
         }
 
-        .orbit-node-item:hover .orb-num  { color: #fff; }
-        .orbit-node-item:hover .orb-phase { color: rgba(255,255,255,0.8); }
+        .orbit-node-item:hover .orb-num {
+            color: #fff;
+        }
+
+        .orbit-node-item:hover .orb-phase {
+            color: rgba(255, 255, 255, 0.8);
+        }
 
         .orb-circle {
-            width: 80px; height: 80px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
-            background: rgba(13,34,54,0.95);
+            background: rgba(13, 34, 54, 0.95);
             border: 2px solid var(--cyan);
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             margin: 0 auto 10px;
             transition: all 0.35s ease;
             backdrop-filter: blur(10px);
@@ -724,26 +764,41 @@
 
         .orb-num {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 20px; font-weight: 700;
-            color: var(--cyan); line-height: 1; transition: color 0.3s;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--cyan);
+            line-height: 1;
+            transition: color 0.3s;
         }
 
         .orb-phase {
-            font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase;
-            color: rgba(255,255,255,0.3); font-weight: 600; transition: color 0.3s;
+            font-size: 8px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+            transition: color 0.3s;
         }
 
         .orbit-node-item h5 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 13px; font-weight: 600; color: #1a2332; margin: 0 0 4px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a2332;
+            margin: 0 0 4px;
         }
 
         .orbit-node-item p {
-            font-size: 11px; color: rgba(0,0,0,0.6); line-height: 1.4; margin: 0;
+            font-size: 11px;
+            color: rgba(0, 0, 0, 0.6);
+            line-height: 1.4;
+            margin: 0;
         }
 
         @media (max-width: 700px) {
-            .playbook-orbit-wrap { display: none !important; }
+            .playbook-orbit-wrap {
+                display: none !important;
+            }
         }
 
         /* ── THIN DIVIDER (dark) ── */
@@ -1223,17 +1278,21 @@
             .update-card {
                 flex-direction: column-reverse;
             }
+
             .update-image-wrapper {
                 flex: none;
                 width: 100%;
                 min-height: 280px;
             }
+
             .update-image-wrapper::before {
                 background: linear-gradient(0deg, #1a2332 0%, transparent 40%);
             }
+
             .update-content {
                 padding: 40px;
             }
+
             .update-content h3 {
                 font-size: 26px;
             }
@@ -1261,6 +1320,7 @@
             transition: all 1.2s ease-in-out;
             z-index: 2;
         }
+
         .hero-slide-content.active {
             opacity: 1;
             visibility: visible;
@@ -1278,7 +1338,8 @@
             </video>
             <!-- AI Video 3: Free AI tech video from Pexels -->
             <video autoplay muted loop playsinline class="hero-vid">
-                <source src="https://videos.pexels.com/video-files/3129957/3129957-hd_1920_1080_25fps.mp4" type="video/mp4">
+                <source src="https://videos.pexels.com/video-files/3129957/3129957-hd_1920_1080_25fps.mp4"
+                    type="video/mp4">
             </video>
         </div>
         <div class="container position-relative" style="height: 100%; z-index: 2;">
@@ -1286,10 +1347,12 @@
             <div class="hero-slide-content active">
                 <div data-aos="fade-up">
                     <h1>Turn AI into <span>Measurable Outcomes</span></h1>
-                    <p class="hero-sub">Identify high-value opportunities, validate with real data, and deliver impact tied to revenue, cost, and performance.</p>
+                    <p class="hero-sub">Identify high-value opportunities, validate with real data, and deliver impact
+                        tied to revenue, cost, and performance.</p>
                     <div class="hero-cta-group">
-                        <a href="contact.html" class="btn-primary-bain">Book a Discovery Session <i class="bi bi-arrow-right"></i></a>
-                        <a href="work-and-connections.html" class="btn-outline-light-custom">See Our Work</a>
+                        <a href="contact.html" class="btn-primary-bain">Book a Discovery Session <i
+                                class="bi bi-arrow-right"></i></a>
+                        <a href="see-our-work.html" class="btn-outline-light-custom">See Our Work</a>
                     </div>
                 </div>
             </div>
@@ -1297,10 +1360,12 @@
             <div class="hero-slide-content">
                 <div>
                     <h1>Optimize Flow with AI +<br><span>Constraints</span></h1>
-                    <p class="hero-sub">Apply AI with Theory of Constraints to pinpoint bottlenecks, improve throughput, and accelerate end-to-end performance.</p>
+                    <p class="hero-sub">Apply AI with Theory of Constraints to pinpoint bottlenecks, improve throughput,
+                        and accelerate end-to-end performance.</p>
                     <div class="hero-cta-group">
-                        <a href="contact.html" class="btn-primary-bain">Book a Discovery Session <i class="bi bi-arrow-right"></i></a>
-                        <a href="work-and-connections.html" class="btn-outline-light-custom">See Our Work</a>
+                        <a href="contact.html" class="btn-primary-bain">Book a Discovery Session <i
+                                class="bi bi-arrow-right"></i></a>
+                        <a href="see-our-work.html" class="btn-outline-light-custom">See Our Work</a>
                     </div>
                 </div>
             </div>
@@ -1308,10 +1373,12 @@
             <div class="hero-slide-content">
                 <div>
                     <h1>Scale AI Across the <span>Enterprise</span></h1>
-                    <p class="hero-sub">Move beyond pilots - embed AI into core processes, decisions, and workflows to drive sustained, organization-wide value.</p>
+                    <p class="hero-sub">Move beyond pilots - embed AI into core processes, decisions, and workflows to
+                        drive sustained, organization-wide value.</p>
                     <div class="hero-cta-group">
-                        <a href="contact.html" class="btn-primary-bain">Book a Discovery Session <i class="bi bi-arrow-right"></i></a>
-                        <a href="work-and-connections.html" class="btn-outline-light-custom">See Our Work</a>
+                        <a href="contact.html" class="btn-primary-bain">Book a Discovery Session <i
+                                class="bi bi-arrow-right"></i></a>
+                        <a href="see-our-work.html" class="btn-outline-light-custom">See Our Work</a>
                     </div>
                 </div>
             </div>
@@ -1328,63 +1395,195 @@
          POST HERO — CREDIBILITY & RECENT UPDATES (STACKED)
          ══════════════════════════════════════════════ -->
     <!-- Credibility Strip (White Background) -->
-    <section class="section-credibility" style="background: #ffffff; padding: 60px 0; border-bottom: 1px solid rgba(0,0,0,0.06);">
+    <section class="section-credibility"
+        style="background: #ffffff; padding: 60px 0; border-bottom: 1px solid rgba(0,0,0,0.06);">
         <div class="container text-center">
-            <div class="strip-label" style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(0, 0, 0, 0.4); font-weight: 700; margin-bottom: 32px;">Trusted by Industry Leaders</div>
-            <div class="credibility-logos" style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px;">
+            <div class="strip-label"
+                style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(0, 0, 0, 0.4); font-weight: 700; margin-bottom: 32px;">
+                Trusted by Industry Leaders</div>
+            <div class="credibility-logos"
+                style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px;">
                 <div class="cred-item" style="border:none; padding: 10px 20px;">
-                    <span class="cred-name" style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: rgba(0, 0, 0, 0.6); text-transform: uppercase;">SunPower</span>
-                    <div class="cred-tooltip">A leading solar energy provider. SetConnect delivered AI-driven operational insights supporting their renewable energy mission.</div>
+                    <span class="cred-name"
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: rgba(0, 0, 0, 0.6); text-transform: uppercase;">SunPower</span>
+                    <div class="cred-tooltip">A leading solar energy provider. SetConnect delivered AI-driven
+                        operational insights supporting their renewable energy mission.</div>
                 </div>
                 <div class="cred-item" style="border:none; padding: 10px 20px;">
-                    <span class="cred-name" style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: rgba(0, 0, 0, 0.6); text-transform: uppercase;">ZF Group</span>
-                    <div class="cred-tooltip">Global automotive supplier. SetConnect designed AI-powered defect detection and predictive quality models for their manufacturing operations.</div>
+                    <span class="cred-name"
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: rgba(0, 0, 0, 0.6); text-transform: uppercase;">ZF
+                        Group</span>
+                    <div class="cred-tooltip">Global automotive supplier. SetConnect designed AI-powered defect
+                        detection and predictive quality models for their manufacturing operations.</div>
                 </div>
                 <div class="cred-item" style="border:none; padding: 10px 20px;">
-                    <span class="cred-name" style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: rgba(0, 0, 0, 0.6); text-transform: uppercase;">Lucas TVS</span>
-                    <div class="cred-tooltip">Automotive aftermarket leader. SetConnect built AI solutions for inventory forecasting and procurement optimization across their supply chain.</div>
+                    <span class="cred-name"
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: rgba(0, 0, 0, 0.6); text-transform: uppercase;">Lucas
+                        TVS</span>
+                    <div class="cred-tooltip">Automotive aftermarket leader. SetConnect built AI solutions for inventory
+                        forecasting and procurement optimization across their supply chain.</div>
                 </div>
                 <div class="cred-item" style="border:none; padding: 10px 20px;">
-                    <span class="cred-name" style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: rgba(0, 0, 0, 0.6); text-transform: uppercase;">Vedanta</span>
-                    <div class="cred-tooltip">Diversified metals and mining giant. SetConnect delivered an executive AI immersion program and scoped 15+ high-impact AI initiatives.</div>
+                    <span class="cred-name"
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: rgba(0, 0, 0, 0.6); text-transform: uppercase;">Vedanta</span>
+                    <div class="cred-tooltip">Diversified metals and mining giant. SetConnect delivered an executive AI
+                        immersion program and scoped 15+ high-impact AI initiatives.</div>
                 </div>
                 <div class="cred-item" style="border:none; padding: 10px 20px;">
-                    <span class="cred-name" style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: rgba(0, 0, 0, 0.6); text-transform: uppercase;">AWS Partner</span>
-                    <div class="cred-tooltip">Certified AWS technology partner — bringing enterprise-grade cloud and AI infrastructure to every client engagement.</div>
+                    <span class="cred-name"
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: rgba(0, 0, 0, 0.6); text-transform: uppercase;">AWS
+                        Partner</span>
+                    <div class="cred-tooltip">Certified AWS technology partner — bringing enterprise-grade cloud and AI
+                        infrastructure to every client engagement.</div>
                 </div>
                 <div class="cred-item" style="border:none; padding: 10px 20px;">
-                    <span class="cred-name" style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: rgba(0, 0, 0, 0.6); text-transform: uppercase;">Snowflake</span>
-                    <div class="cred-tooltip">Data cloud technology partner. SetConnect leverages Snowflake's platform to deliver scalable, analytics-ready data foundations for AI.</div>
+                    <span class="cred-name"
+                        style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: rgba(0, 0, 0, 0.6); text-transform: uppercase;">Snowflake</span>
+                    <div class="cred-tooltip">Data cloud technology partner. SetConnect leverages Snowflake's platform
+                        to deliver scalable, analytics-ready data foundations for AI.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Recent Updates (Dark Background) -->
-    <section class="section-recent-updates" style="background: #041527; padding: 60px 0;">
-        <div class="container text-center">
-            <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <div class="update-card" data-aos="fade-up" style="display: flex; flex-direction: row; background: linear-gradient(135deg, #1a2332 0%, #162030 100%); border-radius: 16px; overflow: hidden; border: 1px solid rgba(8, 145, 178, 0.2); text-align: left; align-items: stretch;">
-                        <div class="update-image-wrapper" style="flex: 0 0 40%; position: relative;">
-                            <!-- We use absolute positioning for the image to fill the height regardless of text content -->
-                            <img src="certificates%26extras/image.jpg" alt="2026 INFORMS Analytics+ Conference Presentation" style="position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: cover; object-position: left center;">
-                        </div>
-                        <div class="update-content" style="flex: 1; padding: 24px 30px; display: flex; flex-direction: column;">
-                            <div>
-                                <span class="update-eyebrow" style="display: inline-flex; align-items: center; gap: 6px; background: rgba(8, 145, 178, 0.12); border: 1px solid rgba(8, 145, 178, 0.3); color: var(--cyan); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 50px; margin-bottom: 12px;"><i class="bi bi-award"></i> Recent Updates</span>
-                                <h3 style="font-family: 'Space Grotesk', sans-serif; color: #ffffff; font-size: 20px; font-weight: 700; margin-bottom: 10px; line-height: 1.3;">2026 INFORMS Analytics+ Conference</h3>
-                                <p style="color: rgba(255, 255, 255, 0.65); font-size: 13px; line-height: 1.6; margin-bottom: 16px;">SetConnect proudly presented at the 2026 INFORMS Analytics+ Conference — showcasing how we translate AI research into measurable business impact for global enterprises.</p>
-                            </div>
-                            <div style="text-align: right; margin-top: auto;">
-                                <a href="certificates%26extras/[Certificate%20of%20Presentation]%202026%20INFORMS%20Analytics+%20Conference.pdf" target="_blank" style="color: var(--cyan); font-weight: 600; text-decoration: none; font-size: 14px;">AI Driven Optimization &rarr;</a>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Recent Updates -->
+    <section style="background: #041527; padding: 24px 24px 40px;">
+        <style>
+            .informs-card {
+                max-width: 100%;
+                margin: 0 auto;
+                background: linear-gradient(135deg, #1a2332 0%, #162030 100%);
+                border-radius: 16px;
+                overflow: hidden;
+                border: 1px solid rgba(8, 145, 178, 0.2);
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                height: 280px;
+            }
+
+            .inf-col {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .inf-col img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+                display: block;
+            }
+
+            /* subtle dim on side panels */
+            .inf-col::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: rgba(10, 25, 47, 0.35);
+                pointer-events: none;
+            }
+
+            /* stronger dim on middle panel for text readability */
+            .inf-col.inf-mid::after {
+                background: rgba(4, 15, 35, 0.75);
+            }
+
+            /* text overlay on middle */
+            .inf-mid-text {
+                position: absolute;
+                inset: 0;
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 28px 26px;
+            }
+
+            .inf-eyebrow {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                background: rgba(8, 145, 178, 0.15);
+                border: 1px solid rgba(8, 145, 178, 0.35);
+                color: #70d6ff;
+                font-size: 9px;
+                font-weight: 700;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                padding: 3px 10px;
+                border-radius: 50px;
+                margin-bottom: 12px;
+                width: fit-content;
+            }
+
+            .inf-title {
+                font-family: 'Space Grotesk', sans-serif;
+                color: #fff;
+                font-size: 17px;
+                font-weight: 700;
+                line-height: 1.3;
+                margin-bottom: 10px;
+            }
+
+            .inf-body {
+                color: rgba(255, 255, 255, 0.65);
+                font-size: 12px;
+                line-height: 1.65;
+                margin: 0;
+            }
+
+            @media (max-width: 700px) {
+                .informs-card {
+                    grid-template-columns: 1fr;
+                    height: auto;
+                }
+
+                .inf-col {
+                    height: 180px;
+                }
+            }
+        </style>
+
+        <!-- Section title ABOVE the card -->
+        <div style="margin-bottom: 14px; text-align: center;">
+            <span style="display: inline-flex; align-items: center; gap: 6px;
+                background: rgba(8,145,178,0.12); border: 1px solid rgba(8,145,178,0.3);
+                color: #70d6ff; font-size: 10px; font-weight: 700;
+                letter-spacing: 2px; text-transform: uppercase;
+                padding: 4px 14px; border-radius: 50px;">
+                <i class="bi bi-award"></i> Recent Updates
+            </span>
+        </div>
+
+        <div class="informs-card" data-aos="fade-up">
+            <!-- LEFT photo -->
+            <div class="inf-col">
+                <img src="certificates%26extras/Ramesh01.jpg" alt="INFORMS Conference 2026">
+            </div>
+
+            <!-- MIDDLE — dimmed with text -->
+            <div class="inf-col inf-mid">
+                <img src="certificates%26extras/image.jpg" alt="Ramesh at INFORMS 2026">
+                <div class="inf-mid-text">
+                    <h3 class="inf-title">2026 INFORMS Analytics+ Conference</h3>
+                    <p class="inf-body">SetCONNECT proudly presented at the 2026 INFORMS Analytics+ Conference —
+                        showcasing how we translate AI research into measurable business impact for global enterprises.
+                    </p>
+                    <a href="certificates%26extras/[Certificate%20of%20Presentation]%202026%20INFORMS%20Analytics+%20Conference.pdf"
+                        target="_blank"
+                        style="color: #70d6ff; font-weight: 600; text-decoration: none; font-size: 13px; margin-top: 10px;">AI
+                        Driven Optimization &rarr;</a>
                 </div>
+            </div>
+
+            <!-- RIGHT photo -->
+            <div class="inf-col">
+                <img src="certificates%26extras/Ramesh02.jpg" alt="INFORMS Conference 2026"
+                    style="object-position: 30% 20%;">
             </div>
         </div>
     </section>
+
 
     <!-- ══════════════════════════════════════════════
          2. IMMEDIATE VALUE PROOF
@@ -1398,23 +1597,36 @@
             display: flex;
             align-items: center;
         }
+
         .marquee-content {
             display: flex;
             gap: 24px;
             animation: scrollMarquee 35s linear infinite;
         }
+
         .marquee-content:hover {
             animation-play-state: paused;
         }
+
         @keyframes scrollMarquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } /* Scrolls exactly half the width since we duplicate items */
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+
+            /* Scrolls exactly half the width since we duplicate items */
         }
+
         .marquee-item {
             flex: 0 0 350px;
         }
+
         /* Fade edges */
-        .marquee-wrapper::before, .marquee-wrapper::after {
+        .marquee-wrapper::before,
+        .marquee-wrapper::after {
             content: '';
             position: absolute;
             top: 0;
@@ -1422,10 +1634,12 @@
             height: 100%;
             z-index: 2;
         }
+
         .marquee-wrapper::before {
             left: 0;
             background: linear-gradient(to right, #f8f9fa, transparent);
         }
+
         .marquee-wrapper::after {
             right: 0;
             background: linear-gradient(to left, #f8f9fa, transparent);
@@ -1445,40 +1659,50 @@
                     <div class="value-card">
                         <div class="value-icon"><i class="bi bi-gear-wide-connected"></i></div>
                         <h4>Manufacturing</h4>
-                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From planning to execution</p>
-                        <p>Drive throughput, improve yield, and optimize production scheduling using AI-powered decision systems embedded into shop-floor operations.</p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From
+                            planning to execution</p>
+                        <p>Drive throughput, improve yield, and optimize production scheduling using AI-powered decision
+                            systems embedded into shop-floor operations.</p>
                     </div>
                 </div>
                 <div class="marquee-item">
                     <div class="value-card">
                         <div class="value-icon"><i class="bi bi-lightning-charge"></i></div>
                         <h4>Energy</h4>
-                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From forecasting to optimization</p>
-                        <p>Enhance demand forecasting, optimize asset performance, and enable real-time operational decisions across the energy value chain.</p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From
+                            forecasting to optimization</p>
+                        <p>Enhance demand forecasting, optimize asset performance, and enable real-time operational
+                            decisions across the energy value chain.</p>
                     </div>
                 </div>
                 <div class="marquee-item">
                     <div class="value-card">
                         <div class="value-icon"><i class="bi bi-box-seam"></i></div>
                         <h4>Distribution</h4>
-                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From network to delivery</p>
-                        <p>Optimize inventory, improve demand-supply alignment, and enhance logistics efficiency through AI-driven planning and network optimization.</p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From
+                            network to delivery</p>
+                        <p>Optimize inventory, improve demand-supply alignment, and enhance logistics efficiency through
+                            AI-driven planning and network optimization.</p>
                     </div>
                 </div>
                 <div class="marquee-item">
                     <div class="value-card">
                         <div class="value-icon"><i class="bi bi-bank"></i></div>
                         <h4>Finance</h4>
-                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From data to decisions</p>
-                        <p>Strengthen risk management, improve forecasting accuracy, and enable faster, data-driven decision-making across financial operations.</p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From data
+                            to decisions</p>
+                        <p>Strengthen risk management, improve forecasting accuracy, and enable faster, data-driven
+                            decision-making across financial operations.</p>
                     </div>
                 </div>
                 <div class="marquee-item">
                     <div class="value-card">
                         <div class="value-icon"><i class="bi bi-diagram-3"></i></div>
                         <h4>Enterprise</h4>
-                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From insight to action</p>
-                        <p>Build intelligent decision systems and streamline end-to-end operations—unlocking speed, consistency, and scalability across functions.</p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From
+                            insight to action</p>
+                        <p>Build intelligent decision systems and streamline end-to-end operations—unlocking speed,
+                            consistency, and scalability across functions.</p>
                     </div>
                 </div>
 
@@ -1487,40 +1711,50 @@
                     <div class="value-card">
                         <div class="value-icon"><i class="bi bi-gear-wide-connected"></i></div>
                         <h4>Manufacturing</h4>
-                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From planning to execution</p>
-                        <p>Drive throughput, improve yield, and optimize production scheduling using AI-powered decision systems embedded into shop-floor operations.</p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From
+                            planning to execution</p>
+                        <p>Drive throughput, improve yield, and optimize production scheduling using AI-powered decision
+                            systems embedded into shop-floor operations.</p>
                     </div>
                 </div>
                 <div class="marquee-item">
                     <div class="value-card">
                         <div class="value-icon"><i class="bi bi-lightning-charge"></i></div>
                         <h4>Energy</h4>
-                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From forecasting to optimization</p>
-                        <p>Enhance demand forecasting, optimize asset performance, and enable real-time operational decisions across the energy value chain.</p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From
+                            forecasting to optimization</p>
+                        <p>Enhance demand forecasting, optimize asset performance, and enable real-time operational
+                            decisions across the energy value chain.</p>
                     </div>
                 </div>
                 <div class="marquee-item">
                     <div class="value-card">
                         <div class="value-icon"><i class="bi bi-box-seam"></i></div>
                         <h4>Distribution</h4>
-                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From network to delivery</p>
-                        <p>Optimize inventory, improve demand-supply alignment, and enhance logistics efficiency through AI-driven planning and network optimization.</p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From
+                            network to delivery</p>
+                        <p>Optimize inventory, improve demand-supply alignment, and enhance logistics efficiency through
+                            AI-driven planning and network optimization.</p>
                     </div>
                 </div>
                 <div class="marquee-item">
                     <div class="value-card">
                         <div class="value-icon"><i class="bi bi-bank"></i></div>
                         <h4>Finance</h4>
-                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From data to decisions</p>
-                        <p>Strengthen risk management, improve forecasting accuracy, and enable faster, data-driven decision-making across financial operations.</p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From data
+                            to decisions</p>
+                        <p>Strengthen risk management, improve forecasting accuracy, and enable faster, data-driven
+                            decision-making across financial operations.</p>
                     </div>
                 </div>
                 <div class="marquee-item">
                     <div class="value-card">
                         <div class="value-icon"><i class="bi bi-diagram-3"></i></div>
                         <h4>Enterprise</h4>
-                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From insight to action</p>
-                        <p>Build intelligent decision systems and streamline end-to-end operations—unlocking speed, consistency, and scalability across functions.</p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--cyan); margin-bottom: 8px;">From
+                            insight to action</p>
+                        <p>Build intelligent decision systems and streamline end-to-end operations—unlocking speed,
+                            consistency, and scalability across functions.</p>
                     </div>
                 </div>
             </div>
@@ -1589,33 +1823,44 @@
                 <svg class="orbit-svg-bg" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <marker id="orb-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-                            <polygon points="0 0, 7 3.5, 0 7" fill="rgba(8,145,178,0.65)"/>
+                            <polygon points="0 0, 7 3.5, 0 7" fill="rgba(8,145,178,0.65)" />
                         </marker>
                         <filter id="orb-glow">
-                            <feGaussianBlur stdDeviation="3" result="blur"/>
-                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                            <feGaussianBlur stdDeviation="3" result="blur" />
+                            <feMerge>
+                                <feMergeNode in="blur" />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
                         </filter>
                     </defs>
                     <!-- Outer guide ring -->
-                    <circle cx="260" cy="260" r="150" fill="none" stroke="rgba(8,145,178,0.15)" stroke-width="8"/>
-                    <circle cx="260" cy="260" r="150" fill="none" stroke="rgba(8,145,178,0.3)" stroke-width="1"/>
+                    <circle cx="260" cy="260" r="150" fill="none" stroke="rgba(8,145,178,0.15)" stroke-width="8" />
+                    <circle cx="260" cy="260" r="150" fill="none" stroke="rgba(8,145,178,0.3)" stroke-width="1" />
                     <!-- Clockwise arcs with arrows -->
-                    <path d="M 256,110 A 150,150 0 0,1 408,256" fill="none" stroke="rgba(8,145,178,0.55)" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#orb-arrow)"/>
-                    <path d="M 410,264 A 150,150 0 0,1 264,408" fill="none" stroke="rgba(8,145,178,0.55)" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#orb-arrow)"/>
-                    <path d="M 256,410 A 150,150 0 0,1 112,264" fill="none" stroke="rgba(8,145,178,0.55)" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#orb-arrow)"/>
-                    <path d="M 110,256 A 150,150 0 0,1 256,112" fill="none" stroke="rgba(8,145,178,0.55)" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#orb-arrow)"/>
+                    <path d="M 256,110 A 150,150 0 0,1 408,256" fill="none" stroke="rgba(8,145,178,0.55)"
+                        stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#orb-arrow)" />
+                    <path d="M 410,264 A 150,150 0 0,1 264,408" fill="none" stroke="rgba(8,145,178,0.55)"
+                        stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#orb-arrow)" />
+                    <path d="M 256,410 A 150,150 0 0,1 112,264" fill="none" stroke="rgba(8,145,178,0.55)"
+                        stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#orb-arrow)" />
+                    <path d="M 110,256 A 150,150 0 0,1 256,112" fill="none" stroke="rgba(8,145,178,0.55)"
+                        stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#orb-arrow)" />
                     <!-- Spoke connectors from center -->
-                    <line x1="260" y1="205" x2="260" y2="150" stroke="rgba(8,145,178,0.12)" stroke-width="1" stroke-dasharray="2,4"/>
-                    <line x1="315" y1="260" x2="370" y2="260" stroke="rgba(8,145,178,0.12)" stroke-width="1" stroke-dasharray="2,4"/>
-                    <line x1="260" y1="315" x2="260" y2="370" stroke="rgba(8,145,178,0.12)" stroke-width="1" stroke-dasharray="2,4"/>
-                    <line x1="205" y1="260" x2="150" y2="260" stroke="rgba(8,145,178,0.12)" stroke-width="1" stroke-dasharray="2,4"/>
+                    <line x1="260" y1="205" x2="260" y2="150" stroke="rgba(8,145,178,0.12)" stroke-width="1"
+                        stroke-dasharray="2,4" />
+                    <line x1="315" y1="260" x2="370" y2="260" stroke="rgba(8,145,178,0.12)" stroke-width="1"
+                        stroke-dasharray="2,4" />
+                    <line x1="260" y1="315" x2="260" y2="370" stroke="rgba(8,145,178,0.12)" stroke-width="1"
+                        stroke-dasharray="2,4" />
+                    <line x1="205" y1="260" x2="150" y2="260" stroke="rgba(8,145,178,0.12)" stroke-width="1"
+                        stroke-dasharray="2,4" />
                     <!-- Animated orbiting dot -->
                     <circle r="5" fill="#0891b2" filter="url(#orb-glow)">
                         <animateMotion dur="12s" repeatCount="indefinite">
-                            <mpath href="#orbitPath"/>
+                            <mpath href="#orbitPath" />
                         </animateMotion>
                     </circle>
-                    <path id="orbitPath" d="M 260,110 A 150,150 0 1,1 259.99,110" fill="none"/>
+                    <path id="orbitPath" d="M 260,110 A 150,150 0 1,1 259.99,110" fill="none" />
                 </svg>
 
                 <!-- Center hub -->
@@ -1723,7 +1968,7 @@
             <div class="cta-buttons-group">
                 <a href="contact.html" class="btn-primary-bain">Book a Discovery Conversation <i
                         class="bi bi-arrow-right"></i></a>
-                <a href="casestudies/vedanta.html" class="btn-outline-light-custom">See Client Results</a>
+                <a href="see-client-results.html" class="btn-outline-light-custom">See Client Results</a>
             </div>
         </div>
     </section>
@@ -1773,17 +2018,17 @@
                 cur = (cur + 1) % vids.length;
                 if (vids[cur].play) {
                     vids[cur].currentTime = 0;
-                    vids[cur].play().catch(() => {});
+                    vids[cur].play().catch(() => { });
                 }
                 showVid(cur);
             }
 
-            window.switchHeroVid = function(idx) {
+            window.switchHeroVid = function (idx) {
                 clearInterval(timer);
                 cur = idx;
                 if (vids[cur].play) {
                     vids[cur].currentTime = 0;
-                    vids[cur].play().catch(() => {});
+                    vids[cur].play().catch(() => { });
                 }
                 showVid(cur);
                 timer = setInterval(next, 9000);
@@ -1791,7 +2036,7 @@
 
             // Init first video
             if (vids[0].play) {
-                vids[0].play().catch(() => {});
+                vids[0].play().catch(() => { });
             }
             showVid(0);
             timer = setInterval(next, 9000);

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See Our Work – SetCONNECT | Practical AI Frameworks</title>
+    <meta name="description" content="Explore SetCONNECT's practical AI frameworks: DDDM, Three Faces of AI, Time-Boxed Sprints, AI Success Playbook, and Enterprise AI Enablement.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="css/shared-styles.css" rel="stylesheet">
+    <style>
+        :root {
+            --navy:   #07152f;
+            --navy-2: #0d2045;
+            --blue:   #35a7ff;
+            --cyan:   #70d6ff;
+            --green:  #7bd84b;
+            --gold:   #d6a21f;
+            --text:   #ffffff;
+            --muted:  rgba(255,255,255,0.72);
+            --border: rgba(255,255,255,0.14);
+            color-scheme: dark;
+        }
+        html, body {
+            background-color: #07152f !important;
+            color: #fff; font-family: 'Inter', Arial, sans-serif;
+        }
+
+        /* ── HERO ── */
+        .page-hero {
+            margin-top: 80px; padding: 110px 24px 80px;
+            background:
+                radial-gradient(circle at 75% 30%, rgba(123,216,75,0.1), transparent 38%),
+                radial-gradient(circle at 20% 60%, rgba(53,167,255,0.16), transparent 40%),
+                linear-gradient(135deg, var(--navy) 0%, #020817 100%);
+        }
+        .page-hero .hero-inner { max-width: 1180px; margin: 0 auto; }
+        .page-hero .kicker {
+            color: var(--cyan); font-size: 13px; font-weight: 700;
+            letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px; display: block;
+        }
+        .page-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(36px, 5vw, 66px); font-weight: 700;
+            line-height: 1.05; letter-spacing: -0.03em;
+            color: #fff; max-width: 820px; margin-bottom: 22px;
+        }
+        .page-hero h1 span { color: var(--cyan); }
+        .page-hero .hero-sub {
+            font-size: 18px; color: var(--muted); max-width: 680px; line-height: 1.7;
+            margin: 0; text-align: left;
+        }
+
+        /* ── FRAMEWORKS SECTION ── */
+        .fw-section {
+            background: #ffffff;
+            padding: 96px 24px 80px;
+        }
+        .fw-container { max-width: 1180px; margin: 0 auto; }
+        .section-kicker {
+            color: #0677a1; font-size: 13px; font-weight: 700;
+            letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 14px;
+        }
+        .fw-container h2 {
+            max-width: 780px; font-size: clamp(34px, 4.5vw, 58px);
+            font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+            line-height: 1.06; margin: 0 0 18px; letter-spacing: -0.04em; color: #0d1b2e;
+        }
+        .section-subtitle {
+            max-width: 760px; font-size: 18px;
+            line-height: 1.6; color: rgba(0,0,0,0.55); margin: 0 0 52px 0; text-align: left;
+        }
+
+        /* ── CARD GRID ── */
+        .fw-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        /* ── FLIP CARD ── */
+        .fw-card {
+            position: relative; min-height: 420px;
+            border-radius: 28px; perspective: 1200px;
+        }
+        .fw-card:hover { z-index: 2; }
+
+        .card-front, .card-back {
+            position: absolute; inset: 0; padding: 30px;
+            border-radius: 28px; border: 1px solid var(--border);
+            backface-visibility: hidden;
+            transition: transform 0.7s cubic-bezier(.2,.8,.2,1), box-shadow 0.7s ease, border-color 0.7s ease;
+            overflow: hidden;
+        }
+        .card-front {
+            background: linear-gradient(160deg, #0d1b2e, #0a192f);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.1);
+            border-color: rgba(255,255,255,0.08);
+        }
+        .card-back {
+            background: linear-gradient(160deg, rgba(8,145,178,0.85), rgba(7,50,70,0.95));
+            transform: rotateY(180deg);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.32);
+            border-color: rgba(112,214,255,0.3);
+        }
+        .fw-card:hover .card-front { transform: rotateY(180deg); border-color: rgba(112,214,255,0.38); }
+        .fw-card:hover .card-back  { transform: rotateY(360deg); border-color: rgba(112,214,255,0.42); }
+
+        /* FRONT CONTENT */
+        .frame-num {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 6px 14px; border-radius: 999px;
+            background: rgba(112,214,255,0.12); color: var(--cyan);
+            font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+            text-transform: uppercase; margin-bottom: 22px;
+        }
+        .fw-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px; line-height: 1.1;
+            margin: 0 0 10px; letter-spacing: -0.02em; font-weight: 700;
+        }
+        .fw-card h4 {
+            font-size: 15px; line-height: 1.4;
+            margin: 0 0 14px; color: var(--cyan); font-weight: 600;
+        }
+        .card-front p {
+            font-size: 14.5px; line-height: 1.65; color: var(--muted); margin: 0;
+        }
+        .hover-cue {
+            position: absolute; left: 30px; bottom: 28px;
+            color: var(--gold); font-size: 13px; font-weight: 700;
+        }
+
+        /* Chain pills inside card */
+        .chain-wrap {
+            display: flex; flex-wrap: wrap; align-items: center;
+            gap: 5px; margin: 12px 0 0;
+        }
+        .chain-pill {
+            padding: 4px 10px; border-radius: 999px;
+            background: rgba(112,214,255,0.1); border: 1px solid rgba(112,214,255,0.2);
+            color: rgba(255,255,255,0.8); font-size: 11px; font-weight: 600;
+        }
+        .chain-arrow { color: var(--cyan); font-size: 11px; opacity: 0.6; }
+
+        /* BACK CONTENT */
+        .card-back h4 {
+            color: var(--cyan); font-size: 13px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 14px;
+        }
+        .card-back .back-desc {
+            color: rgba(255,255,255,0.92); font-size: 15px;
+            line-height: 1.55; margin-bottom: 18px;
+        }
+        .card-back ul { list-style: none; padding: 0; margin: 0 0 20px; }
+        .card-back li {
+            position: relative; padding-left: 22px;
+            margin-bottom: 10px; color: rgba(255,255,255,0.82);
+            font-size: 13.5px; line-height: 1.5;
+        }
+        .card-back li::before {
+            content: ''; position: absolute; left: 0; top: 7px;
+            width: 9px; height: 9px; border-radius: 50%;
+            background: var(--green); box-shadow: 0 0 16px rgba(123,216,75,0.65);
+        }
+        .card-back .back-cta {
+            position: absolute; bottom: 24px; left: 30px; right: 30px;
+        }
+        .card-back .back-cta a {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 9px 20px; border-radius: 8px;
+            background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+            color: #fff; font-size: 12px; font-weight: 700;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            text-decoration: none; transition: all 0.3s;
+        }
+        .card-back .back-cta a:hover { background: rgba(112,214,255,0.2); border-color: var(--cyan); }
+
+        /* FEATURED CARD */
+        .featured-fw { grid-column: span 2; }
+
+        /* ── CLOSING ── */
+        .closing-strip {
+            background:
+                radial-gradient(circle at 30% 60%, rgba(53,167,255,0.1), transparent 40%),
+                linear-gradient(135deg, #020c1a 0%, var(--navy) 100%);
+            padding: 90px 24px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .closing-inner { max-width: 1180px; margin: 0 auto; text-align: center; }
+        .closing-strip .kicker {
+            color: var(--cyan); font-size: 12px; font-weight: 700;
+            letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; display: block;
+        }
+        .closing-strip h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(26px, 3.5vw, 44px); font-weight: 700;
+            color: #fff; margin-bottom: 14px; letter-spacing: -0.03em;
+        }
+        .closing-strip p {
+            font-size: 17px; color: var(--muted);
+            max-width: 560px; margin: 0 auto 36px; line-height: 1.7;
+        }
+        .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary-cta {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 14px 32px; background: var(--cyan); color: #07152f;
+            font-size: 13px; font-weight: 800; letter-spacing: 0.08em;
+            text-transform: uppercase; text-decoration: none; border-radius: 8px; transition: all 0.3s;
+        }
+        .btn-primary-cta:hover { background: #50c8f5; color: #07152f; }
+        .btn-outline-cta {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 14px 32px; background: transparent; color: #fff;
+            border: 1.5px solid rgba(255,255,255,0.3); font-size: 13px; font-weight: 700;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            text-decoration: none; border-radius: 8px; transition: all 0.3s;
+        }
+        .btn-outline-cta:hover { border-color: var(--cyan); color: var(--cyan); }
+
+        @media (max-width: 980px) {
+            .fw-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .featured-fw { grid-column: span 1; }
+        }
+        @media (max-width: 680px) {
+            .fw-grid { grid-template-columns: 1fr; }
+            .fw-card { min-height: 440px; }
+            .page-hero { padding: 90px 18px 60px; }
+            .fw-section { padding: 72px 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="global-header-placeholder" data-root="./"></div>
+    <script src="js/header-loader.js"></script>
+
+    <!-- HERO -->
+    <section class="page-hero">
+        <div class="hero-inner">
+            <span class="kicker" data-aos="fade-up">Our Frameworks</span>
+            <h1 data-aos="fade-up" data-aos-delay="80">
+                Practical AI Frameworks.<br>
+                <span>Real Business Transformation.</span><br>
+                Measurable Outcomes.
+            </h1>
+            <p class="hero-sub" data-aos="fade-up" data-aos-delay="160">
+                At SetCONNECT, our work begins with a clear business problem and moves quickly toward data-driven decisions, AI-enabled solutions, and scalable enterprise impact.
+            </p>
+        </div>
+    </section>
+
+    <!-- FLIP CARD GRID -->
+    <section class="fw-section">
+        <div class="fw-container">
+            <div class="section-kicker" data-aos="fade-up">Proven Methodologies</div>
+            <h2 data-aos="fade-up" data-aos-delay="60">Five frameworks. One mission: AI that delivers.</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="120">
+                Each framework addresses a distinct challenge on the journey from business problem to embedded AI solution. Hover each card to explore the core concepts and download our thinking.
+            </p>
+
+            <div class="fw-grid" data-aos="fade-up" data-aos-delay="180">
+
+                <!-- Card 1: DDDM — FEATURED -->
+                <article class="fw-card featured-fw">
+                    <div class="card-front">
+                        <div class="frame-num"><i class="bi bi-01-circle"></i> Framework 01</div>
+                        <h3>Data-Driven Decisions</h3>
+                        <h4>From business problem to better decisions</h4>
+                        <p>We help organizations convert raw data into actionable business insight through a structured six-step framework — ensuring analytics is directly connected to strategic outcomes.</p>
+                        <div class="chain-wrap">
+                            <span class="chain-pill">Understand Problem</span>
+                            <span class="chain-arrow">→</span>
+                            <span class="chain-pill">Prepare Data</span>
+                            <span class="chain-arrow">→</span>
+                            <span class="chain-pill">Visualize Insights</span>
+                            <span class="chain-arrow">→</span>
+                            <span class="chain-pill">Develop Hypotheses</span>
+                            <span class="chain-arrow">→</span>
+                            <span class="chain-pill">Test with Analytics</span>
+                            <span class="chain-arrow">→</span>
+                            <span class="chain-pill">Translate into Decisions</span>
+                        </div>
+                        <span class="hover-cue">Hover to explore →</span>
+                    </div>
+                    <div class="card-back">
+                        <h4>What This Framework Delivers</h4>
+                        <p class="back-desc">Analytics that is not exploratory for its own sake — but directly connected to practical and strategic business decisions.</p>
+                        <ul>
+                            <li>Structured approach from raw data to actionable insight</li>
+                            <li>Eliminates guesswork in analytics initiatives</li>
+                            <li>Bridges the gap between data teams and business leaders</li>
+                            <li>Repeatable process for consistent decision quality</li>
+                        </ul>
+                        <div class="back-cta">
+                            <a href="Documents/See Our Work/DDDM Framework.pdf" target="_blank">
+                                <i class="bi bi-file-earmark-pdf"></i> Explore the Framework
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2: Three Faces of AI -->
+                <article class="fw-card">
+                    <div class="card-front">
+                        <div class="frame-num"><i class="bi bi-02-circle"></i> Framework 02</div>
+                        <h3>The Three Faces of AI</h3>
+                        <h4>Analytical. Generative. Agentic.</h4>
+                        <p>AI is not one thing. We help leaders understand where each AI paradigm fits — moving enterprises beyond buzzwords to practical AI systems with measurable outcomes.</p>
+                        <span class="hover-cue">Hover to explore →</span>
+                    </div>
+                    <div class="card-back">
+                        <h4>The Three Paradigms</h4>
+                        <p class="back-desc">Right capability. Right problem. Right outcome.</p>
+                        <ul>
+                            <li><strong>Analytical AI</strong> — predicts, diagnoses, optimizes</li>
+                            <li><strong>Generative AI</strong> — creates content, knowledge, insights</li>
+                            <li><strong>Agentic AI</strong> — acts autonomously across workflows</li>
+                        </ul>
+                        <div class="back-cta">
+                            <a href="Documents/See Our Work/Three Faces of Ai - 4-7-2025-real-world use case.pdf" target="_blank">
+                                <i class="bi bi-file-earmark-pdf"></i> See AI Fit for Strategy
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3: Time-Boxed Sprints -->
+                <article class="fw-card">
+                    <div class="card-front">
+                        <div class="frame-num"><i class="bi bi-03-circle"></i> Framework 03</div>
+                        <h3>Time-Boxed AI Transformation</h3>
+                        <h4>AI impact in weeks, not years</h4>
+                        <p>We accelerate AI transformation through structured sprints focused on business outcomes — not experimentation for its own sake.</p>
+                        <span class="hover-cue">Hover to explore →</span>
+                    </div>
+                    <div class="card-back">
+                        <h4>Sprint Model Benefits</h4>
+                        <p class="back-desc">Each sprint rapidly prototypes solutions and generates early wins that build executive confidence.</p>
+                        <ul>
+                            <li>Rapid prototyping with real business data</li>
+                            <li>Early wins that build leadership confidence</li>
+                            <li>Momentum for enterprise-wide AI scaling</li>
+                        </ul>
+                        <div class="back-cta">
+                            <a href="Documents/See Our Work/AI Transformation Through Time Boxed Sprints-v2.docx" target="_blank">
+                                <i class="bi bi-file-earmark-arrow-down"></i> Start an AI Sprint
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4: AI Success Playbook -->
+                <article class="fw-card">
+                    <div class="card-front">
+                        <div class="frame-num"><i class="bi bi-04-circle"></i> Framework 04</div>
+                        <h3>AI Success Playbook</h3>
+                        <h4>A repeatable path from idea to implementation</h4>
+                        <p>Our Playbook guides organizations through a practical execution journey — ensuring AI solutions are technically sound, operationally embedded, and business-ready.</p>
+                        <div class="chain-wrap">
+                            <span class="chain-pill">Formulate Problem</span>
+                            <span class="chain-arrow">→</span>
+                            <span class="chain-pill">Identify Data</span>
+                            <span class="chain-arrow">→</span>
+                            <span class="chain-pill">Perform EDA</span>
+                            <span class="chain-arrow">→</span>
+                            <span class="chain-pill">Build Models</span>
+                            <span class="chain-arrow">→</span>
+                            <span class="chain-pill">Embed in Process</span>
+                        </div>
+                        <span class="hover-cue">Hover to explore →</span>
+                    </div>
+                    <div class="card-back">
+                        <h4>Playbook Outcomes</h4>
+                        <p class="back-desc">Not just technically sound — operationally embedded and business-ready at every stage.</p>
+                        <ul>
+                            <li>Structured path from idea to production</li>
+                            <li>Business and technical alignment at each step</li>
+                            <li>Repeatable for future AI initiatives</li>
+                        </ul>
+                        <div class="back-cta">
+                            <a href="Documents/See Our Work/DDDM Framework.pdf" target="_blank">
+                                <i class="bi bi-file-earmark-pdf"></i> View Our Approach
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5: Enterprise AI Enablement -->
+                <article class="fw-card">
+                    <div class="card-front">
+                        <div class="frame-num"><i class="bi bi-05-circle"></i> Framework 05</div>
+                        <h3>Enterprise AI Enablement</h3>
+                        <h4>Building capability while delivering outcomes</h4>
+                        <p>Our engagements deliver immediate business value while strengthening internal AI maturity — overcoming siloed data, talent gaps, and execution hesitation.</p>
+                        <span class="hover-cue">Hover to explore →</span>
+                    </div>
+                    <div class="card-back">
+                        <h4>Enablement Programs</h4>
+                        <p class="back-desc">Structured programs that build lasting AI capability alongside measurable delivery.</p>
+                        <ul>
+                            <li>Discovery programs for AI opportunity mapping</li>
+                            <li>Executive immersion workshops</li>
+                            <li>Mentoring for internal AI teams</li>
+                            <li>Sprint-based execution for early wins</li>
+                        </ul>
+                        <div class="back-cta">
+                            <a href="Documents/See Our Work/DDDM Framework.pdf" target="_blank">
+                                <i class="bi bi-file-earmark-pdf"></i> Build AI Capability
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div><!-- /fw-grid -->
+        </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="closing-strip">
+        <div class="closing-inner" data-aos="fade-up">
+            <span class="kicker">Ready to Begin?</span>
+            <h2>Every Framework Starts With Your Business Problem</h2>
+            <p>Not with technology. We identify exactly where AI creates measurable value — before you commit a single dollar.</p>
+            <div class="cta-row">
+                <a href="contact.html" class="btn-primary-cta">Book a Discovery Session <i class="bi bi-arrow-right"></i></a>
+                <a href="see-client-results.html" class="btn-outline-cta">See Client Results</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="global-footer-placeholder" data-root="./"></div>
+    <script src="js/footer-loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 900, once: true });
+        window.addEventListener('scroll', () => {
+            const h = document.querySelector('.modern-header');
+            if (h) h.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+</body>
+</html>
