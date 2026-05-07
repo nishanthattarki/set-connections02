@@ -709,6 +709,44 @@
             cursor: pointer;
         }
 
+        .orb-text {
+            position: absolute;
+            width: 150px;
+            pointer-events: none;
+        }
+
+        .orbit-node-item.n-top .orb-text {
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .orbit-node-item.n-bottom .orb-text {
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .orbit-node-item.n-right .orb-text {
+            top: 40px;
+            left: 100%;
+            transform: translateY(-50%);
+            margin-left: -5px;
+            text-align: left;
+        }
+
+        .orbit-node-item.n-left .orb-text {
+            top: 40px;
+            right: 100%;
+            transform: translateY(-50%);
+            margin-right: -5px;
+            text-align: right;
+        }
+
         /* Positions: ring radius=150px, container=520px, center=(260,260) */
         /* Node circle center targets: Top(260,110) Right(410,260) Bottom(260,410) Left(110,260) */
         /* orb-circle is 80px, so top-of-circle = circle-center - 40 */
@@ -757,7 +795,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 10px;
+            margin: 0 auto;
             transition: all 0.35s ease;
             backdrop-filter: blur(10px);
         }
@@ -780,7 +818,7 @@
             transition: color 0.3s;
         }
 
-        .orbit-node-item h5 {
+        .orb-text h5 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 13px;
             font-weight: 600;
@@ -788,7 +826,7 @@
             margin: 0 0 4px;
         }
 
-        .orbit-node-item p {
+        .orb-text p {
             font-size: 11px;
             color: rgba(0, 0, 0, 0.6);
             line-height: 1.4;
@@ -1875,8 +1913,10 @@
                         <span class="orb-num">01</span>
                         <span class="orb-phase">Phase</span>
                     </div>
-                    <h5>Discovery</h5>
-                    <p>Frame the right business problems first</p>
+                    <div class="orb-text">
+                        <h5>Discovery</h5>
+                        <p>Frame the right business problems first</p>
+                    </div>
                 </div>
 
                 <!-- Node 2: Immersion (right) -->
@@ -1885,8 +1925,10 @@
                         <span class="orb-num">02</span>
                         <span class="orb-phase">Phase</span>
                     </div>
-                    <h5>Immersion</h5>
-                    <p>Identify &amp; rank AI opportunities</p>
+                    <div class="orb-text">
+                        <h5>Immersion</h5>
+                        <p>Identify &amp; rank AI opportunities</p>
+                    </div>
                 </div>
 
                 <!-- Node 3: Activation (bottom) -->
@@ -1895,8 +1937,10 @@
                         <span class="orb-num">03</span>
                         <span class="orb-phase">Phase</span>
                     </div>
-                    <h5>Activation</h5>
-                    <p>Experiment &amp; prove value with data</p>
+                    <div class="orb-text">
+                        <h5>Activation</h5>
+                        <p>Experiment &amp; prove value with data</p>
+                    </div>
                 </div>
 
                 <!-- Node 4: Scale (left) -->
@@ -1905,8 +1949,10 @@
                         <span class="orb-num">04</span>
                         <span class="orb-phase">Phase</span>
                     </div>
-                    <h5>Scale</h5>
-                    <p>Build for repeatable AI impact</p>
+                    <div class="orb-text">
+                        <h5>Scale</h5>
+                        <p>Build for repeatable AI impact</p>
+                    </div>
                 </div>
             </div>
 
