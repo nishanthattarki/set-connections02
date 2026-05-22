@@ -329,7 +329,7 @@
             color: #ffffff;
         }
 
-        /* Light section overrides */
+        /* Dark section — keep text white */
         .section-playbook .section-heading {
             color: #1a2332;
         }
@@ -370,7 +370,9 @@
             color: rgba(255, 255, 255, 0.65);
         }
 
-        .section-playbook .section-desc,
+        .section-playbook .section-desc {
+            color: rgba(0, 0, 0, 0.55);
+        }
         .section-value .section-desc,
         .section-work .section-desc,
         .section-insights .section-desc {
@@ -448,14 +450,112 @@
         /* ── 3. PLAYBOOK — Light ── */
         .section-playbook {
             padding: 100px 0;
-            background: #f8f9fa;
+            background: #ffffff;
             position: relative;
             overflow: hidden;
+        }
+
+        /* Faint dot texture */
+        .section-playbook::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(8,145,178,0.06) 1px, transparent 1px);
+            background-size: 36px 36px;
+            z-index: 0;
         }
 
         .section-playbook .container {
             position: relative;
             z-index: 2;
+        }
+
+        /* ── 3-col layout ── */
+        .playbook-3col {
+            display: grid;
+            grid-template-columns: 320px auto 320px;
+            justify-content: center;
+            gap: 24px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        /* LEFT panel */
+        .pb-left { padding-right: 8px; }
+        .pb-left .pb-tagline {
+            font-size: 12px; font-weight: 700;
+            color: #0891b2; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 12px; display: block;
+        }
+        .pb-left h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px; font-weight: 700;
+            color: #1a2332; line-height: 1.3; margin-bottom: 14px;
+        }
+        .pb-left > p {
+            font-size: 14.5px; color: rgba(0,0,0,0.5);
+            line-height: 1.75; margin-bottom: 24px;
+        }
+        .pb-benefit {
+            display: flex; align-items: flex-start;
+            gap: 12px; margin-bottom: 14px;
+        }
+        .pb-benefit .pb-icon {
+            width: 34px; height: 34px; min-width: 34px;
+            border-radius: 9px;
+            background: rgba(8,145,178,0.09);
+            border: 1px solid rgba(8,145,178,0.18);
+            display: flex; align-items: center; justify-content: center;
+            color: #0891b2; font-size: 15px;
+        }
+        .pb-benefit .pb-text strong {
+            display: block; font-size: 13.5px; font-weight: 700;
+            color: #1a2332; margin-bottom: 2px;
+        }
+        .pb-benefit .pb-text span {
+            font-size: 12.5px; color: rgba(0,0,0,0.48); line-height: 1.5;
+        }
+        .pb-cta {
+            display: inline-flex; align-items: center; gap: 8px;
+            margin-top: 10px; padding: 11px 22px;
+            background: #0891b2; color: #fff;
+            font-size: 12.5px; font-weight: 700;
+            border-radius: 8px; text-decoration: none;
+            letter-spacing: 0.05em; transition: background 0.25s;
+        }
+        .pb-cta:hover { background: #0e7490; color: #fff; }
+
+        /* RIGHT panel */
+        .pb-right { padding-left: 8px; }
+        .pb-phase {
+            display: flex; align-items: flex-start; gap: 14px;
+            padding: 16px 18px; border-radius: 12px;
+            border: 1px solid rgba(8,145,178,0.1);
+            background: rgba(8,145,178,0.03);
+            margin-bottom: 10px; transition: all 0.25s;
+        }
+        .pb-phase:hover {
+            border-color: rgba(8,145,178,0.28);
+            background: rgba(8,145,178,0.06);
+            transform: translateX(4px);
+        }
+        .pb-phase-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px; font-weight: 700;
+            color: #0891b2; line-height: 1;
+            min-width: 30px; opacity: 0.65;
+        }
+        .pb-phase-body strong {
+            display: block; font-size: 14px; font-weight: 700;
+            color: #1a2332; margin-bottom: 3px;
+        }
+        .pb-phase-body span {
+            font-size: 12.5px; color: rgba(0,0,0,0.48); line-height: 1.5;
+        }
+
+        @media (max-width: 1024px) {
+            .playbook-3col { grid-template-columns: 1fr; }
+            .pb-left, .pb-right { padding: 0; }
         }
 
         .playbook-timeline {
@@ -656,7 +756,10 @@
             position: relative;
             width: 520px;
             height: 520px;
-            margin: 60px auto 20px;
+            margin: -52px -60px;
+            transform: scale(0.8);
+            transform-origin: center center;
+            flex-shrink: 0;
         }
 
         .orbit-svg-bg {
@@ -1852,11 +1955,41 @@
             <div class="text-center" data-aos="fade-up">
                 <span class="section-label">Core Offering</span>
                 <h2 class="section-heading">Our Approach: The AI Success Playbook</h2>
-                <p class="section-desc" style="margin: 0 auto;">A structured approach from strategy to execution.</p>
             </div>
 
-            <!-- Circular Orbital Playbook — Desktop -->
-            <div class="playbook-orbit-wrap desktop-stepper" data-aos="fade-up" data-aos-delay="100">
+            <div class="playbook-3col" data-aos="fade-up" data-aos-delay="80">
+
+                <!-- LEFT: Why it works -->
+                <div class="pb-left">
+                    <span class="pb-tagline">Why It Works</span>
+                    <h3>Strategy before technology&nbsp;— always.</h3>
+                    <p>Most AI programs fail because they start with tools, not problems. Our Playbook flips that — beginning with your biggest business challenges and working backwards to the right solution.</p>
+                    <div class="pb-benefit">
+                        <div class="pb-icon"><i class="bi bi-bullseye"></i></div>
+                        <div class="pb-text">
+                            <strong>Problem-First Thinking</strong>
+                            <span>Define the business problem before selecting any technology</span>
+                        </div>
+                    </div>
+                    <div class="pb-benefit">
+                        <div class="pb-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                        <div class="pb-text">
+                            <strong>Measurable Outcomes</strong>
+                            <span>Every phase tied to KPIs and real business value</span>
+                        </div>
+                    </div>
+                    <div class="pb-benefit">
+                        <div class="pb-icon"><i class="bi bi-arrow-repeat"></i></div>
+                        <div class="pb-text">
+                            <strong>Repeatable at Scale</strong>
+                            <span>Designed to run across multiple use cases enterprise-wide</span>
+                        </div>
+                    </div>
+                    <a href="see-our-work.html" class="pb-cta">See the Framework <i class="bi bi-arrow-right"></i></a>
+                </div>
+
+                <!-- CENTER: Orbital diagram -->
+                <div class="playbook-orbit-wrap desktop-stepper">
                 <!-- SVG: ring + dashed arcs + animated dot -->
                 <svg class="orbit-svg-bg" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
                     <defs>
@@ -1915,7 +2048,6 @@
                     </div>
                     <div class="orb-text">
                         <h5>Discovery</h5>
-                        <p>Frame the right business problems first</p>
                     </div>
                 </div>
 
@@ -1927,7 +2059,6 @@
                     </div>
                     <div class="orb-text">
                         <h5>Immersion</h5>
-                        <p>Identify &amp; rank AI opportunities</p>
                     </div>
                 </div>
 
@@ -1939,7 +2070,6 @@
                     </div>
                     <div class="orb-text">
                         <h5>Activation</h5>
-                        <p>Experiment &amp; prove value with data</p>
                     </div>
                 </div>
 
@@ -1951,10 +2081,45 @@
                     </div>
                     <div class="orb-text">
                         <h5>Scale</h5>
-                        <p>Build for repeatable AI impact</p>
                     </div>
                 </div>
-            </div>
+                </div>
+                <!-- /center -->
+
+                <!-- RIGHT: Phase breakdown -->
+                <div class="pb-right">
+                    <div class="pb-phase">
+                        <span class="pb-phase-num">01</span>
+                        <div class="pb-phase-body">
+                            <strong>Discovery</strong>
+                            <span>Frame the right business problems before investing in execution</span>
+                        </div>
+                    </div>
+                    <div class="pb-phase">
+                        <span class="pb-phase-num">02</span>
+                        <div class="pb-phase-body">
+                            <strong>Immersion</strong>
+                            <span>Identify, assess &amp; rank the highest-value AI opportunities</span>
+                        </div>
+                    </div>
+                    <div class="pb-phase">
+                        <span class="pb-phase-num">03</span>
+                        <div class="pb-phase-body">
+                            <strong>Activation</strong>
+                            <span>Experiment, prove value with real data, define clear KPIs</span>
+                        </div>
+                    </div>
+                    <div class="pb-phase">
+                        <span class="pb-phase-num">04</span>
+                        <div class="pb-phase-body">
+                            <strong>Scale</strong>
+                            <span>Build the operating foundation for repeatable AI impact</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /right -->
+
+            </div><!-- /playbook-3col -->
 
             <div class="mobile-accordion" data-aos="fade-up" data-aos-delay="100" style="margin-top:40px;">
                 <div class="playbook-accordion-item active">

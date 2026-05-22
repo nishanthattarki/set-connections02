@@ -40,26 +40,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="col-lg-2 mb-4">
                     <h5>Company</h5>
                     <a href="${rootPath}about.html">Who We Are</a>
-                    <a href="${rootPath}our-services.html">Our Services</a>
-                    <a href="${rootPath}case-studies.html">Case Studies</a>
+                    <a href="${rootPath}ourservices-2.html">Our Services</a>
+                    <a href="${rootPath}work-and-connections.html">Client Impact</a>
+                    <a href="${rootPath}see-client-results.html">Client Results</a>
+                    
                 </div>
                 <div class="col-lg-2 mb-4">
                     <h5>Services</h5>
-                    <a href="${rootPath}our-services.html#discovery">AI Discovery</a>
-                    <a href="${rootPath}our-services.html#immersion">AI Immersion</a>
-                    <a href="${rootPath}our-services.html#activation">AI Activation</a>
-                    <a href="${rootPath}our-services.html#scale">AI Scale</a>
+                    <a href="${rootPath}ourservices-2.html#discovery">AI Discovery</a>
+                    <a href="${rootPath}ourservices-2.html#immersion">AI Immersion</a>
+                    <a href="${rootPath}ourservices-2.html#activation">AI Activation</a>
+                    <a href="${rootPath}ourservices-2.html#scale">AI Scale</a>
                 </div>
                 <div class="col-lg-2 mb-4">
                     <h5>Resources</h5>
                     <a href="${rootPath}ai-blogs.html">AI Insights</a>
-                    <a href="${rootPath}setconnections.html">SetConnections</a>
+                    <a href="${rootPath}case-studies.html">Case Studies</a>
                     <a href="${rootPath}contact.html">Contact Us</a>
                 </div>
                 <div class="col-lg-2 mb-4">
                     <h5>Connect</h5>
-                    <a href="#"><i class="bi bi-linkedin me-2"></i>LinkedIn</a>
-                    <a href="#"><i class="bi bi-twitter me-2"></i>Twitter</a>
+                    <a href="https://www.linkedin.com/company/setconnect-official/" target="_blank" rel="noopener"><i class="bi bi-linkedin me-2"></i>LinkedIn</a>
+                    <a href="https://x.com/_SetCONNECT" target="_blank" rel="noopener"><i class="bi bi-twitter-x me-2"></i>Twitter / X</a>
                     <a href="mailto:info@setconnectglobal.com"><i class="bi bi-envelope me-2"></i>Email</a>
                 </div>
             </div>
