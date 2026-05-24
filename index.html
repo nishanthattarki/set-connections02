@@ -481,7 +481,16 @@
         }
 
         /* LEFT panel */
-        .pb-left { padding-right: 8px; }
+        .pb-left {
+            padding: 32px;
+            background: rgba(8, 145, 178, 0.15);
+            border-radius: 20px;
+            border: 1px solid rgba(8, 145, 178, 0.25);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
         .pb-left .pb-tagline {
             font-size: 12px; font-weight: 700;
             color: #0891b2; text-transform: uppercase;
@@ -526,12 +535,21 @@
         .pb-cta:hover { background: #0e7490; color: #fff; }
 
         /* RIGHT panel */
-        .pb-right { padding-left: 8px; }
+        .pb-right {
+            padding: 32px;
+            background: rgba(8, 145, 178, 0.15);
+            border-radius: 20px;
+            border: 1px solid rgba(8, 145, 178, 0.25);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
         .pb-phase {
             display: flex; align-items: flex-start; gap: 14px;
             padding: 16px 18px; border-radius: 12px;
-            border: 1px solid rgba(8,145,178,0.1);
-            background: rgba(8,145,178,0.03);
+            border: 1px solid rgba(8,145,178,0.4);
+            background: #ffffff;
             margin-bottom: 10px; transition: all 0.25s;
         }
         .pb-phase:hover {
