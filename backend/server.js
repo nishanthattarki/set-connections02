@@ -29,7 +29,7 @@ app.post('/api/chat', async (req, res) => {
     const chat = ai.chats.create({
       model: 'gemini-2.5-flash', // Using the fast and free Gemini model
       config: {
-        systemInstruction: "You are a helpful and polite customer support assistant for SetConnect. Keep your answers brief and concise.",
+        systemInstruction: "You are a helpful and friendly AI assistant on the SetConnect website. You can answer any questions the user has, whether they are about SetConnect or general topics. Keep your answers brief and concise.",
       },
       history: formattedHistory
     });
