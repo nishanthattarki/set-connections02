@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // IMPORTANT: Once deployed to Railway, update this URL to your Railway backend URL!
     // Example: const BACKEND_URL = 'https://your-railway-app.up.railway.app/api/chat';
-    const BACKEND_URL = 'http://responsible-flexibility-production-c408.up.railway.app/api/chat';
+    const BACKEND_URL = 'http://loyal-essence-production-507b.up.railway.app/api/chat';
 
     // 3. Toggle Chat Window
     chatButton.addEventListener('click', () => {
