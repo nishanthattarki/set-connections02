@@ -13,7 +13,8 @@ app.use(express.json());
 // Initialize OpenAI SDK
 // In Railway, set OPENAI_API_KEY in the environment variables
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.GROQ_API_KEY,
+  baseURL: "https://api.groq.com/openai/v1",
 });
 
 // Chat Endpoint
@@ -29,7 +30,7 @@ app.post('/api/chat', async (req, res) => {
     ];
 
     const completion = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo', // You can change this to 'gpt-4o' in the future
+      model: 'llama3-8b-8192', // Using Groq's free and fast Llama 3 model
       messages: messages,
     });
 
