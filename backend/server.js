@@ -30,7 +30,7 @@ app.post('/api/chat', async (req, res) => {
     ];
 
     const completion = await openai.chat.completions.create({
-      model: 'llama3-8b-8192', // Using Groq's free and fast Llama 3 model
+      model: 'llama-3.1-8b-instant', // Using Groq's latest Llama 3.1 model
       messages: messages,
     });
 
