@@ -1,0 +1,125 @@
+/* Chat Widget Styles */
+#chat-widget-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    font-family: 'Inter', sans-serif;
+}
+
+#chat-widget-button {
+    width: 60px;
+    height: 60px;
+    background-color: #007bff; /* Primary brand color */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+#chat-widget-button:hover {
+    transform: scale(1.05);
+}
+
+#chat-widget-button svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+}
+
+#chat-window {
+    display: none;
+    flex-direction: column;
+    width: 350px;
+    height: 450px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    overflow: hidden;
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    border: 1px solid #e0e0e0;
+}
+
+#chat-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chat-close {
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+}
+
+#chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f9f9f9;
+}
+
+.chat-message {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.chat-message.user {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+}
+
+.chat-message.bot {
+    background-color: #e9ecef;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+}
+
+#chat-input-container {
+    display: flex;
+    border-top: 1px solid #e0e0e0;
+    padding: 10px;
+    background-color: white;
+}
+
+#chat-input {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 15px;
+    outline: none;
+    font-size: 14px;
+}
+
+#chat-input:focus {
+    border-color: #007bff;
+}
+
+#chat-send {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0 10px;
+    margin-left: 5px;
+}
