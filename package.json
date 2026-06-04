@@ -1,0 +1,19 @@
+{
+  "name": "setconnect-website-full",
+  "version": "1.0.0",
+  "description": "SetConnect Full Website and Chatbot",
+  "type": "module",
+  "scripts": {
+    "start": "node server/server.js",
+    "ingest": "node server/ingest.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0",
+    "pdf-parse": "^1.1.1"
+  }
+}
