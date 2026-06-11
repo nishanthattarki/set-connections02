@@ -58,7 +58,13 @@ document.addEventListener('DOMContentLoaded', () => {
     msgDiv.classList.add('message', sender);
     msgDiv.innerHTML = text;
     chatMessages.appendChild(msgDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    if (sender === 'user') {
+      // Only force scroll to bottom when the user sends a message.
+      // When the bot replies, the top of its message will appear exactly
+      // where the typing indicator was, and the user can naturally scroll down.
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
   }
 
   function showTypingIndicator() {

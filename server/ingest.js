@@ -110,6 +110,9 @@ async function main() {
         const db = client.db(DB_NAME);
         const collection = db.collection(COLLECTION_NAME);
 
+        console.log('Clearing existing knowledge base to prevent duplicates...');
+        await collection.deleteMany({});
+
         const rootDir = path.join(__dirname, '..');
         const docsDir = path.join(rootDir, 'Documents');
         const imagesDir = path.join(rootDir, 'images');
@@ -146,7 +149,8 @@ async function main() {
         }
 
         // 3. Recursively Ingest Image files using Vision AI
-        if (fs.existsSync(imagesDir)) {
+        // DISABLED: To avoid Free Tier rate limits, we are skipping images for now.
+        if (false && fs.existsSync(imagesDir)) {
             const allImageFiles = getAllFilesRecursive(imagesDir);
             const imageFiles = allImageFiles.filter(f => {
                 const ext = path.extname(f).toLowerCase();

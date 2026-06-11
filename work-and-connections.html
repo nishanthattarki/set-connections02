@@ -750,21 +750,21 @@
                 </div>
 
                 <!-- Node: Scale (top) -->
-                <div class="tri-node tri-top">
+                <div class="tri-node tri-top" style="cursor: pointer;" onclick="window.location.href='Documents/4steps/scale.html'">
                     <div class="tri-circle">03</div>
                     <h5>Scale</h5>
                     <p>Deploy &amp; scale AI enterprise-wide for maximum impact</p>
                 </div>
 
                 <!-- Node: Discovery (bottom-left) -->
-                <div class="tri-node tri-bl">
+                <div class="tri-node tri-bl" style="cursor: pointer;" onclick="window.location.href='Documents/4steps/discovery.html'">
                     <div class="tri-circle">01</div>
                     <h5>Discovery</h5>
                     <p>Frame the right business problems before investing</p>
                 </div>
 
                 <!-- Node: Activation (bottom-right) -->
-                <div class="tri-node tri-br">
+                <div class="tri-node tri-br" style="cursor: pointer;" onclick="window.location.href='Documents/4steps/activation.html'">
                     <div class="tri-circle">02</div>
                     <h5>Activation</h5>
                     <p>Experiment, validate &amp; prove value with data</p>
@@ -937,7 +937,7 @@
 
             const sf = document.getElementById('gateStateForm');
             const su = document.getElementById('gateStateUnlocked');
-            if (localStorage.getItem('sc_pdf_access')) {
+            if (sessionStorage.getItem('sc_pdf_access')) {
                 sf.style.display = 'none'; su.style.display = 'block';
             } else {
                 sf.style.display = 'block'; su.style.display = 'none';
@@ -963,20 +963,18 @@
             const ints = document.getElementById('gateInterestedIn');
             const ms = document.getElementById('gateMessage');
             let ok = true;
-            [fn,ln,em,co,ints,ms].forEach(el => el.classList.remove('field-err'));
+            [fn,ln,em,co,ints,ms].forEach(el => el && el.classList.remove('field-err'));
             if (!fn.value.trim()) { fn.classList.add('field-err'); ok = false; }
             if (!ln.value.trim()) { ln.classList.add('field-err'); ok = false; }
             if (!em.value.trim() || !em.value.includes('@')) { em.classList.add('field-err'); ok = false; }
-            if (!co.value.trim()) { co.classList.add('field-err'); ok = false; }
-            if (!ints.value.trim()) { ints.classList.add('field-err'); ok = false; }
-            if (!ms.value.trim()) { ms.classList.add('field-err'); ok = false; }
+
             
             if (!ok) {
                 e.preventDefault(); // Stop submission only if invalid
                 return;
             }
 
-            localStorage.setItem('sc_pdf_access', JSON.stringify({ firstName:fn.value.trim(), lastName:ln.value.trim(), email:em.value.trim(), company:co.value.trim(), ts:new Date().toISOString() }));
+            sessionStorage.setItem('sc_pdf_access', JSON.stringify({ firstName:fn.value.trim(), lastName:ln.value.trim(), email:em.value.trim(), company:co ? co.value.trim() : '', ts:new Date().toISOString() }));
             
             // Open window synchronously to avoid popup blockers
             window.open(_pdfUrl, '_blank');
