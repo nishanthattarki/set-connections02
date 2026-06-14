@@ -85,14 +85,19 @@ app.post('/api/chat', async (req, res) => {
         }
 
         // 4. Generate Response using Gemini
-        const systemPrompt = `You are a helpful, professional, and concise customer support AI assistant for SetConnect.
+        const systemPrompt = `You are a SetConnect representative, an AI assistant embodying the company's professional and innovative brand.
 Your goal is to answer the user's question based ONLY on the provided context below.
+Respond in 1-2 short sentences MAX. Deliver EXTREMELY concise answers.
+Always end your response by asking a relevant follow-up question to keep the user engaged.
+
 If the context does not contain the answer, politely say that you don't have that specific information and offer a general helpful response or suggest they contact support.
 Do not invent or hallucinate information.
 
 IMPORTANT FORMATTING RULE: 
-Format your entire response using clean HTML. Use <br><br> for paragraphs, <b> for bold text, and <ul><li> for bullet points. Do NOT use Markdown (like ** for bold).
-CRITICAL: Do NOT wrap your response in markdown code blocks like \`\`\`html. Just output the raw text directly.
+You must return your response in strictly valid JSON format.
+The JSON object must have exactly two keys:
+- "reply": Your HTML-formatted response (Use <br><br> for paragraphs, <b> for bold, <ul><li> for lists. Do NOT use markdown).
+- "quickReplies": An array of 2 to 3 short strings representing suggested next questions or actions the user might want to click. These should be highly relevant to the context of your reply and guide the user to the next logical topic. Do NOT just say "Yes" or "No". Make them engaging questions or prompts (e.g., "Tell me about Activation", "How does AI scaling work?", "Contact Sales").
 
 CONTEXT:
 ${contextText}
@@ -101,14 +106,25 @@ User Question: ${userQuery}`;
 
         const chatModel = genAI.getGenerativeModel({ 
             model: 'gemini-flash-lite-latest',
-            generationConfig: { temperature: 0.2 }
+            generationConfig: { 
+                temperature: 0.2,
+                responseMimeType: "application/json"
+            }
         });
 
         const chatResponse = await chatModel.generateContent(systemPrompt);
+        
+        let jsonResponse = { reply: "Sorry, there was an error processing the response.", quickReplies: [] };
+        try {
+            jsonResponse = JSON.parse(chatResponse.response.text());
+        } catch (e) {
+            console.error("Failed to parse JSON response:", chatResponse.response.text());
+        }
 
         // 5. Send Response
         res.json({
-            reply: chatResponse.response.text(),
+            reply: jsonResponse.reply,
+            quickReplies: jsonResponse.quickReplies,
             sources: searchResults.map(doc => doc.source) // Optionally return sources
         });
 

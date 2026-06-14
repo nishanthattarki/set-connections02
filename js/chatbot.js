@@ -1,17 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const scriptTag = document.currentScript || document.querySelector('script[src*="chatbot.js"]');
+  const logoPath = scriptTag ? new URL('../images/setconnect-logo.png', scriptTag.src).href : '/images/setconnect-logo.png';
+
   // Inject HTML for the chat widget
   const chatHTML = `
     <div id="chat-widget-container">
       <div id="chat-window">
         <div id="chat-header">
-          <div class="chat-header-info">
-            <h3>SetConnect AI</h3>
-            <p><span class="status-dot"></span> Online</p>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="${logoPath}" alt="SetConnect AI Avatar" style="width: 40px; height: 40px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: 1px solid #0891b2;">
+            <div class="chat-header-info">
+              <h3>SetConnect Assistant</h3>
+              <p><span class="status-dot"></span> Online & Ready to Help</p>
+            </div>
           </div>
           <button id="chat-close">&times;</button>
         </div>
         <div id="chat-messages">
-          <div class="message bot">Hello! I'm the SetConnect AI assistant. How can I help you today?</div>
+          <div class="message bot">
+            <div style="display: flex; gap: 8px; align-items: flex-start;">
+              <img src="${logoPath}" alt="SetConnect AI" style="width: 24px; height: 24px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; flex-shrink: 0; border: 1px solid #0891b2;">
+              <div>Hello! I'm the SetConnect AI assistant. How can I help you today?</div>
+            </div>
+          </div>
         </div>
         <div id="chat-input-area">
           <form id="chat-form">
@@ -53,12 +64,68 @@ document.addEventListener('DOMContentLoaded', () => {
   launcher.addEventListener('click', toggleChat);
   closeBtn.addEventListener('click', toggleChat);
 
-  function addMessage(text, sender) {
+  function addMessage(text, sender, quickReplies = []) {
     const msgDiv = document.createElement('div');
     msgDiv.classList.add('message', sender);
-    msgDiv.innerHTML = text;
+    
+    if (sender === 'bot') {
+      msgDiv.innerHTML = `
+        <div style="display: flex; gap: 8px; align-items: flex-start;">
+          <img src="${logoPath}" alt="SetConnect AI" style="width: 24px; height: 24px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; flex-shrink: 0; border: 1px solid #0891b2;">
+          <div>${text}</div>
+        </div>
+      `;
+    } else {
+      msgDiv.innerHTML = text;
+    }
     chatMessages.appendChild(msgDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    if (quickReplies && quickReplies.length > 0) {
+      const qrDiv = document.createElement('div');
+      qrDiv.style.display = 'flex';
+      qrDiv.style.gap = '8px';
+      qrDiv.style.marginTop = '8px';
+      qrDiv.style.marginLeft = '40px';
+      qrDiv.style.flexWrap = 'wrap';
+      
+      quickReplies.forEach(qr => {
+        const btn = document.createElement('button');
+        btn.textContent = qr;
+        btn.style.padding = '6px 12px';
+        btn.style.borderRadius = '16px';
+        btn.style.border = '1px solid var(--chat-primary)';
+        btn.style.background = 'transparent';
+        btn.style.color = 'var(--chat-primary)';
+        btn.style.cursor = 'pointer';
+        btn.style.fontSize = '0.85rem';
+        btn.style.transition = 'all 0.2s';
+        
+        btn.onmouseover = () => {
+          btn.style.background = 'var(--chat-primary)';
+          btn.style.color = 'white';
+        };
+        btn.onmouseout = () => {
+          btn.style.background = 'transparent';
+          btn.style.color = 'var(--chat-primary)';
+        };
+        
+        btn.onclick = () => {
+          qrDiv.remove();
+          chatInput.value = qr;
+          chatForm.dispatchEvent(new Event('submit'));
+        };
+        
+        qrDiv.appendChild(btn);
+      });
+      chatMessages.appendChild(qrDiv);
+    }
+    
+    if (sender === 'user') {
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    } else {
+      // For bot messages, scroll so the top of the new message is visible
+      msgDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   function showTypingIndicator() {
@@ -66,9 +133,14 @@ document.addEventListener('DOMContentLoaded', () => {
     indicator.classList.add('typing-indicator');
     indicator.id = 'typing-indicator';
     indicator.innerHTML = `
-      <div class="typing-dot"></div>
-      <div class="typing-dot"></div>
-      <div class="typing-dot"></div>
+      <div style="display: flex; gap: 8px; align-items: flex-start;">
+        <img src="${logoPath}" alt="SetConnect AI" style="width: 24px; height: 24px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; flex-shrink: 0; border: 1px solid #0891b2;">
+        <div style="display: flex; align-items: center; gap: 4px; margin-top: 6px;">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+      </div>
     `;
     chatMessages.appendChild(indicator);
     chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -95,8 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
     showTypingIndicator();
 
     try {
-      // Uses relative URL so it dynamically works on Localhost AND Railway!
-      const response = await fetch('/api/chat', {
+      // NOTE: Replace localhost with your actual deployed backend URL when going live
+      const response = await fetch('http://localhost:5000/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -109,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
       removeTypingIndicator();
       
       if (response.ok && data.reply) {
-        addMessage(data.reply, 'bot');
+        addMessage(data.reply, 'bot', data.quickReplies || []);
       } else {
         addMessage("Sorry, I'm having trouble connecting to the server right now.", 'bot');
       }

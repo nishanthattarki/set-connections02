@@ -1355,19 +1355,19 @@
                     </div>
                     <div class="playbook-visual">
                         <div class="lifecycle-ring">
-                            <div class="lifecycle-step">
+                            <div class="lifecycle-step" style="cursor: pointer;" onclick="window.location.href='Documents/4steps/discovery.html'">
                                 <div class="step-icon"><i class="bi bi-search"></i></div>
                                 <span class="step-label">Discover</span>
                             </div>
-                            <div class="lifecycle-step">
+                            <div class="lifecycle-step" style="cursor: pointer;" onclick="window.location.href='Documents/4steps/immersion.html'">
                                 <div class="step-icon"><i class="bi bi-palette"></i></div>
                                 <span class="step-label">Design</span>
                             </div>
-                            <div class="lifecycle-step">
+                            <div class="lifecycle-step" style="cursor: pointer;" onclick="window.location.href='Documents/4steps/activation.html'">
                                 <div class="step-icon"><i class="bi bi-code-slash"></i></div>
                                 <span class="step-label">Develop</span>
                             </div>
-                            <div class="lifecycle-step">
+                            <div class="lifecycle-step" style="cursor: pointer;" onclick="window.location.href='Documents/4steps/scale.html'">
                                 <div class="step-icon"><i class="bi bi-rocket-takeoff"></i></div>
                                 <span class="step-label">Deploy</span>
                             </div>
@@ -1435,7 +1435,7 @@
                 <div id="gateStateForm">
                     <span class="gate-eyebrow">Free Download</span>
                     <h3>Get Instant Access</h3>
-                    <p class="gate-sub">Share your details to access the full report. All fields are optional.</p>
+                    <p class="gate-sub">Share your details to access the full report.</p>
                     <form id="pdfGateForm" action="https://formsubmit.co/info@setconnectglobal.com" method="POST" target="pdfFormTarget" onsubmit="submitPdfGate(event)">
                         <input type="hidden" name="_subject" id="gateFormSubject" value="PDF Report Access">
                         <input type="hidden" name="_captcha" value="false">
@@ -1443,10 +1443,10 @@
                         <input type="hidden" name="_next" value="about:blank">
                         <input type="text" name="_honey" style="display:none">
                         <div class="gate-row">
-                            <div class="gate-field"><input type="text" name="first_name" id="gateFirstName" placeholder="First Name (optional)" autocomplete="given-name"></div>
-                            <div class="gate-field"><input type="text" name="last_name" id="gateLastName" placeholder="Last Name (optional)" autocomplete="family-name"></div>
+                            <div class="gate-field"><input type="text" name="first_name" id="gateFirstName" placeholder="First Name *" autocomplete="given-name" required></div>
+                            <div class="gate-field"><input type="text" name="last_name" id="gateLastName" placeholder="Last Name *" autocomplete="family-name" required></div>
                         </div>
-                        <div class="gate-field"><input type="email" name="email" id="gateEmail" placeholder="Email Address (optional)" autocomplete="email"></div>
+                        <div class="gate-field"><input type="email" name="email" id="gateEmail" placeholder="Email Address *" autocomplete="email" required></div>
                         <div class="gate-field"><input type="text" name="company" id="gateCompany" placeholder="Company Name (optional)" autocomplete="organization"></div>
                         <div class="gate-field">
                             <select name="interested_in" id="gateInterestedIn">
@@ -1527,7 +1527,7 @@
             document.getElementById('gateFormSubject').value = 'PDF Report Access — AI Insights ' + issueTag;
             const sf = document.getElementById('gateStateForm');
             const su = document.getElementById('gateStateUnlocked');
-            if (localStorage.getItem('sc_pdf_access')) {
+            if (sessionStorage.getItem('sc_pdf_access')) {
                 sf.style.display = 'none'; su.style.display = 'block';
             } else {
                 sf.style.display = 'block'; su.style.display = 'none';
@@ -1552,9 +1552,9 @@
             const co  = document.getElementById('gateCompany').value.trim();
             const int = document.getElementById('gateInterestedIn').value;
 
-            // Save to localStorage if any personal info given
+            // Save to sessionStorage if any personal info given
             if (fn || em) {
-                localStorage.setItem('sc_pdf_access', JSON.stringify({ firstName: fn, email: em, ts: new Date().toISOString() }));
+                sessionStorage.setItem('sc_pdf_access', JSON.stringify({ firstName: fn, email: em, ts: new Date().toISOString() }));
             }
 
             // Always open the PDF immediately — don't block on fetch

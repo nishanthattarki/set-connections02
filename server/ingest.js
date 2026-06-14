@@ -25,16 +25,20 @@ function getAllFilesRecursive(dirPath, arrayOfFiles) {
     const files = fs.readdirSync(dirPath);
     arrayOfFiles = arrayOfFiles || [];
     files.forEach(function(file) {
-        if (fs.statSync(path.join(dirPath, file)).isDirectory()) {
-            arrayOfFiles = getAllFilesRecursive(path.join(dirPath, file), arrayOfFiles);
+        const fullPath = path.join(dirPath, file);
+        if (fs.statSync(fullPath).isDirectory()) {
+            // Exclude directories that shouldn't be indexed for text
+            if (!['.git', 'node_modules', 'server', 'images', 'css', 'js', 'videos', '.github', 'dist'].includes(file)) {
+                arrayOfFiles = getAllFilesRecursive(fullPath, arrayOfFiles);
+            }
         } else {
-            arrayOfFiles.push(path.join(dirPath, file));
+            arrayOfFiles.push(fullPath);
         }
     });
     return arrayOfFiles;
 }
 
-// Chunking helper function
+
 function chunkText(text, chunkSize = 1000, chunkOverlap = 200) {
     const chunks = [];
     let i = 0;
@@ -45,14 +49,14 @@ function chunkText(text, chunkSize = 1000, chunkOverlap = 200) {
     return chunks;
 }
 
-// Extract text from HTML
+
 function extractTextFromHTML(htmlContent) {
     const $ = cheerio.load(htmlContent);
     $('script, style').remove();
     return $('body').text().replace(/\s+/g, ' ').trim();
 }
 
-// Process single document and insert to DB
+
 async function processDocument(collection, filePath, content, sourceType) {
     console.log(`Processing ${sourceType}: ${path.basename(filePath)}...`);
     
@@ -74,7 +78,7 @@ async function processDocument(collection, filePath, content, sourceType) {
                 embedding: embedding
             });
             
-            // Wait 4 seconds to avoid Google API Free Tier Rate Limits
+          
             await new Promise(resolve => setTimeout(resolve, 4000));
             
         } catch (err) {
@@ -84,7 +88,6 @@ async function processDocument(collection, filePath, content, sourceType) {
     console.log(`  Finished ${path.basename(filePath)}`);
 }
 
-// Helper: Read image to generative part
 function fileToGenerativePart(filePath, mimeType) {
     return {
         inlineData: {
@@ -94,7 +97,7 @@ function fileToGenerativePart(filePath, mimeType) {
     };
 }
 
-// Get mimetype from extension
+
 function getMimeType(filePath) {
     const ext = path.extname(filePath).toLowerCase();
     if (ext === '.png') return 'image/png';
@@ -110,16 +113,19 @@ async function main() {
         const db = client.db(DB_NAME);
         const collection = db.collection(COLLECTION_NAME);
 
+        console.log('Clearing existing knowledge base to prevent duplicates...');
+        await collection.deleteMany({});
+
         const rootDir = path.join(__dirname, '..');
-        const docsDir = path.join(rootDir, 'Documents');
         const imagesDir = path.join(rootDir, 'images');
 
-        // 1. Ingest HTML files from root directory
-        const files = fs.readdirSync(rootDir);
-        const htmlFiles = files.filter(f => f.endsWith('.html'));
+        // Get all files recursively starting from the root directory
+        const allProjectFiles = getAllFilesRecursive(rootDir);
 
-        for (const file of htmlFiles) {
-            const filePath = path.join(rootDir, file);
+        // 1. Recursively Ingest ALL HTML files
+        const htmlFiles = allProjectFiles.filter(f => f.toLowerCase().endsWith('.html'));
+
+        for (const filePath of htmlFiles) {
             const htmlContent = fs.readFileSync(filePath, 'utf-8');
             const textContent = extractTextFromHTML(htmlContent);
             if (textContent.length > 50) {
@@ -127,33 +133,30 @@ async function main() {
             }
         }
 
-        // 2. Recursively Ingest PDF files from Documents directory
-        if (fs.existsSync(docsDir)) {
-            const allDocFiles = getAllFilesRecursive(docsDir);
-            const pdfFiles = allDocFiles.filter(f => f.toLowerCase().endsWith('.pdf'));
+        // 2. Recursively Ingest ALL PDF files from everywhere
+        const pdfFiles = allProjectFiles.filter(f => f.toLowerCase().endsWith('.pdf'));
 
-            for (const filePath of pdfFiles) {
-                const pdfBuffer = fs.readFileSync(filePath);
-                try {
-                    const pdfData = await pdfParse(pdfBuffer);
-                    if (pdfData.text && pdfData.text.length > 50) {
-                        await processDocument(collection, filePath, pdfData.text.replace(/\s+/g, ' '), 'PDF');
-                    }
-                } catch(e) {
-                     console.error(`Failed to parse PDF ${path.basename(filePath)}:`, e.message);
+        for (const filePath of pdfFiles) {
+            const pdfBuffer = fs.readFileSync(filePath);
+            try {
+                const pdfData = await pdfParse(pdfBuffer);
+                if (pdfData.text && pdfData.text.length > 50) {
+                    await processDocument(collection, filePath, pdfData.text.replace(/\s+/g, ' '), 'PDF');
                 }
+            } catch(e) {
+                 console.error(`Failed to parse PDF ${path.basename(filePath)}:`, e.message);
             }
         }
 
-        // 3. Recursively Ingest Image files using Vision AI
-        if (fs.existsSync(imagesDir)) {
+        
+        if (false && fs.existsSync(imagesDir)) {
             const allImageFiles = getAllFilesRecursive(imagesDir);
             const imageFiles = allImageFiles.filter(f => {
                 const ext = path.extname(f).toLowerCase();
                 return ['.png', '.jpg', '.jpeg', '.webp'].includes(ext);
             });
             
-            // Note: We use gemini-flash-latest for Vision tasks as allowed by the user's token
+            
             const visionModel = genAI.getGenerativeModel({ model: 'gemini-flash-latest' });
             
             for (const filePath of imageFiles) {
@@ -169,13 +172,13 @@ async function main() {
                     const imageDescription = result.response.text();
                     
                     if (imageDescription && imageDescription.length > 20) {
-                        // The extracted description is now embedded just like HTML/PDF text!
+                        
                         await processDocument(collection, filePath, imageDescription, 'Image');
                     } else {
                         console.log(`  No useful info extracted from ${path.basename(filePath)}`);
                     }
                     
-                    // Wait to avoid rate limits
+                    
                     await new Promise(resolve => setTimeout(resolve, 4000));
                     
                 } catch(e) {

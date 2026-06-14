@@ -1078,7 +1078,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.2;
+            opacity: 0.5;
         }
 
         .featured-video-bg::after {
@@ -1086,9 +1086,9 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(135deg,
-                    rgba(10, 25, 47, 0.88) 0%,
-                    rgba(10, 25, 47, 0.55) 50%,
-                    rgba(10, 25, 47, 0.88) 100%);
+                    rgba(10, 25, 47, 0.65) 0%,
+                    rgba(10, 25, 47, 0.35) 50%,
+                    rgba(10, 25, 47, 0.65) 100%);
             z-index: 1;
         }
 
@@ -1926,46 +1926,169 @@
     <!-- ══════════════════════════════════════════════
          4.5 FEATURED VIDEO — AI MEETS TOC
          ══════════════════════════════════════════════ -->
+    <style>
+        .video-slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .featured-video-wrapper.slide {
+            display: none;
+            width: 100%;
+        }
+        .featured-video-wrapper.slide.active {
+            display: flex;
+            animation: fadeInSlide 0.5s ease-in-out;
+        }
+        @keyframes fadeInSlide {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .slider-controls {
+            position: absolute;
+            bottom: 30px;
+            right: 5%;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        .slider-btn {
+            background: rgba(8, 145, 178, 0.2);
+            border: 1px solid rgba(8, 145, 178, 0.5);
+            color: var(--cyan);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .slider-btn:hover {
+            background: rgba(8, 145, 178, 0.5);
+            color: #fff;
+        }
+        .slider-btn i {
+            font-size: 20px;
+        }
+    </style>
     <section class="section-featured-video" id="featured-video">
-        <div class="featured-video-wrapper">
-            <!-- Background: same video at low opacity for cinematic feel -->
-            <div class="featured-video-bg">
-                <video autoplay muted loop playsinline>
-                    <source src="videos/finalvide.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="container">
-                <div class="featured-video-content" data-aos="fade-up">
-                    <!-- Playable Video -->
-                    <div class="featured-video-player">
-                        <div class="video-container">
-                            <video controls preload="metadata" poster="">
-                                <source src="videos/finalvide.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
+        <div class="video-slider-container" id="featured-video-slider">
+            <!-- Slide 1 (New Video: Action Coach) -->
+            <div class="featured-video-wrapper slide active">
+                <div class="featured-video-bg">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/clip1actioncoach.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="container">
+                    <div class="featured-video-content" data-aos="fade-up">
+                        <div class="featured-video-player">
+                            <div class="video-container">
+                                <video controls preload="metadata" poster="">
+                                    <source src="videos/clip1actioncoach.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Info Panel -->
-                    <div class="featured-video-info">
-                        <div class="video-label">
-                            <i class="bi bi-play-circle-fill"></i> Featured Video
+                        <div class="featured-video-info">
+                            <div class="video-label">
+                                <i class="bi bi-play-circle-fill"></i> Featured Video
+                            </div>
+                            <h3 style="font-size: 32px;">AI WON'T TRANSFORM MANUFACTURING—FASTER DECISIONS WILL</h3>
+                            <div class="video-subtitle">The Business Spotlight</div>
+                            <div class="video-guest">Ramesh Rajagopalan<br>
+                                <span style="font-size: 16px; color: rgba(255,255,255,0.45); font-weight: 300;">with</span><br>
+                                Kay Cote
+                            </div>
+                            <p class="video-desc">Discussing how faster decisions, not just AI, are the key to transforming manufacturing.</p>
+                            <a href="https://youtu.be/c7TuJuU4iJQ?si=0hTtU6mC59_1XF_o" target="_blank" style="display: inline-block; margin-top: 15px; color: var(--cyan); text-decoration: none; font-weight: 600; border: 1px solid var(--cyan); padding: 8px 16px; border-radius: 4px; transition: all 0.3s ease;">
+                                <i class="bi bi-youtube" style="margin-right: 8px;"></i>Watch Full Video on YouTube
+                            </a>
                         </div>
-                        <h3>AI Meets Theory of Constraints</h3>
-                        <div class="video-subtitle">Founder & CEO</div>
-                        <div class="video-guest">Dr. Ramesh Rajagopalan<br>
-                            <span
-                                style="font-size: 16px; color: rgba(255,255,255,0.45); font-weight: 300;">with</span><br>
-                            Rami Goldratt
-                        </div>
-                        <p class="video-desc">CEO of Goldratt Consulting — exploring how AI and the Theory of
-                            Constraints converge to deliver breakthrough business performance.</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Slide 2 (Previous Video) -->
+            <div class="featured-video-wrapper slide">
+                <div class="featured-video-bg">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/finalvide.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="container">
+                    <div class="featured-video-content" data-aos="fade-up">
+                        <div class="featured-video-player">
+                            <div class="video-container">
+                                <video controls preload="metadata" poster="">
+                                    <source src="videos/finalvide.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div class="featured-video-info">
+                            <div class="video-label">
+                                <i class="bi bi-play-circle-fill"></i> Featured Video
+                            </div>
+                            <h3>AI Meets Theory of Constraints</h3>
+                            <div class="video-subtitle">Founder & CEO</div>
+                            <div class="video-guest">Dr. Ramesh Rajagopalan<br>
+                                <span style="font-size: 16px; color: rgba(255,255,255,0.45); font-weight: 300;">with</span><br>
+                                Rami Goldratt
+                            </div>
+                            <p class="video-desc">CEO of Goldratt Consulting — exploring how AI and the Theory of
+                                Constraints converge to deliver breakthrough business performance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="slider-controls">
+                <button class="slider-btn prev-btn"><i class="bi bi-chevron-left"></i></button>
+                <button class="slider-btn next-btn"><i class="bi bi-chevron-right"></i></button>
+            </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const slider = document.getElementById("featured-video-slider");
+            if (!slider) return;
+            const slides = slider.querySelectorAll(".featured-video-wrapper.slide");
+            const prevBtn = slider.querySelector(".prev-btn");
+            const nextBtn = slider.querySelector(".next-btn");
+            let currentSlide = 0;
+
+            function showVideoSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove("active");
+                    const vids = slide.querySelectorAll("video");
+                    vids.forEach(v => {
+                        if(!v.hasAttribute("autoplay") && !v.paused) v.pause();
+                    });
+                });
+                slides[index].classList.add("active");
+                const activeBgVid = slides[index].querySelector(".featured-video-bg video");
+                if(activeBgVid) {
+                    activeBgVid.currentTime = 0;
+                    activeBgVid.play().catch(e => console.log("Autoplay blocked:", e));
+                }
+            }
+
+            nextBtn.addEventListener("click", function() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showVideoSlide(currentSlide);
+            });
+
+            prevBtn.addEventListener("click", function() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showVideoSlide(currentSlide);
+            });
+        });
+    </script>
 
     <hr class="thin-divider">
 
@@ -2067,7 +2190,7 @@
                 </div>
 
                 <!-- Node 1: Discovery (top) -->
-                <div class="orbit-node-item n-top">
+                <a href="Documents/4steps/discovery.html" style="text-decoration: none; color: inherit;" class="orbit-node-item n-top">
                     <div class="orb-circle">
                         <span class="orb-num">01</span>
                         <span class="orb-phase">Phase</span>
@@ -2075,10 +2198,10 @@
                     <div class="orb-text">
                         <h5>Discovery</h5>
                     </div>
-                </div>
+                </a>
 
                 <!-- Node 2: Immersion (right) -->
-                <div class="orbit-node-item n-right">
+                <a href="Documents/4steps/immersion.html" style="text-decoration: none; color: inherit;" class="orbit-node-item n-right">
                     <div class="orb-circle">
                         <span class="orb-num">02</span>
                         <span class="orb-phase">Phase</span>
@@ -2086,10 +2209,10 @@
                     <div class="orb-text">
                         <h5>Immersion</h5>
                     </div>
-                </div>
+                </a>
 
                 <!-- Node 3: Activation (bottom) -->
-                <div class="orbit-node-item n-bottom">
+                <a href="Documents/4steps/activation.html" style="text-decoration: none; color: inherit;" class="orbit-node-item n-bottom">
                     <div class="orb-circle">
                         <span class="orb-num">03</span>
                         <span class="orb-phase">Phase</span>
@@ -2097,10 +2220,10 @@
                     <div class="orb-text">
                         <h5>Activation</h5>
                     </div>
-                </div>
+                </a>
 
                 <!-- Node 4: Scale (left) -->
-                <div class="orbit-node-item n-left">
+                <a href="Documents/4steps/scale.html" style="text-decoration: none; color: inherit;" class="orbit-node-item n-left">
                     <div class="orb-circle">
                         <span class="orb-num">04</span>
                         <span class="orb-phase">Phase</span>
@@ -2108,40 +2231,40 @@
                     <div class="orb-text">
                         <h5>Scale</h5>
                     </div>
-                </div>
+                </a>
                 </div>
                 <!-- /center -->
 
                 <!-- RIGHT: Phase breakdown -->
                 <div class="pb-right">
-                    <div class="pb-phase">
+                    <a href="Documents/4steps/discovery.html" style="text-decoration: none; color: inherit;" class="pb-phase">
                         <span class="pb-phase-num">01</span>
                         <div class="pb-phase-body">
                             <strong>Discovery</strong>
                             <span>Frame the right business problems before investing in execution</span>
                         </div>
-                    </div>
-                    <div class="pb-phase">
+                    </a>
+                    <a href="Documents/4steps/immersion.html" style="text-decoration: none; color: inherit;" class="pb-phase">
                         <span class="pb-phase-num">02</span>
                         <div class="pb-phase-body">
                             <strong>Immersion</strong>
                             <span>Identify, assess &amp; rank the highest-value AI opportunities</span>
                         </div>
-                    </div>
-                    <div class="pb-phase">
+                    </a>
+                    <a href="Documents/4steps/activation.html" style="text-decoration: none; color: inherit;" class="pb-phase">
                         <span class="pb-phase-num">03</span>
                         <div class="pb-phase-body">
                             <strong>Activation</strong>
                             <span>Experiment, prove value with real data, define clear KPIs</span>
                         </div>
-                    </div>
-                    <div class="pb-phase">
+                    </a>
+                    <a href="Documents/4steps/scale.html" style="text-decoration: none; color: inherit;" class="pb-phase">
                         <span class="pb-phase-num">04</span>
                         <div class="pb-phase-body">
                             <strong>Scale</strong>
                             <span>Build the operating foundation for repeatable AI impact</span>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <!-- /right -->
 
