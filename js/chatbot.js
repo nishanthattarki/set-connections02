@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     chatMessages.appendChild(msgDiv);
     
+
     if (quickReplies && quickReplies.length > 0) {
       const qrDiv = document.createElement('div');
       qrDiv.style.display = 'flex';
