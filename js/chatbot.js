@@ -1,6 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
   const scriptTag = document.currentScript || document.querySelector('script[src*="chatbot.js"]');
   const logoPath = scriptTag ? new URL('../images/setconnect-logo.png', scriptTag.src).href : '/images/setconnect-logo.png';
+  let apiUrl = '/api/chat';
+  if (scriptTag) {
+    try {
+      const url = new URL('../api/chat', scriptTag.src);
+      if (url.hostname === 'localhost' || url.hostname === '127.0.0.1') {
+        url.port = '5000'; // Force backend port for local development
+        apiUrl = url.href;
+      } else if (url.protocol === 'file:') {
+        apiUrl = 'http://localhost:5000/api/chat'; // Fallback for file:// protocol
+      } else {
+        apiUrl = url.href;
+      }
+    } catch (e) {
+      apiUrl = '/api/chat';
+    }
+  }
 
   // Inject HTML for the chat widget
   const chatHTML = `
@@ -168,8 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showTypingIndicator();
 
     try {
-      // NOTE: Replace localhost with your actual deployed backend URL when going live
-      const response = await fetch('http://localhost:5000/api/chat', {
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
