@@ -2,25 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const scriptTag = document.currentScript || document.querySelector('script[src*="chatbot.js"]');
   const logoPath = scriptTag ? new URL('../images/setconnect-logo.png', scriptTag.src).href : '/images/setconnect-logo.png';
   let apiUrl = '/api/chat';
-<<<<<<< HEAD
   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:') {
     apiUrl = 'http://localhost:5000/api/chat';
-=======
-  if (scriptTag) {
-    try {
-      const url = new URL('../api/chat', scriptTag.src);
-      if (url.hostname === 'localhost' || url.hostname === '127.0.0.1') {
-        url.port = '5000'; // Force backend port for local development
-        apiUrl = url.href;
-      } else if (url.protocol === 'file:') {
-        apiUrl = 'http://localhost:5000/api/chat'; // Fallback for file:// protocol
-      } else {
-        apiUrl = url.href;
-      }
-    } catch (e) {
-      apiUrl = '/api/chat';
-    }
->>>>>>> eef7372dd3a7095b55dcfef59c6b282783e03157
   }
 
   // Inject HTML for the chat widget
@@ -28,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     <div id="chat-widget-container">
       <div id="chat-window">
         <div id="chat-header">
-<<<<<<< HEAD
           <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
             <div style="display: flex; align-items: center; gap: 12px;">
               <div class="avatar-container">
@@ -44,29 +26,17 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div style="display: flex; align-items: center; gap: 12px;">
               <button id="chat-close">&times;</button>
-=======
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <img src="${logoPath}" alt="SetConnect AI Avatar" style="width: 40px; height: 40px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: 1px solid #0891b2;">
-            <div class="chat-header-info">
-              <h3>SetConnect Assistant</h3>
-              <p><span class="status-dot"></span> Online & Ready to Help</p>
->>>>>>> eef7372dd3a7095b55dcfef59c6b282783e03157
             </div>
           </div>
         </div>
         <div id="chat-messages">
           <div class="message bot">
             <div style="display: flex; gap: 8px; align-items: flex-start;">
-<<<<<<< HEAD
               <div class="avatar-container">
                 <img src="${logoPath}" alt="SetConnect AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
                 <div class="avatar-online-dot" style="width: 8px; height: 8px; border-width: 1.5px;"></div>
               </div>
               <div style="margin-top: 4px;">Hello! I'm the SetConnect AI assistant. How can I help you today?</div>
-=======
-              <img src="${logoPath}" alt="SetConnect AI" style="width: 24px; height: 24px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; flex-shrink: 0; border: 1px solid #0891b2;">
-              <div>Hello! I'm the SetConnect AI assistant. How can I help you today?</div>
->>>>>>> eef7372dd3a7095b55dcfef59c6b282783e03157
             </div>
           </div>
         </div>
@@ -117,16 +87,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sender === 'bot') {
       msgDiv.innerHTML = `
         <div style="display: flex; gap: 8px; align-items: flex-start;">
-<<<<<<< HEAD
           <div class="avatar-container">
             <img src="${logoPath}" alt="SetConnect AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
             <div class="avatar-online-dot" style="width: 8px; height: 8px; border-width: 1.5px;"></div>
           </div>
           <div style="margin-top: 4px;">${text}</div>
-=======
-          <img src="${logoPath}" alt="SetConnect AI" style="width: 24px; height: 24px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; flex-shrink: 0; border: 1px solid #0891b2;">
-          <div>${text}</div>
->>>>>>> eef7372dd3a7095b55dcfef59c6b282783e03157
         </div>
       `;
     } else {
@@ -134,10 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     chatMessages.appendChild(msgDiv);
     
-<<<<<<< HEAD
-=======
 
->>>>>>> eef7372dd3a7095b55dcfef59c6b282783e03157
     if (quickReplies && quickReplies.length > 0) {
       const qrDiv = document.createElement('div');
       qrDiv.style.display = 'flex';
@@ -192,16 +154,11 @@ document.addEventListener('DOMContentLoaded', () => {
     indicator.id = 'typing-indicator';
     indicator.innerHTML = `
       <div style="display: flex; gap: 8px; align-items: flex-start;">
-<<<<<<< HEAD
         <div class="avatar-container">
           <img src="${logoPath}" alt="SetConnect AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
           <div class="avatar-online-dot" style="width: 8px; height: 8px; border-width: 1.5px;"></div>
         </div>
         <div style="display: flex; align-items: center; gap: 4px; margin-top: 10px;">
-=======
-        <img src="${logoPath}" alt="SetConnect AI" style="width: 24px; height: 24px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; flex-shrink: 0; border: 1px solid #0891b2;">
-        <div style="display: flex; align-items: center; gap: 4px; margin-top: 6px;">
->>>>>>> eef7372dd3a7095b55dcfef59c6b282783e03157
           <div class="typing-dot"></div>
           <div class="typing-dot"></div>
           <div class="typing-dot"></div>
