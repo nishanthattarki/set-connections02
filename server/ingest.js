@@ -25,10 +25,14 @@ function getAllFilesRecursive(dirPath, arrayOfFiles) {
     const files = fs.readdirSync(dirPath);
     arrayOfFiles = arrayOfFiles || [];
     files.forEach(function(file) {
-        if (fs.statSync(path.join(dirPath, file)).isDirectory()) {
-            arrayOfFiles = getAllFilesRecursive(path.join(dirPath, file), arrayOfFiles);
+        const fullPath = path.join(dirPath, file);
+        if (fs.statSync(fullPath).isDirectory()) {
+            // Exclude directories that shouldn't be indexed for text
+            if (!['.git', 'node_modules', 'server', 'images', 'css', 'js', 'videos', '.github', 'dist'].includes(file)) {
+                arrayOfFiles = getAllFilesRecursive(fullPath, arrayOfFiles);
+            }
         } else {
-            arrayOfFiles.push(path.join(dirPath, file));
+            arrayOfFiles.push(fullPath);
         }
     });
     return arrayOfFiles;
@@ -117,12 +121,13 @@ async function main() {
         const docsDir = path.join(rootDir, 'Documents');
         const imagesDir = path.join(rootDir, 'images');
 
-        // 1. Ingest HTML files from root directory
-        const files = fs.readdirSync(rootDir);
-        const htmlFiles = files.filter(f => f.endsWith('.html'));
+        // Get all files recursively starting from the root directory
+        const allProjectFiles = getAllFilesRecursive(rootDir);
 
-        for (const file of htmlFiles) {
-            const filePath = path.join(rootDir, file);
+        // 1. Recursively Ingest ALL HTML files
+        const htmlFiles = allProjectFiles.filter(f => f.toLowerCase().endsWith('.html'));
+
+        for (const filePath of htmlFiles) {
             const htmlContent = fs.readFileSync(filePath, 'utf-8');
             const textContent = extractTextFromHTML(htmlContent);
             if (textContent.length > 50) {
@@ -130,21 +135,18 @@ async function main() {
             }
         }
 
-        // 2. Recursively Ingest PDF files from Documents directory
-        if (fs.existsSync(docsDir)) {
-            const allDocFiles = getAllFilesRecursive(docsDir);
-            const pdfFiles = allDocFiles.filter(f => f.toLowerCase().endsWith('.pdf'));
+        // 2. Recursively Ingest ALL PDF files from everywhere
+        const pdfFiles = allProjectFiles.filter(f => f.toLowerCase().endsWith('.pdf'));
 
-            for (const filePath of pdfFiles) {
-                const pdfBuffer = fs.readFileSync(filePath);
-                try {
-                    const pdfData = await pdfParse(pdfBuffer);
-                    if (pdfData.text && pdfData.text.length > 50) {
-                        await processDocument(collection, filePath, pdfData.text.replace(/\s+/g, ' '), 'PDF');
-                    }
-                } catch(e) {
-                     console.error(`Failed to parse PDF ${path.basename(filePath)}:`, e.message);
+        for (const filePath of pdfFiles) {
+            const pdfBuffer = fs.readFileSync(filePath);
+            try {
+                const pdfData = await pdfParse(pdfBuffer);
+                if (pdfData.text && pdfData.text.length > 50) {
+                    await processDocument(collection, filePath, pdfData.text.replace(/\s+/g, ' '), 'PDF');
                 }
+            } catch(e) {
+                 console.error(`Failed to parse PDF ${path.basename(filePath)}:`, e.message);
             }
         }
 

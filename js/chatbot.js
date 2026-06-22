@@ -1,17 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const scriptTag = document.currentScript || document.querySelector('script[src*="chatbot.js"]');
+  const logoPath = scriptTag ? new URL('../images/setconnect-logo.png', scriptTag.src).href : '/images/setconnect-logo.png';
+  let apiUrl = '/api/chat';
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:') {
+    apiUrl = 'http://localhost:5000/api/chat';
+  }
+
   // Inject HTML for the chat widget
   const chatHTML = `
     <div id="chat-widget-container">
       <div id="chat-window">
         <div id="chat-header">
-          <div class="chat-header-info">
-            <h3>SetConnect AI</h3>
-            <p><span class="status-dot"></span> Online</p>
+          <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div class="avatar-container">
+                <img src="${logoPath}" alt="SetConnect AI Avatar" style="width: 42px; height: 42px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 4px; border: 1px solid #0891b2;">
+                <div class="avatar-online-dot"></div>
+              </div>
+              <div class="chat-header-info">
+                <h3 style="display: flex; align-items: center; gap: 8px; margin: 0; font-size: 1.1rem; color: #ffffff; font-weight: 600;">
+                  SetConnect Guide
+                </h3>
+                <p style="margin: 4px 0 0; font-size: 0.8rem; color: rgba(255, 255, 255, 0.8);">AI Discovery Assistant</p>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <button id="chat-close">&times;</button>
+            </div>
           </div>
-          <button id="chat-close">&times;</button>
         </div>
         <div id="chat-messages">
-          <div class="message bot">Hello! I'm the SetConnect AI assistant. How can I help you today?</div>
+          <div class="message bot">
+            <div style="display: flex; gap: 8px; align-items: flex-start;">
+              <div class="avatar-container">
+                <img src="${logoPath}" alt="SetConnect AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
+                <div class="avatar-online-dot" style="width: 8px; height: 8px; border-width: 1.5px;"></div>
+              </div>
+              <div style="margin-top: 4px;">Hello! I'm the SetConnect AI assistant. How can I help you today?</div>
+            </div>
+          </div>
         </div>
         <div id="chat-input-area">
           <form id="chat-form">
@@ -53,17 +80,70 @@ document.addEventListener('DOMContentLoaded', () => {
   launcher.addEventListener('click', toggleChat);
   closeBtn.addEventListener('click', toggleChat);
 
-  function addMessage(text, sender) {
+  function addMessage(text, sender, quickReplies = []) {
     const msgDiv = document.createElement('div');
     msgDiv.classList.add('message', sender);
-    msgDiv.innerHTML = text;
+    
+    if (sender === 'bot') {
+      msgDiv.innerHTML = `
+        <div style="display: flex; gap: 8px; align-items: flex-start;">
+          <div class="avatar-container">
+            <img src="${logoPath}" alt="SetConnect AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
+            <div class="avatar-online-dot" style="width: 8px; height: 8px; border-width: 1.5px;"></div>
+          </div>
+          <div style="margin-top: 4px;">${text}</div>
+        </div>
+      `;
+    } else {
+      msgDiv.innerHTML = text;
+    }
     chatMessages.appendChild(msgDiv);
     
+    if (quickReplies && quickReplies.length > 0) {
+      const qrDiv = document.createElement('div');
+      qrDiv.style.display = 'flex';
+      qrDiv.style.gap = '8px';
+      qrDiv.style.marginTop = '8px';
+      qrDiv.style.marginLeft = '40px';
+      qrDiv.style.flexWrap = 'wrap';
+      
+      quickReplies.forEach(qr => {
+        const btn = document.createElement('button');
+        btn.textContent = qr;
+        btn.style.padding = '6px 12px';
+        btn.style.borderRadius = '16px';
+        btn.style.border = '1px solid var(--chat-primary)';
+        btn.style.background = 'transparent';
+        btn.style.color = 'var(--chat-primary)';
+        btn.style.cursor = 'pointer';
+        btn.style.fontSize = '0.85rem';
+        btn.style.transition = 'all 0.2s';
+        
+        btn.onmouseover = () => {
+          btn.style.background = 'var(--chat-primary)';
+          btn.style.color = 'white';
+        };
+        btn.onmouseout = () => {
+          btn.style.background = 'transparent';
+          btn.style.color = 'var(--chat-primary)';
+        };
+        
+        btn.onclick = () => {
+          qrDiv.remove();
+          chatInput.value = qr;
+          chatForm.dispatchEvent(new Event('submit'));
+        };
+        
+        qrDiv.appendChild(btn);
+      });
+      chatMessages.appendChild(qrDiv);
+    }
+    
     if (sender === 'user') {
-      // Only force scroll to bottom when the user sends a message.
-      // When the bot replies, the top of its message will appear exactly
-      // where the typing indicator was, and the user can naturally scroll down.
       chatMessages.scrollTop = chatMessages.scrollHeight;
+    } else {
+      // For bot messages, scroll so the top of the new message is visible
+      msgDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
@@ -72,9 +152,17 @@ document.addEventListener('DOMContentLoaded', () => {
     indicator.classList.add('typing-indicator');
     indicator.id = 'typing-indicator';
     indicator.innerHTML = `
-      <div class="typing-dot"></div>
-      <div class="typing-dot"></div>
-      <div class="typing-dot"></div>
+      <div style="display: flex; gap: 8px; align-items: flex-start;">
+        <div class="avatar-container">
+          <img src="${logoPath}" alt="SetConnect AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
+          <div class="avatar-online-dot" style="width: 8px; height: 8px; border-width: 1.5px;"></div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 4px; margin-top: 10px;">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+      </div>
     `;
     chatMessages.appendChild(indicator);
     chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -101,8 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showTypingIndicator();
 
     try {
-      // Uses relative URL so it dynamically works on Localhost AND Railway!
-      const response = await fetch('/api/chat', {
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -115,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
       removeTypingIndicator();
       
       if (response.ok && data.reply) {
-        addMessage(data.reply, 'bot');
+        addMessage(data.reply, 'bot', data.quickReplies || []);
       } else {
         addMessage("Sorry, I'm having trouble connecting to the server right now.", 'bot');
       }
