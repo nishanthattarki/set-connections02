@@ -38,7 +38,7 @@ function getAllFilesRecursive(dirPath, arrayOfFiles) {
     return arrayOfFiles;
 }
 
-// Chunking helper function
+
 function chunkText(text, chunkSize = 1000, chunkOverlap = 200) {
     const chunks = [];
     let i = 0;
@@ -49,14 +49,14 @@ function chunkText(text, chunkSize = 1000, chunkOverlap = 200) {
     return chunks;
 }
 
-// Extract text from HTML
+
 function extractTextFromHTML(htmlContent) {
     const $ = cheerio.load(htmlContent);
     $('script, style').remove();
     return $('body').text().replace(/\s+/g, ' ').trim();
 }
 
-// Process single document and insert to DB
+
 async function processDocument(collection, filePath, content, sourceType) {
     console.log(`Processing ${sourceType}: ${path.basename(filePath)}...`);
     
@@ -78,7 +78,7 @@ async function processDocument(collection, filePath, content, sourceType) {
                 embedding: embedding
             });
             
-            // Wait 4 seconds to avoid Google API Free Tier Rate Limits
+          
             await new Promise(resolve => setTimeout(resolve, 4000));
             
         } catch (err) {
@@ -88,7 +88,6 @@ async function processDocument(collection, filePath, content, sourceType) {
     console.log(`  Finished ${path.basename(filePath)}`);
 }
 
-// Helper: Read image to generative part
 function fileToGenerativePart(filePath, mimeType) {
     return {
         inlineData: {
@@ -98,7 +97,7 @@ function fileToGenerativePart(filePath, mimeType) {
     };
 }
 
-// Get mimetype from extension
+
 function getMimeType(filePath) {
     const ext = path.extname(filePath).toLowerCase();
     if (ext === '.png') return 'image/png';
@@ -118,7 +117,6 @@ async function main() {
         await collection.deleteMany({});
 
         const rootDir = path.join(__dirname, '..');
-        const docsDir = path.join(rootDir, 'Documents');
         const imagesDir = path.join(rootDir, 'images');
 
         // Get all files recursively starting from the root directory
@@ -150,8 +148,12 @@ async function main() {
             }
         }
 
+<<<<<<< HEAD
+        
+=======
         // 3. Recursively Ingest Image files using Vision AI
         // DISABLED: To avoid Free Tier rate limits, we are skipping images for now.
+>>>>>>> 49c267a6f87eb3ba1cc7d7ebcde120a91fe4684e
         if (false && fs.existsSync(imagesDir)) {
             const allImageFiles = getAllFilesRecursive(imagesDir);
             const imageFiles = allImageFiles.filter(f => {
@@ -159,7 +161,7 @@ async function main() {
                 return ['.png', '.jpg', '.jpeg', '.webp'].includes(ext);
             });
             
-            // Note: We use gemini-flash-latest for Vision tasks as allowed by the user's token
+            
             const visionModel = genAI.getGenerativeModel({ model: 'gemini-flash-latest' });
             
             for (const filePath of imageFiles) {
@@ -175,13 +177,13 @@ async function main() {
                     const imageDescription = result.response.text();
                     
                     if (imageDescription && imageDescription.length > 20) {
-                        // The extracted description is now embedded just like HTML/PDF text!
+                        
                         await processDocument(collection, filePath, imageDescription, 'Image');
                     } else {
                         console.log(`  No useful info extracted from ${path.basename(filePath)}`);
                     }
                     
-                    // Wait to avoid rate limits
+                    
                     await new Promise(resolve => setTimeout(resolve, 4000));
                     
                 } catch(e) {
