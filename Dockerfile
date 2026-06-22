@@ -1,10 +1,17 @@
-FROM nginx:alpine
+FROM node:18-alpine
 
-# Copy custom Nginx configuration template
-COPY nginx.conf.template /etc/nginx/templates/default.conf.template
+# Set working directory
+WORKDIR /app
 
-# Copy all files from the current directory into Nginx's serving directory
-COPY . /usr/share/nginx/html
+# Copy package.json and install dependencies
+COPY package*.json ./
+RUN npm install
 
-# Expose port 80 (Railway will override this with its own port, but it's good practice)
-EXPOSE 80
+# Copy all other project files
+COPY . .
+
+# Expose the port your app runs on
+EXPOSE 5000
+
+# Start the Node.js server
+CMD ["npm", "start"]
