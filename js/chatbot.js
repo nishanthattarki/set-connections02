@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
       console.error('Chat Error:', error);
       removeTypingIndicator();
-      addMessage("Sorry, the chat server is currently offline.", 'bot');
+      addMessage(`Debug Info - Error: ${error.message} | URL: ${apiUrl}`, 'bot');
     } finally {
       submitBtn.disabled = false;
       chatInput.focus();
