@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "Hello! I'm the SetConnect AI assistant. How can I help you today?",
     "Hi there! I'm the SetConnect AI. Are you looking to <a href='/contact.html' style='color: #0891b2; font-weight: bold; text-decoration: underline;'>book a discovery call</a> with our team today?",
     "Welcome! I'm the SetConnect AI. Want to stay updated? You can <a href='/ai-blogs.html' style='color: #0891b2; font-weight: bold; text-decoration: underline;'>subscribe to our AI Newsletter</a> here!",
-    "Hello! I'm your SetConnect guide. You can <a href='/aiblogs/ai-playbook.html' style='color: #0891b2; font-weight: bold; text-decoration: underline;'>request our AI Playbook PDF</a> here!",
+    "Hello! I'm your SetConnect guide. You can <a href='https://set-connections02-production-af65.up.railway.app/Documents/4steps/discovery.html' style='color: #0891b2; font-weight: bold; text-decoration: underline;'>request our AI Playbook PDF</a> here!",
     "Hi! I'm the SetConnect AI. Did you know you can <a href='/Documents/4steps/discovery.html' style='color: #0891b2; font-weight: bold; text-decoration: underline;'>download our Discovery Phase PDF</a> to learn about our process?"
   ];
   const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
