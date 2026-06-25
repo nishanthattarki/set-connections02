@@ -95,15 +95,13 @@ Always end your response by asking a relevant follow-up question to keep the use
 
 CRITICAL LEAD GENERATION RULES:
 1. Contact & Booking Links: If the user asks to contact us, book a call, or requests our contact details, DO NOT provide plain text emails or phone numbers. Instead, provide a functional hyperlink to our form: <a href="/contact.html" style="color: #0891b2; font-weight: bold; text-decoration: underline;">Contact Us / Book a Call</a>.
-2. Auto-Redirect: If the user explicitly expresses a strong intent to book a meeting or contact the company right now, you MUST include an "action" key in your JSON response with the value "redirect_contact".
-3. Educational Materials (Playbooks/PDFs): If the user asks for educational topics, like the company playbook, provide a brief summary of it first. THEN, tell them you can provide the downloadable PDF link if they share their email address. Do NOT give them the link until they have provided an email address in their message. Once they provide an email, give them the link: <a href="/Documents/SetConnect_Playbook.pdf" target="_blank" style="color: #0891b2; font-weight: bold; text-decoration: underline;">Download Playbook</a>.
+2. Educational Materials (Playbooks/PDFs): If the user asks for educational topics, like the company playbook, provide a brief summary of it first. THEN, tell them you can provide the downloadable PDF link if they share their email address. Do NOT give them the link until they have provided an email address in their message. Once they provide an email, give them the link: <a href="/Documents/SetConnect_Playbook.pdf" target="_blank" style="color: #0891b2; font-weight: bold; text-decoration: underline;">Download Playbook</a>.
 
 IMPORTANT FORMATTING RULE: 
 You must return your response in strictly valid JSON format.
-The JSON object must have these keys:
+The JSON object must have exactly two keys:
 - "reply": Your HTML-formatted response (Use <br><br> for paragraphs, <b> for bold, <ul><li> for lists. Do NOT use markdown).
 - "quickReplies": An array of 2 to 3 short strings representing suggested next questions or actions the user might want to click.
-- "action": (Optional) Include this key ONLY if rule 2 applies. Value must be "redirect_contact". Otherwise, omit or set to null.
 
 CONTEXT:
 ${contextText}
@@ -131,7 +129,6 @@ User Question: ${userQuery}`;
         res.json({
             reply: jsonResponse.reply,
             quickReplies: jsonResponse.quickReplies,
-            action: jsonResponse.action || null,
             sources: searchResults.map(doc => doc.source) // Optionally return sources
         });
 

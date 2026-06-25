@@ -272,13 +272,6 @@ document.addEventListener('DOMContentLoaded', () => {
       
       if (response.ok && data.reply) {
         addMessage(data.reply, 'bot', data.quickReplies || []);
-        
-        // Handle frontend actions from the AI
-        if (data.action === 'redirect_contact') {
-          setTimeout(() => {
-            window.location.href = '/contact.html';
-          }, 2500); // 2.5 second delay so the user can read the confirmation message
-        }
       } else {
         addMessage("Sorry, I'm having trouble connecting to the server right now.", 'bot');
       }
