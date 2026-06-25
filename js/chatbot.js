@@ -28,14 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
 
   // Inject HTML for the chat widget
-  const chatHTML = \`
+  const chatHTML = `
     <div id="chat-widget-container">
       <div id="chat-window">
         <div id="chat-header">
           <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
             <div style="display: flex; align-items: center; gap: 12px;">
               <div class="avatar-container">
-                <img src="\${logoPath}" alt="SetConnect AI Avatar" style="width: 42px; height: 42px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 4px; border: 1px solid #0891b2;">
+                <img src="${logoPath}" alt="SetConnect AI Avatar" style="width: 42px; height: 42px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 4px; border: 1px solid #0891b2;">
                 <div class="avatar-online-dot"></div>
               </div>
               <div class="chat-header-info">
@@ -54,10 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="message bot">
             <div style="display: flex; gap: 8px; align-items: flex-start;">
               <div class="avatar-container">
-                <img src="\${logoPath}" alt="SetConnect AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
+                <img src="${logoPath}" alt="SetConnect AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
                 <div class="avatar-online-dot" style="width: 8px; height: 8px; border-width: 1.5px;"></div>
               </div>
-              <div style="margin-top: 4px;">\${randomGreeting}</div>
+              <div style="margin-top: 4px;">${randomGreeting}</div>
             </div>
           </div>
         </div>
