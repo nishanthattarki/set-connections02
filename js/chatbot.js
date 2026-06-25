@@ -18,15 +18,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  const greetings = [
+    "Hello! I'm the SetConnect AI assistant. How can I help you today?",
+    "Hi there! I'm the SetConnect AI. Are you looking to <a href='/contact.html' style='color: #0891b2; font-weight: bold; text-decoration: underline;'>book a discovery call</a> with our team today?",
+    "Welcome! I'm the SetConnect AI. Want to stay updated? You can <a href='/contact.html' style='color: #0891b2; font-weight: bold; text-decoration: underline;'>subscribe to our AI Newsletter</a> here!",
+    "Hello! I'm your SetConnect guide. Ask me about our AI Playbook, and I'll help you download the PDF!",
+    "Hi! I'm the SetConnect AI assistant. Did you know you can ask me for our Discovery & Immersion PDFs to learn about our process?"
+  ];
+  const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+
   // Inject HTML for the chat widget
-  const chatHTML = `
+  const chatHTML = \`
     <div id="chat-widget-container">
       <div id="chat-window">
         <div id="chat-header">
           <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
             <div style="display: flex; align-items: center; gap: 12px;">
               <div class="avatar-container">
-                <img src="${logoPath}" alt="SetConnect AI Avatar" style="width: 42px; height: 42px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 4px; border: 1px solid #0891b2;">
+                <img src="\${logoPath}" alt="SetConnect AI Avatar" style="width: 42px; height: 42px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 4px; border: 1px solid #0891b2;">
                 <div class="avatar-online-dot"></div>
               </div>
               <div class="chat-header-info">
@@ -45,10 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="message bot">
             <div style="display: flex; gap: 8px; align-items: flex-start;">
               <div class="avatar-container">
-                <img src="${logoPath}" alt="SetConnect AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
+                <img src="\${logoPath}" alt="SetConnect AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
                 <div class="avatar-online-dot" style="width: 8px; height: 8px; border-width: 1.5px;"></div>
               </div>
-              <div style="margin-top: 4px;">Hello! I'm the SetConnect AI assistant. How can I help you today?</div>
+              <div style="margin-top: 4px;">\${randomGreeting}</div>
             </div>
           </div>
         </div>
