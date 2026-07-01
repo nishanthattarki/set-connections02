@@ -281,6 +281,29 @@ document.addEventListener('DOMContentLoaded', () => {
       
       if (response.ok && data.reply) {
         addMessage(data.reply, 'bot', data.quickReplies || []);
+        
+        if (data.action && data.action.type === 'submitContactForm') {
+          showTypingIndicator();
+          try {
+            const formData = new FormData();
+            formData.append('name', data.action.formData.name || 'NA');
+            formData.append('email', data.action.formData.email || 'NA');
+            formData.append('message', data.action.formData.message || 'NA');
+            formData.append('_subject', 'New Contact Form Submission via AI Chatbot');
+
+            await fetch('https://formsubmit.co/ajax/nishanthattarki23@gmail.com', {
+                method: 'POST',
+                body: formData
+            });
+            
+            removeTypingIndicator();
+            addMessage("Thank you! Your details have been successfully submitted. Our team will be in touch shortly.", 'bot');
+          } catch (formError) {
+            removeTypingIndicator();
+            console.error('Form Submit Error:', formError);
+            addMessage("I've collected your details, but there was an error sending them to our team. Please try the contact page.", 'bot');
+          }
+        }
       } else {
         addMessage("Sorry, I'm having trouble connecting to the server right now.", 'bot');
       }

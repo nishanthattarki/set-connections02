@@ -5,15 +5,19 @@ import { MongoClient } from 'mongodb';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import path from 'path';
 import { fileURLToPath } from 'url';
-dotenv.config();
+
+// Define __filename and __dirname first
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Load .env explicitly from the server directory
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 // Serve static frontend files (Production Ready)
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 const rootDir = path.join(__dirname, '..');
 app.use(express.static(rootDir));
 
@@ -126,16 +130,22 @@ CORE KNOWLEDGE BASE (FAQs):
 30. Why act on AI now? To establish a massive competitive advantage in efficiency and scalability over late adopters.
 
 CRITICAL LEAD GENERATION RULES:
-1. Contact & Booking Links: If the user asks to contact us, book a call, or requests our contact details, DO NOT provide plain text emails or phone numbers. Instead, provide a functional hyperlink to our form: <a href="/contact.html" style="color: #0891b2; font-weight: bold; text-decoration: underline;">Contact Us / Book a Call</a>.
+1. Conversational Form Filling (Contact Us / Book a Call): If the user wants to contact us, book a call, or requests our contact details, DO NOT provide a link. Instead, say "Please send your details here to book the call." and ask them for their details one by one. 
+   - First, ask for their Name.
+   - Then, ask for their Email (this is compulsory).
+   - Then, ask for a brief Message or topic they want to discuss.
+   - If they refuse to provide a Message, use "NA" for the message. Name and Email are compulsory.
+   - Once you have gathered Name, Email, and Message, acknowledge receipt and set the JSON "action" field to "submitContactForm".
 2. Educational Materials (Playbooks/PDFs): If the user asks for the company playbook, provide this link to its gating form: <a href="https://set-connections02-production-af65.up.railway.app/Documents/4steps/discovery.html" style="color: #0891b2; font-weight: bold; text-decoration: underline;">Download AI Playbook</a>. If they ask about the 4 steps of AI (Discovery, Immersion, Activation, Scale), link them to the specific PDF form: <a href="/Documents/4steps/discovery.html" style="color: #0891b2; font-weight: bold; text-decoration: underline;">Download Discovery PDF</a> (or immersion.html, activation.html, scale.html respectively).
 3. AI Newsletter: If the user asks to download or subscribe to the AI newsletter, instruct them to fill out the form to get access, and provide this hyperlink: <a href="/ai-blogs.html" style="color: #0891b2; font-weight: bold; text-decoration: underline;">Subscribe to AI Newsletter</a>.
 4. Out of Context Questions: If the user asks a question that is completely unrelated to SetConnect, AI consulting, or business (e.g. sports, politics, general trivia), DO NOT attempt to answer it. Instead, apologize and state that it is outside your area of expertise, and offer to help with AI solutions instead.
 
 IMPORTANT FORMATTING RULE: 
 You must return your response in strictly valid JSON format.
-The JSON object must have exactly two keys:
+The JSON object must have EXACTLY these keys:
 - "reply": Your HTML-formatted response (Use <br><br> for paragraphs, <b> for bold, <ul><li> for lists. Do NOT use markdown).
 - "quickReplies": An array of 2 to 3 short strings representing suggested next questions or actions the user might want to click.
+- "action": An object with "type" and "formData". Default is {"type": "none"}. If you have collected Name, Email, and Message for booking a call, set it to: {"type": "submitContactForm", "formData": {"name": "[User Name]", "email": "[User Email]", "message": "[User Message or NA]"}}
 
 CONTEXT:
 ${contextText}
@@ -152,7 +162,7 @@ User Question: ${userQuery}`;
 
         const chatResponse = await chatModel.generateContent(systemPrompt);
         
-        let jsonResponse = { reply: "Sorry, there was an error processing the response.", quickReplies: [] };
+        let jsonResponse = { reply: "Sorry, there was an error processing the response.", quickReplies: [], action: { type: "none" } };
         try {
             jsonResponse = JSON.parse(chatResponse.response.text());
         } catch (e) {
@@ -163,6 +173,7 @@ User Question: ${userQuery}`;
         res.json({
             reply: jsonResponse.reply,
             quickReplies: jsonResponse.quickReplies,
+            action: jsonResponse.action,
             sources: searchResults.map(doc => doc.source) // Optionally return sources
         });
 
