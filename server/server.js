@@ -46,6 +46,7 @@ connectDB();
 app.post('/api/chat', async (req, res) => {
     try {
         const userQuery = req.body.message;
+        const history = req.body.history || [];
         if (!userQuery) {
             return res.status(400).json({ error: 'Message is required' });
         }
@@ -139,6 +140,7 @@ CRITICAL LEAD GENERATION RULES:
 2. Educational Materials (Playbooks/PDFs): If the user asks for the company playbook, provide this link to its gating form: <a href="https://set-connections02-production-af65.up.railway.app/Documents/4steps/discovery.html" style="color: #0891b2; font-weight: bold; text-decoration: underline;">Download AI Playbook</a>. If they ask about the 4 steps of AI (Discovery, Immersion, Activation, Scale), link them to the specific PDF form: <a href="/Documents/4steps/discovery.html" style="color: #0891b2; font-weight: bold; text-decoration: underline;">Download Discovery PDF</a> (or immersion.html, activation.html, scale.html respectively).
 3. AI Newsletter: If the user asks to download or subscribe to the AI newsletter, instruct them to fill out the form to get access, and provide this hyperlink: <a href="/ai-blogs.html" style="color: #0891b2; font-weight: bold; text-decoration: underline;">Subscribe to AI Newsletter</a>.
 4. Out of Context Questions: If the user asks a question that is completely unrelated to SetConnect, AI consulting, or business (e.g. sports, politics, general trivia), DO NOT attempt to answer it. Instead, apologize and state that it is outside your area of expertise, and offer to help with AI solutions instead.
+5. Anti-Hallucination: DO NOT invent, hallucinate, or assume any information about people, companies, or roles. If a user provides a name (e.g., "Nishant Hattarki") and it is not explicitly in your context, DO NOT generate a fake background for them. Simply acknowledge the name and proceed to the next step.
 
 IMPORTANT FORMATTING RULE: 
 You must return your response in strictly valid JSON format.
@@ -150,7 +152,11 @@ The JSON object must have EXACTLY these keys:
 CONTEXT:
 ${contextText}
 
-User Question: ${userQuery}`;
+CONVERSATION HISTORY:
+${history.map(msg => `${msg.role === 'user' ? 'User' : 'Bot'}: ${msg.content}`).join('\n')}
+
+CURRENT MESSAGE:
+User: ${userQuery}`;
 
         const chatModel = genAI.getGenerativeModel({ 
             model: 'gemini-flash-lite-latest',

@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const scriptTag = document.currentScript || document.querySelector('script[src*="chatbot.js"]');
   const logoPath = scriptTag ? new URL('../images/setconnect-logo.png', scriptTag.src).href : '/images/setconnect-logo.png';
   let apiUrl = '/api/chat';
+  let chatHistory = [];
   if (scriptTag) {
     try {
       const url = new URL('../api/chat', scriptTag.src);
@@ -267,12 +268,17 @@ document.addEventListener('DOMContentLoaded', () => {
     showTypingIndicator();
 
     try {
+      // Append user message to history
+      chatHistory.push({ role: 'user', content: message });
+      // Keep only last 6 messages
+      if (chatHistory.length > 6) chatHistory = chatHistory.slice(chatHistory.length - 6);
+
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ message })
+        body: JSON.stringify({ message, history: chatHistory })
       });
 
       const data = await response.json();
@@ -280,6 +286,9 @@ document.addEventListener('DOMContentLoaded', () => {
       removeTypingIndicator();
       
       if (response.ok && data.reply) {
+        // Append bot message to history
+        chatHistory.push({ role: 'bot', content: data.reply });
+        
         addMessage(data.reply, 'bot', data.quickReplies || []);
         
         if (data.action && data.action.type === 'submitContactForm') {
