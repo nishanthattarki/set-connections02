@@ -46,11 +46,11 @@
 
 #chat-window {
   position: absolute;
-  bottom: 80px;
+  bottom: 90px;
   right: 0;
-  width: 380px;
-  height: 600px;
-  max-height: 80vh;
+  width: 570px;
+  height: 800px;
+  max-height: 85vh;
   background: var(--chat-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -188,10 +188,10 @@
 
 .message {
   max-width: 85%;
-  padding: 12px 16px;
+  padding: 16px 20px;
   border-radius: 16px;
-  font-size: 0.95rem;
-  line-height: 1.4;
+  font-size: 1.05rem;
+  line-height: 1.5;
   animation: messageSlideIn 0.3s ease forwards;
   opacity: 0;
   transform: translateY(10px);
@@ -241,9 +241,9 @@
   flex: 1;
   border: none;
   background: transparent;
-  padding: 10px 14px;
+  padding: 14px 18px;
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   outline: none;
   color: var(--chat-text);
 }
@@ -340,3 +340,68 @@
   50% { transform: scale(1.15); }
   100% { transform: scale(1); }
 }
+
+/* Rich UI Link Cards */
+.chat-link-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid rgba(8, 145, 178, 0.2);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.chat-link-card:hover {
+  background: #f8fafc;
+  border-color: #0891b2;
+  box-shadow: 0 6px 16px rgba(8, 145, 178, 0.15);
+  transform: translateY(-2px);
+}
+
+.chat-link-card .card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(8, 145, 178, 0.1);
+  color: #0891b2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-right: 14px;
+  flex-shrink: 0;
+}
+
+.chat-link-card .card-content {
+  flex: 1;
+}
+
+.chat-link-card .card-content strong {
+  display: block;
+  font-size: 1.05rem;
+  color: #1a2332;
+  margin-bottom: 4px;
+}
+
+.chat-link-card .card-content span {
+  display: block;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.chat-link-card .card-arrow {
+  color: #0891b2;
+  font-size: 1.5rem;
+  margin-left: 10px;
+  transition: transform 0.2s;
+}
+
+.chat-link-card:hover .card-arrow {
+  transform: translateX(4px);
+}
+

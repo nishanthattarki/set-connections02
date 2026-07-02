@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const greetings = [
     "Hello! I'm the SetConnect AI assistant. How can I help you today?",
-    "Hi there! I'm the SetConnect AI. Are you looking to <a href='/contact.html' style='color: #0891b2; font-weight: bold; text-decoration: underline;'>book a discovery call</a> with our team today?",
-    "Welcome! I'm the SetConnect AI. Want to stay updated? You can <a href='/ai-blogs.html' style='color: #0891b2; font-weight: bold; text-decoration: underline;'>subscribe to our AI Newsletter</a> here!",
-    "Hello! I'm your SetConnect guide. You can <a href='https://set-connections02-production-af65.up.railway.app/Documents/4steps/discovery.html' style='color: #0891b2; font-weight: bold; text-decoration: underline;'>request our AI Playbook PDF</a> here!",
-    "Hi! I'm the SetConnect AI. Did you know you can <a href='/Documents/4steps/discovery.html' style='color: #0891b2; font-weight: bold; text-decoration: underline;'>download our Discovery Phase PDF</a> to learn about our process?"
+    "Hi there! I'm the SetConnect AI. Are you looking to book a call with our team today?<br><div class='chat-link-card' onclick='window.location.href=\"/contact.html\"'><div class='card-icon'>📞</div><div class='card-content'><strong>Book Discovery Call</strong><span>Speak with our AI experts</span></div><span class='card-arrow'>→</span></div>",
+    "Welcome! I'm the SetConnect AI. Want to stay updated?<br><div class='chat-link-card' onclick='window.location.href=\"/ai-blogs.html\"'><div class='card-icon'>✉️</div><div class='card-content'><strong>Subscribe to Newsletter</strong><span>Weekly AI insights</span></div><span class='card-arrow'>→</span></div>",
+    "Hello! I'm your SetConnect guide.<br><div class='chat-link-card' onclick='window.location.href=\"/Documents/4steps/discovery.html\"'><div class='card-icon'>📘</div><div class='card-content'><strong>Download AI Playbook</strong><span>Learn our exact process</span></div><span class='card-arrow'>→</span></div>",
+    "Hi! I'm the SetConnect AI. Learn about our 4-Step Framework:<br><div class='chat-link-card' onclick='window.location.href=\"/Documents/4steps/discovery.html\"'><div class='card-icon'>📑</div><div class='card-content'><strong>Get Discovery PDF</strong><span>Identify AI bottlenecks</span></div><span class='card-arrow'>→</span></div>"
   ];
   const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
 
