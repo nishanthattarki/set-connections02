@@ -270,8 +270,8 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       // Append user message to history
       chatHistory.push({ role: 'user', content: message });
-      // Keep only last 6 messages
-      if (chatHistory.length > 6) chatHistory = chatHistory.slice(chatHistory.length - 6);
+      // Keep only last 12 messages (6 user, 6 bot)
+      if (chatHistory.length > 12) chatHistory = chatHistory.slice(chatHistory.length - 12);
 
       const response = await fetch(apiUrl, {
         method: 'POST',
