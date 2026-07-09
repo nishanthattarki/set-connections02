@@ -137,6 +137,27 @@ document.addEventListener('DOMContentLoaded', () => {
       if (imagePreview) imagePreview.style.display = 'none';
       if (previewImg) previewImg.src = '';
     });
+
+    // Handle paste events (Ctrl+V)
+    chatInput.addEventListener('paste', (e) => {
+      const items = (e.clipboardData || e.originalEvent.clipboardData).items;
+      for (let index in items) {
+        const item = items[index];
+        if (item.kind === 'file' && item.type.startsWith('image/')) {
+          e.preventDefault(); // Prevent pasting text if there's an image
+          const file = item.getAsFile();
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            selectedImageData = event.target.result.split(',')[1];
+            selectedImageMimeType = file.type;
+            if (previewImg) previewImg.src = event.target.result;
+            if (imagePreview) imagePreview.style.display = 'flex';
+          };
+          reader.readAsDataURL(file);
+          break; // Only handle the first image
+        }
+      }
+    });
   }
 
   // Speech Recognition setup
