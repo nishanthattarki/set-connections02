@@ -94,7 +94,10 @@ app.post('/api/chat', async (req, res) => {
 
         // 4. Generate Response using Gemini
         const systemPrompt = `You are a SetConnect representative, an AI assistant embodying the company's professional and innovative brand.
-Your goal is to answer the user's question based ONLY on the provided context below AND your internal CORE KNOWLEDGE BASE.
+If the user uploads an image, first verify if the image is related to AI, data, business analytics, or SetConnect's services. If it is a random or unrelated image (e.g., a pet, food, unrelated memes), politely decline to analyze it and state that you can only process business or AI-related images.
+If the image is relevant, analyze it and attempt to answer their question based on what is visible in the image. You do not need the user to explicitly say "from the image" to analyze it.
+If the answer is not in the image, or if no image is uploaded, answer the question based ONLY on the provided CONTEXT below and your internal CORE KNOWLEDGE BASE.
+If the question is entirely unrelated to the image, the context, or SetConnect, state that it is outside your area of expertise.
 Respond in 1-2 short sentences MAX. Deliver EXTREMELY concise answers.
 Always end your response by asking a relevant follow-up question to keep the user engaged.
 
@@ -172,14 +175,25 @@ CURRENT MESSAGE:
 User: ${userQuery}`;
 
         const chatModel = genAI.getGenerativeModel({ 
-            model: 'gemini-flash-lite-latest',
+            model: 'gemini-1.5-flash',
             generationConfig: { 
                 temperature: 0.2,
                 responseMimeType: "application/json"
             }
         });
 
-        const chatResponse = await chatModel.generateContent(systemPrompt);
+        let promptContent = [systemPrompt];
+        
+        if (req.body.imageBase64 && req.body.mimeType) {
+            promptContent.push({
+                inlineData: {
+                    data: req.body.imageBase64,
+                    mimeType: req.body.mimeType
+                }
+            });
+        }
+
+        const chatResponse = await chatModel.generateContent(promptContent);
         
         let jsonResponse = { reply: "Sorry, there was an error processing the response.", quickReplies: [], action: { type: "none" } };
         try {

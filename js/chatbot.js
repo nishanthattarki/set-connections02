@@ -62,8 +62,16 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
         </div>
-        <div id="chat-input-area">
+        <div id="chat-input-area" style="position: relative;">
+          <div id="chat-image-preview" style="display: none; position: absolute; bottom: 100%; left: 0; padding: 8px; background: #0a192f; border: 1px solid #0891b2; border-radius: 8px; margin-bottom: 8px; align-items: center; gap: 8px;">
+            <img id="preview-img" style="max-height: 50px; max-width: 50px; border-radius: 4px; object-fit: cover;">
+            <button type="button" id="remove-image" style="background: none; border: none; cursor: pointer; color: #ff4444; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;">&times;</button>
+          </div>
           <form id="chat-form">
+            <input type="file" id="chat-file-input" accept="image/*" style="display: none;">
+            <button type="button" id="chat-attach" class="chat-attach-btn" title="Attach Image" style="background: none; border: none; cursor: pointer; padding: 8px; color: #0891b2; display: flex; align-items: center; justify-content: center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+            </button>
             <input type="text" id="chat-input" placeholder="Type your question..." autocomplete="off">
             <button type="button" id="chat-mic" class="chat-mic-btn" title="Use Voice">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
@@ -90,9 +98,46 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatMessages = document.getElementById('chat-messages');
   const submitBtn = document.getElementById('chat-submit');
   const micBtn = document.getElementById('chat-mic');
+  const fileInput = document.getElementById('chat-file-input');
+  const attachBtn = document.getElementById('chat-attach');
+  const imagePreview = document.getElementById('chat-image-preview');
+  const previewImg = document.getElementById('preview-img');
+  const removeImageBtn = document.getElementById('remove-image');
 
   let isOpen = false;
   let isRecording = false;
+  let selectedImageData = null;
+  let selectedImageMimeType = null;
+
+  // Image handling
+  if (attachBtn && fileInput) {
+    attachBtn.addEventListener('click', () => {
+      fileInput.click();
+    });
+    
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          selectedImageData = event.target.result.split(',')[1];
+          selectedImageMimeType = file.type;
+          if (previewImg) previewImg.src = event.target.result;
+          if (imagePreview) imagePreview.style.display = 'flex';
+          chatInput.focus();
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+    
+    removeImageBtn.addEventListener('click', () => {
+      fileInput.value = '';
+      selectedImageData = null;
+      selectedImageMimeType = null;
+      if (imagePreview) imagePreview.style.display = 'none';
+      if (previewImg) previewImg.src = '';
+    });
+  }
 
   // Speech Recognition setup
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -173,7 +218,14 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `;
     } else {
-      msgDiv.innerHTML = text;
+      if (selectedImageData && selectedImageMimeType) {
+        msgDiv.innerHTML = `<div style="display: flex; flex-direction: column; gap: 4px; align-items: flex-end;">
+          <img src="data:${selectedImageMimeType};base64,${selectedImageData}" style="max-width: 150px; border-radius: 8px; margin-bottom: 4px;">
+          <div>${text}</div>
+        </div>`;
+      } else {
+        msgDiv.innerHTML = text;
+      }
     }
     chatMessages.appendChild(msgDiv);
     
@@ -257,11 +309,22 @@ document.addEventListener('DOMContentLoaded', () => {
   chatForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const message = chatInput.value.trim();
-    if (!message) return;
+    if (!message && !selectedImageData) return;
+
+    // Save image state for payload
+    const imageBase64 = selectedImageData;
+    const mimeType = selectedImageMimeType;
 
     // Add user message to UI
     addMessage(message, 'user');
+    
+    // Reset inputs
     chatInput.value = '';
+    if (fileInput) fileInput.value = '';
+    selectedImageData = null;
+    selectedImageMimeType = null;
+    if (imagePreview) imagePreview.style.display = 'none';
+
     submitBtn.disabled = true;
 
     // Show typing animation
@@ -269,7 +332,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       // Append user message to history
-      chatHistory.push({ role: 'user', content: message });
+      let historyMessage = message;
+      if (imageBase64) historyMessage += " [User uploaded an image]";
+      chatHistory.push({ role: 'user', content: historyMessage });
       // Keep only last 12 messages (6 user, 6 bot)
       if (chatHistory.length > 12) chatHistory = chatHistory.slice(chatHistory.length - 12);
 
@@ -278,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ message, history: chatHistory })
+        body: JSON.stringify({ message: message || "Can you analyze this image?", history: chatHistory, imageBase64, mimeType })
       });
 
       const data = await response.json();
