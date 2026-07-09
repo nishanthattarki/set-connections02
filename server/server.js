@@ -175,7 +175,7 @@ CURRENT MESSAGE:
 User: ${userQuery}`;
 
         const chatModel = genAI.getGenerativeModel({ 
-            model: 'gemini-1.5-flash',
+            model: 'gemini-flash-lite-latest',
             generationConfig: { 
                 temperature: 0.2,
                 responseMimeType: "application/json"
