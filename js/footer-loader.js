@@ -74,7 +74,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     footerPlaceholder.innerHTML = footerHTML;
 
-    // Dynamically inject chatbot.js to make it available globally
+    // Dynamically inject chatbot.js and chatbot.css to make it available globally
+    if (!document.querySelector('link[href*="chatbot.css"]')) {
+        const chatCSS = document.createElement('link');
+        chatCSS.rel = 'stylesheet';
+        chatCSS.href = `${rootPath}css/chatbot.css`;
+        document.head.appendChild(chatCSS);
+    }
+
     if (!document.querySelector('script[src*="chatbot.js"]')) {
         const chatScript = document.createElement('script');
         chatScript.src = `${rootPath}js/chatbot.js`;
