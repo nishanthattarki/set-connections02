@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const greetings = [
     "Hello! I'm the SetConnect AI assistant. How can I help you today?",
-    "Hi there! I'm the SetConnect AI. Are you looking to book a call with our team today?<br><div class='chat-link-card' onclick='window.location.href=\"/contact.html\"'><div class='card-icon'>📞</div><div class='card-content'><strong>Book Discovery Call</strong><span>Speak with our AI experts</span></div><span class='card-arrow'>→</span></div>",
-    "Welcome! I'm the SetConnect AI. Want to stay updated?<br><div class='chat-link-card' onclick='window.location.href=\"/ai-blogs.html\"'><div class='card-icon'>✉️</div><div class='card-content'><strong>Subscribe to Newsletter</strong><span>Weekly AI insights</span></div><span class='card-arrow'>→</span></div>",
-    "Hello! I'm your SetConnect guide.<br><div class='chat-link-card' onclick='window.location.href=\"/Documents/4steps/discovery.html\"'><div class='card-icon'>📘</div><div class='card-content'><strong>Download AI Playbook</strong><span>Learn our exact process</span></div><span class='card-arrow'>→</span></div>",
-    "Hi! I'm the SetConnect AI. Learn about our 4-Step Framework:<br><div class='chat-link-card' onclick='window.location.href=\"/Documents/4steps/discovery.html\"'><div class='card-icon'>📑</div><div class='card-content'><strong>Get Discovery PDF</strong><span>Identify AI bottlenecks</span></div><span class='card-arrow'>→</span></div>"
+    "Hi there! I'm the SetConnect AI. Are you looking to book a call with our team today?<br><div class='chat-link-card' onclick='window.open(\"/contact.html\", \"_blank\")'><div class='card-icon'>📞</div><div class='card-content'><strong>Book Discovery Call</strong><span>Speak with our AI experts</span></div><span class='card-arrow'>→</span></div>",
+    "Welcome! I'm the SetConnect AI. Want to stay updated?<br><div class='chat-link-card' onclick='window.open(\"/ai-blogs.html\", \"_blank\")'><div class='card-icon'>✉️</div><div class='card-content'><strong>Subscribe to Newsletter</strong><span>Weekly AI insights</span></div><span class='card-arrow'>→</span></div>",
+    "Hello! I'm your SetConnect guide.<br><div class='chat-link-card' onclick='window.open(\"/Documents/4steps/discovery.html\", \"_blank\")'><div class='card-icon'>📘</div><div class='card-content'><strong>Download AI Playbook</strong><span>Learn our exact process</span></div><span class='card-arrow'>→</span></div>",
+    "Hi! I'm the SetConnect AI. Learn about our 4-Step Framework:<br><div class='chat-link-card' onclick='window.open(\"/Documents/4steps/discovery.html\", \"_blank\")'><div class='card-icon'>📑</div><div class='card-content'><strong>Get Discovery PDF</strong><span>Identify AI bottlenecks</span></div><span class='card-arrow'>→</span></div>"
   ];
   const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
 
@@ -108,6 +108,31 @@ document.addEventListener('DOMContentLoaded', () => {
   let isRecording = false;
   let selectedImageData = null;
   let selectedImageMimeType = null;
+
+  function saveChatState() {
+    sessionStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+    // Don't save typing indicator in html
+    const clone = chatMessages.cloneNode(true);
+    const indicator = clone.querySelector('#typing-indicator');
+    if (indicator) indicator.remove();
+    sessionStorage.setItem('chatHTML', clone.innerHTML);
+  }
+
+  // Restore state
+  const savedHistory = sessionStorage.getItem('chatHistory');
+  const savedHTML = sessionStorage.getItem('chatHTML');
+  const savedIsOpen = sessionStorage.getItem('chatIsOpen');
+
+  if (savedHistory && savedHTML) {
+    chatHistory = JSON.parse(savedHistory);
+    chatMessages.innerHTML = savedHTML;
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  if (savedIsOpen === 'true') {
+    isOpen = true;
+    chatWindow.classList.add('active');
+  }
 
   // Image handling
   if (attachBtn && fileInput) {
@@ -213,6 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function toggleChat() {
     isOpen = !isOpen;
+    sessionStorage.setItem('chatIsOpen', isOpen);
     if (isOpen) {
       chatWindow.classList.add('active');
       chatInput.focus();
@@ -282,6 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         btn.onclick = () => {
           qrDiv.remove();
+          saveChatState();
           chatInput.value = qr;
           chatForm.dispatchEvent(new Event('submit'));
         };
@@ -297,6 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // For bot messages, scroll so the top of the new message is visible
       msgDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+    saveChatState();
   }
 
   function showTypingIndicator() {
