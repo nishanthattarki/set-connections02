@@ -121,17 +121,11 @@ function initChatbot() {
   // Restore state
   const savedHistory = sessionStorage.getItem('chatHistory');
   const savedHTML = sessionStorage.getItem('chatHTML');
-  const savedIsOpen = sessionStorage.getItem('chatIsOpen');
 
   if (savedHistory && savedHTML) {
     chatHistory = JSON.parse(savedHistory);
     chatMessages.innerHTML = savedHTML;
     chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-
-  if (savedIsOpen === 'true') {
-    isOpen = true;
-    chatWindow.classList.add('active');
   }
 
   // Image handling
@@ -238,7 +232,6 @@ function initChatbot() {
 
   function toggleChat() {
     isOpen = !isOpen;
-    sessionStorage.setItem('chatIsOpen', isOpen);
     if (isOpen) {
       chatWindow.classList.add('active');
       chatInput.focus();
