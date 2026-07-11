@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initChatbot() {
   const scriptTag = document.currentScript || document.querySelector('script[src*="chatbot.js"]');
   const logoPath = scriptTag ? new URL('../images/setconnect-logo.png', scriptTag.src).href : '/images/setconnect-logo.png';
   let apiUrl = '/api/chat';
@@ -439,4 +439,10 @@ document.addEventListener('DOMContentLoaded', () => {
       chatInput.focus();
     }
   });
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initChatbot);
+} else {
+  initChatbot();
+}
