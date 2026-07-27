@@ -47,6 +47,13 @@ function initChatbot() {
               </div>
             </div>
             <div style="display: flex; align-items: center; gap: 12px;">
+              <div id="voice-waves">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+              </div>
               <button id="chat-close">&times;</button>
             </div>
           </div>
