@@ -96,9 +96,24 @@ function initChatbot() {
   `;
 
   const bookingModalHTML = `
+    <style>
+      .booking-modal-container {
+        position: relative; width: 90%; max-width: 1000px; height: 90%; max-height: 700px; 
+        background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      }
+      .booking-modal-close {
+        position: absolute; top: 10px; right: 20px; background: #f0f0f0; border: none; 
+        font-size: 28px; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; 
+        z-index: 10001; display: flex; align-items: center; justify-content: center; color: #333;
+      }
+      @media (prefers-color-scheme: dark) {
+        .booking-modal-container { background: #202124; }
+        .booking-modal-close { background: rgba(255,255,255,0.1); color: #fff; }
+      }
+    </style>
     <div id="booking-modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 10000; align-items: center; justify-content: center;">
-      <div style="position: relative; width: 90%; max-width: 1000px; height: 90%; max-height: 700px; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-        <button onclick="closeBookingModal()" style="position: absolute; top: 10px; right: 20px; background: #f0f0f0; border: none; font-size: 28px; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; z-index: 10001; display: flex; align-items: center; justify-content: center; color: #333;">&times;</button>
+      <div class="booking-modal-container">
+        <button class="booking-modal-close" onclick="closeBookingModal()">&times;</button>
         <iframe src="https://calendar.app.google/9kk7CgBRL1VKyfQ87?gv=true" style="width: 100%; height: 100%; border: none;"></iframe>
       </div>
     </div>
