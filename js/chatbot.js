@@ -1,6 +1,6 @@
 function initChatbot() {
   const scriptTag = document.currentScript || document.querySelector('script[src*="chatbot.js"]');
-  const logoPath = scriptTag ? new URL('../images/setconnect-logo.png', scriptTag.src).href : '/images/setconnect-logo.png';
+  const logoPath = scriptTag ? new URL('../images/valoris.png', scriptTag.src).href : '/images/valoris.png';
   let apiUrl = '/api/chat';
   let chatHistory = [];
   if (scriptTag) {
@@ -20,11 +20,11 @@ function initChatbot() {
   }
 
   const greetings = [
-    "Hello! I'm the SetConnect AI assistant. How can I help you today?",
-    "Hi there! I'm the SetConnect AI. Are you looking to book a call with our team today?<br><div class='chat-link-card' onclick='window.open(\"/contact.html\", \"_blank\")'><div class='card-icon'>📞</div><div class='card-content'><strong>Book Discovery Call</strong><span>Speak with our AI experts</span></div><span class='card-arrow'>→</span></div>",
-    "Welcome! I'm the SetConnect AI. Want to stay updated?<br><div class='chat-link-card' onclick='window.open(\"/ai-blogs.html\", \"_blank\")'><div class='card-icon'>✉️</div><div class='card-content'><strong>Subscribe to Newsletter</strong><span>Weekly AI insights</span></div><span class='card-arrow'>→</span></div>",
-    "Hello! I'm your SetConnect guide.<br><div class='chat-link-card' onclick='window.open(\"/Documents/4steps/discovery.html\", \"_blank\")'><div class='card-icon'>📘</div><div class='card-content'><strong>Download AI Playbook</strong><span>Learn our exact process</span></div><span class='card-arrow'>→</span></div>",
-    "Hi! I'm the SetConnect AI. Learn about our 4-Step Framework:<br><div class='chat-link-card' onclick='window.open(\"/Documents/4steps/discovery.html\", \"_blank\")'><div class='card-icon'>📑</div><div class='card-content'><strong>Get Discovery PDF</strong><span>Identify AI bottlenecks</span></div><span class='card-arrow'>→</span></div>"
+    "Hello! I am Valoris - your Trusted AI Navigator. How can I help you today?",
+    "Hi there! I am Valoris - your Trusted AI Navigator. Are you looking to book a call with our team today?<br><div class='chat-link-card' onclick='window.open(\"/contact.html\", \"_blank\")'><div class='card-icon'>📞</div><div class='card-content'><strong>Book Discovery Call</strong><span>Speak with our AI experts</span></div><span class='card-arrow'>→</span></div>",
+    "Welcome! I am Valoris - your Trusted AI Navigator. Want to stay updated?<br><div class='chat-link-card' onclick='window.open(\"/ai-blogs.html\", \"_blank\")'><div class='card-icon'>✉️</div><div class='card-content'><strong>Subscribe to Newsletter</strong><span>Weekly AI insights</span></div><span class='card-arrow'>→</span></div>",
+    "Hello! I am Valoris - your Trusted AI Navigator.<br><div class='chat-link-card' onclick='window.open(\"/Documents/4steps/discovery.html\", \"_blank\")'><div class='card-icon'>📘</div><div class='card-content'><strong>Download AI Playbook</strong><span>Learn our exact process</span></div><span class='card-arrow'>→</span></div>",
+    "Hi! I am Valoris - your Trusted AI Navigator. Learn about our 4-Step Framework:<br><div class='chat-link-card' onclick='window.open(\"/Documents/4steps/discovery.html\", \"_blank\")'><div class='card-icon'>📑</div><div class='card-content'><strong>Get Discovery PDF</strong><span>Identify AI bottlenecks</span></div><span class='card-arrow'>→</span></div>"
   ];
   const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
 
@@ -36,12 +36,12 @@ function initChatbot() {
           <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
             <div style="display: flex; align-items: center; gap: 12px;">
               <div class="avatar-container">
-                <img src="${logoPath}" alt="SetConnect AI Avatar" style="width: 42px; height: 42px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 4px; border: 1px solid #0891b2;">
+                <img src="${logoPath}" alt="Valoris AI Avatar" style="width: 42px; height: 42px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 4px; border: 1px solid #0891b2;">
                 <div class="avatar-online-dot"></div>
               </div>
               <div class="chat-header-info">
                 <h3 style="display: flex; align-items: center; gap: 8px; margin: 0; font-size: 1.1rem; color: #ffffff; font-weight: 600;">
-                  SetConnect Guide
+                  Valoris - Your Trusted AI Navigator
                 </h3>
                 <p style="margin: 4px 0 0; font-size: 0.8rem; color: rgba(255, 255, 255, 0.8);">AI Discovery Assistant</p>
               </div>
@@ -55,7 +55,7 @@ function initChatbot() {
           <div class="message bot">
             <div style="display: flex; gap: 8px; align-items: flex-start;">
               <div class="avatar-container">
-                <img src="${logoPath}" alt="SetConnect AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
+                <img src="${logoPath}" alt="Valoris AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
                 <div class="avatar-online-dot" style="width: 8px; height: 8px; border-width: 1.5px;"></div>
               </div>
               <div style="margin-top: 4px;">${randomGreeting}</div>
@@ -251,7 +251,7 @@ function initChatbot() {
       msgDiv.innerHTML = `
         <div style="display: flex; gap: 8px; align-items: flex-start;">
           <div class="avatar-container">
-            <img src="${logoPath}" alt="SetConnect AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
+            <img src="${logoPath}" alt="Valoris AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
             <div class="avatar-online-dot" style="width: 8px; height: 8px; border-width: 1.5px;"></div>
           </div>
           <div style="margin-top: 4px;">${text}</div>
@@ -327,7 +327,7 @@ function initChatbot() {
     indicator.innerHTML = `
       <div style="display: flex; gap: 8px; align-items: flex-start;">
         <div class="avatar-container">
-          <img src="${logoPath}" alt="SetConnect AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
+          <img src="${logoPath}" alt="Valoris AI" style="width: 28px; height: 28px; border-radius: 50%; object-fit: contain; background: #0a192f; padding: 3px; border: 1px solid #0891b2;">
           <div class="avatar-online-dot" style="width: 8px; height: 8px; border-width: 1.5px;"></div>
         </div>
         <div style="display: flex; align-items: center; gap: 4px; margin-top: 10px;">
