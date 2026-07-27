@@ -41,9 +41,9 @@ function initChatbot() {
               </div>
               <div class="chat-header-info">
                 <h3 style="display: flex; align-items: center; gap: 8px; margin: 0; font-size: 1.1rem; color: #ffffff; font-weight: 600;">
-                  Valoris - Your Trusted AI Navigator
+                  Valoris
                 </h3>
-                <p style="margin: 4px 0 0; font-size: 0.8rem; color: rgba(255, 255, 255, 0.8);">AI Discovery Assistant</p>
+                <p style="margin: 4px 0 0; font-size: 0.8rem; color: rgba(255, 255, 255, 0.8);">Your Trusted AI Navigator</p>
               </div>
             </div>
             <div style="display: flex; align-items: center; gap: 12px;">
