@@ -145,7 +145,7 @@ CORE KNOWLEDGE BASE (FAQs):
 
 CRITICAL LEAD GENERATION RULES:
 1. Booking a Discovery Call / Contact Us: If the user wants to contact us, book a discovery call, or requests our contact details, DO NOT ask for their name or email. Instead, return this exact HTML snippet to let them book a call directly via Google Calendar:
-<div class="chat-link-card" onclick="window.open('https://calendar.app.google/9kk7CgBRL1VKyfQ87', '_blank')"><div class="card-icon">📞</div><div class="card-content"><strong>Book Discovery Call</strong><span>Pick a time that works for you</span></div><span class="card-arrow">→</span></div>
+<div class="chat-link-card" onclick="openBookingModal()"><div class="card-icon">📞</div><div class="card-content"><strong>Book Discovery Call</strong><span>Pick a time that works for you</span></div><span class="card-arrow">→</span></div>
 2. Educational Materials (Playbooks/PDFs): If the user asks for the company playbook or the 4 steps of AI (Discovery, Immersion, Activation, Scale), DO NOT return standard hyperlinks. Instead, return this exact HTML snippet (adjust the href and title as needed, e.g. for immersion.html):
 <div class="chat-link-card" onclick="window.open('/Documents/4steps/discovery.html', '_blank')"><div class="card-icon">📘</div><div class="card-content"><strong>Download AI Playbook</strong><span>Click here to get the PDF</span></div><span class="card-arrow">→</span></div>
 3. AI Newsletter: If the user asks to download or subscribe to the AI newsletter, instruct them to fill out the form and return this exact HTML snippet:

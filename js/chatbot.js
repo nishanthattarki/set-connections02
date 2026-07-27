@@ -21,7 +21,7 @@ function initChatbot() {
 
   const greetings = [
     "Hello! I am Valoris - your Trusted AI Navigator. How can I help you today?",
-    "Hi there! I am Valoris - your Trusted AI Navigator. Are you looking to book a call with our team today?<br><div class='chat-link-card' onclick='window.open(\"/contact.html\", \"_blank\")'><div class='card-icon'>📞</div><div class='card-content'><strong>Book Discovery Call</strong><span>Speak with our AI experts</span></div><span class='card-arrow'>→</span></div>",
+    "Hi there! I am Valoris - your Trusted AI Navigator. Are you looking to book a call with our team today?<br><div class='chat-link-card' onclick='openBookingModal()'><div class='card-icon'>📞</div><div class='card-content'><strong>Book Discovery Call</strong><span>Speak with our AI experts</span></div><span class='card-arrow'>→</span></div>",
     "Welcome! I am Valoris - your Trusted AI Navigator. Want to stay updated?<br><div class='chat-link-card' onclick='window.open(\"/ai-blogs.html\", \"_blank\")'><div class='card-icon'>✉️</div><div class='card-content'><strong>Subscribe to Newsletter</strong><span>Weekly AI insights</span></div><span class='card-arrow'>→</span></div>",
     "Hello! I am Valoris - your Trusted AI Navigator.<br><div class='chat-link-card' onclick='window.open(\"/Documents/4steps/discovery.html\", \"_blank\")'><div class='card-icon'>📘</div><div class='card-content'><strong>Download AI Playbook</strong><span>Learn our exact process</span></div><span class='card-arrow'>→</span></div>",
     "Hi! I am Valoris - your Trusted AI Navigator. Learn about our 4-Step Framework:<br><div class='chat-link-card' onclick='window.open(\"/Documents/4steps/discovery.html\", \"_blank\")'><div class='card-icon'>📑</div><div class='card-content'><strong>Get Discovery PDF</strong><span>Identify AI bottlenecks</span></div><span class='card-arrow'>→</span></div>"
@@ -88,7 +88,25 @@ function initChatbot() {
     </div>
   `;
 
-  document.body.insertAdjacentHTML('beforeend', chatHTML);
+  const bookingModalHTML = `
+    <div id="booking-modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 10000; align-items: center; justify-content: center;">
+      <div style="position: relative; width: 90%; max-width: 1000px; height: 90%; max-height: 700px; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        <button onclick="closeBookingModal()" style="position: absolute; top: 10px; right: 20px; background: #f0f0f0; border: none; font-size: 28px; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; z-index: 10001; display: flex; align-items: center; justify-content: center; color: #333;">&times;</button>
+        <iframe src="https://calendar.app.google/9kk7CgBRL1VKyfQ87?gv=true" style="width: 100%; height: 100%; border: none;"></iframe>
+      </div>
+    </div>
+  `;
+
+  document.body.insertAdjacentHTML('beforeend', chatHTML + bookingModalHTML);
+
+  window.openBookingModal = function() {
+    const modal = document.getElementById('booking-modal-overlay');
+    if(modal) modal.style.display = 'flex';
+  };
+  window.closeBookingModal = function() {
+    const modal = document.getElementById('booking-modal-overlay');
+    if(modal) modal.style.display = 'none';
+  };
 
   const launcher = document.getElementById('chat-launcher');
   const chatWindow = document.getElementById('chat-window');
