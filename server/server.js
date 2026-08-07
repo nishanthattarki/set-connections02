@@ -52,45 +52,60 @@ app.post('/api/chat', async (req, res) => {
             return res.status(400).json({ error: 'Message is required' });
         }
 
-        // Enhance the query with context for better vector search results
-        const searchQuery = `Valoris: ${userQuery}`;
-
-        // 1. Generate Embedding for the User's Query
+        // 1. Generate Embedding for the Raw User's Query
         const embeddingModel = genAI.getGenerativeModel({ model: 'gemini-embedding-2' });
-        const embeddingResult = await embeddingModel.embedContent(searchQuery);
-        const queryVector = embeddingResult.embedding.values;
+        const rawEmbeddingResult = await embeddingModel.embedContent(userQuery);
+        const rawQueryVector = rawEmbeddingResult.embedding.values;
 
-        // 2. Perform Vector Search in MongoDB
+        // 2. Perform Vector Search in MongoDB with Raw Query
         const db = client.db(DB_NAME);
         const collection = db.collection(COLLECTION_NAME);
 
-        // Note: You MUST create a Vector Search Index in MongoDB Atlas named 'vector_index' 
-        // for this to work.
-        const searchResults = await collection.aggregate([
-            {
-                $vectorSearch: {
-                    index: 'vector_index',
-                    path: 'embedding',
-                    queryVector: queryVector,
-                    numCandidates: 100,
-                    limit: 5
+        // Helper function for searching
+        async function searchVectorDb(vector) {
+            return await collection.aggregate([
+                {
+                    $vectorSearch: {
+                        index: 'vector_index',
+                        path: 'embedding',
+                        queryVector: vector,
+                        numCandidates: 100,
+                        limit: 5
+                    }
+                },
+                {
+                    $project: {
+                        _id: 0,
+                        text: 1,
+                        source: 1,
+                        score: { $meta: 'vectorSearchScore' }
+                    }
                 }
-            },
-            {
-                $project: {
-                    _id: 0,
-                    text: 1,
-                    source: 1,
-                    score: { $meta: 'vectorSearchScore' }
-                }
-            }
-        ]).toArray();
+            ]).toArray();
+        }
 
-        // 3. Construct Context for the LLM
-        let contextText = searchResults.map(doc => `Source (${doc.source}):\n${doc.text}`).join('\n\n---\n\n');
+        let searchResults = await searchVectorDb(rawQueryVector);
+        
+        // Threshold for relevance (Gemini embeddings typically have high cosine similarities)
+        const RELEVANCE_THRESHOLD = 0.70;
+        let validResults = searchResults.filter(doc => doc.score >= RELEVANCE_THRESHOLD);
+
+        // 3. Fallback to Valoris-prefixed query if raw query yielded no highly relevant results
+        if (validResults.length === 0) {
+            console.log("Raw query found no highly relevant results. Trying with Valoris prefix...");
+            const fallbackQuery = `Valoris ${userQuery}`;
+            const fallbackEmbeddingResult = await embeddingModel.embedContent(fallbackQuery);
+            const fallbackQueryVector = fallbackEmbeddingResult.embedding.values;
+            
+            searchResults = await searchVectorDb(fallbackQueryVector);
+            validResults = searchResults.filter(doc => doc.score >= RELEVANCE_THRESHOLD);
+        }
+
+        // 4. Construct Context for the LLM
+        let contextText = validResults.map(doc => `Source (${doc.source}):\n${doc.text}`).join('\n\n---\n\n');
         
         if (!contextText) {
-            contextText = "No specific relevant context found in the database.";
+            contextText = "SYSTEM INSTRUCTION: No relevant information was found in the database for this query. You MUST reply with exactly: 'Sorry, that information is not available.' Do not attempt to answer.";
         }
 
         // 4. Generate Response using Gemini
