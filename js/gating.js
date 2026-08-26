@@ -89,7 +89,7 @@
 
                 try {
                     const formData = new FormData(form);
-                    const response = await fetch('https://formsubmit.co/ajax/nishanthattarki23@gmail.com', {
+                    const response = await fetch('https://formsubmit.co/ajax/info@setconnectglobal.com', {
                         method: 'POST',
                         body: formData,
                         headers: { 'Accept': 'application/json' }

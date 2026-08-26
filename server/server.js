@@ -90,16 +90,7 @@ app.post('/api/chat', async (req, res) => {
         const RELEVANCE_THRESHOLD = 0.70;
         let validResults = searchResults.filter(doc => doc.score >= RELEVANCE_THRESHOLD);
 
-        // 3. Fallback to Valoris-prefixed query if raw query yielded no highly relevant results
-        if (validResults.length === 0) {
-            console.log("Raw query found no highly relevant results. Trying with Valoris prefix...");
-            const fallbackQuery = `Valoris ${userQuery}`;
-            const fallbackEmbeddingResult = await embeddingModel.embedContent(fallbackQuery);
-            const fallbackQueryVector = fallbackEmbeddingResult.embedding.values;
-            
-            searchResults = await searchVectorDb(fallbackQueryVector);
-            validResults = searchResults.filter(doc => doc.score >= RELEVANCE_THRESHOLD);
-        }
+        // (Removed the fallback search here to drastically improve response speed by saving an extra database and API roundtrip)
 
         // 4. Construct Context for the LLM
         let contextText = validResults.map(doc => `Source (${doc.source}):\n${doc.text}`).join('\n\n---\n\n');
@@ -142,13 +133,13 @@ CORE KNOWLEDGE BASE (FAQs):
 13. What is the AI Playbook? A guide detailing methodologies, case studies, and frameworks for enterprise AI adoption.
 14. What is 'The Neural Brief'? Our exclusive AI Newsletter sharing insights, case studies, and practical AI applications.
 15. Do you have case studies? Yes, such as Warranty Cost Analysis, demonstrating time and cost savings.
-16. Can I see a demo? Yes, interact with our bot or book a Discovery Call.
+16. Can I see a demo? Yes, interact with our bot or visit our Contact page.
 17. How do you handle security? We use secure, isolated environments and never use proprietary data to train public models.
 18. Will our data be shared with OpenAI/Google? No, API connections prohibit foundational models from retaining or training on your data.
 19. Where is the AI hosted? Secure cloud architectures (Railway, AWS, Azure) tailored to compliance requirements.
-20. How much does it cost? Depends on scope; begins with a low-risk Discovery engagement for a fixed-cost proposal.
-21. Do you charge for the initial consultation? No, Discovery Calls are free.
-22. How do we get started? Fill out our contact form to book a Discovery Call.
+20. How much does it cost? Depends on scope; begins with a low-risk engagement for a fixed-cost proposal. Please visit our Contact page.
+21. Do you charge for the initial consultation? No, initial consultations are free.
+22. How do we get started? Visit our Contact page to get started.
 23. Can you train our internal team? Yes, part of the "Scale" phase involves change management and team training.
 24. Custom AI or existing platforms? Both. We integrate existing tools or build secure, custom AI (like RAG systems) from the ground up.
 25. What if we don't have a lot of data? AI can still automate workflows/generative tasks; we assess readiness during Discovery.
@@ -159,8 +150,8 @@ CORE KNOWLEDGE BASE (FAQs):
 30. Why act on AI now? To establish a massive competitive advantage in efficiency and scalability over late adopters.
 
 CRITICAL LEAD GENERATION RULES:
-1. Booking a Discovery Call / Contact Us: If the user wants to contact us, book a discovery call, or requests our contact details, DO NOT ask for their name or email. Instead, return this exact HTML snippet to let them book a call directly via Google Calendar:
-<div class="chat-link-card" onclick="openBookingModal()"><div class="card-icon">📞</div><div class="card-content"><strong>Book Discovery Call</strong><span>Pick a time that works for you</span></div><span class="card-arrow">→</span></div>
+1. Contact Us: If the user wants to contact us, book a consultation, or requests our contact details, instruct them to visit our Contact page. You MUST return this exact HTML snippet to link them to the Contact Us page:
+<div class="chat-link-card" onclick="window.location.href='/contact.html'"><div class="card-icon">✉️</div><div class="card-content"><strong>Contact Us</strong><span>Go to our contact page</span></div><span class="card-arrow">→</span></div>
 2. Educational Materials (Playbooks/PDFs): If the user asks for the company playbook or the 4 steps of AI (Discovery, Immersion, Activation, Scale), DO NOT return standard hyperlinks. Instead, return this exact HTML snippet (adjust the href and title as needed, e.g. for immersion.html):
 <div class="chat-link-card" onclick="window.open('/Documents/4steps/discovery.html', '_blank')"><div class="card-icon">📘</div><div class="card-content"><strong>Download AI Playbook</strong><span>Click here to get the PDF</span></div><span class="card-arrow">→</span></div>
 3. AI Newsletter: If the user asks to download or subscribe to the AI newsletter, instruct them to fill out the form and return this exact HTML snippet:

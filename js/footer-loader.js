@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <h5>Connect</h5>
                     <a href="https://www.linkedin.com/company/setconnect-official/" target="_blank" rel="noopener"><i class="bi bi-linkedin me-2"></i>LinkedIn</a>
                     <a href="https://x.com/_SetCONNECT" target="_blank" rel="noopener"><i class="bi bi-twitter-x me-2"></i>Twitter / X</a>
-                    <a href="mailto:nishanthattarki23@gmail.com"><i class="bi bi-envelope me-2"></i>Email</a>
+                    <a href="mailto:info@setconnectglobal.com"><i class="bi bi-envelope me-2"></i>Email</a>
                 </div>
             </div>
             <div class="footer-bottom">

@@ -447,7 +447,7 @@ function initChatbot() {
             formData.append('message', data.action.formData.message || 'NA');
             formData.append('_subject', 'New Contact Form Submission via AI Chatbot');
 
-            await fetch('https://formsubmit.co/ajax/nishanthattarki23@gmail.com', {
+            await fetch('https://formsubmit.co/ajax/info@setconnectglobal.com', {
                 method: 'POST',
                 body: formData
             });

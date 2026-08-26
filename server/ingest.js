@@ -148,12 +148,8 @@ async function main() {
             }
         }
 
-<<<<<<< HEAD
-        
-=======
         // 3. Recursively Ingest Image files using Vision AI
         // DISABLED: To avoid Free Tier rate limits, we are skipping images for now.
->>>>>>> 49c267a6f87eb3ba1cc7d7ebcde120a91fe4684e
         if (false && fs.existsSync(imagesDir)) {
             const allImageFiles = getAllFilesRecursive(imagesDir);
             const imageFiles = allImageFiles.filter(f => {
